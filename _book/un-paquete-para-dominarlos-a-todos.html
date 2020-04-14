@@ -92,6 +92,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
 
 <body>
@@ -271,8 +272,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="dt">file=</span><span class="kw">url</span>(<span class="st">&quot;https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/independientes.RData&quot;</span>))</code></pre></div>
 <p>El data frame <em>independientes</em> cuenta con 2.783 observaciones de trabajadores independientes. La variable REGISTRADO indica si ese trabajador se encuentra registrado o no, mientras que el resto de las variables potencialmente podrían ser útiles para clasifiar a un trabajador independiente como registrado o no.</p>
 <p>Usaremos nuevamente la implementación de árboles de decisión y también partiremos a nuestros datos en un 70% que será el dataset de entrenamiento y un 30% que se convertirá en el <em>dataset</em> de <em>testing</em>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(caret)
-<span class="kw">require</span>(tidyverse)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(caret)</code></pre></div>
+<pre><code>## Loading required package: caret</code></pre>
+<pre><code>## Loading required package: lattice</code></pre>
+<pre><code>## 
+## Attaching package: &#39;caret&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     lift</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(tidyverse)
 <span class="kw">set.seed</span>(<span class="dv">4</span>) <span class="co"># Esta línea solo intenta que tengamos los mismos números aleatorios</span>
 trainingIndexes &lt;-<span class="st"> </span><span class="kw">createDataPartition</span>(<span class="dt">y =</span> independientes<span class="op">$</span>REGISTRADO,
                                        <span class="dt">p =</span> <span class="fl">0.7</span>,

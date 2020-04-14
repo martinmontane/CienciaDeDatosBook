@@ -92,6 +92,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
 
 <body>
@@ -459,8 +460,9 @@ Figure 3.1: Primer gráfico exportado. Gapminder para el año 2007
 <h2><span class="header-section-number">3.6</span> Mapas</h2>
 <p>En el capítulo 4 de este mismo libro introducimos a <em>los datos espaciales</em>. Allí vamos a analizar por qué requieren de un tratamiento especial tanto en el formato en el que están almacenados y su manera de representarse. En esta sección vamos a mostrar las capacidades que tiene el paquete <em>ggplot</em> para hacer mapas en R.</p>
 <p>Vamos a trabajar con dos data frames, uno que contiene el precio de los inmuebles de la Ciudad de Buenos Aires como puntos, y otro que tiene el precio de los inmuebles promeido por barrio. Ambos data frame son, en realidad, objetos <em>sf</em>, que se ven en detalle en el capítulo 4.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(sf)
-preciosCABA &lt;-<span class="st"> </span><span class="kw">read_sf</span>(<span class="st">&#39;https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/PreciosCABASample.geojson&#39;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(sf)</code></pre></div>
+<pre><code>## Linking to GEOS 3.6.1, GDAL 2.2.3, PROJ 4.9.3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">preciosCABA &lt;-<span class="st"> </span><span class="kw">read_sf</span>(<span class="st">&#39;https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/PreciosCABASample.geojson&#39;</span>)
 preciosCABABarrios &lt;-<span class="st"> </span><span class="kw">read_sf</span>(<span class="st">&#39;https://raw.githubusercontent.com/martintinch0/CienciaDeDatosParaCuriosos/master/data/PreciosCABABarrioYear.geojson&#39;</span>)
 proyeccionCenso2010 &lt;-<span class="st"> &#39;+proj=tmerc +lat_0=-34.629717 +lon_0=-58.4627 +k=1 +x_0=100000 +y_0=100000 +a=6378388 +b=6378386.996621622 +towgs84=-148,136,90,0,0,0,0 +units=m +no_defs &#39;</span>
 preciosCABA &lt;-<span class="st"> </span><span class="kw">st_transform</span>(preciosCABA,<span class="dt">crs =</span> proyeccionCenso2010)
@@ -557,11 +559,11 @@ preciosCABABarrios&lt;-preciosCABABarrios <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">transition_manual</span>(Year)</code></pre></div>
 <pre><code>## nframes and fps adjusted to match transition</code></pre>
 <pre><code>## 
-Rendering [============&gt;------------------------------------------------------] at 4.4 fps ~ eta:  1s
-Rendering [==========================&gt;----------------------------------------] at 3.9 fps ~ eta:  1s
-Rendering [=======================================&gt;---------------------------] at 3.8 fps ~ eta:  1s
-Rendering [=====================================================&gt;-------------] at 3.6 fps ~ eta:  0s
-Rendering [===================================================================] at 3.6 fps ~ eta:  0s
+Rendering [============&gt;------------------------------------------------------] at 4.6 fps ~ eta:  1s
+Rendering [==========================&gt;----------------------------------------] at 4.2 fps ~ eta:  1s
+Rendering [=======================================&gt;---------------------------] at 4.1 fps ~ eta:  0s
+Rendering [=====================================================&gt;-------------] at 4.1 fps ~ eta:  0s
+Rendering [=====================================================================] at 4 fps ~ eta:  0s
                                                                                                      </code></pre>
 <pre><code>## 
 Frame 1 (20%)

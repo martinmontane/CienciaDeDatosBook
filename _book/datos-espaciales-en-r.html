@@ -92,6 +92,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
 
 <body>
@@ -276,6 +277,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(sf)  <span class="co"># Paquete clave para manipular datos espaciales</span>
 <span class="kw">library</span>(tmap)  <span class="co"># Uno de los paquetes para hacer mapas</span></code></pre></div>
+<pre><code>## Warning: replacing previous import &#39;sf::st_make_valid&#39; by &#39;lwgeom::st_make_valid&#39; when loading &#39;tmap&#39;</code></pre>
 <p>Una vez que los cargamos, vamos a crear nuestro dataframe con datos espaciales en base a las coordenadas latitud y longitud que definimos anteriormente:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Creamos un Data Frame con los datos necesarios</span>
 datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">lat =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">34.714656</span>, <span class="fl">51.532068</span>), <span class="dt">long =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">58.785999</span>, 

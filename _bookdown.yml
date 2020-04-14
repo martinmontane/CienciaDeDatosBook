@@ -1,4 +1,5 @@
 book_filename: "CienciaDeDatosParaCuriosos"
+output_dir: "docs"
 #rmd_files: ["index.Rmd","IntroduccionR.rmd","Tidyverse.Rmd","visualizaciones.Rmd","DatosEspaciales.Rmd","Regresiones.Rmd","MachineLearning.Rmd","CARET.Rmd","datasets.Rmd","Anexo2.Rmd"]
 rmd_files: ["index.Rmd","IntroduccionR.rmd","Tidyverse.Rmd","visualizaciones.Rmd","DatosEspaciales.Rmd","HerramientasDatosEspaciales.Rmd","Regresiones.Rmd","MachineLearning.Rmd","CARET.Rmd","datasets.Rmd","Anexo2.Rmd"]
 delete_merged_file: true  
