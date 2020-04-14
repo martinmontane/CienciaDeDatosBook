@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 El automovil de la estadistica | Ciencia de datos para curiosos</title>
+  <meta name="description" content="Una introducción practica a la Ciencia de Datos" />
+  <meta name="generator" content="bookdown 0.18.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 El automovil de la estadistica | Ciencia de datos para curiosos" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="Figuras/GatoCurioso.png" />
+  <meta property="og:description" content="Una introducción practica a la Ciencia de Datos" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 El automovil de la estadistica | Ciencia de datos para curiosos" />
+  
+  <meta name="twitter:description" content="Una introducción practica a la Ciencia de Datos" />
+  <meta name="twitter:image" content="Figuras/GatoCurioso.png" />
+
+<meta name="author" content="Martin Montane" />
+
+
+<meta name="date" content="2020-04-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-wrangling-de-datos-espaciales.html"/>
+<link rel="next" href="los-beatles-del-machine-learning.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>¡Sólo curiosos de acá en adelante!</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#qué-necesitamos-para-arrancar"><i class="fa fa-check"></i>¿Qué necesitamos para arrancar?</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html"><i class="fa fa-check"></i><b>1</b> Introduccion practica a la Ciencia de Datos</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#nuestra-primera-investigación-el-precio-de-las-propiedades-en-caba"><i class="fa fa-check"></i><b>1.1</b> Nuestra primera investigación: el precio de las propiedades en CABA</a></li>
+<li class="chapter" data-level="1.2" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#conociendo-rstudio"><i class="fa fa-check"></i><b>1.2</b> Conociendo RStudio</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#proyectos-en-rstudio"><i class="fa fa-check"></i><b>1.2.1</b> Proyectos en RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#importando-datos-a-r"><i class="fa fa-check"></i><b>1.3</b> Importando datos a R</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#comma-separated-values"><i class="fa fa-check"></i><b>1.3.1</b> Comma Separated Values</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#cómo-r-organiza-los-datos"><i class="fa fa-check"></i><b>1.4</b> ¿Cómo R organiza los datos?</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#vectores"><i class="fa fa-check"></i><b>1.4.1</b> Vectores</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#listas-y-data-frames"><i class="fa fa-check"></i><b>1.4.2</b> Listas y Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#inspeccionando-nuestros-datos"><i class="fa fa-check"></i><b>1.5</b> Inspeccionando nuestros datos</a></li>
+<li class="chapter" data-level="1.6" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#retomando-nuestro-ejercicio-cuánto-aumentaron-las-viviendas"><i class="fa fa-check"></i><b>1.6</b> Retomando nuestro ejercicio: ¿Cuánto aumentaron las viviendas?</a></li>
+<li class="chapter" data-level="1.7" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#conclusiones"><i class="fa fa-check"></i><b>1.7</b> Conclusiones</a></li>
+<li class="chapter" data-level="1.8" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>1.8</b> Ejercicios</a></li>
+<li class="chapter" data-level="1.9" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#extensión-cargando-y-guardando-datos-de-otros-formatos"><i class="fa fa-check"></i><b>1.9</b> Extensión: cargando y guardando datos de otros formatos</a><ul>
+<li class="chapter" data-level="1.9.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#microsoft-excel"><i class="fa fa-check"></i><b>1.9.1</b> Microsoft Excel</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html"><i class="fa fa-check"></i><b>2</b> Transformando nuestros datos (data wrangling)</a><ul>
+<li class="chapter" data-level="2.1" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#instalando-nuestro-primer-paquete-en-r-tidyverse"><i class="fa fa-check"></i><b>2.1</b> Instalando nuestro primer paquete en R: tidyverse</a></li>
+<li class="chapter" data-level="2.2" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#el-dataset-gapminder"><i class="fa fa-check"></i><b>2.2</b> El dataset <em>gapminder</em></a></li>
+<li class="chapter" data-level="2.3" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#transformaciones-de-los-datos"><i class="fa fa-check"></i><b>2.3</b> Transformaciones de los datos</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#selección-de-columnas-select"><i class="fa fa-check"></i><b>2.3.1</b> Selección de columnas: select()</a></li>
+<li class="chapter" data-level="2.3.2" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#selección-de-casos-filter"><i class="fa fa-check"></i><b>2.3.2</b> Selección de casos: <code>filter()</code></a></li>
+<li class="chapter" data-level="2.3.3" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#ordenando-la-función-arrange"><i class="fa fa-check"></i><b>2.3.3</b> Ordenando: la función arrange()</a></li>
+<li class="chapter" data-level="2.3.4" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#creando-y-modificando-variables-mutate"><i class="fa fa-check"></i><b>2.3.4</b> Creando y modificando variables: mutate()</a></li>
+<li class="chapter" data-level="2.3.5" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#resumiendo-y-transformando-datos-en-base-a-grupos"><i class="fa fa-check"></i><b>2.3.5</b> Resumiendo y transformando datos en base a grupos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#transformando-la-presentación-de-los-datos-pivot_wider-y-pivot_longer"><i class="fa fa-check"></i><b>2.4</b> Transformando la presentación de los datos: pivot_wider y pivot_longer</a></li>
+<li class="chapter" data-level="2.5" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#uniendo-datos-de-distintas-fuentes-left_join"><i class="fa fa-check"></i><b>2.5</b> Uniendo datos de distintas fuentes: left_join</a></li>
+<li class="chapter" data-level="2.6" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#la-mise-en-place-preparando-el-dataset-de-inmuebles"><i class="fa fa-check"></i><b>2.6</b> La <em>mise en place</em>: preparando el dataset de inmuebles</a></li>
+<li class="chapter" data-level="2.7" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#ejercicios-1"><i class="fa fa-check"></i><b>2.7</b> Ejercicios</a></li>
+<li class="chapter" data-level="2.8" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#extensiones"><i class="fa fa-check"></i><b>2.8</b> Extensiones</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#r-cheatsheets"><i class="fa fa-check"></i><b>2.8.1</b> R Cheatsheets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html"><i class="fa fa-check"></i><b>3</b> Visualizaciones de datos en R</a><ul>
+<li class="chapter" data-level="3.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#la-importancia-de-la-visualización-de-los-datos"><i class="fa fa-check"></i><b>3.1</b> La importancia de la visualización de los datos</a></li>
+<li class="chapter" data-level="3.2" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ggplot-grammar-of-graphics"><i class="fa fa-check"></i><b>3.2</b> GGPLOT: Grammar of Graphics</a></li>
+<li class="chapter" data-level="3.3" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cuál-es-la-relación-entre-el-ingreso-de-un-país-y-la-expectativa-de-vida-al-nacer-scatterplot"><i class="fa fa-check"></i><b>3.3</b> ¿Cuál es la relación entre el ingreso de un país y la expectativa de vida al nacer? Scatterplot</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#agregando-colores-según-otras-variables"><i class="fa fa-check"></i><b>3.3.1</b> Agregando colores según otras variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cuál-fue-la-evolución-de-la-expectativa-de-vida-al-nacer-gráfico-de-líneas"><i class="fa fa-check"></i><b>3.4</b> ¿Cuál fue la evolución de la expectativa de vida al nacer? Gráfico de líneas</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cambiando-la-apariencia-de-las-leyendas"><i class="fa fa-check"></i><b>3.4.1</b> Cambiando la apariencia de las leyendas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#reproduciendo-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.5</b> Reproduciendo el gráfico de Hans Rosling</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#exportando-gráficos-de-ggplot"><i class="fa fa-check"></i><b>3.5.1</b> Exportando gráficos de ggplot</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#mapas"><i class="fa fa-check"></i><b>3.6</b> Mapas</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#mapas-animados"><i class="fa fa-check"></i><b>3.6.1</b> Mapas animados</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ejercicios-2"><i class="fa fa-check"></i><b>3.7</b> Ejercicios</a></li>
+<li class="chapter" data-level="3.8" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#extensión-animando-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.8</b> Extensión: animando el gráfico de Hans Rosling</a></li>
+<li class="chapter" data-level="3.9" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#material-de-lectura"><i class="fa fa-check"></i><b>3.9</b> Material de lectura</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html"><i class="fa fa-check"></i><b>4</b> Datos espaciales en R</a><ul>
+<li class="chapter" data-level="4.1" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#qué-es-un-dato-espacial"><i class="fa fa-check"></i><b>4.1</b> ¿Qué es un dato espacial?</a></li>
+<li class="chapter" data-level="4.2" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#dónde-estamos-en-la-tierra"><i class="fa fa-check"></i><b>4.2</b> ¿Dónde estamos en la Tierra?</a></li>
+<li class="chapter" data-level="4.3" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#coordinate-reference-systems"><i class="fa fa-check"></i><b>4.3</b> Coordinate Reference Systems</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#elipsoides-sistemas-de-coordenadas-y-datums"><i class="fa fa-check"></i><b>4.3.1</b> Elipsoides, sistemas de coordenadas y datums</a></li>
+<li class="chapter" data-level="4.3.2" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#proyecciones"><i class="fa fa-check"></i><b>4.3.2</b> Proyecciones</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#un-ejemplo-datos-públicos-de-gcba-y-properati"><i class="fa fa-check"></i><b>4.4</b> Un ejemplo: datos públicos de GCBA y Properati</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#caba"><i class="fa fa-check"></i><b>4.4.1</b> CABA</a></li>
+<li class="chapter" data-level="4.4.2" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#properati"><i class="fa fa-check"></i><b>4.4.2</b> Properati</a></li>
+<li class="chapter" data-level="4.4.3" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#asignando-los-inmuebles-a-los-barrios"><i class="fa fa-check"></i><b>4.4.3</b> Asignando los inmuebles a los barrios</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#otras-operaciones-espaciales"><i class="fa fa-check"></i><b>4.5</b> Otras operaciones espaciales</a></li>
+<li class="chapter" data-level="4.6" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#incorporando-información-a-nuestro-dataset-los-subtes"><i class="fa fa-check"></i><b>4.6</b> Incorporando información a nuestro dataset: los subtes</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#una-alternativa-más-simple-usando-otro-método-de-join-espacial"><i class="fa fa-check"></i><b>4.6.1</b> Una alternativa más simple: usando otro método de join espacial</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#ejercicio"><i class="fa fa-check"></i><b>4.7</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html"><i class="fa fa-check"></i><b>5</b> Data wrangling de datos espaciales</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#introduccion"><i class="fa fa-check"></i><b>5.1</b> Introduccion</a></li>
+<li class="chapter" data-level="5.2" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#areal-weighted-interpolation"><i class="fa fa-check"></i><b>5.2</b> Areal weighted interpolation</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#carga-de-los-datos"><i class="fa fa-check"></i><b>5.2.1</b> Carga de los datos</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#diferentes-radios-censales"><i class="fa fa-check"></i><b>5.2.2</b> Diferentes radios censales</a></li>
+<li class="chapter" data-level="5.2.3" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#make-polygons-comparable-again"><i class="fa fa-check"></i><b>5.2.3</b> Make polygons comparable again</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#haciendo-mapas-de-nuestros-nuevos-datos"><i class="fa fa-check"></i><b>5.3</b> Haciendo mapas de nuestros nuevos datos</a></li>
+<li class="chapter" data-level="5.4" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#ejercicio-1"><i class="fa fa-check"></i><b>5.4</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html"><i class="fa fa-check"></i><b>6</b> El automovil de la estadistica</a><ul>
+<li class="chapter" data-level="6.1" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#cuál-es-la-relación-entre-la-altura-y-el-peso-de-las-personas"><i class="fa fa-check"></i><b>6.1</b> ¿Cuál es la relación entre la altura y el peso de las personas?</a></li>
+<li class="chapter" data-level="6.2" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#el-objetivo-de-la-regresión-lineal"><i class="fa fa-check"></i><b>6.2</b> El “objetivo” de la regresión lineal</a></li>
+<li class="chapter" data-level="6.3" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#agregando-variables-explicativas"><i class="fa fa-check"></i><b>6.3</b> Agregando variables explicativas</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#interpretación-de-los-coeficientes-y-su-incertidumbre"><i class="fa fa-check"></i><b>6.3.1</b> Interpretación de los coeficientes (y su incertidumbre)</a></li>
+<li class="chapter" data-level="6.3.2" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#entonces-pesar-un-kilo-más-aumenta-la-altura-en-aproximadamente-un-centímetro"><i class="fa fa-check"></i><b>6.3.2</b> ¿Entonces pesar un kilo más aumenta la altura en aproximadamente un centímetro?</a></li>
+<li class="chapter" data-level="6.3.3" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#intervalos-de-confianza-otra-forma-de-pensar-la-incertidumbre"><i class="fa fa-check"></i><b>6.3.3</b> Intervalos de confianza: otra forma de pensar la incertidumbre</a></li>
+<li class="chapter" data-level="6.3.4" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#qué-explica-y-que-no-nuestra-regresión"><i class="fa fa-check"></i><b>6.3.4</b> Qué explica y que no nuestra regresión</a></li>
+<li class="chapter" data-level="6.3.5" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#incertidumbre-en-el-promedio-e-incertidumbre-en-el-valor-predicho"><i class="fa fa-check"></i><b>6.3.5</b> Incertidumbre en el promedio e incertidumbre en el valor predicho</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#regresión-lineal-múltiple-controlando-por-otros-factores"><i class="fa fa-check"></i><b>6.4</b> Regresión lineal múltiple: controlando por otros factores</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#asociación-espuria"><i class="fa fa-check"></i><b>6.4.1</b> Asociación espuria</a></li>
+<li class="chapter" data-level="6.4.2" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#relación-enmascarada"><i class="fa fa-check"></i><b>6.4.2</b> Relación enmascarada</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#una-razón-para-ser-cuidadoso-al-interpretar-los-coeficientes-la-multicolinealidad"><i class="fa fa-check"></i><b>6.5</b> Una razón para ser cuidadoso al interpretar los coeficientes: la multicolinealidad</a></li>
+<li class="chapter" data-level="6.6" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#ejercicios-3"><i class="fa fa-check"></i><b>6.6</b> Ejercicios</a></li>
+<li class="chapter" data-level="6.7" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#lecturas-recomendadas"><i class="fa fa-check"></i><b>6.7</b> Lecturas recomendadas</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html"><i class="fa fa-check"></i><b>7</b> Los beatles del Machine Learning</a><ul>
+<li class="chapter" data-level="7.1" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#machine-learning"><i class="fa fa-check"></i><b>7.1</b> Machine Learning</a></li>
+<li class="chapter" data-level="7.2" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#cómo-funciona-un-árbol-de-decisión"><i class="fa fa-check"></i><b>7.2</b> ¿Cómo funciona un árbol de decisión?</a></li>
+<li class="chapter" data-level="7.3" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#podemos-predecir-quién-se-murió-en-el-titanic"><i class="fa fa-check"></i><b>7.3</b> ¿Podemos predecir quién se murió en el Titanic?</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#cómo-podemos-medir-qué-tan-bien-clasifica-nuestro-árbol"><i class="fa fa-check"></i><b>7.3.1</b> ¿Cómo podemos medir qué tan bien clasifica nuestro árbol?</a></li>
+<li class="chapter" data-level="7.3.2" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#un-árbol-puede-reducirse-a-reglas"><i class="fa fa-check"></i><b>7.3.2</b> Un árbol puede reducirse a reglas</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#aplicación-en-el-mercado-de-trabajo-monotributistas-y-cuentapropistas-informales"><i class="fa fa-check"></i><b>7.4</b> Aplicación en el mercado de trabajo: monotributistas y cuentapropistas informales</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#overfitting-aprendiendo-demasiado-de-nuestra-muestra"><i class="fa fa-check"></i><b>7.4.1</b> Overfitting: aprendiendo demasiado de nuestra muestra</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#algunos-árboles-no-solo-clasifican-árboles-de-regresión"><i class="fa fa-check"></i><b>7.5</b> Algunos árboles no solo clasifican: árboles de regresión</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#poniendo-en-forma-los-datos"><i class="fa fa-check"></i><b>7.5.1</b> Poniendo en forma los datos</a></li>
+<li class="chapter" data-level="7.5.2" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#recursive-partitioning-rpart"><i class="fa fa-check"></i><b>7.5.2</b> Recursive PARTitioning (RPART)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#ejercicio-2"><i class="fa fa-check"></i><b>7.6</b> Ejercicio</a></li>
+<li class="chapter" data-level="7.7" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#lecturas-recomendadas-1"><i class="fa fa-check"></i><b>7.7</b> Lecturas recomendadas</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html"><i class="fa fa-check"></i><b>8</b> Un paquete para dominarlos a todos</a><ul>
+<li class="chapter" data-level="8.1" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html#classification-and-regression-training-caret"><i class="fa fa-check"></i><b>8.1</b> Classification And Regression Training (CARET)</a></li>
+<li class="chapter" data-level="8.2" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html#entrenando-un-árbol-de-decisión"><i class="fa fa-check"></i><b>8.2</b> Entrenando un árbol de decisión</a></li>
+<li class="chapter" data-level="8.3" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html#entrenando-un-árbol-de-regresión"><i class="fa fa-check"></i><b>8.3</b> Entrenando un árbol de regresión</a></li>
+<li class="chapter" data-level="8.4" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html#ejercicio-3"><i class="fa fa-check"></i><b>8.4</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="anexo-1-datasets.html"><a href="anexo-1-datasets.html"><i class="fa fa-check"></i><b>9</b> Anexo 1 - Datasets</a><ul>
+<li class="chapter" data-level="9.1" data-path="anexo-1-datasets.html"><a href="anexo-1-datasets.html#encuesta-permanente-de-hogares-eph"><i class="fa fa-check"></i><b>9.1</b> Encuesta Permanente de Hogares (EPH)</a></li>
+<li class="chapter" data-level="9.2" data-path="anexo-1-datasets.html"><a href="anexo-1-datasets.html#precios-de-los-inmuebles"><i class="fa fa-check"></i><b>9.2</b> Precios de los inmuebles</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="anexo-2-otras-funciones-de-data-wrangling.html"><a href="anexo-2-otras-funciones-de-data-wrangling.html"><i class="fa fa-check"></i><b>10</b> Anexo 2 - Otras funciones de Data Wrangling</a><ul>
+<li class="chapter" data-level="10.1" data-path="anexo-2-otras-funciones-de-data-wrangling.html"><a href="anexo-2-otras-funciones-de-data-wrangling.html#convirtiendo-una-variable-númerica-a-categórica"><i class="fa fa-check"></i><b>10.1</b> Convirtiendo una variable númerica a categórica</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ciencia de datos para curiosos</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="el-automovil-de-la-estadistica" class="section level1">
+<h1><span class="header-section-number">6</span> El automovil de la estadistica</h1>
+<pre><code>Al terminar este capítulos ustedes van a poder:
+- Entender la mecánica de la Regresión Lineal
+- Poder estimar Regresiones Lineales simples y múltiples en R
+- Interpretar los coeficientes de los modelos y su incertidumbre
+- Comprender algunos de los límites de la Regresión Lineal Múltiple </code></pre>
+<p>El objetivo de este capítulo es introducir a uno de los métodos más clásicos del análisis de datos: la regresión. Tal es así que es popularmente conocido como “el automóvil de la estadística” o, como dice Walter Sosa Escudero, “Los Rolling Stones” del análisis de datos. Veremos para qué puede servirnos y cómo funciona</p>
+<div id="cuál-es-la-relación-entre-la-altura-y-el-peso-de-las-personas" class="section level2">
+<h2><span class="header-section-number">6.1</span> ¿Cuál es la relación entre la altura y el peso de las personas?</h2>
+<p>Imaginen que tienen la siguiente pregunta: ¿Cuál es la relación entre la altura de una persona y su peso? Esta es solo una de las muchas preguntas que nos podemos hacer, pero es representativa de lo que la regresión puede hacer por nosotros (o de lo que nosotros podemos hacer con su ayuda). Descarguen desde aquí los datos con los que trabajaremos la primera parte de la clase:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&#39;https://github.com/datalab-UTDT/GIS2/raw/master/Data/HowellData.RData&#39;</span>))
+<span class="kw">str</span>(Howell1)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    544 obs. of  4 variables:
+##  $ height: num  152 140 137 157 145 ...
+##  $ weight: num  47.8 36.5 31.9 53 41.3 ...
+##  $ age   : num  63 63 65 41 51 35 32 27 19 54 ...
+##  $ male  : int  1 0 0 1 0 1 0 1 0 1 ...</code></pre>
+<p>Como pueden ver luego de ejecutar el comando “str”, <em>Howell1</em> es un <em>data.frame</em> que contiene 544 observaciones en cuatro variables: <strong>height</strong> (altura), <strong>weight</strong> (peso), <strong>age</strong> (edad) y <strong>male</strong> (genero). Todas son variables numéricas, incluyendo <strong>male</strong>, que toma valor 1 cuando la observación pertenece a un hombre y 0 cuando es a una mujer. Recordemos nuestra primera pregunta ¿Cuál es la relación entre la altura y y el peso? Creo que todos haríamos lo mismo de una manera intuitiva: grafiquemos la relación entre ambas variables.</p>
+<p>Haremos este gráfico con la ayuda de ggplot2, el paquete principal dentro de <strong>tidyverse</strong> para hacer todo tipo de gráficos. También usaremos el paquete <strong>ggthemes</strong>, que nos permite rápidamente hacer un gráfico más estéticamente exitoso (ya introdujimos este paquete en el Capítulo 3). Para usar <em>ggplot2()</em> y algunos temas que nos da <em>ggthemes()</em> debemoso primero cargar las librerías, que es lo primero que hace el siguiente código:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Hay que cargar las librerias</span>
+<span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(ggthemes)
+<span class="kw">ggplot</span>(Howell1) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>weight, <span class="dt">y=</span>height)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_fivethirtyeight</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&#39;Peso (kg)&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Altura (kg)&#39;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>))</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-173-1.png" width="672" /></p>
+<pre><code>SOBRE EL GRÁFICO
+Veamos un poquito el código del gráfico. Por un lado, llamo a **ggplot**, que es mi manera de decirle que quiero hacer un gráfico, y le paso el data.frame desde donde usará los datos. Luego, usando un **+**, le decimos qué tipo de gráfico queremos que haga: un scatterplot (dispersión de puntos), **geom_point**. Pero ahí mismo tenemos que indicarle cual columna irá en la el eje x (horizontal) y cuáles en el eje y (vertical).
+Con estos elementos ya puede hacer un gráfico, si quieren ejecutenlo. Pero además quería emprolijar un poco el gráfico: con **theme_fivethirtyeight()**, del paquete **ggthemes**, podemos formatearlo como el estilo de la famosa página FiveThirtyEight. Además queremos agregarle nombres a los ejes, lo que hacemos con **labs()**, simplemente asignándole el nombre que queremos para cada uno de ellos. La última parte, ** theme(axis.title = element_text(size=14))**, es un poco más complejo pero básicamente lo que hacemos es decirle que queremos que los títulos de los ejes tengan un tamaño de 14 puntos.</code></pre>
+<p>¿Qué ven? Definitivamente parece haber una relación positiva entre altura y peso (es decir, a mayor peso de una persona observamos una mayor altura). Sin embargo, en la primera parte pareciera que los puntos son un poco más “empinados” y hacia el final se hacen un poco más planos ¿verdad? Veamos si podemos usar a la regresión para tener una mejor idea de esta relación.</p>
+</div>
+<div id="el-objetivo-de-la-regresión-lineal" class="section level2">
+<h2><span class="header-section-number">6.2</span> El “objetivo” de la regresión lineal</h2>
+<p>Lo que hace la regresión lineal es muy simple. Imaginen que queremos modelar la relación entre estas dos variables como una linea. Sí, sabemos que una linea no puede pasar perfectamente por todos los puntos: definitivamente va a tener que estar más cerca de algunos que de otros. Ahora bien ¿Pueden ustedes encontrar ustedes la recta que minimice la distancia entre todos los puntos? Si son honestos seguro respondieron que no, pero por suerte la regresión lo puede hacer por ustedes.</p>
+<p>La regresión lineal puede pensarse como <strong>aquella máquina que consigue la recta que mejor ajusta a los puntos</strong> ¿Qué significa que mejor ajusta? Ya que podríamos tener distintas medidas de cuál es la distancia a minimizar. La regresión lineal usa <strong>la sumatoria de la distancia al cuadrado entre cada observación y la recta</strong>. Si todo esto parece un poco difícil, no se preocupen. Vamos a intentar dejarlo lo más claro posible.</p>
+<p>La función que nos permite estimar regresiones lineales en R es la función <strong>lm()</strong>. Supongamos, primero, que no existe ninguna relación entre la altura y el peso. De hecho, asumamos que la altura de una persona solo puede explicarse por un único valor, que es para todos los casos el mismo. Pero antes de hacer eso, saquemos todas aquellas observaciones menores a 18 años.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Howell1Adults &lt;-<span class="st"> </span>Howell1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(age<span class="op">&gt;=</span><span class="dv">18</span>)
+regresion1 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> Howell1Adults, <span class="dt">formula =</span> height <span class="op">~</span><span class="st"> </span><span class="dv">1</span>)</code></pre></div>
+<p>Como pueden ver, la función <strong>lm</strong> necesita de dos parámetros para hacer su trabajo: los datos y una fórmula. La fórmula consiste en el lugar donde establecemos la relación entre nuestra variable dependiente (la que queremos explicar) y las independientes (las que nos explican a la variable dependiente). A la izquierda de <strong>~</strong> escribimos a la variable dependiente, y luego de ese símbolo ponemos las variables independientes. En nuestro caso queremos que solo nos explique la altura con una constante. Veamos que devolvió</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(regresion1)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = height ~ 1, data = Howell1Adults)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -18.0721  -6.0071  -0.2921   6.0579  24.4729 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 154.5971     0.4127   374.6   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 7.742 on 351 degrees of freedom</code></pre>
+<p>La función <strong>summary</strong> nos devuelve un resumen de nuestro objeto <strong>lm</strong>. Vamos a ir viendo algunas de las líneas, pero por el momento solo nos importa la parte de “Coefficients”. Los coeficientes en una relación lineal nos dicen cual es “el cambio esperado” en la variable dependiente (la que queremos explicar) ante una variación de una unidad en nuestra variable independiente (la que usamos para explicar a la dependiente). En nuestro caso, solo le pedimos que nos calculara lo que se conoce como <strong>intercepto</strong>, que está presente para cada una de las observaciones y no cambia de valor. Por lo que, en este simple modelo, nuestro único coeficiente, que tiene un valor de 154.5971, nos dice que la recta que minimiza la distancia al cuadrado hacia cada punto de la altura tiene ese valor. Ahora hagan lo siguiente:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(Howell1Adults<span class="op">$</span>height)</code></pre></div>
+<pre><code>## [1] 154.5971</code></pre>
+<p>¿Qué hicimos? Calculamos el promedio de la altura, y coincidió con el coeficiente que estimó la regresión lineal ¿Por qué? <strong>Porque la regresión puede pensarse como una máquina de hacer promedios</strong>. De hecho, dado un conjunto de puntos, el promedio es la medida que minimiza las distancias al cuadrado con respecto a todos los puntos. Vayan probando si no me creen.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">12</span>)
+promedio &lt;-<span class="st"> </span><span class="kw">mean</span>(vector)
+<span class="kw">sum</span>((vector<span class="op">-</span>promedio)<span class="op">^</span><span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 93.42857</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>((vector<span class="op">-</span>(promedio<span class="op">+</span><span class="dv">1</span>))<span class="op">^</span><span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 100.4286</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>((vector<span class="op">-</span>(promedio<span class="op">-</span><span class="dv">1</span>))<span class="op">^</span><span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 100.4286</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>((vector<span class="op">-</span>(promedio<span class="op">+</span><span class="fl">0.5</span>))<span class="op">^</span><span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 95.17857</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>((vector<span class="op">-</span>(promedio<span class="op">-</span><span class="fl">0.5</span>))<span class="op">^</span><span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 95.17857</code></pre>
+</div>
+<div id="agregando-variables-explicativas" class="section level2">
+<h2><span class="header-section-number">6.3</span> Agregando variables explicativas</h2>
+<p>Aun si el promedio es la mejor estimación de una altura cualquiera si suponemos que no hay relación entre la altura y el peso, ya sabemos que parece haber una relación positiva entre altura y peso. Vamos a modelar esto.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">regresion2 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> Howell1Adults, <span class="dt">formula =</span> height <span class="op">~</span><span class="st"> </span>weight)
+<span class="kw">summary</span>(regresion2)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = height ~ weight, data = Howell1Adults)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -19.7464  -2.8835   0.0222   3.1424  14.7744 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 113.87939    1.91107   59.59   &lt;2e-16 ***
+## weight        0.90503    0.04205   21.52   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 5.086 on 350 degrees of freedom
+## Multiple R-squared:  0.5696, Adjusted R-squared:  0.5684 
+## F-statistic: 463.3 on 1 and 350 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Ahora tenemos un nuevo parámetro: <strong>weight</strong>, de valor 0.91 (para redondear). También estimó el intercepto: siempre lo hará, a menos que lo indiquemos con un <strong>- 1</strong> en alguna parte de la fórmula. Pero ahora el intercepto es un poco más bajo, no? Y qué significa weight 0.91? <strong>Significa que para cada peso adicional, nuestro modelo estima que, en promedio, la altura es 0.91 cms más alta</strong>. Gráfiquemos esto para que quedé más claro qué fue lo que pasó:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(Howell1Adults) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">slope =</span> <span class="kw">coef</span>(regresion2)[<span class="dv">2</span>],<span class="dt">intercept =</span> <span class="kw">coef</span>(regresion2)[<span class="dv">1</span>]) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>weight, <span class="dt">y=</span>height)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_fivethirtyeight</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&#39;Peso (kg)&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Altura (kg)&#39;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>))</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-179-1.png" width="672" /></p>
+<p>Los puntos en el gráfico son los mismos de antes, pero ahora agregamos la recta de regresión que hace exactamente lo que esperábamos: pasa por el centro. Nuestro intercepto es ahora un poco más bajo (113.87939) ¿pero tiene la misma interpretación ? ¿es el valor que “arriesgaríamos” para cualquier peso?</p>
+<div id="interpretación-de-los-coeficientes-y-su-incertidumbre" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Interpretación de los coeficientes (y su incertidumbre)</h3>
+<p>Ya adelantamos una interpretación provisoria de los coeficientes: el aumento esperado en la variable dependiente cuando aumentamos en una unidad el valor de nuestra variable independiente. Pero para uno de nuestros coeficientes en nuestra regresión simple, el coeficiente, esta interpretación no hace mucha justicia.</p>
+<p>El valor del intercepto es simplementemente el valor de altura esperado cuando una persona pesa 0kgs. Sí, así como leyeron: la altura para alguien que no pesa. No le echen la culpa a la regresión, calculó una recta y, dada la pendiente, cuando el peso es cero la altura es de algo así como 113cm2.</p>
+<p>Si miran con atención la salida del anterior summary, van a ver que además del <em>estimate</em> se reporta un <em>std. error</em>, un <em>t. value</em> y un <em>Pr(&gt;|t|)</em>. Veamos qué significa esta jerga y por qué es importante entender por qué se reportan en la salida típica de una regresión.</p>
+<p>El <strong>standard error</strong> o <strong>error estándar</strong> de un parámetro cuantifica la incertidumbre asociada a que estamos trabajando con una muestra del proceso que genera estos datos, no con “la población completa”. Este hecho necesariamente agrega algo de incertidumbre a nuestras estimaciones ¿Si nuestros datos no son precisamente representativos del resto de las observaciones? El desvío standard es una forma conveniente de comunicar esto. En un modelo tan simple como el que estamos viendo, este error estándar depende solo de 3 variables: la cantidad de observaciones y la variabilidad de nuestra variable independiente (positivamente) y del desvió estándar de los residuos de nuestra regresión (negativamente).</p>
+<p>Por su parte, el <strong>t. value</strong> es simplemente el estadístico que usaremos para testear qué tan probable es que, dado el error estándar y el valor del coeficiente estimado, este sea en realidad cero en términos poblacionales. El t.value es fácil de calcular; dividan el valor del parámetro y por el standard error.</p>
+<p>Finalmente, el <strong>Pr(&gt;|t|)</strong> es una de las salidas que más suelen abusarse cuando se hace una regresión. Lo que hace es testear el valor de nuestro <strong>t value</strong> con los valores que toma una distribución de probabilidades cuando el parámetro poblacional es en realidad 0. Si nuestro t value es muy alto / muy bajo, entonces la probabilidad de que el parámetro cero es muy baja. Si no es tan alto o bajo, entonces hay una mayor probabilidad de que el parámetro sea en realidad cero.</p>
+<p>¿Cuál es la probabilidad con la que estamos dispuestos a aceptar que un parámetro de nuestro modelo es significativo? No existe <strong>ninguna</strong> medida absoluta que haga mejor o peor uno de estos valores. Podría ser un 20%, un 50%, un 23% o un 1%. En la práctica, tres valores son los más utilizados: 1%, 5% y 10%, siendo 5% el valor más aceptado por aquellas personas que se dedican a la estadística aplicada. No hay ninguna razón por la cual tenga que ser este valor u otro. En nuestro primer ejemplo, la probabilidad de que nuestro parámetro de peso sea igual a cero es realmente baja.</p>
+</div>
+<div id="entonces-pesar-un-kilo-más-aumenta-la-altura-en-aproximadamente-un-centímetro" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> ¿Entonces pesar un kilo más aumenta la altura en aproximadamente un centímetro?</h3>
+<p>Este caso es utilizado en diversas introducciones por una razón importante: NO hay interpretación causal en una regresión, excepto en casos MUY particulares. Como regla general, podemos decir que cada vez que usen una regresión lineal no van a poder inferir causalidad desde los coeficientes estimados. Aquí entramos en territorio de la inferencia causal.</p>
+<p>Las regresiones de este estilo con datos observacionales nos permiten establecer relaciones entre las variables. Y, de contar con un modelo teórico de la relación entre las variables, poder testear si los datos son compatible con la teoría. La regresión por si sola no nos va a contar cómo funcionan las cosas en el mundo.</p>
+</div>
+<div id="intervalos-de-confianza-otra-forma-de-pensar-la-incertidumbre" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> Intervalos de confianza: otra forma de pensar la incertidumbre</h3>
+<p>El <strong>p.valor</strong> nos sirve para saber si nuestro modelo tiene la evidencia suficiente como para decir que el coeficiente es distinto a cero. A veces queremos saber dentro de qué rangos se encuentra el parámetro con cierto nivel de probabilidad. A estos “rangos” se los llama <strong>intervalos de confianza</strong>, dentro del cual podemos decir que, si juntáramos muchas veces muestras provenientes de nuestra población bajo estudio, encontraríamos al parámetro X cantidad de veces dentro de ese rango. R calcula eso por nosotros de una manera muy simple:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(regresion2,<span class="dt">level =</span> <span class="fl">0.95</span>)</code></pre></div>
+<pre><code>##                   2.5 %      97.5 %
+## (Intercept) 110.1207774 117.6380098
+## weight        0.8223315   0.9877267</code></pre>
+<p>¿Qué fue lo que nos devolvió? Dos valores para cada uno de nuestros coeficientes: el intercepto y weight. Uno es un límite inferior (2.5%) y otro un límite superior (97.5%) de nuestro intervalo de confianza con un nivel de 95%. Esto puede interpretarse de la siguiente manera: si tomáramos nuevamente muestras sobre altura y peso de esta población, entonces en 95 de cada 100 casos el coeficiente estarían entre el límite inferior y el superior ¿Magia? No hace falta creerlo, cuando podemos hacer simulaciones:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">4</span>)
+samples &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>)
+weightCoefs &lt;-<span class="st"> </span><span class="kw">c</span>()
+<span class="cf">for</span>(sample <span class="cf">in</span> samples) {
+  indices &lt;-<span class="st"> </span><span class="kw">sample.int</span>(<span class="dt">n =</span> <span class="kw">nrow</span>(Howell1Adults),<span class="dt">size =</span> <span class="kw">nrow</span>(Howell1Adults),
+                        <span class="dt">replace =</span> <span class="ot">TRUE</span>)
+  weightCoefs&lt;-<span class="st"> </span><span class="kw">c</span>(weightCoefs,
+  <span class="kw">coef</span>(<span class="kw">lm</span>(<span class="dt">data =</span> Howell1Adults[indices,], <span class="dt">formula =</span> height <span class="op">~</span><span class="st"> </span>weight))[<span class="dv">2</span>])
+}</code></pre></div>
+<p>En el vector <strong>weightCoefs</strong> ahora tenemos 1.000 estimaciones del parámetro weight tomando muestras al azar de nuestras observaciones, técnica que se conoce como <strong>bootstrapping</strong>. Recordemos que nuestra regresión había dicho que el 95% de los valores deberían caer entre 0.8223315 0.9877267. Veamos cuántos cayeron:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(weightCoefs<span class="op">&gt;=</span><span class="fl">0.8223315</span> <span class="op">&amp;</span><span class="st"> </span>weightCoefs<span class="op">&lt;=</span><span class="fl">0.9877267</span>)<span class="op">/</span><span class="dv">1000</span></code></pre></div>
+<pre><code>## [1] 0.962</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quantile</span>(weightCoefs,<span class="dt">probs =</span> <span class="kw">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</code></pre></div>
+<pre><code>##      2.5%     97.5% 
+## 0.8243526 0.9795347</code></pre>
+</div>
+<div id="qué-explica-y-que-no-nuestra-regresión" class="section level3">
+<h3><span class="header-section-number">6.3.4</span> Qué explica y que no nuestra regresión</h3>
+<p>Otra de las preguntas clásicas que le queremos hacer a nuestra regresión es qué proporción de la variabilidad de la variable dependiente explica. Una forma muy expandida de resumir esto es a través de lo que se conoce como “R2” o “R cuadrado”. Si revisan la salida de <strong>summary</strong> van a ver que abajo de los coeficientes dice “Multiple R-squared” y “Adjusted R-squared”.</p>
+<p>El primero de ellos nos dice que proporción de la variación al cuadrado de las observaciones de altura son explicadas por la variación de nuestras variables explicativas. Dicho de otra manera, nuestro modelo puede “explicar” (o mejor dicho, predecir) el 57% del movimiento de las alturas. El resto, no puede explicarlo.</p>
+<p>¿Cómo se calcula este 57%? Simplemente sumamos la diferencia al cuadrado entre la predicción de nuestro modelo y el promedio de las alturas (“lo que explica el modelo”) y lo dividimos por la sumatoria de la diferencia al cuadrado entre el valor de una observación y el promedio (“lo que hay que explicar”).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">sum</span>((<span class="kw">predict</span>(regresion2)<span class="op">-</span><span class="kw">mean</span>(regresion2<span class="op">$</span>model<span class="op">$</span>height))<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>
+<span class="st">  </span><span class="kw">sum</span>((regresion2<span class="op">$</span>model<span class="op">$</span>height<span class="op">-</span><span class="kw">mean</span>(regresion2<span class="op">$</span>model<span class="op">$</span>height))<span class="op">^</span><span class="dv">2</span>),<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 0.57</code></pre>
+<p>¿Cuánto más explica nuestro modelo si agregamos al sexo de las personas?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Howell1Adults<span class="op">$</span>male &lt;-<span class="st"> </span><span class="kw">factor</span>(Howell1Adults<span class="op">$</span>male)
+<span class="kw">summary</span>(<span class="kw">lm</span>(<span class="dt">data =</span> Howell1Adults,
+           <span class="dt">formula =</span> height <span class="op">~</span><span class="st"> </span>weight <span class="op">+</span><span class="st"> </span>male))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = height ~ weight + male, data = Howell1Adults)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -21.7859  -2.5506   0.4669   2.6278  14.1486 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 122.70338    1.76232   69.63   &lt;2e-16 ***
+## weight        0.64117    0.04148   15.46   &lt;2e-16 ***
+## male1         6.50031    0.53592   12.13   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.272 on 349 degrees of freedom
+## Multiple R-squared:  0.6973, Adjusted R-squared:  0.6955 
+## F-statistic: 401.9 on 2 and 349 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>¿Qué pasó con nuestro R2? Pasó del 57% al 69% tras la inclusión del género ¿Y con nuestro coeficiente de peso? Cambió también, ¿no? Vamos a ver por qué en breve. Pero antes de esto, veamos una diferencia importante entre predecir un valor particular y el promedio.</p>
+</div>
+<div id="incertidumbre-en-el-promedio-e-incertidumbre-en-el-valor-predicho" class="section level3">
+<h3><span class="header-section-number">6.3.5</span> Incertidumbre en el promedio e incertidumbre en el valor predicho</h3>
+<p>Dado nuestro modelo lineal, si ustedes tuvieran que decir cuanto mide una persona que pesa 50kg ¿qué dirían? yo le sumaría al intercepto el coeficiente de peso por 50:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">prediccion &lt;-<span class="st"> </span><span class="kw">coef</span>(regresion2)[<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span><span class="kw">coef</span>(regresion2)[<span class="dv">2</span>]<span class="op">*</span><span class="dv">50</span>
+prediccion</code></pre></div>
+<pre><code>## (Intercept) 
+##    159.1308</code></pre>
+<p>159.13 sería mi respuesta ¿Y cuál sería el intervalo de confianza? Acá es donde se complica un poco. Nostros estuvimos modelando hasta ahora todo <strong>en promedio</strong>. Yo mismo les dije que podría definirse a la regresión como una máquina de hacer promedios. Y todo lo que estuvimos viendo hasta ahora es por qué hay incertidumbre con respecto al valor esperado (o promedio) de la altura ante cambios en el peso. Nada dijimos sobre la incertidumbre a nivel puntual.</p>
+<p>En los modelos de regresión en general asumimos implícitamente que en cada uno de los valores de peso, las alturas siguen una <em>distribución normal</em>, cuyo valor central o promedio es el que está dado por la recta de la regresión ¡pero no los valores puntuales! Estos dependen a su vez del <em>desvío estándar</em> de los errores de nuestro modelo.</p>
+<p>Una regresión modela a una variable que observamos (la altura) como una función de otro conjunto de variables que observamos (como el peso) y otra parte que corresponde al error. Por construcción, el promedio de los errores es 0. Por lo cual, en promedio, la altura va a estar explicada por el valor del peso, teniendo en cuenta nuestra incertidumbre muestral. Esto ya lo hemos visto. Pero para tener la predicción de un valor necesitamos agregar el término del error, ya que en un caso particular el error no tiene porque ser cero. La diferencia es muy relevante:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(regresion2,<span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">weight=</span><span class="dv">50</span>), <span class="dt">interval =</span><span class="st">&#39;confidence&#39;</span>)</code></pre></div>
+<pre><code>##        fit      lwr      upr
+## 1 159.1308 158.4556 159.8061</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(regresion2,<span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">weight=</span><span class="dv">50</span>), <span class="dt">interval =</span><span class="st">&#39;prediction&#39;</span>)</code></pre></div>
+<pre><code>##        fit      lwr      upr
+## 1 159.1308 149.1045 169.1572</code></pre>
+<p>El primero de los comandos estima el intervalo de confianza al 95% de la altura promedio dado que el peso es de 50kg. La predicción es la que calculamos antes, con un intervalo de confianza entre [158.4556;159.8061]. La segunda calcula el intervalo de confianza de la altura puntual con un intervalo del 95%: si hiciéramos una muestra de 100 personas con peso de 50kg, 95 de ellas caerían en el intervalo contenido entre [149.1045;169.1572]. Este intervalo de confianza depende tanto de la incertidumbre del valor medio como de la varianza de nuestro término de error (“cuánto se aleja de 0”). Veamos cómo podemos visualizar los errores de nuestro modelo:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">residuals</span>(regresion2))</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-187-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">residuals</span>(regresion2)) <span class="co"># Casi cero</span></code></pre></div>
+<pre><code>## [1] 5.337416e-17</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(<span class="kw">residuals</span>(regresion2)) <span class="co"># desvio standard</span></code></pre></div>
+<pre><code>## [1] 5.079086</code></pre>
+<p>Reduzcamos el desvío standard de nuestros residuos eliminando los valores donde nuestra recta pasa mas lejos</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">regresion3 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> Howell1Adults[<span class="kw">abs</span>(<span class="kw">residuals</span>(regresion2))<span class="op">&lt;</span><span class="kw">sd</span>(<span class="kw">residuals</span>(regresion2)),],
+                 <span class="dt">formula =</span> height <span class="op">~</span><span class="st"> </span>weight)
+<span class="kw">summary</span>(regresion3)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = height ~ weight, data = Howell1Adults[abs(residuals(regresion2)) &lt; 
+##     sd(residuals(regresion2)), ])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.3280 -2.0682 -0.0105  2.1795  5.0513 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 112.42425    1.15216   97.58   &lt;2e-16 ***
+## weight        0.93791    0.02535   36.99   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.631 on 245 degrees of freedom
+## Multiple R-squared:  0.8481, Adjusted R-squared:  0.8475 
+## F-statistic:  1368 on 1 and 245 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(regresion3,<span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">weight=</span><span class="dv">50</span>), <span class="dt">interval =</span><span class="st">&#39;prediction&#39;</span>)</code></pre></div>
+<pre><code>##      fit     lwr      upr
+## 1 159.32 154.121 164.5189</code></pre>
+<p>¡Con la caída del desvío estándar de los errores se achicaron los intervalos de confianza de las predicciones! Tal como esperábamos</p>
+</div>
+</div>
+<div id="regresión-lineal-múltiple-controlando-por-otros-factores" class="section level2">
+<h2><span class="header-section-number">6.4</span> Regresión lineal múltiple: controlando por otros factores</h2>
+<p>Uno de los datasets más divertidos para introducir a la regresión lineal múltiple y algunas de sus oportunidades y problemas consiste en el dataset de Waffle House, una cadena de waffles que le compite a la más famosa Ihop. Primero carguen los datos a la sesión:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/datalab-UTDT/GIS2/raw/master/Data/WaterDivorce.RData&quot;</span>))
+<span class="kw">str</span>(WaffleDivorce)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    50 obs. of  13 variables:
+##  $ Location         : Factor w/ 50 levels &quot;Alabama&quot;,&quot;Alaska&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...
+##  $ Loc              : Factor w/ 50 levels &quot;AK&quot;,&quot;AL&quot;,&quot;AR&quot;,..: 2 1 4 3 5 6 7 9 8 10 ...
+##  $ Population       : num  4.78 0.71 6.33 2.92 37.25 ...
+##  $ MedianAgeMarriage: num  25.3 25.2 25.8 24.3 26.8 25.7 27.6 26.6 29.7 26.4 ...
+##  $ Marriage         : num  20.2 26 20.3 26.4 19.1 23.5 17.1 23.1 17.7 17 ...
+##  $ Marriage.SE      : num  1.27 2.93 0.98 1.7 0.39 1.24 1.06 2.89 2.53 0.58 ...
+##  $ Divorce          : num  12.7 12.5 10.8 13.5 8 11.6 6.7 8.9 6.3 8.5 ...
+##  $ Divorce.SE       : num  0.79 2.05 0.74 1.22 0.24 0.94 0.77 1.39 1.89 0.32 ...
+##  $ WaffleHouses     : int  128 0 18 41 0 11 0 3 0 133 ...
+##  $ South            : int  1 0 0 1 0 0 0 0 0 1 ...
+##  $ Slaves1860       : int  435080 0 0 111115 0 0 0 1798 0 61745 ...
+##  $ Population1860   : int  964201 0 0 435450 379994 34277 460147 112216 75080 140424 ...
+##  $ PropSlaves1860   : num  0.45 0 0 0.26 0 0 0 0.016 0 0.44 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">WaffleDivorce<span class="op">$</span>WaffleHousesPC &lt;-<span class="st"> </span>WaffleDivorce<span class="op">$</span>WaffleHouses<span class="op">/</span>WaffleDivorce<span class="op">$</span>Population</code></pre></div>
+<p>Son 50 observaciones, una por cada Estado de EEUU. Ahora hagamos el siguiente gráfico y la siguiente regresión:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(WaffleDivorce, <span class="kw">aes</span>(<span class="dt">x=</span>WaffleHousesPC, <span class="dt">y =</span> Divorce))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>,<span class="dt">se =</span> <span class="ot">FALSE</span>) </code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-190-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">lm</span>(WaffleDivorce,<span class="dt">formula =</span>  Divorce <span class="op">~</span><span class="st"> </span>WaffleHousesPC))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Divorce ~ WaffleHousesPC, data = WaffleDivorce)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.5343 -1.2448 -0.0718  1.0552  3.6802 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     9.31980    0.27723  33.617  &lt; 2e-16 ***
+## WaffleHousesPC  0.07442    0.02730   2.726  0.00892 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.712 on 48 degrees of freedom
+## Multiple R-squared:  0.1341, Adjusted R-squared:  0.116 
+## F-statistic: 7.431 on 1 and 48 DF,  p-value: 0.008921</code></pre>
+<p>¡La cantidad de Waffle Houses per cápita se asocia positivamente con la tasa de divorcio de los Estados de Estados Unidos! No solo eso, sino que el coeficiente es significativo incluso por debajo del 1%, y el R2 es del 13%. Este resultado debería recordarnos que estos modelos, por si solos, no nos muestran cómo funciona el mundo, sino que hace exactamente lo que dijimos: estima una curva que pasa lo más cerca de todos los puntos.</p>
+<p>La regresión lineal múltiple puede ayudarnos al menos parcialmente a “controlar” por otras variables para encontrar una relación entre dos variables <strong>todo lo demás constante</strong>. Veamos en qué casos resulta especialmente útil.</p>
+<div id="asociación-espuria" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Asociación espuria</h3>
+<p>La tasa de divorcio puede depender de forma razonable de la tasa de matrimonio - después de todo, para divorciarse hay que estar casado -, y también puede estar relacionado con la edad promedio de casamiento, quizás por una menor expectiva de vida mientras más jóven se es y una mayor probabilidad de separarse con el paso de los años. Modelemos estas dos relaciones en dos regresiones distintas y en unos gráficos.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(gridExtra)
+<span class="kw">grid.arrange</span>(<span class="kw">ggplot</span>(WaffleDivorce,<span class="kw">aes</span>(<span class="dt">x=</span>Marriage, <span class="dt">y =</span> Divorce))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>,<span class="dt">se =</span> <span class="ot">FALSE</span>) ,
+<span class="kw">ggplot</span>(WaffleDivorce, <span class="kw">aes</span>(<span class="dt">x=</span>MedianAgeMarriage, <span class="dt">y =</span> Divorce))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>,<span class="dt">se =</span> <span class="ot">FALSE</span>))</code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;
+## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-191-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">regMarriage &lt;-<span class="st"> </span><span class="kw">lm</span>(WaffleDivorce,<span class="dt">formula =</span>  Divorce <span class="op">~</span><span class="st"> </span>Marriage)
+regEdad &lt;-<span class="st"> </span><span class="kw">lm</span>(WaffleDivorce,<span class="dt">formula =</span>  Divorce <span class="op">~</span><span class="st"> </span>MedianAgeMarriage)
+<span class="kw">summary</span>(regMarriage)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Divorce ~ Marriage, data = WaffleDivorce)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.0068 -1.2173  0.1214  1.1805  4.4971 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  6.08404    1.31337   4.632 2.78e-05 ***
+## Marriage     0.17918    0.06418   2.792  0.00751 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.706 on 48 degrees of freedom
+## Multiple R-squared:  0.1397, Adjusted R-squared:  0.1218 
+## F-statistic: 7.793 on 1 and 48 DF,  p-value: 0.007507</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(regEdad)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Divorce ~ MedianAgeMarriage, data = WaffleDivorce)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.4836 -0.9813 -0.0348  0.9932  3.6146 
+## 
+## Coefficients:
+##                   Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)        32.4703     4.4210   7.345 2.18e-09 ***
+## MedianAgeMarriage  -0.8744     0.1695  -5.159 4.68e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.476 on 48 degrees of freedom
+## Multiple R-squared:  0.3567, Adjusted R-squared:  0.3433 
+## F-statistic: 26.61 on 1 and 48 DF,  p-value: 4.682e-06</code></pre>
+<p>Ambos modelos están muy seguros de lo que dicen: el hecho de que haya más casamientos genera más divorcios, mientras que a menor edad promedio de casamiento en un Estado, mayor tasa de divocio. Pero no podemos comparar los coeficientes de los dos modelos sin más: debemos usar ambos en uno solo para conocer <strong>si los valores de una variable siguen siendo importantes luego de conocer el valor de la otra variable</strong>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">regMulti &lt;-<span class="st"> </span><span class="kw">lm</span>(WaffleDivorce,<span class="dt">formula =</span>  Divorce <span class="op">~</span><span class="st"> </span>MedianAgeMarriage <span class="op">+</span><span class="st"> </span>Marriage)
+<span class="kw">summary</span>(regMulti)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Divorce ~ MedianAgeMarriage + Marriage, data = WaffleDivorce)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.5177 -0.9828 -0.0458  0.9224  3.2818 
+## 
+## Coefficients:
+##                   Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)       36.87665    7.66104   4.814 1.58e-05 ***
+## MedianAgeMarriage -0.99965    0.24593  -4.065 0.000182 ***
+## Marriage          -0.05686    0.08053  -0.706 0.483594    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.483 on 47 degrees of freedom
+## Multiple R-squared:  0.3634, Adjusted R-squared:  0.3364 
+## F-statistic: 13.42 on 2 and 47 DF,  p-value: 2.455e-05</code></pre>
+<p>¿Qué sucedió? Ahora nuestro modelo nos dice que no hay evidencia para concluir que la relación entre las dos variables es distinta a cero (vean el p valor 48% ¿Qué pasa si hacen el intervalo de confianza de ese parámetro?) , mientras que la edad promedio - en realidad, mediana - de casamiento rechaza sin mayores problemas la hipótesis de nulidad.</p>
+<p>Cuando hacemos regresiones múltiples, la regresión literalmente estima un coeficiente luego del otro. Hagamos la siguiente prueba:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">regPorPartesMarriage &lt;-<span class="st"> </span><span class="kw">lm</span>(WaffleDivorce,<span class="dt">formula =</span>  Marriage <span class="op">~</span><span class="st">  </span>MedianAgeMarriage)
+WaffleDivorce<span class="op">$</span>residuosEdad &lt;-<span class="st"> </span><span class="kw">resid</span>(regPorPartesMarriage)
+regPorPartesMarriage &lt;-<span class="st"> </span><span class="kw">lm</span>(WaffleDivorce, <span class="dt">formula =</span>  Divorce <span class="op">~</span><span class="st"> </span>residuosEdad)
+<span class="kw">summary</span>(regPorPartesMarriage)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Divorce ~ residuosEdad, data = WaffleDivorce)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.6841 -1.3864 -0.0047  1.1876  3.9498 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   9.68800    0.25929  37.363   &lt;2e-16 ***
+## residuosEdad -0.05686    0.09954  -0.571     0.57    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.833 on 48 degrees of freedom
+## Multiple R-squared:  0.006753,   Adjusted R-squared:  -0.01394 
+## F-statistic: 0.3264 on 1 and 48 DF,  p-value: 0.5705</code></pre>
+<p>Si prestan atención, el coeficiente <strong>Marriage</strong> de la regresión simple entre los residuos de la regresión entre Marriage y la edad mediana de casamiento es el mismo que coeficiente de <strong>Marriage</strong> en la regresión múltiple. Lo mismo es cierto para el coeficiente de la edad mediana.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">regPorPartesMedianAge &lt;-<span class="st"> </span><span class="kw">lm</span>(WaffleDivorce,<span class="dt">formula =</span>  MedianAgeMarriage <span class="op">~</span><span class="st"> </span>Marriage)
+WaffleDivorce<span class="op">$</span>residuosMarriage &lt;-<span class="st"> </span><span class="kw">resid</span>(regPorPartesMedianAge)
+regPorPartesMedianAge &lt;-<span class="st"> </span><span class="kw">lm</span>(WaffleDivorce, <span class="dt">formula =</span>  Divorce <span class="op">~</span><span class="st"> </span>residuosMarriage)
+<span class="kw">summary</span>(regPorPartesMedianAge)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Divorce ~ residuosMarriage, data = WaffleDivorce)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.4989 -1.1360  0.0917  0.8517  3.5424 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)        9.6880     0.2292   42.27  &lt; 2e-16 ***
+## residuosMarriage  -0.9996     0.2687   -3.72 0.000522 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.621 on 48 degrees of freedom
+## Multiple R-squared:  0.2238, Adjusted R-squared:  0.2076 
+## F-statistic: 13.84 on 1 and 48 DF,  p-value: 0.000522</code></pre>
+<p>¿Qué significa esto? La regresión múltiple “elimina” lo que ya sabemos de una variable independiente al conocer el resto de las independientes. Solo luego de eso lo regresa contra la variable que queremos explicar. En este caso, eso marcó la diferencia entre ser “confundidos” o no por una regresión espuria.</p>
+</div>
+<div id="relación-enmascarada" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> Relación enmascarada</h3>
+<p>La cantidad de energía contenida en una determinada cantidad de leche suele estar asociada según algunos investigadores de la biologia evolutiva por el tamaño del cerebro del animal: a mayor tamaño de cerebro, mayor necesidad de kilocalorias por gramo de leche para que sea más eficiente el proceso. Para investigar esta hipótesis, vamos a trabajar con un dataset que, aunque tiene pocas observaciones, nos va a servir para estudiar esta relación.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/milk.RData&quot;</span>))
+milk &lt;-<span class="st"> </span>milk[<span class="kw">complete.cases</span>(milk),]</code></pre></div>
+<p>El dataset tiene 8 variables y 17 observaciones. La función <strong>complete.cases()</strong> nos devuelve las filas que efectivamente no tienen ningún valor faltante (o NA) en ninguna de las columnas. Ya podríamos estimar el modelo para ver si nuestra hipótesis se verifica en los datos</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">regresion4 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> milk,
+                 <span class="dt">formula =</span> kcal.per.g <span class="op">~</span><span class="st"> </span>neocortex.perc)
+<span class="kw">summary</span>(regresion4)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kcal.per.g ~ neocortex.perc, data = milk)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.19027 -0.14693 -0.03744  0.15613  0.29959 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)    0.353332   0.501120   0.705    0.492
+## neocortex.perc 0.004503   0.007389   0.609    0.551
+## 
+## Residual standard error: 0.1764 on 15 degrees of freedom
+## Multiple R-squared:  0.02417,    Adjusted R-squared:  -0.04089 
+## F-statistic: 0.3715 on 1 and 15 DF,  p-value: 0.5513</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(regresion4, <span class="kw">aes</span>(<span class="dt">x=</span>neocortex.perc, <span class="dt">y =</span> kcal.per.g))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>)</code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-196-1.png" width="672" /></p>
+<p>Nuestra hipótesis, condicional en nuestro modelos y datos, no parece ser corroborada. Ahora bien ¿qué pasa si agregamos el peso promedio de las hembras de estas especies? ¿Podría esta variable estar relacionada tanto con la energía por gramo de leche y el tamaño del neocortex y esconder una relación?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">regresion5 &lt;-<span class="st"> </span>regresion5 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> milk,
+                 <span class="dt">formula =</span> kcal.per.g <span class="op">~</span><span class="st"> </span>mass)
+<span class="kw">summary</span>(regresion5)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kcal.per.g ~ mass, data = milk)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.24028 -0.11410 -0.01743  0.15337  0.27703 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.701516   0.049968  14.039 4.92e-10 ***
+## mass        -0.002637   0.001766  -1.493    0.156    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.1666 on 15 degrees of freedom
+## Multiple R-squared:  0.1293, Adjusted R-squared:  0.07129 
+## F-statistic: 2.228 on 1 and 15 DF,  p-value: 0.1562</code></pre>
+<p>Parece un modelo más razonable, aunque el coeficiente de peso de las hermbras parece estar cerca de cero ¿Qué pasa si agregamos ambas variables juntas?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">regresion6 &lt;-<span class="st"> </span>regresion6 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> milk,
+                 <span class="dt">formula =</span> kcal.per.g <span class="op">~</span><span class="st"> </span>neocortex.perc <span class="op">+</span><span class="st"> </span>mass)
+<span class="kw">summary</span>(regresion6)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kcal.per.g ~ neocortex.perc + mass, data = milk)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.19551 -0.10061 -0.02868  0.11914  0.20677 
+## 
+## Coefficients:
+##                 Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)    -0.438441   0.513367  -0.854   0.4075  
+## neocortex.perc  0.017541   0.007870   2.229   0.0427 *
+## mass           -0.005367   0.001992  -2.694   0.0175 *
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.1482 on 14 degrees of freedom
+## Multiple R-squared:  0.3574, Adjusted R-squared:  0.2656 
+## F-statistic: 3.893 on 2 and 14 DF,  p-value: 0.04526</code></pre>
+<p>Nuestro modelo mejoró y bastante. Ahora ambas variables lucen significativas, aunque tienen signo inverso: el tamaño parece estar negativamente asociado, mientras que el tamaño relativo del neocortex positivamente asociado ¿Qué fue lo que pasó?. Si miran el gráfico de abajo van a ver que ambas variables explicativias o independientes se encuentran positivamente relacionadas entre ellas.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(milk,<span class="kw">aes</span>(<span class="dt">x=</span>neocortex.perc, <span class="dt">y=</span>mass)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>)</code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-199-1.png" width="672" /></p>
+<p>Si a su vez la primera variable tiene un impacto positivo y la segunda un impacto negativo, entonces se van a cancelar ambos efectos en nuestras observaciones. Pero una regresión múltiple está perfectamente apta para captar este fenómeno: lo que nos dicen los coeficientes es: dado un determinado tamaño ¿más porcentaje de neocortex se asocia con mayor caloria por gramo de leche? Ahora sí podemos concluir que nuestro modelo y datos son compatibles con esta hipótesis.</p>
+</div>
+</div>
+<div id="una-razón-para-ser-cuidadoso-al-interpretar-los-coeficientes-la-multicolinealidad" class="section level2">
+<h2><span class="header-section-number">6.5</span> Una razón para ser cuidadoso al interpretar los coeficientes: la multicolinealidad</h2>
+<p>Viendo los méritos de la regresión lineal múltiple (nos ayuda a detectar relaciones espúreas y, además, distinguir entre efectos de variables que “van de la mano”) uno puede tentarse en agregar todas las variables y hacer un modelo “saturado”, total esta máquina sabe hacer todo.</p>
+<p>Bueno, no tan rápido. Vamos a ver una razón por la cuál hay que ser más cuidadoso: la <strong>multicolinealidad</strong>. En el próximo capítulo veremos otra razón por la cual también hay que serlo: el <strong>overfitting</strong>.</p>
+<p>Imaginense que queremos explicar la altura de una pesona por el alto de sus piernas. Pero en nuestro modelo no vamos a incluir solo una pierna, si no las dos: la izquierda y la derecha. Veamos qué pasa con estos coeficientes. Esta vez no vamos a trabajar con un dataset que tenga esta información (quizás exista, no lo sé), pero vamos a simularlo.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">2</span>)
+n &lt;-<span class="st"> </span><span class="dv">100</span>
+altura &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n,<span class="dv">10</span>,<span class="dv">2</span>)
+leg_prop &lt;-<span class="st"> </span><span class="kw">runif</span>(n,<span class="fl">0.4</span>, <span class="fl">0.5</span>)
+leg_left &lt;-<span class="st"> </span>leg_prop<span class="op">*</span>altura <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dv">0</span>, <span class="fl">0.02</span>)
+leg_right &lt;-<span class="st"> </span>leg_prop<span class="op">*</span>altura <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dv">0</span>, <span class="fl">0.02</span>)
+alturas &lt;-<span class="st"> </span><span class="kw">data.frame</span>(altura, leg_left, leg_right)</code></pre></div>
+<p>Ahora hagamos tres modelos: uno explicando la altura como una función de la pierna izquierda, otro de la pierna derecha y otro de ambos.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">regresion7 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> alturas, <span class="dt">formula =</span> altura <span class="op">~</span><span class="st"> </span>leg_left)
+regresion8 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> alturas, <span class="dt">formula =</span> altura <span class="op">~</span><span class="st"> </span>leg_right)
+regresion9 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> alturas, <span class="dt">formula =</span> altura <span class="op">~</span><span class="st"> </span>leg_left <span class="op">+</span><span class="st"> </span>leg_right)</code></pre></div>
+<p>¿Qué observan? Los modelos que incluyen solo a una de las dos piernas nos devuelven los parámetros que esperábamos, en línea con nuestros datos simulados. El modelo que incluye las dos variables, ¿Por qué? Recuerden que en una regresión lineal múltiple cada coeficiente nos dice cuál es la variación esperada en la variable dependiente cuando cambia en una unidad <em>dado el valor del resto de las variables dependientes</em>. Nuestro modelo nos está diciendo que no sabe exactamente cuál es el valor de saber la altura de la pierna izquierda o derecha, una vez que sabemos el valor de la otra. Lo cual es consistente con nuestros datos, pero bastante poco útil si queremos identificar el efecto de cada uno. Cabe remarcar que, si hacen las predicciones individuales, este modelo lo hará muy bien, quizás mejor que el modelo de predicción simple. El problema es que no será posible, con los conocimientos que tenemos hasta el momento, diferenciar el efecto de una variable de la otra.</p>
+</div>
+<div id="ejercicios-3" class="section level2">
+<h2><span class="header-section-number">6.6</span> Ejercicios</h2>
+<p>Carguen el dataset que cuenta con los datos de precios y propiedades de los inmuebles de Properati con el siguiente código:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">barriosOriginal &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;https://github.com/datalab-UTDT/datasets/raw/master/barriosSample.csv&quot;</span>,
+                              <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>,
+                              <span class="dt">header =</span> <span class="ot">TRUE</span>,
+                              <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+barriosOriginal &lt;-<span class="st"> </span>barriosOriginal <span class="op">%&gt;%</span>
+<span class="st">                   </span><span class="kw">select</span>(price_aprox_usd, surface_in_m2, price_usd_per_m2, rooms)
+barriosOriginal &lt;-<span class="st"> </span>barriosOriginal[<span class="kw">complete.cases</span>(barriosOriginal),]</code></pre></div>
+<ol style="list-style-type: decimal">
+<li>¿Cuál es la relación entre el precio en USD de una propiedad (<em>price_aprox_usd</em>) y la cantidad de habitaciones (<em>rooms</em>)? Estime una regresión lineal y evalue los resultados</li>
+<li>A la primera regresión agregarle la superficie en metros cuadrados (<em>surface_in_m2</em>) ¿Qué sucedió con los coeficientes? ¿A qué se lo atribuiría?</li>
+<li>¿Cuál es la relación entre el precio de los inmuebles en dólares por metro cuadrado (<em>price_usd_per_m2</em>) y el tamaño de la propiedad?</li>
+</ol>
+</div>
+<div id="lecturas-recomendadas" class="section level2">
+<h2><span class="header-section-number">6.7</span> Lecturas recomendadas</h2>
+<p>Este capítulo está basado en el capítulo 5 del muy buen libro de Richard McElreath “Statistical Rethinking”. Recomiendo la lectura de los capítulos 4 y 5. Al mismo tiempo, este capítulo está inspirado en el libro de Walter Sosa Escudero “Big Data”</p>
+<p>Pueden consultar dónde conseguir el libro de McElreath <a href="https://xcelab.net/rm/statistical-rethinking/">aquí</a> y el de Walter Sosa Escuedero <a href="http://www.sigloxxieditores.com.ar/fichaLibro.php?libro=978-987-629-899-5">aquí</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-wrangling-de-datos-espaciales.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="los-beatles-del-machine-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

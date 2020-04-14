@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Los beatles del Machine Learning | Ciencia de datos para curiosos</title>
+  <meta name="description" content="Una introducción practica a la Ciencia de Datos" />
+  <meta name="generator" content="bookdown 0.18.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Los beatles del Machine Learning | Ciencia de datos para curiosos" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="Figuras/GatoCurioso.png" />
+  <meta property="og:description" content="Una introducción practica a la Ciencia de Datos" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Los beatles del Machine Learning | Ciencia de datos para curiosos" />
+  
+  <meta name="twitter:description" content="Una introducción practica a la Ciencia de Datos" />
+  <meta name="twitter:image" content="Figuras/GatoCurioso.png" />
+
+<meta name="author" content="Martin Montane" />
+
+
+<meta name="date" content="2020-04-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="el-automovil-de-la-estadistica.html"/>
+<link rel="next" href="un-paquete-para-dominarlos-a-todos.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>¡Sólo curiosos de acá en adelante!</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#qué-necesitamos-para-arrancar"><i class="fa fa-check"></i>¿Qué necesitamos para arrancar?</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html"><i class="fa fa-check"></i><b>1</b> Introduccion practica a la Ciencia de Datos</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#nuestra-primera-investigación-el-precio-de-las-propiedades-en-caba"><i class="fa fa-check"></i><b>1.1</b> Nuestra primera investigación: el precio de las propiedades en CABA</a></li>
+<li class="chapter" data-level="1.2" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#conociendo-rstudio"><i class="fa fa-check"></i><b>1.2</b> Conociendo RStudio</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#proyectos-en-rstudio"><i class="fa fa-check"></i><b>1.2.1</b> Proyectos en RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#importando-datos-a-r"><i class="fa fa-check"></i><b>1.3</b> Importando datos a R</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#comma-separated-values"><i class="fa fa-check"></i><b>1.3.1</b> Comma Separated Values</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#cómo-r-organiza-los-datos"><i class="fa fa-check"></i><b>1.4</b> ¿Cómo R organiza los datos?</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#vectores"><i class="fa fa-check"></i><b>1.4.1</b> Vectores</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#listas-y-data-frames"><i class="fa fa-check"></i><b>1.4.2</b> Listas y Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#inspeccionando-nuestros-datos"><i class="fa fa-check"></i><b>1.5</b> Inspeccionando nuestros datos</a></li>
+<li class="chapter" data-level="1.6" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#retomando-nuestro-ejercicio-cuánto-aumentaron-las-viviendas"><i class="fa fa-check"></i><b>1.6</b> Retomando nuestro ejercicio: ¿Cuánto aumentaron las viviendas?</a></li>
+<li class="chapter" data-level="1.7" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#conclusiones"><i class="fa fa-check"></i><b>1.7</b> Conclusiones</a></li>
+<li class="chapter" data-level="1.8" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>1.8</b> Ejercicios</a></li>
+<li class="chapter" data-level="1.9" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#extensión-cargando-y-guardando-datos-de-otros-formatos"><i class="fa fa-check"></i><b>1.9</b> Extensión: cargando y guardando datos de otros formatos</a><ul>
+<li class="chapter" data-level="1.9.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#microsoft-excel"><i class="fa fa-check"></i><b>1.9.1</b> Microsoft Excel</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html"><i class="fa fa-check"></i><b>2</b> Transformando nuestros datos (data wrangling)</a><ul>
+<li class="chapter" data-level="2.1" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#instalando-nuestro-primer-paquete-en-r-tidyverse"><i class="fa fa-check"></i><b>2.1</b> Instalando nuestro primer paquete en R: tidyverse</a></li>
+<li class="chapter" data-level="2.2" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#el-dataset-gapminder"><i class="fa fa-check"></i><b>2.2</b> El dataset <em>gapminder</em></a></li>
+<li class="chapter" data-level="2.3" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#transformaciones-de-los-datos"><i class="fa fa-check"></i><b>2.3</b> Transformaciones de los datos</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#selección-de-columnas-select"><i class="fa fa-check"></i><b>2.3.1</b> Selección de columnas: select()</a></li>
+<li class="chapter" data-level="2.3.2" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#selección-de-casos-filter"><i class="fa fa-check"></i><b>2.3.2</b> Selección de casos: <code>filter()</code></a></li>
+<li class="chapter" data-level="2.3.3" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#ordenando-la-función-arrange"><i class="fa fa-check"></i><b>2.3.3</b> Ordenando: la función arrange()</a></li>
+<li class="chapter" data-level="2.3.4" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#creando-y-modificando-variables-mutate"><i class="fa fa-check"></i><b>2.3.4</b> Creando y modificando variables: mutate()</a></li>
+<li class="chapter" data-level="2.3.5" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#resumiendo-y-transformando-datos-en-base-a-grupos"><i class="fa fa-check"></i><b>2.3.5</b> Resumiendo y transformando datos en base a grupos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#transformando-la-presentación-de-los-datos-pivot_wider-y-pivot_longer"><i class="fa fa-check"></i><b>2.4</b> Transformando la presentación de los datos: pivot_wider y pivot_longer</a></li>
+<li class="chapter" data-level="2.5" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#uniendo-datos-de-distintas-fuentes-left_join"><i class="fa fa-check"></i><b>2.5</b> Uniendo datos de distintas fuentes: left_join</a></li>
+<li class="chapter" data-level="2.6" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#la-mise-en-place-preparando-el-dataset-de-inmuebles"><i class="fa fa-check"></i><b>2.6</b> La <em>mise en place</em>: preparando el dataset de inmuebles</a></li>
+<li class="chapter" data-level="2.7" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#ejercicios-1"><i class="fa fa-check"></i><b>2.7</b> Ejercicios</a></li>
+<li class="chapter" data-level="2.8" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#extensiones"><i class="fa fa-check"></i><b>2.8</b> Extensiones</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#r-cheatsheets"><i class="fa fa-check"></i><b>2.8.1</b> R Cheatsheets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html"><i class="fa fa-check"></i><b>3</b> Visualizaciones de datos en R</a><ul>
+<li class="chapter" data-level="3.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#la-importancia-de-la-visualización-de-los-datos"><i class="fa fa-check"></i><b>3.1</b> La importancia de la visualización de los datos</a></li>
+<li class="chapter" data-level="3.2" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ggplot-grammar-of-graphics"><i class="fa fa-check"></i><b>3.2</b> GGPLOT: Grammar of Graphics</a></li>
+<li class="chapter" data-level="3.3" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cuál-es-la-relación-entre-el-ingreso-de-un-país-y-la-expectativa-de-vida-al-nacer-scatterplot"><i class="fa fa-check"></i><b>3.3</b> ¿Cuál es la relación entre el ingreso de un país y la expectativa de vida al nacer? Scatterplot</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#agregando-colores-según-otras-variables"><i class="fa fa-check"></i><b>3.3.1</b> Agregando colores según otras variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cuál-fue-la-evolución-de-la-expectativa-de-vida-al-nacer-gráfico-de-líneas"><i class="fa fa-check"></i><b>3.4</b> ¿Cuál fue la evolución de la expectativa de vida al nacer? Gráfico de líneas</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cambiando-la-apariencia-de-las-leyendas"><i class="fa fa-check"></i><b>3.4.1</b> Cambiando la apariencia de las leyendas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#reproduciendo-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.5</b> Reproduciendo el gráfico de Hans Rosling</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#exportando-gráficos-de-ggplot"><i class="fa fa-check"></i><b>3.5.1</b> Exportando gráficos de ggplot</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#mapas"><i class="fa fa-check"></i><b>3.6</b> Mapas</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#mapas-animados"><i class="fa fa-check"></i><b>3.6.1</b> Mapas animados</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ejercicios-2"><i class="fa fa-check"></i><b>3.7</b> Ejercicios</a></li>
+<li class="chapter" data-level="3.8" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#extensión-animando-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.8</b> Extensión: animando el gráfico de Hans Rosling</a></li>
+<li class="chapter" data-level="3.9" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#material-de-lectura"><i class="fa fa-check"></i><b>3.9</b> Material de lectura</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html"><i class="fa fa-check"></i><b>4</b> Datos espaciales en R</a><ul>
+<li class="chapter" data-level="4.1" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#qué-es-un-dato-espacial"><i class="fa fa-check"></i><b>4.1</b> ¿Qué es un dato espacial?</a></li>
+<li class="chapter" data-level="4.2" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#dónde-estamos-en-la-tierra"><i class="fa fa-check"></i><b>4.2</b> ¿Dónde estamos en la Tierra?</a></li>
+<li class="chapter" data-level="4.3" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#coordinate-reference-systems"><i class="fa fa-check"></i><b>4.3</b> Coordinate Reference Systems</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#elipsoides-sistemas-de-coordenadas-y-datums"><i class="fa fa-check"></i><b>4.3.1</b> Elipsoides, sistemas de coordenadas y datums</a></li>
+<li class="chapter" data-level="4.3.2" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#proyecciones"><i class="fa fa-check"></i><b>4.3.2</b> Proyecciones</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#un-ejemplo-datos-públicos-de-gcba-y-properati"><i class="fa fa-check"></i><b>4.4</b> Un ejemplo: datos públicos de GCBA y Properati</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#caba"><i class="fa fa-check"></i><b>4.4.1</b> CABA</a></li>
+<li class="chapter" data-level="4.4.2" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#properati"><i class="fa fa-check"></i><b>4.4.2</b> Properati</a></li>
+<li class="chapter" data-level="4.4.3" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#asignando-los-inmuebles-a-los-barrios"><i class="fa fa-check"></i><b>4.4.3</b> Asignando los inmuebles a los barrios</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#otras-operaciones-espaciales"><i class="fa fa-check"></i><b>4.5</b> Otras operaciones espaciales</a></li>
+<li class="chapter" data-level="4.6" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#incorporando-información-a-nuestro-dataset-los-subtes"><i class="fa fa-check"></i><b>4.6</b> Incorporando información a nuestro dataset: los subtes</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#una-alternativa-más-simple-usando-otro-método-de-join-espacial"><i class="fa fa-check"></i><b>4.6.1</b> Una alternativa más simple: usando otro método de join espacial</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#ejercicio"><i class="fa fa-check"></i><b>4.7</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html"><i class="fa fa-check"></i><b>5</b> Data wrangling de datos espaciales</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#introduccion"><i class="fa fa-check"></i><b>5.1</b> Introduccion</a></li>
+<li class="chapter" data-level="5.2" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#areal-weighted-interpolation"><i class="fa fa-check"></i><b>5.2</b> Areal weighted interpolation</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#carga-de-los-datos"><i class="fa fa-check"></i><b>5.2.1</b> Carga de los datos</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#diferentes-radios-censales"><i class="fa fa-check"></i><b>5.2.2</b> Diferentes radios censales</a></li>
+<li class="chapter" data-level="5.2.3" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#make-polygons-comparable-again"><i class="fa fa-check"></i><b>5.2.3</b> Make polygons comparable again</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#haciendo-mapas-de-nuestros-nuevos-datos"><i class="fa fa-check"></i><b>5.3</b> Haciendo mapas de nuestros nuevos datos</a></li>
+<li class="chapter" data-level="5.4" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#ejercicio-1"><i class="fa fa-check"></i><b>5.4</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html"><i class="fa fa-check"></i><b>6</b> El automovil de la estadistica</a><ul>
+<li class="chapter" data-level="6.1" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#cuál-es-la-relación-entre-la-altura-y-el-peso-de-las-personas"><i class="fa fa-check"></i><b>6.1</b> ¿Cuál es la relación entre la altura y el peso de las personas?</a></li>
+<li class="chapter" data-level="6.2" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#el-objetivo-de-la-regresión-lineal"><i class="fa fa-check"></i><b>6.2</b> El “objetivo” de la regresión lineal</a></li>
+<li class="chapter" data-level="6.3" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#agregando-variables-explicativas"><i class="fa fa-check"></i><b>6.3</b> Agregando variables explicativas</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#interpretación-de-los-coeficientes-y-su-incertidumbre"><i class="fa fa-check"></i><b>6.3.1</b> Interpretación de los coeficientes (y su incertidumbre)</a></li>
+<li class="chapter" data-level="6.3.2" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#entonces-pesar-un-kilo-más-aumenta-la-altura-en-aproximadamente-un-centímetro"><i class="fa fa-check"></i><b>6.3.2</b> ¿Entonces pesar un kilo más aumenta la altura en aproximadamente un centímetro?</a></li>
+<li class="chapter" data-level="6.3.3" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#intervalos-de-confianza-otra-forma-de-pensar-la-incertidumbre"><i class="fa fa-check"></i><b>6.3.3</b> Intervalos de confianza: otra forma de pensar la incertidumbre</a></li>
+<li class="chapter" data-level="6.3.4" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#qué-explica-y-que-no-nuestra-regresión"><i class="fa fa-check"></i><b>6.3.4</b> Qué explica y que no nuestra regresión</a></li>
+<li class="chapter" data-level="6.3.5" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#incertidumbre-en-el-promedio-e-incertidumbre-en-el-valor-predicho"><i class="fa fa-check"></i><b>6.3.5</b> Incertidumbre en el promedio e incertidumbre en el valor predicho</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#regresión-lineal-múltiple-controlando-por-otros-factores"><i class="fa fa-check"></i><b>6.4</b> Regresión lineal múltiple: controlando por otros factores</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#asociación-espuria"><i class="fa fa-check"></i><b>6.4.1</b> Asociación espuria</a></li>
+<li class="chapter" data-level="6.4.2" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#relación-enmascarada"><i class="fa fa-check"></i><b>6.4.2</b> Relación enmascarada</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#una-razón-para-ser-cuidadoso-al-interpretar-los-coeficientes-la-multicolinealidad"><i class="fa fa-check"></i><b>6.5</b> Una razón para ser cuidadoso al interpretar los coeficientes: la multicolinealidad</a></li>
+<li class="chapter" data-level="6.6" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#ejercicios-3"><i class="fa fa-check"></i><b>6.6</b> Ejercicios</a></li>
+<li class="chapter" data-level="6.7" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#lecturas-recomendadas"><i class="fa fa-check"></i><b>6.7</b> Lecturas recomendadas</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html"><i class="fa fa-check"></i><b>7</b> Los beatles del Machine Learning</a><ul>
+<li class="chapter" data-level="7.1" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#machine-learning"><i class="fa fa-check"></i><b>7.1</b> Machine Learning</a></li>
+<li class="chapter" data-level="7.2" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#cómo-funciona-un-árbol-de-decisión"><i class="fa fa-check"></i><b>7.2</b> ¿Cómo funciona un árbol de decisión?</a></li>
+<li class="chapter" data-level="7.3" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#podemos-predecir-quién-se-murió-en-el-titanic"><i class="fa fa-check"></i><b>7.3</b> ¿Podemos predecir quién se murió en el Titanic?</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#cómo-podemos-medir-qué-tan-bien-clasifica-nuestro-árbol"><i class="fa fa-check"></i><b>7.3.1</b> ¿Cómo podemos medir qué tan bien clasifica nuestro árbol?</a></li>
+<li class="chapter" data-level="7.3.2" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#un-árbol-puede-reducirse-a-reglas"><i class="fa fa-check"></i><b>7.3.2</b> Un árbol puede reducirse a reglas</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#aplicación-en-el-mercado-de-trabajo-monotributistas-y-cuentapropistas-informales"><i class="fa fa-check"></i><b>7.4</b> Aplicación en el mercado de trabajo: monotributistas y cuentapropistas informales</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#overfitting-aprendiendo-demasiado-de-nuestra-muestra"><i class="fa fa-check"></i><b>7.4.1</b> Overfitting: aprendiendo demasiado de nuestra muestra</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#algunos-árboles-no-solo-clasifican-árboles-de-regresión"><i class="fa fa-check"></i><b>7.5</b> Algunos árboles no solo clasifican: árboles de regresión</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#poniendo-en-forma-los-datos"><i class="fa fa-check"></i><b>7.5.1</b> Poniendo en forma los datos</a></li>
+<li class="chapter" data-level="7.5.2" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#recursive-partitioning-rpart"><i class="fa fa-check"></i><b>7.5.2</b> Recursive PARTitioning (RPART)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#ejercicio-2"><i class="fa fa-check"></i><b>7.6</b> Ejercicio</a></li>
+<li class="chapter" data-level="7.7" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#lecturas-recomendadas-1"><i class="fa fa-check"></i><b>7.7</b> Lecturas recomendadas</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html"><i class="fa fa-check"></i><b>8</b> Un paquete para dominarlos a todos</a><ul>
+<li class="chapter" data-level="8.1" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html#classification-and-regression-training-caret"><i class="fa fa-check"></i><b>8.1</b> Classification And Regression Training (CARET)</a></li>
+<li class="chapter" data-level="8.2" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html#entrenando-un-árbol-de-decisión"><i class="fa fa-check"></i><b>8.2</b> Entrenando un árbol de decisión</a></li>
+<li class="chapter" data-level="8.3" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html#entrenando-un-árbol-de-regresión"><i class="fa fa-check"></i><b>8.3</b> Entrenando un árbol de regresión</a></li>
+<li class="chapter" data-level="8.4" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html#ejercicio-3"><i class="fa fa-check"></i><b>8.4</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="anexo-1-datasets.html"><a href="anexo-1-datasets.html"><i class="fa fa-check"></i><b>9</b> Anexo 1 - Datasets</a><ul>
+<li class="chapter" data-level="9.1" data-path="anexo-1-datasets.html"><a href="anexo-1-datasets.html#encuesta-permanente-de-hogares-eph"><i class="fa fa-check"></i><b>9.1</b> Encuesta Permanente de Hogares (EPH)</a></li>
+<li class="chapter" data-level="9.2" data-path="anexo-1-datasets.html"><a href="anexo-1-datasets.html#precios-de-los-inmuebles"><i class="fa fa-check"></i><b>9.2</b> Precios de los inmuebles</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="anexo-2-otras-funciones-de-data-wrangling.html"><a href="anexo-2-otras-funciones-de-data-wrangling.html"><i class="fa fa-check"></i><b>10</b> Anexo 2 - Otras funciones de Data Wrangling</a><ul>
+<li class="chapter" data-level="10.1" data-path="anexo-2-otras-funciones-de-data-wrangling.html"><a href="anexo-2-otras-funciones-de-data-wrangling.html#convirtiendo-una-variable-númerica-a-categórica"><i class="fa fa-check"></i><b>10.1</b> Convirtiendo una variable númerica a categórica</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ciencia de datos para curiosos</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="los-beatles-del-machine-learning" class="section level1">
+<h1><span class="header-section-number">7</span> Los beatles del Machine Learning</h1>
+<p>Si la regresión lineal es el automóvil de la estadística o, como dice Walter Sosa Escudero, los “Rolling Stones” de esa disciplina científica, podríamos decir que los árboles de decisión, quizás la familia de técnicas de <em>machine learning</em> más famosa del mundo, son los Beatles del <em>aprendizaje automático</em> (traducción al español de *machine learning). En esta clase vamos a tener una introducción a qué hacen, cómo lo hacen y para qué sirven.</p>
+<div id="machine-learning" class="section level2">
+<h2><span class="header-section-number">7.1</span> Machine Learning</h2>
+<p>El término <strong>Machine Learning</strong> debe ser uno de los más nombrados en los últimos años, junto a <strong>Inteligencia Artificial</strong>. Aunque no hay una clara definción de ambos conceptos, vamos a definir al segundo como “la habilidad de las maquinas de comportarse de una manera que nosotros consideramos inteligente”. Con respecto al primer concepto, mucho más estrecho, lo vamos a definir como “La capacidad de un programa de aprender a hacer una tarea cada vez mejor en base a la experiencia”, cerca de la definición del libro de Tom Mitchell, <em>Machine Learning</em> (2017). Notemos que el programa es quien aprende desde la experiencia: nosotros no intervenimos activamente en ese proceso de aprendizaje. Eso es lo que hace especial al Aprendizaje Automático (traducción de <strong>machine learning</strong>)</p>
+<p>En términos de Mitchell, “Se dice que un programa de computadora aprende de la experiencia (E) con respecto a una determinada clase de tarea (T) y medida de performance (P) si su performance en la tarea (T), medido por P, mejora con la experiencia E”. En definitiva: <em>Machine Learning</em> es la posibilidad de un programa de computadora de hacer cada vez mejor su trabajo en base a una determinada métrica.</p>
+</div>
+<div id="cómo-funciona-un-árbol-de-decisión" class="section level2">
+<h2><span class="header-section-number">7.2</span> ¿Cómo funciona un árbol de decisión?</h2>
+<p>Si alguna vez jugaron al <em>¿Quién es Quién?</em> conocen la principal característica de un árbol de decisión: hace preguntas que pueden ser respondidas con “si o no” (binarias) de tal manera de separar a todas las observaciones (en este caso, los nombres de los personajes) en base a las distintas variables que tienen (color de pelo, si usa o no anteojos, sexo, entre otras). De esta manera, tanto nuestra estrategia en el quién es quién como la de los árboles de decisión coinciden en dividir al espacio de nuestros datos en “segmentos” de acuerdo a los valores que toman en las distintas variables.</p>
+<p><img src="Figuras/Capitulo%205/WhoIsWho.png" width="391" /></p>
+<p>Lo que muestra el gráfico 1 es un árbol de decisión del Quién es Quién, suponiendo que el personaje que nos tocó es una mujer con anteojos (y hay solo una en todo el tablero). Esto que hacemos intuitivamente en jerga estadística se conoce como <strong>Recursive Partitioning</strong>.</p>
+<p>Ahora bien, nuestro objetivo en el juego es identificar a la persona que nos tocó. Acá es donde comienzan las diferencias con respecto a los árboles de decisión. Por un lado, en el quién es quién nosotros, de manera activa, vamos haciendo las preguntas. Por otro lado, si aprendemos a jugar bien probablemente hagamos preguntas en las cuales la respuesta de sí o no nos elimine a la mayor cantidad de casos.</p>
+<p>Pero un árbol de decisión no requiere nuestra intervención, de allí la parte de “automático” en aprendizaje automático: tiene reglas claras para ir haciendo las preguntas necesarias para hacer la tarea de “encontrar” a nuestro personaje cada vez mejor. Por otro lado, no le interesa conocer dónde está esa única persona, sino que el objetivo es aprender a clasificar <em>cada vez mejor</em> a cierta variable objetivo. Por ejemplo, imaginen que en lugar de encontrar a “Clara” el objetivo sea encontrar a “Mujeres”. Quizás en el Quién es Quién dentro de las personas que tienen pelo largo hay más mujeres que hombres y pueda usarse para eso.</p>
+<p>De hecho, los árboles de decisión hacen exactamente esto último. Buscan ir segmentando el espacio de nuestras variables en distintos pedazos que logren aislar a las categorias de nuestra variable objetivo (lo que queremos predecir) de una manera más homogénea. En nuestro caso de crear un árbol para encontrar a las mujeres, desearíamos ir segmentando a las personas según preguntas cuya respuesta nos separe todos hombres o todas mujeres (o lo más cercano a eso). Veamos todo esto con un ejemplo cinematográfico.</p>
+</div>
+<div id="podemos-predecir-quién-se-murió-en-el-titanic" class="section level2">
+<h2><span class="header-section-number">7.3</span> ¿Podemos predecir quién se murió en el Titanic?</h2>
+<p>En abril de 1912 el RMS Titanic chocó contra un iceberg y más de 800 de los pasajeros murieron, mientras que aproximadamente 500 sobrevivieron ¿Podemos crear un árbol de decisión que nos permita predecir quienes sobrevivieron y quienes no en base a variables como su edad, género y clase en la que viajaron? Probemoslo con el conocido dataset que simula a los pasajeros del Titanic y las variables con las que vamos a entrenar a nuestro árbol de decisión.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">titanic &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;https://raw.githubusercontent.com/martintinch0/CienciaDeDatosParaCuriosos/master/data/titanic.csv&quot;</span>,
+                    <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>,
+                    <span class="dt">sep =</span> <span class="st">&#39;;&#39;</span>)</code></pre></div>
+<p>También vamos a cargar el paquete que nos va a permitir crear nuestro primer modelo de árboles de decisiones <strong>C50</strong> (noten la C mayúscula en <strong>C50</strong>) y <strong>tidyverse</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(C50)</code></pre></div>
+<p>Exploren un poco qué tiene el dataset de Titanic con el siguiente código:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(titanic)</code></pre></div>
+<pre><code>## Rows: 1,045
+## Columns: 4
+## $ survived &lt;int&gt; 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, ...
+## $ age      &lt;dbl&gt; 29.0000, 0.9167, 2.0000, 30.0000, 25.0000, 48.0000, 63.0000, 39.0000, 53.0000, 71...
+## $ sex      &lt;chr&gt; &quot;female&quot;, &quot;male&quot;, &quot;female&quot;, &quot;male&quot;, &quot;female&quot;, &quot;male&quot;, &quot;female&quot;, &quot;male&quot;, &quot;female&quot;,...
+## $ fare     &lt;dbl&gt; 211.3375, 151.5500, 151.5500, 151.5500, 151.5500, 26.5500, 77.9583, 0.0000, 51.47...</code></pre>
+<p>Las variables son bastante obvias, pero antes que tenemos que hacer un poco de <strong>data wrangling</strong>, en este caso bastante menor. El paquete C5.0 trabaja mejor con factores como predictoras (las que nos van a ayudar a predecir si una persona sobrevive o no al accidente del Titanic), pero también nos exige que este expresada en ese formato la variable objetivo (en nuestro caso, survived). Por esta razón vamos a convertir ambas variables:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">titanic &lt;-<span class="st"> </span>titanic <span class="op">%&gt;%</span>
+<span class="st">           </span><span class="kw">mutate</span>(<span class="dt">survived =</span> <span class="kw">factor</span>(survived),
+                  <span class="dt">sex =</span> <span class="kw">factor</span>(sex))</code></pre></div>
+<p>Ya estamos en condiciones de entrenar nuestro primer árbol de decisión en R. La función que entrena al árbol se llama <strong>C5.0()</strong> y usa un sistema de fórmula muy similar al que se vio en el capítulo 4 cuando introdujimos a las regresiones:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">primerArbol &lt;-<span class="st"> </span><span class="kw">C5.0</span>(<span class="dt">formula=</span> survived <span class="op">~</span>.,
+                    <span class="dt">data =</span> titanic)</code></pre></div>
+<p>Para ver qué tiene nuestro árbol, primero vamos a graficarlo. Esto lo podemos hacer con la función <strong>plot()</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(primerArbol)</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-209-1.png" width="672" /></p>
+<p>Un árbol de decisión está compuesto de nodos. Los que están al final, cuando no se hacen más bifurcaciones en nuestro dataset, se llaman <em>hojas</em> del árbol. Podemos ver que la primera pregunta que hace es si la persona es hombre o mujer. En caso que sea mujer, la siguiente pregunta es sobre distintos valores de la tarifa que se pagó. En caso que sea hombre, la pregunta tiene que ver con la edad.</p>
+<p>Las hojas del gráfico están acompañadas de una barra que muestra la proporción que sobrevivió (gris oscuro) y la que no lo hizo (gris claro). Por ejemplo, podemos ver que la hoja donde se concentra la mayor proporción de sobrevivientes son las mujeres con una tarifa superior a USD 47.1, mientras que la mayor proporción de muertes se encuentran entre los hombres mayores a 9 años.</p>
+<p>¿Cómo elige un árbol de decisión por cuál variable y por cuáles valores de esas variables abrir? elige aquellos cortes de nuestros datos que dejan más homogéneos a la nueva clasificación que la que había antes de hacer el quiebre. Para esto usa el importante concepto de <em>entropia</em>, la cual no desarrollaremos en profundidad pero basta con decir que es una medida que describe qué tan homogeneo es un conjunto de datos. Mientras más bajo sea más homogéneo es. Veamos cómo se calcula para el total de nuestros datos</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">proporcionSobrevivientes &lt;-<span class="st"> </span><span class="kw">table</span>(titanic<span class="op">$</span>survived)[<span class="dv">2</span>]<span class="op">/</span><span class="kw">nrow</span>(titanic)
+proporcionSobrevivientes <span class="co"># Aproximadamente un 41% de los pasajeros sobrevivieron</span></code></pre></div>
+<pre><code>##         1 
+## 0.4086124</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Formula de Entropía</span>
+−<span class="fl">0.59</span><span class="op">*</span><span class="kw">log2</span>(<span class="fl">0.59</span>)−(<span class="fl">0.41</span>)<span class="op">*</span><span class="kw">log2</span>(<span class="fl">0.41</span>)</code></pre></div>
+<pre><code>## [1] 0.9765005</code></pre>
+<p>La entropía de nuestra base de datos es alta porque está muy cerca de estar distribuida como 50% y 50%, la situación más “heterogénea” que puede tener nuestra variable objetivo. De hecho, si se calcula la entropía de esa situación llegamos a lo siguiente:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">−<span class="fl">0.5</span><span class="op">*</span><span class="kw">log2</span>(<span class="fl">0.5</span>)−(<span class="fl">0.5</span>)<span class="op">*</span><span class="kw">log2</span>(<span class="fl">0.5</span>) <span class="co"># Máxima entropía</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>¿Y si tenemos todo de una sola clase (por ejemplo, solo sobrevivientes)?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">-</span><span class="fl">0.000001</span><span class="op">*</span><span class="kw">log2</span>(<span class="fl">0.000001</span>)−(<span class="dv">1</span>)<span class="op">*</span><span class="kw">log2</span>(<span class="dv">1</span>) <span class="co"># Casi cero</span></code></pre></div>
+<pre><code>## [1] 1.993157e-05</code></pre>
+<p>Bien, ahora veamos qué pasa con la entropia si abrimos, como hizo nuestro árbol, según el género. Para esto, tenemos que sumar las proporciones al final de cada hoja:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(titanic<span class="op">$</span>survived,titanic<span class="op">$</span>sex)</code></pre></div>
+<pre><code>##    
+##     female male
+##   0     96  522
+##   1    292  135</code></pre>
+<p>Ahora podríamos calcular la entropía en cada una de las hojas del árbol. Vayamos primero con el de mujeres:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Entropía mujeres</span>
+<span class="op">-</span>(<span class="dv">96</span><span class="op">/</span>(<span class="dv">292</span><span class="op">+</span><span class="dv">96</span>))<span class="op">*</span><span class="kw">log2</span>(<span class="dv">96</span><span class="op">/</span>(<span class="dv">292</span><span class="op">+</span><span class="dv">96</span>))−(<span class="dv">292</span><span class="op">/</span>(<span class="dv">292</span><span class="op">+</span><span class="dv">96</span>))<span class="op">*</span><span class="kw">log2</span>(<span class="dv">292</span><span class="op">/</span>(<span class="dv">292</span><span class="op">+</span><span class="dv">96</span>))</code></pre></div>
+<pre><code>## [1] 0.8071676</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">entropiaMujeres &lt;-<span class="st"> </span><span class="op">-</span>(<span class="dv">96</span><span class="op">/</span>(<span class="dv">292</span><span class="op">+</span><span class="dv">96</span>))<span class="op">*</span><span class="kw">log2</span>(<span class="dv">96</span><span class="op">/</span>(<span class="dv">292</span><span class="op">+</span><span class="dv">96</span>))−(<span class="dv">292</span><span class="op">/</span>(<span class="dv">292</span><span class="op">+</span><span class="dv">96</span>))<span class="op">*</span><span class="kw">log2</span>(<span class="dv">292</span><span class="op">/</span>(<span class="dv">292</span><span class="op">+</span><span class="dv">96</span>))</code></pre></div>
+<p>¿Y en los hombres?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Entropía hombres</span>
+<span class="op">-</span>(<span class="dv">522</span><span class="op">/</span>(<span class="dv">522</span><span class="op">+</span><span class="dv">135</span>))<span class="op">*</span><span class="kw">log2</span>(<span class="dv">522</span><span class="op">/</span>(<span class="dv">522</span><span class="op">+</span><span class="dv">135</span>))−(<span class="dv">135</span><span class="op">/</span>(<span class="dv">522</span><span class="op">+</span><span class="dv">135</span>))<span class="op">*</span><span class="kw">log2</span>(<span class="dv">135</span><span class="op">/</span>(<span class="dv">522</span><span class="op">+</span><span class="dv">135</span>))</code></pre></div>
+<pre><code>## [1] 0.7327525</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">entropiaHombres &lt;-<span class="st"> </span><span class="op">-</span>(<span class="dv">522</span><span class="op">/</span>(<span class="dv">522</span><span class="op">+</span><span class="dv">135</span>))<span class="op">*</span><span class="kw">log2</span>(<span class="dv">522</span><span class="op">/</span>(<span class="dv">522</span><span class="op">+</span><span class="dv">135</span>))−(<span class="dv">135</span><span class="op">/</span>(<span class="dv">522</span><span class="op">+</span><span class="dv">135</span>))<span class="op">*</span><span class="kw">log2</span>(<span class="dv">135</span><span class="op">/</span>(<span class="dv">522</span><span class="op">+</span><span class="dv">135</span>))</code></pre></div>
+<p>Ahora debemos ponderar la entropía de la variable ponderando las dos hojas que abrió:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">entropiaGenero &lt;-<span class="st"> </span>entropiaHombres<span class="op">*</span>(<span class="dv">657</span><span class="op">/</span><span class="dv">1045</span>)<span class="op">+</span>entropiaMujeres<span class="op">*</span>(<span class="dv">388</span><span class="op">/</span><span class="dv">1045</span>)
+entropiaGenero</code></pre></div>
+<pre><code>## [1] 0.7603822</code></pre>
+<p>La apertura por género da una entropia de 0.76, mientras que aquella que no abre por nada tiene una de 0.9765 ¿Cómo medimos esta mejora? En lo que se conoce como <strong>Information Gain</strong>, que es tan solo la mejora en la entropia por abrir por una determinada variable con respecto a la entropía antes de abrir.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">informationGainGenero &lt;-<span class="st"> </span><span class="fl">0.9765</span><span class="op">-</span>entropiaGenero
+informationGainGenero</code></pre></div>
+<pre><code>## [1] 0.2161178</code></pre>
+<p>En el caso de <em>Genero</em> la mejora es de 0.216 y les garantizo que es la mayor de la apertura de todas las variables, ya que así trabaja C5.0</p>
+<div id="cómo-podemos-medir-qué-tan-bien-clasifica-nuestro-árbol" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> ¿Cómo podemos medir qué tan bien clasifica nuestro árbol?</h3>
+<p>Existen diversas maneras de medir la efectividad de la clasificación de un modelo de machine learning. Para este tipo de objetivo (clasificar) suele ser útil usar la <strong>matriz de confusión</strong>, que simplemente distribuye en celdas la clasificación de un determinado caso y el valor que tenía en nuestro dataset. Podemos acceder a ella mediante el método <strong>summary()</strong> aplicado a nuestro árbol</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(primerArbol)</code></pre></div>
+<pre><code>## 
+## Call:
+## C5.0.formula(formula = survived ~ ., data = titanic)
+## 
+## 
+## C5.0 [Release 2.07 GPL Edition]      Tue Apr 14 17:58:25 2020
+## -------------------------------
+## 
+## Class specified by attribute `outcome&#39;
+## 
+## Read 1045 cases (4 attributes) from undefined.data
+## 
+## Decision tree:
+## 
+## sex = male:
+## :...age &lt;= 9: 1 (43/18)
+## :   age &gt; 9: 0 (614/110)
+## sex = female:
+## :...fare &gt; 47.1: 1 (118/3)
+##     fare &lt;= 47.1:
+##     :...fare &gt; 10.4625: 1 (197/56)
+##         fare &lt;= 10.4625:
+##         :...fare &lt;= 7.725: 1 (16/3)
+##             fare &gt; 7.725: 0 (57/23)
+## 
+## 
+## Evaluation on training data (1045 cases):
+## 
+##      Decision Tree   
+##    ----------------  
+##    Size      Errors  
+## 
+##       6  213(20.4%)   &lt;&lt;
+## 
+## 
+##     (a)   (b)    &lt;-classified as
+##    ----  ----
+##     538    80    (a): class 0
+##     133   294    (b): class 1
+## 
+## 
+##  Attribute usage:
+## 
+##  100.00% sex
+##   62.87% age
+##   37.13% fare
+## 
+## 
+## Time: 0.0 secs</code></pre>
+<p>Ya nos dice que tiene una tasa de error de 20,4% ¿Cómo podemos ver esto en la tabla? si sumamos los falsos positivos y los falsos negativos, que están en las celdas de abajo a la izquierda y arriba a la derecha (133+80) y lo dividimos por todos los casos que clasificó.</p>
+<p>¿Es esto mucho o poco? Para responder esta pregunta es <strong>siempre necesario pensar cómo se distribuía la variable en nuestro dataset</strong>. Ya sabemos que aproximadamente el 41% de las personas se salvó, por lo que si clasificaramos a todos como sobrevivientes, tendríamos una tasa de acierto del 41% y una tasa de error del 59%. Con nuestro árbol de decisión ahora tenemos una tasa de error de 20,4% (y de acierto de 79,6%)! Otra forma de pensar esto es mediante el <strong>lift</strong> que es la división entre la proporción de acierto en nuestro árbol y la del dataset original: 79.6/41= 1.94. Cualquier valor mayor a uno muestra que la tasa de acierto es mayor a la del denominador.</p>
+</div>
+<div id="un-árbol-puede-reducirse-a-reglas" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> Un árbol puede reducirse a reglas</h3>
+<p>Una de las principales ventajas de los árboles de decisión de este estilo es que podemos reducir su complejidad a un conjunto de reglas que nos permite clasificar los casos. Para esto solo tenemos que cambiar un parámetro al entrenar el árbol de decisión</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">primerArbol &lt;-<span class="st"> </span><span class="kw">C5.0</span>(<span class="dt">formula=</span> survived <span class="op">~</span>.,
+                    <span class="dt">data =</span> titanic,
+                    <span class="dt">rules=</span><span class="ot">TRUE</span>)
+<span class="kw">summary</span>(primerArbol)</code></pre></div>
+<pre><code>## 
+## Call:
+## C5.0.formula(formula = survived ~ ., data = titanic, rules = TRUE)
+## 
+## 
+## C5.0 [Release 2.07 GPL Edition]      Tue Apr 14 17:58:26 2020
+## -------------------------------
+## 
+## Class specified by attribute `outcome&#39;
+## 
+## Read 1045 cases (4 attributes) from undefined.data
+## 
+## Rules:
+## 
+## Rule 1: (614/110, lift 1.4)
+##  age &gt; 9
+##  sex = male
+##  -&gt;  class 0  [0.820]
+## 
+## Rule 2: (246/54, lift 1.3)
+##  fare &gt; 7.725
+##  fare &lt;= 10.4625
+##  -&gt;  class 0  [0.778]
+## 
+## Rule 3: (315/59, lift 2.0)
+##  sex = female
+##  fare &gt; 10.4625
+##  -&gt;  class 1  [0.811]
+## 
+## Rule 4: (16/3, lift 1.9)
+##  sex = female
+##  fare &lt;= 7.725
+##  -&gt;  class 1  [0.778]
+## 
+## Rule 5: (82/32, lift 1.5)
+##  age &lt;= 9
+##  -&gt;  class 1  [0.607]
+## 
+## Default class: 0
+## 
+## 
+## Evaluation on training data (1045 cases):
+## 
+##          Rules     
+##    ----------------
+##      No      Errors
+## 
+##       5  215(20.6%)   &lt;&lt;
+## 
+## 
+##     (a)   (b)    &lt;-classified as
+##    ----  ----
+##     538    80    (a): class 0
+##     135   292    (b): class 1
+## 
+## 
+##  Attribute usage:
+## 
+##   90.43% sex
+##   66.60% age
+##   55.22% fare
+## 
+## 
+## Time: 0.0 secs</code></pre>
+<p>No todos los modelos de <em>Machine Learning</em> tienen la posiblidad de mostrar de manera tan intuitiva las reglas para clasificar o predecir un determinado caso. Esta es una importante ventaja de los árboles de decisión. Algo importante a aclarar de estas reglas es que no son exactamente las mismas que las que componen el árbol y, además, un caso puede estar cubierto más de una vez por alguna de las reglas. Esto es porque al no estar “obligado” a mostrar bifurcaciones en el árbol de decisión, lo que entrega son reglas y, al clasificar, elige la que tiene mayor <em>accuracy</em>.</p>
+</div>
+</div>
+<div id="aplicación-en-el-mercado-de-trabajo-monotributistas-y-cuentapropistas-informales" class="section level2">
+<h2><span class="header-section-number">7.4</span> Aplicación en el mercado de trabajo: monotributistas y cuentapropistas informales</h2>
+<p>El sistema estadístico nacional tiene un serio problema para captar la naturaleza del trabajo independiente a lo largo del país. Una excepción a este problema generalizado fue la ENAPROSS del año 2015, en la cual se preguntó a los trabajadores independientes, entre otra cosas, si facturaban por su trabajo o no, es decir si eran monotributistas o no.</p>
+<p>Podemos aprender de esta encuesta para luego predecir, en base a variables que sí están en otras encuestas, como la Encuesta Permanente de Hogares (EPH). Usemos lo que aprendimos sobre el algoritmo C5.0 y los árboles de decisión más en general.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="dt">file=</span><span class="kw">url</span>(<span class="st">&quot;https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/independientes.RData&quot;</span>))
+<span class="kw">str</span>(independientes)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    2783 obs. of  6 variables:
+##  $ NIVEL_ED  : Factor w/ 7 levels &quot;Sin_instruccion&quot;,..: 3 4 4 4 3 5 2 3 4 4 ...
+##  $ REGISTRADO: Factor w/ 2 levels &quot;No_registrado&quot;,..: 1 1 1 1 1 2 1 1 1 1 ...
+##  $ INGRESO   : Factor w/ 10 levels &quot;Decil1&quot;,&quot;Decil2&quot;,..: 1 10 1 3 7 7 1 8 5 7 ...
+##  $ EDAD      : int  54 30 20 21 32 38 67 27 22 25 ...
+##  $ CAT_OCUP  : Factor w/ 2 levels &quot;Patron&quot;,&quot;Independiente&quot;: 2 2 2 2 2 2 2 2 2 2 ...
+##  $ REGION    : Factor w/ 3 levels &quot;CABA&quot;,&quot;CONURBANO&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<p>El data frame <strong>independientes</strong> es una muestra de la ENAPROSS 2015, una encuesta a nivel nacional cuyo objetivo fue relevar ciertas características relacionados con la cobertura y calidad de la seguridad social en la Argentina y el empleo, entre otras condiciones sociales. Acá tenemos seis variables: el nivel educativo, si el trabajador independiente se encuentra registrado o no, el ingreso (según decil), la edad en años cumplidos, la categoría ocupacional (en este caso, si es independiente o patrón) y la Región del país, que en este caso queda segmentada entre CABA, CONURBANO y RESTO DEL PAÍS.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">primerArbol &lt;-<span class="st"> </span><span class="kw">C5.0</span>(<span class="dt">formula =</span> REGISTRADO <span class="op">~</span>.,
+                    <span class="dt">data =</span> independientes)
+<span class="kw">summary</span>(primerArbol)</code></pre></div>
+<pre><code>## 
+## Call:
+## C5.0.formula(formula = REGISTRADO ~ ., data = independientes)
+## 
+## 
+## C5.0 [Release 2.07 GPL Edition]      Tue Apr 14 17:58:26 2020
+## -------------------------------
+## 
+## Class specified by attribute `outcome&#39;
+## 
+## Read 2783 cases (6 attributes) from undefined.data
+## 
+## Decision tree:
+## 
+## NIVEL_ED = Superior_completo: Registrado (235/38)
+## NIVEL_ED in {Sin_instruccion,Primaria_incompleta,Primaria_completa,
+## :            Secundaria_incompleta,Secundaria_completa,Superior_incompleta}:
+## :...INGRESO in {Decil1,Decil2,Decil3,Decil4,Decil5,Decil6,
+##     :           Decil7}: No_registrado (1984/320)
+##     INGRESO in {Decil8,Decil9,Decil10}:
+##     :...NIVEL_ED = Sin_instruccion: Registrado (0)
+##         NIVEL_ED in {Secundaria_completa,Superior_incompleta}:
+##         :...CAT_OCUP = Patron: Registrado (68/7)
+##         :   CAT_OCUP = Independiente:
+##         :   :...EDAD &lt;= 34: No_registrado (59/24)
+##         :       EDAD &gt; 34: Registrado (194/48)
+##         NIVEL_ED in {Primaria_incompleta,Primaria_completa,
+##         :            Secundaria_incompleta}:
+##         :...INGRESO = Decil8: No_registrado (100/25)
+##             INGRESO in {Decil9,Decil10}:
+##             :...CAT_OCUP = Patron: Registrado (17/4)
+##                 CAT_OCUP = Independiente:
+##                 :...INGRESO = Decil9: No_registrado (80/32)
+##                     INGRESO = Decil10: Registrado (46/18)
+## 
+## 
+## Evaluation on training data (2783 cases):
+## 
+##      Decision Tree   
+##    ----------------  
+##    Size      Errors  
+## 
+##       9  516(18.5%)   &lt;&lt;
+## 
+## 
+##     (a)   (b)    &lt;-classified as
+##    ----  ----
+##    1822   115    (a): class No_registrado
+##     401   445    (b): class Registrado
+## 
+## 
+##  Attribute usage:
+## 
+##  100.00% NIVEL_ED
+##   91.56% INGRESO
+##   16.67% CAT_OCUP
+##    9.09% EDAD
+## 
+## 
+## Time: 0.0 secs</code></pre>
+<p>Si les es más fácil para entenderlo, pueden plotearlo ¿Qué podemos decir del árbol que se creó? Enfoquémonos en <em>Attribute usage</em>: lo que hace es asignar la importancia de las variables según cuántos casos fueron clasificados usando a esa varaible. Por ejemplo, EDAD es usado en 253 (59+194) casos, que dividido por los 2783 casos que tenemos en este dataset dan 9,09%. De manera trivial, la primera de las variables es usada para clasificar todos los casos, por lo cual tiene 100% de importancia. Podríamos concluir que para nuestro modelo el nivel educativo y los ingresos son variables claves para asignar a un trabajador independiente como formal o no.</p>
+<p>Por otro lado podemos ver que tiene una tasa de error de 18,5% ¿Es mucho o poco? De nuevo, averiguemos cuántos trabajadores no registrados hay en nuestro dataset:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(independientes<span class="op">$</span>REGISTRADO)<span class="op">/</span><span class="kw">nrow</span>(independientes)</code></pre></div>
+<pre><code>## 
+## No_registrado    Registrado 
+##     0.6960115     0.3039885</code></pre>
+<p>El 69.6% de los trabajadores independientes en nuestro dataset no se encuentra registrado, con lo cual si dijeramos que todos los trabajadores independientes son no regisitrados nos equivocaríamos en 30,4%. Nuestro árbol de decisión llegó a reducirlo al 18,5%</p>
+<p>Usemos nuestro modelo, ahora, para predecir nuestro dataset. La función <strong>predict</strong> hace exactamente esto:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">independientes &lt;-<span class="st"> </span>independientes <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PREDICCION =</span> <span class="kw">predict</span>(primerArbol,
+                              <span class="dt">newdata =</span> independientes <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>REGISTRADO)))
+<span class="kw">table</span>(independientes<span class="op">$</span>REGISTRADO, independientes<span class="op">$</span>PREDICCION)</code></pre></div>
+<pre><code>##                
+##                 No_registrado Registrado
+##   No_registrado          1822        115
+##   Registrado              401        445</code></pre>
+<p>Esta es una <strong>tabla de confusión</strong>, como la que anteriormente vimos en el ejemplo del Titanic con <strong>summary()</strong>. Las filas indican la clasificación “real” de los casos, mientras que las columnas indican la que asignó nuestro modelo. La diagonal principal indica los casos correctamente clasificados, mientras que el que está arriba a la derecha nos marcan los <strong>falsos positivos</strong>, mientras que el elemento de abajo a la izquierda indica los <strong>falsos negativos</strong>. Si sumamos la diagonal (los correctamente clasificados) y lo dividimos por el total de casos obtenemos una importa medida de la <strong>performance</strong> de nuestro modelo: la <strong>accuracy</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="kw">diag</span>(<span class="kw">table</span>(independientes<span class="op">$</span>REGISTRADO, independientes<span class="op">$</span>PREDICCION))) <span class="op">/</span>
+<span class="st">  </span><span class="kw">nrow</span>(independientes) <span class="op">*</span><span class="st"> </span><span class="dv">100</span></code></pre></div>
+<pre><code>## [1] 81.45886</code></pre>
+<p>La accuracy es solo una forma de medir la performance de nuestro modelo y nos va a servir en este tutorial para elegir entre modelos: el que tenga mayor <strong>accuracy</strong> es el que vamos a elegir. En este caso tenemos una <strong>accuracy</strong> de 81,5%, lo que implica que nuestro modelo tiene un lift de 81,5/69,6=1,18. Nuestro modelo es un 18% mejor que haber asignados a todos los casos con la proporción que conocemos de nuestra muestra.</p>
+<div id="overfitting-aprendiendo-demasiado-de-nuestra-muestra" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> Overfitting: aprendiendo demasiado de nuestra muestra</h3>
+<p>Si tienen que estudiar para un examen en algún momento de su formación es muy probable que lo hayan hecho a través de modelos de exámenes anteriores. El objetivo no es solo prácticar lo que vieron en el curso, sino aprender sobre cómo toma examen la docemente. En general, esto suele funcionar, pero tiene un límite al cual probablemente llegaron: si aprenden estrictamente a resolver los parciales que tuvieron como prueba es sumamente probable que solo sepan responder con eficiencia esos parciales pero no otros con pequeñas diferencias. Como los humanos, los algoritmos pueden caer en el problema de <strong>aprender demasiado las especificidades de una muestra</strong>.</p>
+<p>El <strong>overfitting</strong> es uno de los principales problemas al entrenar un modelo de aprendizaje automático. Debemos garantizar que nuestro modelo NO funciona solo para la muestra, sino que los nuevos casos - los que queremos producir - también serán predichos de una manera razonable. De hecho, lo único que nos importa es la <strong>accuracy</strong> sobre una parte de la muestra que separamos y llamamos <strong>dataset de testing</strong>. Lo que pasa sobre nuestro <strong>dataset de training</strong> es secundario y solo lo utilizamos para detectar signos de overfiting.</p>
+<p>Vamos a ver un caso en el que la mejora en la eficiencia en <strong>training</strong> no redunda en mejoras en <strong>testing</strong>, es decir un caso de <strong>overfitting</strong>. No se preocupen por el código, es un poco complejo pero más adelante vamos a usar a la librería <strong>caret</strong> para que haga todo este trabajo de una manera más eficiente que nosotros. El código lo que hace es ir realizando una <strong>grid search</strong> en alguno de los parámetros de nuestro modelo.</p>
+<p>Los parámetros de los modelos definen, entre otras cosas, la estructura y la “velocidad” de aprendizaje del árbol, aunque siempre son específicas a los modelos. Una búsqueda en <strong>grid search</strong> (búsqueda en grilla) solo prueba un montón de valores para distintos parámetros y testea su accuracy. Una vez que se encuentra el valor máximo, esos serán los parámetros elegidos del modelo.</p>
+<p><strong>No se preocupen si les lleva un tiempo, es natural ya que está entrenando muchos modelos</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Eliminamos la variable que tiene la predección</span>
+independientes &lt;-<span class="st"> </span>independientes <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>PREDICCION)
+<span class="kw">set.seed</span>(<span class="dv">2</span>)
+<span class="co"># Creamos la &quot;Grid Search&quot; de dos parámetros</span>
+cfOpciones &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="fl">0.8</span>,<span class="dv">1</span>,<span class="fl">0.01</span>)
+minCasesOpciones &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dv">1</span>)
+<span class="co"># Generamos los índices (números de filas) que van a ser de testing</span>
+indexTest &lt;-<span class="st"> </span><span class="kw">sample.int</span>(<span class="dt">n =</span> <span class="kw">nrow</span>(independientes),<span class="dt">size =</span> <span class="fl">0.3</span><span class="op">*</span><span class="kw">nrow</span>(independientes))
+independientesTest &lt;-<span class="st"> </span>independientes[indexTest, ]
+independientesTraining &lt;-<span class="st"> </span>independientes[<span class="op">-</span>indexTest, ]
+modelPerformance &lt;-<span class="st"> </span><span class="kw">list</span>()
+<span class="cf">for</span>(cf <span class="cf">in</span> cfOpciones){
+  <span class="cf">for</span>(minCases <span class="cf">in</span> minCasesOpciones) {
+    <span class="co"># Para cambiar los parámetros presten atención a que debemos usar la función C5.0Control</span>
+    model &lt;-<span class="st"> </span><span class="kw">C5.0</span>(REGISTRADO <span class="op">~</span>.,
+                  <span class="dt">data =</span> independientesTraining,
+                  <span class="dt">control=</span> <span class="kw">C5.0Control</span>(<span class="dt">CF =</span> cf,
+                              <span class="dt">minCases =</span> minCases))
+    
+  prediccionesTrain &lt;-<span class="st"> </span><span class="kw">predict</span>(model, independientesTraining)
+  trainAcc &lt;-<span class="st"> </span><span class="kw">sum</span>(prediccionesTrain<span class="op">==</span>independientesTraining<span class="op">$</span>REGISTRADO)<span class="op">/</span><span class="kw">nrow</span>(independientesTraining)
+  prediccionesTest &lt;-<span class="st"> </span><span class="kw">predict</span>(model, <span class="dt">newdata =</span> independientesTest)
+  testAcc &lt;-<span class="st"> </span><span class="kw">sum</span>(prediccionesTest<span class="op">==</span>independientesTest<span class="op">$</span>REGISTRADO)<span class="op">/</span><span class="kw">nrow</span>(independientesTest)
+  salida &lt;-<span class="st"> </span><span class="kw">data.frame</span>(cf, minCases,trainAcc,testAcc)
+  modelPerformance &lt;-<span class="st"> </span><span class="kw">c</span>(modelPerformance, <span class="kw">list</span>(salida))
+  }
+}
+modelPerformance &lt;-<span class="st"> </span>plyr<span class="op">::</span><span class="kw">rbind.fill</span>(modelPerformance)</code></pre></div>
+<p>Ahora veamos cómo fue la evolución de la accuracy tanto en training como testing (y de paso aprendemos un poco más sobre <strong>ggplot2</strong>)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">modelPerformance &lt;-<span class="st"> </span>modelPerformance <span class="op">%&gt;%</span>
+<span class="st">                    </span><span class="kw">group_by</span>(minCases) <span class="op">%&gt;%</span>
+<span class="st">                    </span><span class="kw">summarise</span>(<span class="dt">Training =</span> <span class="kw">mean</span>(trainAcc),
+                              <span class="dt">Testing =</span> <span class="kw">mean</span>(testAcc)) <span class="op">%&gt;%</span>
+<span class="st">                    </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;dataset&quot;</span>,<span class="dt">value=</span><span class="st">&quot;acc&quot;</span>,<span class="op">-</span>minCases)
+<span class="co"># Esta librería nos da la opción de agregar nuevos &quot;temas&quot; de ggplot</span>
+<span class="co"># que no vienen con la librería</span>
+<span class="kw">library</span>(ggthemes)
+<span class="kw">ggplot</span>(modelPerformance) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x =</span> minCases,<span class="dt">y =</span> acc, <span class="dt">color =</span> dataset), <span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_fivethirtyeight</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_color_fivethirtyeight</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span><span class="kw">percent_format</span>(<span class="dt">accuracy =</span> <span class="dv">1</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_reverse</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;La forma del overfitting&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Accuracy según el valor del parámetro minCases&quot;</span>,
+       <span class="dt">caption =</span> <span class="st">&quot;Elaboración propia con base en datos de ENAPROSS 2015&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.title =</span> <span class="kw">element_blank</span>())</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-226-1.png" width="672" /></p>
+<p>En el gráfico queda bastante claro como desde aproximadamente el valor minCases = 15 la accuracy en el dataset de testing crece sin parar pasando de aproximadamente 81% a 86%, mientras que la de testing tiene una leve tendencia a la caída. En este caso, estos parámetros no muestran un elevado <strong>overfitting</strong>. En otras situaciones, el overfitting puede ser tal que la <strong>accuracy</strong> sobre el dataset de testing caiga (y mucho) siempre hay que tenerlo en cuenta.</p>
+</div>
+</div>
+<div id="algunos-árboles-no-solo-clasifican-árboles-de-regresión" class="section level2">
+<h2><span class="header-section-number">7.5</span> Algunos árboles no solo clasifican: árboles de regresión</h2>
+<p>Aunque suene contraintuitivo, algunos árboles de decisión pueden dividir el espacio de nuestras variables en base a valores no solo categóricos (como cuando clasificamos), sino en <strong>valores numéricos continuos</strong>. Aunque suene raro, veremos que lo que hace es relativamente fácil de comprender.</p>
+<p>Para esto, vamos a trabajar con un dataset sobre el precio de los inmuebles en la Ciudad de Buenos Aires que descargué desde la división de datos de Properati. Pero para eso vamos a tener que hacer un Data Wrangling un poco más intenso.</p>
+<div id="poniendo-en-forma-los-datos" class="section level3">
+<h3><span class="header-section-number">7.5.1</span> Poniendo en forma los datos</h3>
+<p>Los datos que descargué pueden bajarlos ustedes, como siempre, con <strong>read.table()</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">avisosInmuebles &lt;-<span class="kw">read.table</span>(<span class="dt">file =</span> <span class="kw">url</span>(<span class="st">&quot;https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/datosProperati.csv&quot;</span>),
+                            <span class="dt">sep=</span><span class="st">&#39;;&#39;</span>,<span class="dt">header =</span> <span class="ot">TRUE</span>,<span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p>Tenemos unas cuantas variables, usemos <strong>glimpse()</strong> para ver cuáles son y su título:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(avisosInmuebles)</code></pre></div>
+<pre><code>## Rows: 62,009
+## Columns: 12
+## $ created_on      &lt;chr&gt; &quot;2019-02-23&quot;, &quot;2019-02-23&quot;, &quot;2019-02-23&quot;, &quot;2019-02-23&quot;, &quot;2019-02-23&quot;, &quot;201...
+## $ rooms           &lt;int&gt; 3, 4, 1, 3, 4, 2, 5, NA, 1, NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, NA, 1, ...
+## $ bathrooms       &lt;int&gt; 1, 2, 1, 1, 2, 1, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1,...
+## $ surface_total   &lt;int&gt; 62, 200, 28, 55, 200, 54, 113, 441, 1296, 13, 12, 10, 12, 12, 13, 12, 29, ...
+## $ surface_covered &lt;int&gt; 62, 100, 28, 55, 100, 44, 88, NA, NA, 13, 12, NA, 12, 12, 13, 12, 29, 39, ...
+## $ price           &lt;int&gt; 170000, 237000, 83000, 85000, 237000, 75000, 690000, 1100000, 40000, 16000...
+## $ currency        &lt;chr&gt; &quot;USD&quot;, &quot;USD&quot;, &quot;USD&quot;, &quot;USD&quot;, &quot;USD&quot;, &quot;USD&quot;, &quot;USD&quot;, &quot;USD&quot;, &quot;USD&quot;, &quot;USD&quot;, &quot;USD...
+## $ title           &lt;chr&gt; &quot;PH - Almagro&quot;, &quot;PH En Venta - Valez Sarsfield&quot;, &quot;Monoambiente Caballito. ...
+## $ description     &lt;chr&gt; &quot;&lt;br&gt;Lindísmo PH de 62 m2. Renovado. Sin Expensas. Apto Crédito.&lt;br&gt;&lt;br&gt;Li...
+## $ property_type   &lt;chr&gt; &quot;PH&quot;, &quot;PH&quot;, &quot;PH&quot;, &quot;PH&quot;, &quot;PH&quot;, &quot;Casa&quot;, &quot;Casa&quot;, &quot;Lote&quot;, &quot;Lote&quot;, &quot;Cochera&quot;, &quot;...
+## $ operation_type  &lt;chr&gt; &quot;Venta&quot;, &quot;Venta&quot;, &quot;Venta&quot;, &quot;Venta&quot;, &quot;Venta&quot;, &quot;Venta&quot;, &quot;Venta&quot;, &quot;Venta&quot;, &quot;V...
+## $ BARRIO          &lt;chr&gt; &quot;ALMAGRO&quot;, &quot;VELEZ SARSFIELD&quot;, &quot;VILLA GRAL. MITRE&quot;, &quot;MATADEROS&quot;, &quot;VELEZ SAR...</code></pre>
+<p>Los nombres de las variables parecen bastante descriptivos. Podemos ver, además, que nuestro data frame cuenta con información sobre diversos tipos de propiedades: nosotros queremos trabajar con inmuebles aptos para vivienda ya que son los únicos para los que aplican varias de las variables del dataset:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
+<span class="st">                   </span><span class="kw">filter</span>(property_type <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Casa&quot;</span>,<span class="st">&quot;Departamento&quot;</span>,<span class="st">&quot;PH&quot;</span>))</code></pre></div>
+<p>Además, con <strong>glimpse()</strong> pudimos ver que algunas de nuestras variables tienen datos faltantes: <strong>rooms</strong>, <strong>bathrooms</strong> y <strong>surface_covered</strong>. Veamos cuántos de cada uno</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="kw">is.na</span>(avisosInmuebles<span class="op">$</span>rooms))</code></pre></div>
+<pre><code>## [1] 3827</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="kw">is.na</span>(avisosInmuebles<span class="op">$</span>bathrooms))</code></pre></div>
+<pre><code>## [1] 2088</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="kw">is.na</span>(avisosInmuebles<span class="op">$</span>surface_covered))</code></pre></div>
+<pre><code>## [1] 1409</code></pre>
+<p>La que parece tener más datos faltantes es <strong>rooms</strong>, hagamos un poco de data wrangling para poder completar estos casos en base al título o descripción del inmueble:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ambientes=</span><span class="kw">str_extract</span>(<span class="dt">pattern =</span> <span class="st">&quot;(?i)</span><span class="ch">\\</span><span class="st">d.amb&quot;</span>, <span class="dt">string=</span> title)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ambientes=</span><span class="kw">ifelse</span>(<span class="kw">is.na</span>(ambientes),
+                          <span class="kw">str_extract</span>(<span class="dt">pattern =</span> <span class="st">&quot;(?i)</span><span class="ch">\\</span><span class="st">d.amb&quot;</span>, <span class="dt">string=</span>description), ambientes)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ambientes=</span><span class="kw">as.numeric</span>(<span class="kw">str_extract</span>(<span class="dt">pattern=</span><span class="st">&#39;</span><span class="ch">\\</span><span class="st">d&#39;</span>,ambientes))) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ambientes=</span><span class="kw">ifelse</span>(ambientes <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,<span class="ot">NA</span>,ambientes))</code></pre></div>
+<p>¿Qué es lo que hicimos? Varias cosas, pero vayamos por partes. En primer lugar, creamos una variable <em>ambientes</em> para la que usamos la función <strong>str_extract()</strong>, ya sea en <em>title</em> o <em>description</em> usando el <em>pattern ‘(?i)\d.amb’</em> ¿Qué es lo que hace? (?i) dice que no le preste atención si una parte del texto está en mayúscula o minúscula (es decir, que haga una búsqueda que no sea <em>case sensitive</em>). Luego, <em>\d.amb</em> devuelve el primer dígito que encuentra a la izquierda de las palabras “amb” ¿Para qué hacemos esto? para que si un título dice “3 Ambientes”, levante el “3 Amb”, o si dice 2 AMB, que retenga todo.</p>
+<p>Luego de que creamos esta variable, nos quedamos solo con el número aplicando <em>str_extract(pattern=“\d”,…)</em>. Finalmente, si lo que devolvió de ambientes fue igual 0, entonces que le ponga NA porque eso no es un número válido de ambientes. Si se fijan cuántos datos faltantes tiene nuestra variable van a ver que son muchos (13.313, para ser exactos). Pero en el resto de los casos ¿cuántos coincide con la variable <em>rooms</em>, provista por Properati?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(avisosInmuebles<span class="op">$</span>ambientes<span class="op">==</span>avisosInmuebles<span class="op">$</span>rooms)</code></pre></div>
+<pre><code>## 
+## FALSE  TRUE 
+##  2853 32890</code></pre>
+<p>No parece estar nada mal ! en 32890 de los 35743 casos donde coinciden arrojan la misma cantidad de ambientes. Vamos a completar la varaible <em>rooms</em> con estos datos:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
+<span class="st">                   </span><span class="kw">mutate</span>(<span class="dt">rooms =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(rooms), ambientes, rooms))
+<span class="kw">sum</span>(<span class="kw">is.na</span>(avisosInmuebles<span class="op">$</span>rooms))</code></pre></div>
+<pre><code>## [1] 1011</code></pre>
+<p>Pueden replicar la misma idea para superficies cubierta o para los baños. Para lo que sigue de este capítulo podemos trabajar simplemente quedándonos con los casos completos de nuestro data frame, pero antes vamos a eliminar tambien algunas variables que no usaremos para la predicción:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>created_on,<span class="op">-</span>currency,<span class="op">-</span>title,<span class="op">-</span>description,<span class="op">-</span>operation_type,<span class="op">-</span>ambientes) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(.))</code></pre></div>
+<p>Listo, ya estamos en condiciones de crear nuestro primer árbol de regresión, pero esta vez deberemos usar otra implementación de los árboles de regresión que nos brinda el paquete <strong>rpart()</strong></p>
+<blockquote>
+<p>Si prestaron atención, el último código de R usamos la función <em>complete.cases()</em> dentro del verb <em>filter()</em>. Pero cuando lo hicimos, dentro de la primera función usamos un punto ¿Qué representa ese punto en ese contexto? los datos hasta ese momento. Es decir, le estamos diciendo que aplique la función complete.cases() a todas las filas y las columnas que quedaron luego de select y que las filtre. Esta forma de usar funciones nos ahorra tener que asignar nuevamente los datos y encadenar todo en un mismo conjunto de pipes.</p>
+</blockquote>
+</div>
+<div id="recursive-partitioning-rpart" class="section level3">
+<h3><span class="header-section-number">7.5.2</span> Recursive PARTitioning (RPART)</h3>
+<p>El paquete RPart nos brinda otra implementación de los árboles de decisión, una que nos permite trabajar con una variable numérica como variable a la que queremos predecir. Como siempre, <strong>debemos instalar nuestros paquetes antes de usarlos</strong>. Una vez que lo tengan instalado, solo tienen que cargarlo. Para hacer gráficos de rplot, van a tener que instalar otro paquete: <strong>rpart.plot()</strong>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(rpart)
+<span class="kw">require</span>(rpart.plot)
+avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
+<span class="st">                   </span><span class="kw">mutate</span>(<span class="dt">USDm2=</span>price<span class="op">/</span>surface_total)
+arbolRegresion &lt;-<span class="st"> </span><span class="kw">rpart</span>(<span class="dt">formula =</span> USDm2 <span class="op">~</span><span class="st"> </span>rooms <span class="op">+</span><span class="st"> </span>BARRIO <span class="op">+</span><span class="st"> </span>bathrooms <span class="op">+</span><span class="st"> </span>property_type,
+                        <span class="dt">data =</span> avisosInmuebles,<span class="dt">control =</span> <span class="kw">rpart.control</span>(<span class="dt">cp =</span> <span class="fl">0.01</span>))
+
+<span class="kw">rpart.plot</span>(arbolRegresion)</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-235-1.png" width="672" /></p>
+<p>En mi experiencia, la mejor forma de entender los árboles de RPart no son sus gráficos, sino usar <strong>rpart.rules()</strong>. Pero antes de hacer eso, usemos el gráfico para ver el primero de los valores, el que está en el primer nodo: dice 2751. Ahora saquemos el promedio de los precios de los inmuebles</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">mean</span>(avisosInmuebles<span class="op">$</span>USDm2),<span class="dv">0</span>)</code></pre></div>
+<pre><code>## [1] 2751</code></pre>
+<p>¡Coincide! Lo que nos muestra este árbol es, para cada nodo, el promedio de los precios de los inmuebles y la cantidad de casos cubiertos desde ahí en adelante. Sin embargo, las “reglas” por las que va a clasificar se encuentran solo en los nodos raíz de más bajo nivel, las que dicen 1747 (13%), 2230 (21%), 2659 (29%), 3363 (36%) y 6137 (1%).</p>
+<p>Para ver mejor cuáles son las reglas ejecutemos la función <strong>rpart.rules()</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(<span class="kw">rpart.rules</span>(arbolRegresion))</code></pre></div>
+<p>La variable que más usó fue barrios, y solo usa la variable <em>property_type</em> para algunos subconjuntos de barrios. Este árbol dirá que el precio en dólares por metro cuadrado para Puerto Madero es de USD 6.137, por ejemplo. Ahora bien ¿Es el promedio observado?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">mean</span>(avisosInmuebles<span class="op">$</span>USDm2[avisosInmuebles<span class="op">$</span>BARRIO<span class="op">==</span><span class="st">&quot;PUERTO MADERO&quot;</span>]),<span class="dv">0</span>)</code></pre></div>
+<pre><code>## [1] 6137</code></pre>
+<p>Sí, coincide. Y eso es exactamente lo que hace un árbol de regresión: elige cómo segmentar a las variables y a cada nodo le asigna como valor el promedio. Ahora bien, antes introdujimos la idea de <strong>entropía</strong> como guía para ir particionando nuestro espacio de varaibles, pero ¿Qué usó ahora?. La respuesta es el RMSE (Root Mean Squared Error), es decir el promedio de la raiz cuadrada de los errores de predicción. Para cada nodo de nuestro árbol, él se va a preguntar: ¿qué variables y qué valores de esas variables maximizan la caída en el RMSE? Y con ese principio en mente termina de cubrir todos los casos.</p>
+<p>Veamos cuál es la caída en el RMSE entre asignar para cada uno de los inmuebles el valor del promedio de los inmuebles y cuánto cambia con la primera apertura, en la que usa la variable <em>BARRIOS</em></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">prediccionInicial &lt;-<span class="st"> </span><span class="kw">mean</span>(avisosInmuebles<span class="op">$</span>USDm2)
+rmseInicial &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">mean</span>((prediccionInicial<span class="op">-</span>avisosInmuebles<span class="op">$</span>USDm2)<span class="op">^</span><span class="dv">2</span>))
+rmseInicial</code></pre></div>
+<pre><code>## [1] 1446.731</code></pre>
+<p>Ahora veamos qué pasa con este error al abrir por la primera variable. No se ve del todo claro, pero en el gráfico y en las reglas podemos entender que el árbol pregunta de que barrio es y genera tres bifucarciones: 1) PUERTO MADERO, 2) BELGRANO, COUGHLAN, COLEGIALES, NUÑEZ, PALERMO, RECOLETA Y RETIRO, 3) Otros barrios. Veamos el RMSE de esta clasificacion</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">prediccionBarrios &lt;-<span class="st"> </span><span class="kw">ifelse</span>(avisosInmuebles<span class="op">$</span>BARRIO <span class="op">==</span><span class="st"> &quot;PUERTO MADERO&quot;</span>, <span class="dv">6137</span>,
+                            <span class="kw">ifelse</span>(avisosInmuebles<span class="op">$</span>BARRIO <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;BELGRANO, COUGHLAN&quot;</span>,<span class="st">&quot;COLEGIALES&quot;</span>,<span class="st">&quot;NUÑEZ&quot;</span>,<span class="st">&quot;PALERMO&quot;</span>,<span class="st">&quot;RECOLETA&quot;</span>,<span class="st">&quot;RETIRO&quot;</span>),<span class="dv">3363</span>,
+                                   <span class="dv">2332</span>))
+rmseBarrios &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">mean</span>((prediccionBarrios<span class="op">-</span>avisosInmuebles<span class="op">$</span>USDm2)<span class="op">^</span><span class="dv">2</span>))
+rmseBarrios</code></pre></div>
+<pre><code>## [1] 1332.865</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rmseBarrios <span class="op">/</span><span class="st"> </span>rmseInicial <span class="op">-</span><span class="st"> </span><span class="dv">1</span></code></pre></div>
+<pre><code>## [1] -0.0787057</code></pre>
+<p>Esa apertura generó una caída de aproximadamente 8% en el RMSE de las predicciones y, dado el algoritmo de generación del árbol y los párametros elegidos, es la apertura que más mejora este indicador.</p>
+</div>
+</div>
+<div id="ejercicio-2" class="section level2">
+<h2><span class="header-section-number">7.6</span> Ejercicio</h2>
+<p>En base a lo aprendido en este capítulo, entrenar un árbol de decisión con el dataset de Titanic, pero esta vez separando entre training (70% del dataset) y testing (30%) del dataset. Además, prueben dos parámetros distintos (mincases 5 y mincases 100) y estimen la <em>accuracy</em> (o tasa de acierto) tanto en el dataset de training como testing ¿Con cuál de los dos modelos se quedarían para predecir quién sobrevivió o no en el Titanic? ¿Por qué?</p>
+</div>
+<div id="lecturas-recomendadas-1" class="section level2">
+<h2><span class="header-section-number">7.7</span> Lecturas recomendadas</h2>
+<p>Para profundizar y/o reforzar algunos de los puntos de este capítulo recomiendo la lectura del <a href="http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Seventh%20Printing.pdf">Capítulo 8 de Introduction to Statistical Learning de James, Witten, Hastie y Tibsharani</a></p>
+<p>Para un tratamiento de divulgación, didáctico y estimulante recomiendo nuevamente la lectura del libro de Walter Sosa Escudero linkeado al final del capítulo 4. Para una aproximación más teórica de <em>Machine Learning</em> recomiendo la lectura del libro de Thomas Mitchell: <strong>Machine Learning</strong>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="el-automovil-de-la-estadistica.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="un-paquete-para-dominarlos-a-todos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

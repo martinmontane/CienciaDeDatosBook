@@ -1,0 +1,20 @@
+# Anexo 1 - Datasets
+
+Para practicar algunas de las herrmientas disponibles en este libro es relevante contar con algunos conjuntos de datos que sean aptos para aplicarlos. En este anexo se irán disponibilizando diversos *datasets* y su metadata para poder trabajar con ellos.
+
+## Encuesta Permanente de Hogares (EPH)
+
+La Encuesta Permanente de Hogares (EPH) es una encuesta que, con sus hiatos, se realiza trimestre tras trimestre por el INDEC de Argentina. La encuesta es representativa de  aproximadamente el 64% de la Argentina, en todos los casos relevando áreas urbanas.
+
+Desde la [sección de Bases de Datos del INDEC](https://www.indec.gob.ar/indec/web/Institucional-Indec-BasesDeDatos) van a encontrar las últimas bases de datos puestas a disposición por el INDEC.
+
+Desde [este link](https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/EPH4t2018.zip) van a poder descargar las encuestas para el cuarto trimestre de 2018. Se trata de una individual, que tiene los datos a nivel de personas de los hogares, y otra de hogares que tiene variables sobre características específicas de los hogares y sus viviendas también. La versión de esta encuesta es igual a la original, con una sola salvedad: existe una variable **POBREZA** en los datos de los hogares que fue creada en base a la línea de pobreza para cada una de las regiones para ese momento.
+
+Las variables de la EPH son muchas y les recomiendo que ingresen [aquí](https://www.indec.gob.ar/ftp/cuadros/menusuperior/eph/EPH_registro_t218.pdf) para ver cuáles son las variables disponibles y cuáles valores pueden tomar.
+
+## Precios de los inmuebles
+
+Otro interesante dataset para trabajar consiste en la información sobre los anuncios que Properati hace pública. Aunque para hacer la descarga de los datos hoy en día hay que usar el servicio de Big Query de Google, haciendo [click aquí](https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/datosProperati.csv) pueden descargar una consulta que yo realicé.
+
+Las variables pueden comprenderse simplemente por el nombre que traen. Los campos *title* y *description* son muy relevantes para poder crear nuevas variables, tal como hicimos en los capítulos 5 y 6 de este libro.
+

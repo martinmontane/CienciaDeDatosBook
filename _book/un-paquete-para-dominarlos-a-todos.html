@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Un paquete para dominarlos a todos | Ciencia de datos para curiosos</title>
+  <meta name="description" content="Una introducción practica a la Ciencia de Datos" />
+  <meta name="generator" content="bookdown 0.18.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Un paquete para dominarlos a todos | Ciencia de datos para curiosos" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="Figuras/GatoCurioso.png" />
+  <meta property="og:description" content="Una introducción practica a la Ciencia de Datos" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Un paquete para dominarlos a todos | Ciencia de datos para curiosos" />
+  
+  <meta name="twitter:description" content="Una introducción practica a la Ciencia de Datos" />
+  <meta name="twitter:image" content="Figuras/GatoCurioso.png" />
+
+<meta name="author" content="Martin Montane" />
+
+
+<meta name="date" content="2020-04-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="los-beatles-del-machine-learning.html"/>
+<link rel="next" href="anexo-1-datasets.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>¡Sólo curiosos de acá en adelante!</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#qué-necesitamos-para-arrancar"><i class="fa fa-check"></i>¿Qué necesitamos para arrancar?</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html"><i class="fa fa-check"></i><b>1</b> Introduccion practica a la Ciencia de Datos</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#nuestra-primera-investigación-el-precio-de-las-propiedades-en-caba"><i class="fa fa-check"></i><b>1.1</b> Nuestra primera investigación: el precio de las propiedades en CABA</a></li>
+<li class="chapter" data-level="1.2" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#conociendo-rstudio"><i class="fa fa-check"></i><b>1.2</b> Conociendo RStudio</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#proyectos-en-rstudio"><i class="fa fa-check"></i><b>1.2.1</b> Proyectos en RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#importando-datos-a-r"><i class="fa fa-check"></i><b>1.3</b> Importando datos a R</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#comma-separated-values"><i class="fa fa-check"></i><b>1.3.1</b> Comma Separated Values</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#cómo-r-organiza-los-datos"><i class="fa fa-check"></i><b>1.4</b> ¿Cómo R organiza los datos?</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#vectores"><i class="fa fa-check"></i><b>1.4.1</b> Vectores</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#listas-y-data-frames"><i class="fa fa-check"></i><b>1.4.2</b> Listas y Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#inspeccionando-nuestros-datos"><i class="fa fa-check"></i><b>1.5</b> Inspeccionando nuestros datos</a></li>
+<li class="chapter" data-level="1.6" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#retomando-nuestro-ejercicio-cuánto-aumentaron-las-viviendas"><i class="fa fa-check"></i><b>1.6</b> Retomando nuestro ejercicio: ¿Cuánto aumentaron las viviendas?</a></li>
+<li class="chapter" data-level="1.7" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#conclusiones"><i class="fa fa-check"></i><b>1.7</b> Conclusiones</a></li>
+<li class="chapter" data-level="1.8" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>1.8</b> Ejercicios</a></li>
+<li class="chapter" data-level="1.9" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#extensión-cargando-y-guardando-datos-de-otros-formatos"><i class="fa fa-check"></i><b>1.9</b> Extensión: cargando y guardando datos de otros formatos</a><ul>
+<li class="chapter" data-level="1.9.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#microsoft-excel"><i class="fa fa-check"></i><b>1.9.1</b> Microsoft Excel</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html"><i class="fa fa-check"></i><b>2</b> Transformando nuestros datos (data wrangling)</a><ul>
+<li class="chapter" data-level="2.1" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#instalando-nuestro-primer-paquete-en-r-tidyverse"><i class="fa fa-check"></i><b>2.1</b> Instalando nuestro primer paquete en R: tidyverse</a></li>
+<li class="chapter" data-level="2.2" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#el-dataset-gapminder"><i class="fa fa-check"></i><b>2.2</b> El dataset <em>gapminder</em></a></li>
+<li class="chapter" data-level="2.3" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#transformaciones-de-los-datos"><i class="fa fa-check"></i><b>2.3</b> Transformaciones de los datos</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#selección-de-columnas-select"><i class="fa fa-check"></i><b>2.3.1</b> Selección de columnas: select()</a></li>
+<li class="chapter" data-level="2.3.2" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#selección-de-casos-filter"><i class="fa fa-check"></i><b>2.3.2</b> Selección de casos: <code>filter()</code></a></li>
+<li class="chapter" data-level="2.3.3" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#ordenando-la-función-arrange"><i class="fa fa-check"></i><b>2.3.3</b> Ordenando: la función arrange()</a></li>
+<li class="chapter" data-level="2.3.4" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#creando-y-modificando-variables-mutate"><i class="fa fa-check"></i><b>2.3.4</b> Creando y modificando variables: mutate()</a></li>
+<li class="chapter" data-level="2.3.5" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#resumiendo-y-transformando-datos-en-base-a-grupos"><i class="fa fa-check"></i><b>2.3.5</b> Resumiendo y transformando datos en base a grupos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#transformando-la-presentación-de-los-datos-pivot_wider-y-pivot_longer"><i class="fa fa-check"></i><b>2.4</b> Transformando la presentación de los datos: pivot_wider y pivot_longer</a></li>
+<li class="chapter" data-level="2.5" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#uniendo-datos-de-distintas-fuentes-left_join"><i class="fa fa-check"></i><b>2.5</b> Uniendo datos de distintas fuentes: left_join</a></li>
+<li class="chapter" data-level="2.6" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#la-mise-en-place-preparando-el-dataset-de-inmuebles"><i class="fa fa-check"></i><b>2.6</b> La <em>mise en place</em>: preparando el dataset de inmuebles</a></li>
+<li class="chapter" data-level="2.7" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#ejercicios-1"><i class="fa fa-check"></i><b>2.7</b> Ejercicios</a></li>
+<li class="chapter" data-level="2.8" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#extensiones"><i class="fa fa-check"></i><b>2.8</b> Extensiones</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#r-cheatsheets"><i class="fa fa-check"></i><b>2.8.1</b> R Cheatsheets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html"><i class="fa fa-check"></i><b>3</b> Visualizaciones de datos en R</a><ul>
+<li class="chapter" data-level="3.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#la-importancia-de-la-visualización-de-los-datos"><i class="fa fa-check"></i><b>3.1</b> La importancia de la visualización de los datos</a></li>
+<li class="chapter" data-level="3.2" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ggplot-grammar-of-graphics"><i class="fa fa-check"></i><b>3.2</b> GGPLOT: Grammar of Graphics</a></li>
+<li class="chapter" data-level="3.3" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cuál-es-la-relación-entre-el-ingreso-de-un-país-y-la-expectativa-de-vida-al-nacer-scatterplot"><i class="fa fa-check"></i><b>3.3</b> ¿Cuál es la relación entre el ingreso de un país y la expectativa de vida al nacer? Scatterplot</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#agregando-colores-según-otras-variables"><i class="fa fa-check"></i><b>3.3.1</b> Agregando colores según otras variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cuál-fue-la-evolución-de-la-expectativa-de-vida-al-nacer-gráfico-de-líneas"><i class="fa fa-check"></i><b>3.4</b> ¿Cuál fue la evolución de la expectativa de vida al nacer? Gráfico de líneas</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cambiando-la-apariencia-de-las-leyendas"><i class="fa fa-check"></i><b>3.4.1</b> Cambiando la apariencia de las leyendas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#reproduciendo-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.5</b> Reproduciendo el gráfico de Hans Rosling</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#exportando-gráficos-de-ggplot"><i class="fa fa-check"></i><b>3.5.1</b> Exportando gráficos de ggplot</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#mapas"><i class="fa fa-check"></i><b>3.6</b> Mapas</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#mapas-animados"><i class="fa fa-check"></i><b>3.6.1</b> Mapas animados</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ejercicios-2"><i class="fa fa-check"></i><b>3.7</b> Ejercicios</a></li>
+<li class="chapter" data-level="3.8" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#extensión-animando-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.8</b> Extensión: animando el gráfico de Hans Rosling</a></li>
+<li class="chapter" data-level="3.9" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#material-de-lectura"><i class="fa fa-check"></i><b>3.9</b> Material de lectura</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html"><i class="fa fa-check"></i><b>4</b> Datos espaciales en R</a><ul>
+<li class="chapter" data-level="4.1" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#qué-es-un-dato-espacial"><i class="fa fa-check"></i><b>4.1</b> ¿Qué es un dato espacial?</a></li>
+<li class="chapter" data-level="4.2" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#dónde-estamos-en-la-tierra"><i class="fa fa-check"></i><b>4.2</b> ¿Dónde estamos en la Tierra?</a></li>
+<li class="chapter" data-level="4.3" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#coordinate-reference-systems"><i class="fa fa-check"></i><b>4.3</b> Coordinate Reference Systems</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#elipsoides-sistemas-de-coordenadas-y-datums"><i class="fa fa-check"></i><b>4.3.1</b> Elipsoides, sistemas de coordenadas y datums</a></li>
+<li class="chapter" data-level="4.3.2" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#proyecciones"><i class="fa fa-check"></i><b>4.3.2</b> Proyecciones</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#un-ejemplo-datos-públicos-de-gcba-y-properati"><i class="fa fa-check"></i><b>4.4</b> Un ejemplo: datos públicos de GCBA y Properati</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#caba"><i class="fa fa-check"></i><b>4.4.1</b> CABA</a></li>
+<li class="chapter" data-level="4.4.2" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#properati"><i class="fa fa-check"></i><b>4.4.2</b> Properati</a></li>
+<li class="chapter" data-level="4.4.3" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#asignando-los-inmuebles-a-los-barrios"><i class="fa fa-check"></i><b>4.4.3</b> Asignando los inmuebles a los barrios</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#otras-operaciones-espaciales"><i class="fa fa-check"></i><b>4.5</b> Otras operaciones espaciales</a></li>
+<li class="chapter" data-level="4.6" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#incorporando-información-a-nuestro-dataset-los-subtes"><i class="fa fa-check"></i><b>4.6</b> Incorporando información a nuestro dataset: los subtes</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#una-alternativa-más-simple-usando-otro-método-de-join-espacial"><i class="fa fa-check"></i><b>4.6.1</b> Una alternativa más simple: usando otro método de join espacial</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#ejercicio"><i class="fa fa-check"></i><b>4.7</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html"><i class="fa fa-check"></i><b>5</b> Data wrangling de datos espaciales</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#introduccion"><i class="fa fa-check"></i><b>5.1</b> Introduccion</a></li>
+<li class="chapter" data-level="5.2" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#areal-weighted-interpolation"><i class="fa fa-check"></i><b>5.2</b> Areal weighted interpolation</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#carga-de-los-datos"><i class="fa fa-check"></i><b>5.2.1</b> Carga de los datos</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#diferentes-radios-censales"><i class="fa fa-check"></i><b>5.2.2</b> Diferentes radios censales</a></li>
+<li class="chapter" data-level="5.2.3" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#make-polygons-comparable-again"><i class="fa fa-check"></i><b>5.2.3</b> Make polygons comparable again</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#haciendo-mapas-de-nuestros-nuevos-datos"><i class="fa fa-check"></i><b>5.3</b> Haciendo mapas de nuestros nuevos datos</a></li>
+<li class="chapter" data-level="5.4" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#ejercicio-1"><i class="fa fa-check"></i><b>5.4</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html"><i class="fa fa-check"></i><b>6</b> El automovil de la estadistica</a><ul>
+<li class="chapter" data-level="6.1" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#cuál-es-la-relación-entre-la-altura-y-el-peso-de-las-personas"><i class="fa fa-check"></i><b>6.1</b> ¿Cuál es la relación entre la altura y el peso de las personas?</a></li>
+<li class="chapter" data-level="6.2" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#el-objetivo-de-la-regresión-lineal"><i class="fa fa-check"></i><b>6.2</b> El “objetivo” de la regresión lineal</a></li>
+<li class="chapter" data-level="6.3" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#agregando-variables-explicativas"><i class="fa fa-check"></i><b>6.3</b> Agregando variables explicativas</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#interpretación-de-los-coeficientes-y-su-incertidumbre"><i class="fa fa-check"></i><b>6.3.1</b> Interpretación de los coeficientes (y su incertidumbre)</a></li>
+<li class="chapter" data-level="6.3.2" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#entonces-pesar-un-kilo-más-aumenta-la-altura-en-aproximadamente-un-centímetro"><i class="fa fa-check"></i><b>6.3.2</b> ¿Entonces pesar un kilo más aumenta la altura en aproximadamente un centímetro?</a></li>
+<li class="chapter" data-level="6.3.3" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#intervalos-de-confianza-otra-forma-de-pensar-la-incertidumbre"><i class="fa fa-check"></i><b>6.3.3</b> Intervalos de confianza: otra forma de pensar la incertidumbre</a></li>
+<li class="chapter" data-level="6.3.4" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#qué-explica-y-que-no-nuestra-regresión"><i class="fa fa-check"></i><b>6.3.4</b> Qué explica y que no nuestra regresión</a></li>
+<li class="chapter" data-level="6.3.5" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#incertidumbre-en-el-promedio-e-incertidumbre-en-el-valor-predicho"><i class="fa fa-check"></i><b>6.3.5</b> Incertidumbre en el promedio e incertidumbre en el valor predicho</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#regresión-lineal-múltiple-controlando-por-otros-factores"><i class="fa fa-check"></i><b>6.4</b> Regresión lineal múltiple: controlando por otros factores</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#asociación-espuria"><i class="fa fa-check"></i><b>6.4.1</b> Asociación espuria</a></li>
+<li class="chapter" data-level="6.4.2" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#relación-enmascarada"><i class="fa fa-check"></i><b>6.4.2</b> Relación enmascarada</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#una-razón-para-ser-cuidadoso-al-interpretar-los-coeficientes-la-multicolinealidad"><i class="fa fa-check"></i><b>6.5</b> Una razón para ser cuidadoso al interpretar los coeficientes: la multicolinealidad</a></li>
+<li class="chapter" data-level="6.6" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#ejercicios-3"><i class="fa fa-check"></i><b>6.6</b> Ejercicios</a></li>
+<li class="chapter" data-level="6.7" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#lecturas-recomendadas"><i class="fa fa-check"></i><b>6.7</b> Lecturas recomendadas</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html"><i class="fa fa-check"></i><b>7</b> Los beatles del Machine Learning</a><ul>
+<li class="chapter" data-level="7.1" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#machine-learning"><i class="fa fa-check"></i><b>7.1</b> Machine Learning</a></li>
+<li class="chapter" data-level="7.2" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#cómo-funciona-un-árbol-de-decisión"><i class="fa fa-check"></i><b>7.2</b> ¿Cómo funciona un árbol de decisión?</a></li>
+<li class="chapter" data-level="7.3" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#podemos-predecir-quién-se-murió-en-el-titanic"><i class="fa fa-check"></i><b>7.3</b> ¿Podemos predecir quién se murió en el Titanic?</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#cómo-podemos-medir-qué-tan-bien-clasifica-nuestro-árbol"><i class="fa fa-check"></i><b>7.3.1</b> ¿Cómo podemos medir qué tan bien clasifica nuestro árbol?</a></li>
+<li class="chapter" data-level="7.3.2" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#un-árbol-puede-reducirse-a-reglas"><i class="fa fa-check"></i><b>7.3.2</b> Un árbol puede reducirse a reglas</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#aplicación-en-el-mercado-de-trabajo-monotributistas-y-cuentapropistas-informales"><i class="fa fa-check"></i><b>7.4</b> Aplicación en el mercado de trabajo: monotributistas y cuentapropistas informales</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#overfitting-aprendiendo-demasiado-de-nuestra-muestra"><i class="fa fa-check"></i><b>7.4.1</b> Overfitting: aprendiendo demasiado de nuestra muestra</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#algunos-árboles-no-solo-clasifican-árboles-de-regresión"><i class="fa fa-check"></i><b>7.5</b> Algunos árboles no solo clasifican: árboles de regresión</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#poniendo-en-forma-los-datos"><i class="fa fa-check"></i><b>7.5.1</b> Poniendo en forma los datos</a></li>
+<li class="chapter" data-level="7.5.2" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#recursive-partitioning-rpart"><i class="fa fa-check"></i><b>7.5.2</b> Recursive PARTitioning (RPART)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#ejercicio-2"><i class="fa fa-check"></i><b>7.6</b> Ejercicio</a></li>
+<li class="chapter" data-level="7.7" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#lecturas-recomendadas-1"><i class="fa fa-check"></i><b>7.7</b> Lecturas recomendadas</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html"><i class="fa fa-check"></i><b>8</b> Un paquete para dominarlos a todos</a><ul>
+<li class="chapter" data-level="8.1" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html#classification-and-regression-training-caret"><i class="fa fa-check"></i><b>8.1</b> Classification And Regression Training (CARET)</a></li>
+<li class="chapter" data-level="8.2" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html#entrenando-un-árbol-de-decisión"><i class="fa fa-check"></i><b>8.2</b> Entrenando un árbol de decisión</a></li>
+<li class="chapter" data-level="8.3" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html#entrenando-un-árbol-de-regresión"><i class="fa fa-check"></i><b>8.3</b> Entrenando un árbol de regresión</a></li>
+<li class="chapter" data-level="8.4" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html#ejercicio-3"><i class="fa fa-check"></i><b>8.4</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="anexo-1-datasets.html"><a href="anexo-1-datasets.html"><i class="fa fa-check"></i><b>9</b> Anexo 1 - Datasets</a><ul>
+<li class="chapter" data-level="9.1" data-path="anexo-1-datasets.html"><a href="anexo-1-datasets.html#encuesta-permanente-de-hogares-eph"><i class="fa fa-check"></i><b>9.1</b> Encuesta Permanente de Hogares (EPH)</a></li>
+<li class="chapter" data-level="9.2" data-path="anexo-1-datasets.html"><a href="anexo-1-datasets.html#precios-de-los-inmuebles"><i class="fa fa-check"></i><b>9.2</b> Precios de los inmuebles</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="anexo-2-otras-funciones-de-data-wrangling.html"><a href="anexo-2-otras-funciones-de-data-wrangling.html"><i class="fa fa-check"></i><b>10</b> Anexo 2 - Otras funciones de Data Wrangling</a><ul>
+<li class="chapter" data-level="10.1" data-path="anexo-2-otras-funciones-de-data-wrangling.html"><a href="anexo-2-otras-funciones-de-data-wrangling.html#convirtiendo-una-variable-númerica-a-categórica"><i class="fa fa-check"></i><b>10.1</b> Convirtiendo una variable númerica a categórica</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ciencia de datos para curiosos</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="un-paquete-para-dominarlos-a-todos" class="section level1">
+<h1><span class="header-section-number">8</span> Un paquete para dominarlos a todos</h1>
+<p>En los últimos dos capítulos del libro nos hemos introdujido en dos de las técnicas más difundidas en la <em>estadística</em> y en el <em>aprendizaje automático</em>. En este capítulo vamos a introducirnos a un paquete que nos permite estimar estos y otros modelos de una manera unificada y ahorrándonos los ciclos de programación que usamos, por ejemplo, en el capítulo 5 para optimizar los parámetros del Árbol de Decisión.</p>
+<div id="classification-and-regression-training-caret" class="section level2">
+<h2><span class="header-section-number">8.1</span> Classification And Regression Training (CARET)</h2>
+<p>Como ya se adelantó, CARET es una librería que brinda varias funcionalidades útiles para crear modelos predictivos. Esas funcionalidades incluyen transformaciones de datos, visualizaciones y distintos métodos de análisis de capacidad predictiva. Para un análisis exhaustivo de las funcionalidades de este paquete les recomiendo visitar la muy buena página de ayuda del paquete: <a href="https://topepo.github.io/caret/" class="uri">https://topepo.github.io/caret/</a></p>
+<p>En este capítulo haremos especial énfasis en la forma en la cual podemos usar distintos algoritmos de <em>aprendizaje automático</em> y qué estrategias tenemos para optimizar los parámetros de tal manera que maximicen su <em>performance</em> sobre nuevos datos y no caer ni en el <em>underfitting</em> ni en el <em>overfitting</em>.</p>
+</div>
+<div id="entrenando-un-árbol-de-decisión" class="section level2">
+<h2><span class="header-section-number">8.2</span> Entrenando un árbol de decisión</h2>
+<p>Con el objetivo de aprender a crear distintos algoritmos de aprendizaje automático, primero vamos a replicar en caret lo que hicimos en el capítulo 5 con el dataset de trabajadores independientes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="dt">file=</span><span class="kw">url</span>(<span class="st">&quot;https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/independientes.RData&quot;</span>))</code></pre></div>
+<p>El data frame <em>independientes</em> cuenta con 2.783 observaciones de trabajadores independientes. La variable REGISTRADO indica si ese trabajador se encuentra registrado o no, mientras que el resto de las variables potencialmente podrían ser útiles para clasifiar a un trabajador independiente como registrado o no.</p>
+<p>Usaremos nuevamente la implementación de árboles de decisión y también partiremos a nuestros datos en un 70% que será el dataset de entrenamiento y un 30% que se convertirá en el <em>dataset</em> de <em>testing</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(caret)
+<span class="kw">require</span>(tidyverse)
+<span class="kw">set.seed</span>(<span class="dv">4</span>) <span class="co"># Esta línea solo intenta que tengamos los mismos números aleatorios</span>
+trainingIndexes &lt;-<span class="st"> </span><span class="kw">createDataPartition</span>(<span class="dt">y =</span> independientes<span class="op">$</span>REGISTRADO,
+                                       <span class="dt">p =</span> <span class="fl">0.7</span>,
+                                       <span class="dt">list =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p>La función <strong>createDataPartition()</strong> de CARET nos devuelve un conjunto de índices tomados al azar en base a algunos parámetros tales como la proporción (parámetro <em>p</em>) que queremos que tenga de tamaño nuestro dataset. Si prestan atención a <em>trainingIndexes</em> se darán cuenta que la función devuelve una matriz de una sola columna con 1949 números, que son los índices de nuestro dataset de <em>entrenamiento</em>: 1949 es exactamente el 70% de 2783, la cantidad de filas de nuestro <em>dataset</em>.</p>
+<p>Con estos índices ya podemos crear nuestro dataset de training y testing:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">training &lt;-<span class="st"> </span>independientes[ trainingIndexes,]
+testing  &lt;-<span class="st"> </span>independientes[<span class="op">-</span>trainingIndexes,]</code></pre></div>
+<p>Una vez que tenemos un dataset de entrenamiento y validación (o <em>testing</em>) estamos en condiciones de entrenar un modelo ¿Cómo se hace con caret? con la función <em>train()</em>. Pero a esta función debemos pasarle algunos controles, como por ejemplo qué parámetros tunear y cómo hacerlo. Para la primera de estas preguntas, qué parámetros tunear, debemos pasar una matriz que tenga en las columnas los parámetros a tunear y en las filas los valores que queremos probar. Aunque esto suena difícil, si usamos la función <em>expand.grid()</em> se hace mucho más fácil.</p>
+<p>No todos los parámetros de todos los modelos de CARET pueden ser “afinados”. En <a href="https://topepo.github.io/caret/available-models.html" class="uri">https://topepo.github.io/caret/available-models.html</a> podemos ver qué modelos pueden usarse en CARET y cuáles son los parámetros que podemos optimizar. Para nuestor modelo C5.0, estos son <em>trials, model y winnow</em>. La documentación de C5.0 en R explica en detalle qué hace cada uno de estos modelos, a modo de resumen:</p>
+<p><strong>Trials</strong>: Define la cantidad de boosting que tiene nuestro árbol. <em>Boosting</em> es tan solo un método para combinar diversos clasificadores (más de un árbol) para poder mejorar la <em>performance</em> de nuestro modelo. En el ejemplo del capítulo 5 lo dejamos en 1 (teníamos solo un árbol), aquí probaremos que pasa si aumentamos este valor <strong>Model</strong>: indicamos si queremos un modelo de árboles o de reglas, dejaremos siempre árboles. <strong>Winnow</strong>: Este parámetro nos dice si queremos que el árbol elija descartar algunas variables para mejorar la capacidad predictiva del modelo</p>
+<p>Creemos la grilla con los valores que queremos probar:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grilla &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">trials=</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>),
+                        <span class="dt">winnow=</span><span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>),
+                        <span class="dt">model=</span><span class="st">&quot;tree&quot;</span>) 
+<span class="kw">glimpse</span>(grilla)</code></pre></div>
+<pre><code>## Rows: 8
+## Columns: 3
+## $ trials &lt;int&gt; 1, 2, 3, 4, 1, 2, 3, 4
+## $ winnow &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE
+## $ model  &lt;fct&gt; tree, tree, tree, tree, tree, tree, tree, tree</code></pre>
+<p>Bien, ahora debemos decirle cómo queremos que vaya evaluando a los modelos, eso lo podemos hacer con la función <strong>trainControl()</strong>. Podemos customizar varios parámetros, por ejemplo si queremos hacer <strong>cross validation</strong> o no, y la cantidad de <em>bins</em> que queremos que haga. Vamos a crear las instrucciones para exactamente esto:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">trainingInstructions &lt;-<span class="st"> </span><span class="kw">trainControl</span>(<span class="dt">method =</span> <span class="st">&quot;cv&quot;</span>,
+                                     <span class="dt">number =</span> <span class="dv">3</span>)</code></pre></div>
+<p>En <em>method</em> escribimos “cv”, por Cross Validiation, mientras que en <em>number</em> incluímos la cantidad de conjuntos en los que queremos que divida a nuestro dataset de training. Ahora estamos en condiciones de entrenar nuestro primer modelo con Caret:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">CaretC50 &lt;-<span class="st"> </span><span class="kw">train</span>(
+  <span class="dt">y=</span>training <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(REGISTRADO) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>(),
+  <span class="dt">x =</span> training <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>REGISTRADO),
+  <span class="dt">method =</span> <span class="st">&quot;C5.0&quot;</span>,
+  <span class="dt">metric =</span> <span class="st">&quot;Accuracy&quot;</span>,
+  <span class="dt">tuneGrid =</span> grilla,
+  <span class="dt">trControl =</span> trainingInstructions
+)</code></pre></div>
+<p>Veamos que nos devuelve cuando usamos <strong>summary()</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(CaretC50)</code></pre></div>
+<p>Debería haber devuelto algo muy similar a lo que veíamos con el paquete C5.0. Esto tiene lógica porque lo que devuelve Caret es el modelo que mejor medida de <em>accuracy</em> tuvo, en el mismo “formato” que devolvería el paquete que tiene el código con el que se entrena el modelo, en este caso C5.0 ¿Y cómo sabemos cual combinación de nuestra grilla es la que mostró la mejor <em>performance</em>?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">CaretC50</code></pre></div>
+<pre><code>## C5.0 
+## 
+## 1949 samples
+##    5 predictor
+##    2 classes: &#39;No_registrado&#39;, &#39;Registrado&#39; 
+## 
+## No pre-processing
+## Resampling: Cross-Validated (3 fold) 
+## Summary of sample sizes: 1300, 1299, 1299 
+## Resampling results across tuning parameters:
+## 
+##   winnow  trials  Accuracy   Kappa    
+##   FALSE   1       0.7927123  0.4621135
+##   FALSE   2       0.7901466  0.4543004
+##   FALSE   3       0.7937387  0.4852959
+##   FALSE   4       0.7942515  0.4631932
+##    TRUE   1       0.7922002  0.4572151
+##    TRUE   2       0.7916874  0.4584683
+##    TRUE   3       0.7957923  0.4912082
+##    TRUE   4       0.8019478  0.4844389
+## 
+## Tuning parameter &#39;model&#39; was held constant at a value of tree
+## Accuracy was used to select the optimal model using the largest value.
+## The final values used for the model were trials = 4, model = tree and winnow = TRUE.</code></pre>
+<p>La salida <em>print()</em> de nuestro objeto de Caret nos da información sobre la <em>performance</em> de cada uno de los parámetros que probamos. Dependiendo del azar, les aparecerá uno como el mejor, probablemente por una diferencia muy pequeña en la <em>accuracy</em>. finalmente, en la última linea de la salida les dice cual fue el que se eligió y por qué criterio.</p>
+<p>Con nuestro modelo ya estimado y entrenado podemos predecir, como siempre, sobre otro dataset. En este caso, el que tenemos de <em>validación</em> o <em>testing</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">testing &lt;-<span class="st"> </span>testing <span class="op">%&gt;%</span>
+<span class="st">           </span><span class="kw">mutate</span>(<span class="dt">prediccion=</span><span class="kw">predict</span>(CaretC50,<span class="dt">newdata =</span> testing))</code></pre></div>
+<p>La función que tenemos que usar para predecir en base a un modelo es siempre la misma: <strong>predict()</strong>. Para usarlo con datos nuevos que no sean con los que se entrenó el modelo, debemos pasarlo en “newdata”, pero este data frame debe tener variables con los mismos nombres y, en caso de no ser númerica, tomar los mismos valores ya que sobre esos aprendió el modelo. Calculemos la <em>accuracy</em> sobre los datos de validación:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(testing<span class="op">$</span>REGISTRADO<span class="op">==</span>testing<span class="op">$</span>prediccion)<span class="op">/</span><span class="kw">nrow</span>(testing)<span class="op">*</span><span class="dv">100</span></code></pre></div>
+<pre><code>## [1] 79.01679</code></pre>
+</div>
+<div id="entrenando-un-árbol-de-regresión" class="section level2">
+<h2><span class="header-section-number">8.3</span> Entrenando un árbol de regresión</h2>
+<p>En Caret es realmente simple entrenar distintos modelos. Solo tenemos que conocer si está disponible dentro del paquete, saber cómo debemos llamarlo en el parámetro <em>method</em> dentro de train y conocer también cuáles parámetros podemos optimizar. Probemos esta posibilidad de cambiar de modelos usando el mismo dataset de inmuebles de Properati que usamos en el capítulo anterior. En el siguiente código de R voy a hacer todos los pasos de Data Wrangling que se describen en ese capítulo</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">avisosInmuebles &lt;-<span class="kw">read.table</span>(<span class="dt">file =</span> <span class="kw">url</span>(<span class="st">&quot;https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/datosProperati.csv&quot;</span>),
+                            <span class="dt">sep=</span><span class="st">&#39;;&#39;</span>,<span class="dt">header =</span> <span class="ot">TRUE</span>,<span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
+<span class="st">                   </span><span class="kw">filter</span>(property_type <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Casa&quot;</span>,<span class="st">&quot;Departamento&quot;</span>,<span class="st">&quot;PH&quot;</span>))
+avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ambientes=</span><span class="kw">str_extract</span>(<span class="dt">pattern =</span> <span class="st">&quot;(?i)</span><span class="ch">\\</span><span class="st">d.amb&quot;</span>, <span class="dt">string=</span> title)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ambientes=</span><span class="kw">ifelse</span>(<span class="kw">is.na</span>(ambientes),
+                          <span class="kw">str_extract</span>(<span class="dt">pattern =</span> <span class="st">&quot;(?i)</span><span class="ch">\\</span><span class="st">d.amb&quot;</span>, <span class="dt">string=</span>description), ambientes)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ambientes=</span><span class="kw">as.numeric</span>(<span class="kw">str_extract</span>(<span class="dt">pattern=</span><span class="st">&#39;</span><span class="ch">\\</span><span class="st">d&#39;</span>,ambientes))) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ambientes=</span><span class="kw">ifelse</span>(ambientes <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,<span class="ot">NA</span>,ambientes))
+avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
+<span class="st">                   </span><span class="kw">mutate</span>(<span class="dt">rooms =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(rooms), ambientes, rooms))
+avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>created_on,<span class="op">-</span>currency,<span class="op">-</span>operation_type,<span class="op">-</span>ambientes) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(.))
+avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
+<span class="st">                   </span><span class="kw">mutate</span>(<span class="dt">USDm2=</span>price<span class="op">/</span>surface_total)</code></pre></div>
+<p>Si se fijan en <a href="https://topepo.github.io/caret/available-models.html" class="uri">https://topepo.github.io/caret/available-models.html</a> van a ver que existen algunas implementaciones distintas de rpart. Usaremos la que pide usar el método ‘rpart2’ porque nos deja mejorar el parámetro <em>maxdepth</em>, que determina que tan “profundo” puede ser el árbol resultante. Como solo es una variable, usar <strong>expand.grid()</strong> no tiene mucho sentido, pero para acostumbrar a trabajar de una manera ordenada vamos a usarlo igual:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grilla &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">maxdepth=</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))</code></pre></div>
+<p>También vamos a cambiar levemente los controles de entrenamiento y elegir que divida a nuetro dataset en 5 partes para el cross validation:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">trainingInstructions &lt;-<span class="st"> </span><span class="kw">trainControl</span>(<span class="dt">method =</span> <span class="st">&quot;cv&quot;</span>,
+                                     <span class="dt">number =</span> <span class="dv">5</span>)</code></pre></div>
+<p>Ya estamos en condiciones para entrenar al modelo de rpart:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rpartModel &lt;-<span class="st"> </span><span class="kw">train</span>(
+  <span class="dt">y=</span>avisosInmuebles <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(USDm2) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>(),
+  <span class="dt">x =</span> avisosInmuebles <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(rooms,BARRIO, bathrooms, property_type, surface_covered,
+                                 surface_total),
+  <span class="dt">method =</span> <span class="st">&quot;rpart2&quot;</span>,
+  <span class="dt">metric =</span> <span class="st">&quot;RMSE&quot;</span>,
+  <span class="dt">tuneGrid =</span> grilla,
+  <span class="dt">trControl =</span> trainingInstructions
+)</code></pre></div>
+<p>¿Cuál fue el modelo que eligió? Puede variar según los números aleatorios que toma para segmentar a los conjuntos sobre los que se entrena y valida, pero nuevamente pueden detectarlo usando el método print()</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(rpartModel) <span class="co"># Es lo mismo que poner solo &quot;rpartModel&quot;</span></code></pre></div>
+<pre><code>## CART 
+## 
+## 47752 samples
+##     6 predictor
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 38202, 38202, 38201, 38201, 38202 
+## Resampling results across tuning parameters:
+## 
+##   maxdepth  RMSE      Rsquared   MAE     
+##    1        1272.367  0.1859278  634.2621
+##    2        1234.055  0.2399316  609.0526
+##    3        1207.551  0.2760798  574.3846
+##    4        1242.231  0.2391191  559.7036
+##    5        1242.231  0.2391191  559.7036
+##    6        1242.231  0.2391191  559.7036
+##    7        1242.231  0.2391191  559.7036
+##    8        1242.231  0.2391191  559.7036
+##    9        1242.231  0.2391191  559.7036
+##   10        1242.231  0.2391191  559.7036
+## 
+## RMSE was used to select the optimal model using the smallest value.
+## The final value used for the model was maxdepth = 3.</code></pre>
+<p>También podríamos intentar verlo gráficamente (dónde minimiza RMSE):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(rpartModel)</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-256-1.png" width="672" /></p>
+</div>
+<div id="ejercicio-3" class="section level2">
+<h2><span class="header-section-number">8.4</span> Ejercicio</h2>
+<p>Usando los datos de avisosInmuebles ya procesados, hagan el siguiente trabajo de Data Wrangling:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
+<span class="st">                </span><span class="kw">mutate</span>(<span class="dt">gimnasio =</span> <span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;gym|gimn&quot;</span>,<span class="dt">x =</span> description) <span class="op">|</span>
+<span class="st">                                         </span><span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;gym|gimn&quot;</span>, <span class="dt">x =</span> title), <span class="ot">TRUE</span>, <span class="ot">FALSE</span>),
+                       <span class="dt">cochera =</span> <span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;coch|garage&quot;</span>,<span class="dt">x =</span> description) <span class="op">|</span>
+<span class="st">                                         </span><span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;coch|garage&quot;</span>, <span class="dt">x =</span> title), <span class="ot">TRUE</span>, <span class="ot">FALSE</span>),
+                       <span class="dt">pileta =</span> <span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;pileta|piscina&quot;</span>,<span class="dt">x =</span> description) <span class="op">|</span>
+<span class="st">                                       </span><span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;pileta|piscina&quot;</span>, <span class="dt">x =</span> title), <span class="ot">TRUE</span>, <span class="ot">FALSE</span>))</code></pre></div>
+<p>Lo que hace el código es crear tres variables (gimnasio, cochera, pileta) que intenta identificar la presencia de esas tres características de los inmuebles en cada una de las publicaciones ¿Pueden explicarlo en palabras cómo lo hace? Tengan en cuenta que la función <strong>grepl()</strong> devuelve una lista de TRUE/FALSE dependiendo de si se encuentra lo que está dentro de “pattern” en el vector que se provee en el parámetro “x”.</p>
+<p>Independientemente de esa interpretación, usando Caret entrenen un árbol de regresión con rpart2 y con los mismos parámetros que están en el cuerpo del capítulo ¿Cuánto cambió el RMSE con la inclusión de las tres variables que creamos? ¿Sugiere un parámetro de <em>maxdepth</em> distinto al que sugería cuando no incorporamos estas variables?</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="los-beatles-del-machine-learning.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="anexo-1-datasets.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

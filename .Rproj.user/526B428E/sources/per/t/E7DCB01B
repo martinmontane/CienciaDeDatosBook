@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1586897526629.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "E7DCB01B",
+    "lastKnownWriteTime" : 1350350774562979840,
+    "last_content_update" : 1586897526629,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "272FB275",
+        "caption" : "precioAvisos",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=precioAvisos&cache_key=272FB275",
+        "displayedObservations" : "48",
+        "environment" : "",
+        "object" : "precioAvisos",
+        "preview" : "0",
+        "totalObservations" : "48",
+        "variables" : "7"
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

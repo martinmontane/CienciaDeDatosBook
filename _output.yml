@@ -1,0 +1,4 @@
+bookdown::gitbook: 
+  css: styles.css
+bookdown::epub_book: default
+bookdown::html_book: default  

@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Visualizaciones de datos en R | Ciencia de datos para curiosos</title>
+  <meta name="description" content="Una introducción practica a la Ciencia de Datos" />
+  <meta name="generator" content="bookdown 0.18.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Visualizaciones de datos en R | Ciencia de datos para curiosos" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="Figuras/GatoCurioso.png" />
+  <meta property="og:description" content="Una introducción practica a la Ciencia de Datos" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Visualizaciones de datos en R | Ciencia de datos para curiosos" />
+  
+  <meta name="twitter:description" content="Una introducción practica a la Ciencia de Datos" />
+  <meta name="twitter:image" content="Figuras/GatoCurioso.png" />
+
+<meta name="author" content="Martin Montane" />
+
+
+<meta name="date" content="2020-04-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="transformando-nuestros-datos-data-wrangling.html"/>
+<link rel="next" href="datos-espaciales-en-r.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>¡Sólo curiosos de acá en adelante!</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#qué-necesitamos-para-arrancar"><i class="fa fa-check"></i>¿Qué necesitamos para arrancar?</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html"><i class="fa fa-check"></i><b>1</b> Introduccion practica a la Ciencia de Datos</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#nuestra-primera-investigación-el-precio-de-las-propiedades-en-caba"><i class="fa fa-check"></i><b>1.1</b> Nuestra primera investigación: el precio de las propiedades en CABA</a></li>
+<li class="chapter" data-level="1.2" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#conociendo-rstudio"><i class="fa fa-check"></i><b>1.2</b> Conociendo RStudio</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#proyectos-en-rstudio"><i class="fa fa-check"></i><b>1.2.1</b> Proyectos en RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#importando-datos-a-r"><i class="fa fa-check"></i><b>1.3</b> Importando datos a R</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#comma-separated-values"><i class="fa fa-check"></i><b>1.3.1</b> Comma Separated Values</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#cómo-r-organiza-los-datos"><i class="fa fa-check"></i><b>1.4</b> ¿Cómo R organiza los datos?</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#vectores"><i class="fa fa-check"></i><b>1.4.1</b> Vectores</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#listas-y-data-frames"><i class="fa fa-check"></i><b>1.4.2</b> Listas y Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#inspeccionando-nuestros-datos"><i class="fa fa-check"></i><b>1.5</b> Inspeccionando nuestros datos</a></li>
+<li class="chapter" data-level="1.6" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#retomando-nuestro-ejercicio-cuánto-aumentaron-las-viviendas"><i class="fa fa-check"></i><b>1.6</b> Retomando nuestro ejercicio: ¿Cuánto aumentaron las viviendas?</a></li>
+<li class="chapter" data-level="1.7" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#conclusiones"><i class="fa fa-check"></i><b>1.7</b> Conclusiones</a></li>
+<li class="chapter" data-level="1.8" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>1.8</b> Ejercicios</a></li>
+<li class="chapter" data-level="1.9" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#extensión-cargando-y-guardando-datos-de-otros-formatos"><i class="fa fa-check"></i><b>1.9</b> Extensión: cargando y guardando datos de otros formatos</a><ul>
+<li class="chapter" data-level="1.9.1" data-path="introduccion-practica-a-la-ciencia-de-datos.html"><a href="introduccion-practica-a-la-ciencia-de-datos.html#microsoft-excel"><i class="fa fa-check"></i><b>1.9.1</b> Microsoft Excel</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html"><i class="fa fa-check"></i><b>2</b> Transformando nuestros datos (data wrangling)</a><ul>
+<li class="chapter" data-level="2.1" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#instalando-nuestro-primer-paquete-en-r-tidyverse"><i class="fa fa-check"></i><b>2.1</b> Instalando nuestro primer paquete en R: tidyverse</a></li>
+<li class="chapter" data-level="2.2" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#el-dataset-gapminder"><i class="fa fa-check"></i><b>2.2</b> El dataset <em>gapminder</em></a></li>
+<li class="chapter" data-level="2.3" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#transformaciones-de-los-datos"><i class="fa fa-check"></i><b>2.3</b> Transformaciones de los datos</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#selección-de-columnas-select"><i class="fa fa-check"></i><b>2.3.1</b> Selección de columnas: select()</a></li>
+<li class="chapter" data-level="2.3.2" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#selección-de-casos-filter"><i class="fa fa-check"></i><b>2.3.2</b> Selección de casos: <code>filter()</code></a></li>
+<li class="chapter" data-level="2.3.3" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#ordenando-la-función-arrange"><i class="fa fa-check"></i><b>2.3.3</b> Ordenando: la función arrange()</a></li>
+<li class="chapter" data-level="2.3.4" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#creando-y-modificando-variables-mutate"><i class="fa fa-check"></i><b>2.3.4</b> Creando y modificando variables: mutate()</a></li>
+<li class="chapter" data-level="2.3.5" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#resumiendo-y-transformando-datos-en-base-a-grupos"><i class="fa fa-check"></i><b>2.3.5</b> Resumiendo y transformando datos en base a grupos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#transformando-la-presentación-de-los-datos-pivot_wider-y-pivot_longer"><i class="fa fa-check"></i><b>2.4</b> Transformando la presentación de los datos: pivot_wider y pivot_longer</a></li>
+<li class="chapter" data-level="2.5" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#uniendo-datos-de-distintas-fuentes-left_join"><i class="fa fa-check"></i><b>2.5</b> Uniendo datos de distintas fuentes: left_join</a></li>
+<li class="chapter" data-level="2.6" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#la-mise-en-place-preparando-el-dataset-de-inmuebles"><i class="fa fa-check"></i><b>2.6</b> La <em>mise en place</em>: preparando el dataset de inmuebles</a></li>
+<li class="chapter" data-level="2.7" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#ejercicios-1"><i class="fa fa-check"></i><b>2.7</b> Ejercicios</a></li>
+<li class="chapter" data-level="2.8" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#extensiones"><i class="fa fa-check"></i><b>2.8</b> Extensiones</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="transformando-nuestros-datos-data-wrangling.html"><a href="transformando-nuestros-datos-data-wrangling.html#r-cheatsheets"><i class="fa fa-check"></i><b>2.8.1</b> R Cheatsheets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html"><i class="fa fa-check"></i><b>3</b> Visualizaciones de datos en R</a><ul>
+<li class="chapter" data-level="3.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#la-importancia-de-la-visualización-de-los-datos"><i class="fa fa-check"></i><b>3.1</b> La importancia de la visualización de los datos</a></li>
+<li class="chapter" data-level="3.2" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ggplot-grammar-of-graphics"><i class="fa fa-check"></i><b>3.2</b> GGPLOT: Grammar of Graphics</a></li>
+<li class="chapter" data-level="3.3" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cuál-es-la-relación-entre-el-ingreso-de-un-país-y-la-expectativa-de-vida-al-nacer-scatterplot"><i class="fa fa-check"></i><b>3.3</b> ¿Cuál es la relación entre el ingreso de un país y la expectativa de vida al nacer? Scatterplot</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#agregando-colores-según-otras-variables"><i class="fa fa-check"></i><b>3.3.1</b> Agregando colores según otras variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cuál-fue-la-evolución-de-la-expectativa-de-vida-al-nacer-gráfico-de-líneas"><i class="fa fa-check"></i><b>3.4</b> ¿Cuál fue la evolución de la expectativa de vida al nacer? Gráfico de líneas</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cambiando-la-apariencia-de-las-leyendas"><i class="fa fa-check"></i><b>3.4.1</b> Cambiando la apariencia de las leyendas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#reproduciendo-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.5</b> Reproduciendo el gráfico de Hans Rosling</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#exportando-gráficos-de-ggplot"><i class="fa fa-check"></i><b>3.5.1</b> Exportando gráficos de ggplot</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#mapas"><i class="fa fa-check"></i><b>3.6</b> Mapas</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#mapas-animados"><i class="fa fa-check"></i><b>3.6.1</b> Mapas animados</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ejercicios-2"><i class="fa fa-check"></i><b>3.7</b> Ejercicios</a></li>
+<li class="chapter" data-level="3.8" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#extensión-animando-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.8</b> Extensión: animando el gráfico de Hans Rosling</a></li>
+<li class="chapter" data-level="3.9" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#material-de-lectura"><i class="fa fa-check"></i><b>3.9</b> Material de lectura</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html"><i class="fa fa-check"></i><b>4</b> Datos espaciales en R</a><ul>
+<li class="chapter" data-level="4.1" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#qué-es-un-dato-espacial"><i class="fa fa-check"></i><b>4.1</b> ¿Qué es un dato espacial?</a></li>
+<li class="chapter" data-level="4.2" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#dónde-estamos-en-la-tierra"><i class="fa fa-check"></i><b>4.2</b> ¿Dónde estamos en la Tierra?</a></li>
+<li class="chapter" data-level="4.3" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#coordinate-reference-systems"><i class="fa fa-check"></i><b>4.3</b> Coordinate Reference Systems</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#elipsoides-sistemas-de-coordenadas-y-datums"><i class="fa fa-check"></i><b>4.3.1</b> Elipsoides, sistemas de coordenadas y datums</a></li>
+<li class="chapter" data-level="4.3.2" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#proyecciones"><i class="fa fa-check"></i><b>4.3.2</b> Proyecciones</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#un-ejemplo-datos-públicos-de-gcba-y-properati"><i class="fa fa-check"></i><b>4.4</b> Un ejemplo: datos públicos de GCBA y Properati</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#caba"><i class="fa fa-check"></i><b>4.4.1</b> CABA</a></li>
+<li class="chapter" data-level="4.4.2" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#properati"><i class="fa fa-check"></i><b>4.4.2</b> Properati</a></li>
+<li class="chapter" data-level="4.4.3" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#asignando-los-inmuebles-a-los-barrios"><i class="fa fa-check"></i><b>4.4.3</b> Asignando los inmuebles a los barrios</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#otras-operaciones-espaciales"><i class="fa fa-check"></i><b>4.5</b> Otras operaciones espaciales</a></li>
+<li class="chapter" data-level="4.6" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#incorporando-información-a-nuestro-dataset-los-subtes"><i class="fa fa-check"></i><b>4.6</b> Incorporando información a nuestro dataset: los subtes</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#una-alternativa-más-simple-usando-otro-método-de-join-espacial"><i class="fa fa-check"></i><b>4.6.1</b> Una alternativa más simple: usando otro método de join espacial</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html#ejercicio"><i class="fa fa-check"></i><b>4.7</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html"><i class="fa fa-check"></i><b>5</b> Data wrangling de datos espaciales</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#introduccion"><i class="fa fa-check"></i><b>5.1</b> Introduccion</a></li>
+<li class="chapter" data-level="5.2" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#areal-weighted-interpolation"><i class="fa fa-check"></i><b>5.2</b> Areal weighted interpolation</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#carga-de-los-datos"><i class="fa fa-check"></i><b>5.2.1</b> Carga de los datos</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#diferentes-radios-censales"><i class="fa fa-check"></i><b>5.2.2</b> Diferentes radios censales</a></li>
+<li class="chapter" data-level="5.2.3" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#make-polygons-comparable-again"><i class="fa fa-check"></i><b>5.2.3</b> Make polygons comparable again</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#haciendo-mapas-de-nuestros-nuevos-datos"><i class="fa fa-check"></i><b>5.3</b> Haciendo mapas de nuestros nuevos datos</a></li>
+<li class="chapter" data-level="5.4" data-path="data-wrangling-de-datos-espaciales.html"><a href="data-wrangling-de-datos-espaciales.html#ejercicio-1"><i class="fa fa-check"></i><b>5.4</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html"><i class="fa fa-check"></i><b>6</b> El automovil de la estadistica</a><ul>
+<li class="chapter" data-level="6.1" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#cuál-es-la-relación-entre-la-altura-y-el-peso-de-las-personas"><i class="fa fa-check"></i><b>6.1</b> ¿Cuál es la relación entre la altura y el peso de las personas?</a></li>
+<li class="chapter" data-level="6.2" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#el-objetivo-de-la-regresión-lineal"><i class="fa fa-check"></i><b>6.2</b> El “objetivo” de la regresión lineal</a></li>
+<li class="chapter" data-level="6.3" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#agregando-variables-explicativas"><i class="fa fa-check"></i><b>6.3</b> Agregando variables explicativas</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#interpretación-de-los-coeficientes-y-su-incertidumbre"><i class="fa fa-check"></i><b>6.3.1</b> Interpretación de los coeficientes (y su incertidumbre)</a></li>
+<li class="chapter" data-level="6.3.2" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#entonces-pesar-un-kilo-más-aumenta-la-altura-en-aproximadamente-un-centímetro"><i class="fa fa-check"></i><b>6.3.2</b> ¿Entonces pesar un kilo más aumenta la altura en aproximadamente un centímetro?</a></li>
+<li class="chapter" data-level="6.3.3" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#intervalos-de-confianza-otra-forma-de-pensar-la-incertidumbre"><i class="fa fa-check"></i><b>6.3.3</b> Intervalos de confianza: otra forma de pensar la incertidumbre</a></li>
+<li class="chapter" data-level="6.3.4" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#qué-explica-y-que-no-nuestra-regresión"><i class="fa fa-check"></i><b>6.3.4</b> Qué explica y que no nuestra regresión</a></li>
+<li class="chapter" data-level="6.3.5" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#incertidumbre-en-el-promedio-e-incertidumbre-en-el-valor-predicho"><i class="fa fa-check"></i><b>6.3.5</b> Incertidumbre en el promedio e incertidumbre en el valor predicho</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#regresión-lineal-múltiple-controlando-por-otros-factores"><i class="fa fa-check"></i><b>6.4</b> Regresión lineal múltiple: controlando por otros factores</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#asociación-espuria"><i class="fa fa-check"></i><b>6.4.1</b> Asociación espuria</a></li>
+<li class="chapter" data-level="6.4.2" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#relación-enmascarada"><i class="fa fa-check"></i><b>6.4.2</b> Relación enmascarada</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#una-razón-para-ser-cuidadoso-al-interpretar-los-coeficientes-la-multicolinealidad"><i class="fa fa-check"></i><b>6.5</b> Una razón para ser cuidadoso al interpretar los coeficientes: la multicolinealidad</a></li>
+<li class="chapter" data-level="6.6" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#ejercicios-3"><i class="fa fa-check"></i><b>6.6</b> Ejercicios</a></li>
+<li class="chapter" data-level="6.7" data-path="el-automovil-de-la-estadistica.html"><a href="el-automovil-de-la-estadistica.html#lecturas-recomendadas"><i class="fa fa-check"></i><b>6.7</b> Lecturas recomendadas</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html"><i class="fa fa-check"></i><b>7</b> Los beatles del Machine Learning</a><ul>
+<li class="chapter" data-level="7.1" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#machine-learning"><i class="fa fa-check"></i><b>7.1</b> Machine Learning</a></li>
+<li class="chapter" data-level="7.2" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#cómo-funciona-un-árbol-de-decisión"><i class="fa fa-check"></i><b>7.2</b> ¿Cómo funciona un árbol de decisión?</a></li>
+<li class="chapter" data-level="7.3" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#podemos-predecir-quién-se-murió-en-el-titanic"><i class="fa fa-check"></i><b>7.3</b> ¿Podemos predecir quién se murió en el Titanic?</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#cómo-podemos-medir-qué-tan-bien-clasifica-nuestro-árbol"><i class="fa fa-check"></i><b>7.3.1</b> ¿Cómo podemos medir qué tan bien clasifica nuestro árbol?</a></li>
+<li class="chapter" data-level="7.3.2" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#un-árbol-puede-reducirse-a-reglas"><i class="fa fa-check"></i><b>7.3.2</b> Un árbol puede reducirse a reglas</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#aplicación-en-el-mercado-de-trabajo-monotributistas-y-cuentapropistas-informales"><i class="fa fa-check"></i><b>7.4</b> Aplicación en el mercado de trabajo: monotributistas y cuentapropistas informales</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#overfitting-aprendiendo-demasiado-de-nuestra-muestra"><i class="fa fa-check"></i><b>7.4.1</b> Overfitting: aprendiendo demasiado de nuestra muestra</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#algunos-árboles-no-solo-clasifican-árboles-de-regresión"><i class="fa fa-check"></i><b>7.5</b> Algunos árboles no solo clasifican: árboles de regresión</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#poniendo-en-forma-los-datos"><i class="fa fa-check"></i><b>7.5.1</b> Poniendo en forma los datos</a></li>
+<li class="chapter" data-level="7.5.2" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#recursive-partitioning-rpart"><i class="fa fa-check"></i><b>7.5.2</b> Recursive PARTitioning (RPART)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#ejercicio-2"><i class="fa fa-check"></i><b>7.6</b> Ejercicio</a></li>
+<li class="chapter" data-level="7.7" data-path="los-beatles-del-machine-learning.html"><a href="los-beatles-del-machine-learning.html#lecturas-recomendadas-1"><i class="fa fa-check"></i><b>7.7</b> Lecturas recomendadas</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html"><i class="fa fa-check"></i><b>8</b> Un paquete para dominarlos a todos</a><ul>
+<li class="chapter" data-level="8.1" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html#classification-and-regression-training-caret"><i class="fa fa-check"></i><b>8.1</b> Classification And Regression Training (CARET)</a></li>
+<li class="chapter" data-level="8.2" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html#entrenando-un-árbol-de-decisión"><i class="fa fa-check"></i><b>8.2</b> Entrenando un árbol de decisión</a></li>
+<li class="chapter" data-level="8.3" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html#entrenando-un-árbol-de-regresión"><i class="fa fa-check"></i><b>8.3</b> Entrenando un árbol de regresión</a></li>
+<li class="chapter" data-level="8.4" data-path="un-paquete-para-dominarlos-a-todos.html"><a href="un-paquete-para-dominarlos-a-todos.html#ejercicio-3"><i class="fa fa-check"></i><b>8.4</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="anexo-1-datasets.html"><a href="anexo-1-datasets.html"><i class="fa fa-check"></i><b>9</b> Anexo 1 - Datasets</a><ul>
+<li class="chapter" data-level="9.1" data-path="anexo-1-datasets.html"><a href="anexo-1-datasets.html#encuesta-permanente-de-hogares-eph"><i class="fa fa-check"></i><b>9.1</b> Encuesta Permanente de Hogares (EPH)</a></li>
+<li class="chapter" data-level="9.2" data-path="anexo-1-datasets.html"><a href="anexo-1-datasets.html#precios-de-los-inmuebles"><i class="fa fa-check"></i><b>9.2</b> Precios de los inmuebles</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="anexo-2-otras-funciones-de-data-wrangling.html"><a href="anexo-2-otras-funciones-de-data-wrangling.html"><i class="fa fa-check"></i><b>10</b> Anexo 2 - Otras funciones de Data Wrangling</a><ul>
+<li class="chapter" data-level="10.1" data-path="anexo-2-otras-funciones-de-data-wrangling.html"><a href="anexo-2-otras-funciones-de-data-wrangling.html#convirtiendo-una-variable-númerica-a-categórica"><i class="fa fa-check"></i><b>10.1</b> Convirtiendo una variable númerica a categórica</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ciencia de datos para curiosos</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visualizaciones-de-datos-en-r" class="section level1">
+<h1><span class="header-section-number">3</span> Visualizaciones de datos en R</h1>
+<pre><code>Al terminar este capítulo ustedes van a poder:
+- Entender la sintáxis usada por ggplot
+- Hacer gráficos de dispersión de puntos y de líneas 
+- Modificar los valores predeterminados de las paletas de colores, etiquetas, títulos, entre otros elementos de los gráficos
+- Exportar los gráficos con calidad de publicación
+- Animar y exportar animaciones de gráficos</code></pre>
+<div id="la-importancia-de-la-visualización-de-los-datos" class="section level2">
+<h2><span class="header-section-number">3.1</span> La importancia de la visualización de los datos</h2>
+<p>La visualización de datos ha ganado espacio en diversas publicaciones y en las últimas décadas ya constituye una disciplina en sí misma. Su relevancia podría justificarse de muchas maneras, pero hay un punto que es especialmente relevante para el análisis de datos: los parámetros y coeficientes con los que solemos trabajar no siempre son tan simples de interpretar como pensamos. Por ejemplo, algunos autores recomiendan fuertemente graficar las predicciones del modelo ante distintos valores, antes que los coeficientes del modelo (McElreath, 2016).</p>
+<p>Este punto dista de ser uno moderno. En 1973 el estadístico Francis Anscombe aportó la siguiente evidencia sobre cómo muchas de las variables que solemos tomar como de resumen, o incluso de relación entre ellas, puede engañarnos si no visualizamos correctamente los datos:</p>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<p>Si prestan atención, van a poder ver que la nube de puntos de cada uno de los datasets es bien distinta. El primero de arriba a la izquierda parece un scatter plot alrededor de una media, que podría modelarse linealmente. El segundo, el de arriba a la derecha, parecería tener una relación más cuadrática. El tercero, el de abajo a la izquierda, muestra una relación linea aparentemente con baja volatilidad, pero un punto bien alejado de esa recta, mientras que el último muestra casi ninguna relación entre x e y, con la excepción de un punto muy alejado del resto.</p>
+<p>¿Pero que sucede cuando trazamos una línea que minimiza la distancia cuadrática entre los puntos? La recta (azul) es ¡la misma! ¿Y qué pasa con los promedios de las variables y la correlación entre ellas? También son iguales:</p>
+<pre><code>## # A tibble: 4 x 4
+##   dataset   promedioX promedioY corXY
+##   &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;
+## 1 Dataset 1         9      7.50 0.816
+## 2 Dataset 2         9      7.50 0.816
+## 3 Dataset 3         9      7.5  0.816
+## 4 Dataset 4         9      7.50 0.817</code></pre>
+<p>De esta manera queda en claro que, en algunas ocasiones, trabajar con resumenes de nuestros datos puede llevarnos a extraer conclusiones erróneas sobre cómo deberíamos analizarlos.</p>
+<p>Durante los años se fue mejorando este punto que hizo Anscombe y… ahora sabemos que una nube de puntos que se parece a un dinosauro: si nos guiamos solo por las clásicas medidas de resumen, son indistinguibles</p>
+<p><img src="Figuras/Capitulo%203/DinoSequentialSmaller.gif" /><!-- --></p>
+</div>
+<div id="ggplot-grammar-of-graphics" class="section level2">
+<h2><span class="header-section-number">3.2</span> GGPLOT: Grammar of Graphics</h2>
+<p>Cuando se trata de hacer visualizaciones en R, <strong>ggplot</strong> es, por lejos, nuestro principal aliado y la librería más ampliamente difundida. Este paquete viene incluido dentro de <strong>tidyverse</strong>, por lo que cargando dicho paquete ya van a contar con todas sus funciones.</p>
+<p>Con ggplot podemos crear decenas de distintos tipos de gráficos mediante una sintáxis unificada, lo que hace que se ganen importante economías de escala, una vez superada la curva de aprendizaje.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+</div>
+<div id="cuál-es-la-relación-entre-el-ingreso-de-un-país-y-la-expectativa-de-vida-al-nacer-scatterplot" class="section level2">
+<h2><span class="header-section-number">3.3</span> ¿Cuál es la relación entre el ingreso de un país y la expectativa de vida al nacer? Scatterplot</h2>
+<p>Una nube de puntos o scatter plot es un tipo de gráfico que, por lo general, muestra la relación entre dos variables. Digo por lo general, porque en rigor es posible agregar otra información en estos gráficos mediante colores o tamaños de los puntos. Sigamos con el ejemplo del capitulo dos: los datos de <strong>gapminder</strong>. Vamos a filtrar los datos para el año 2007, el último en este dataset.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder_df &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&quot;https://raw.githubusercontent.com/martintinch0/CienciaDeDatosParaCuriosos/master/data/gapminder.csv&quot;</span>,
+                           <span class="dt">sep=</span><span class="st">&#39;;&#39;</span>,
+                           <span class="dt">header =</span> <span class="ot">TRUE</span>,
+                           <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+gapminderLastCut &lt;-<span class="st"> </span>gapminder_df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">2007</span>)</code></pre></div>
+<p>Ya podemos comenzar con nuestro primer ejemplo. <strong>ggplot</strong> comienza siempre dela misma manera: usando la función homónima y comentando que datos queremos graficar. Luego, le decimos qué tipo de gráfico queremos hacer, lo que en GG se hace con <strong>geom_</strong>, seguido por un sufijo que hace referencia específica al tipo de gráfico.</p>
+<p>Además, GGPLOT no hace magia: en este caso, necesita saber qué variable poner en el eje x y cuál otra poner en el eje y. En ggplot, estas últimas indicaciones van dentro de una función que se llama <strong>aes()</strong>, que es la abreviación de <strong>aesthetics</strong>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminderLastCut,
+       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
+<p>Nuestro gráfico scatter, que en ggplot se hace con <strong>geom_point()</strong>, muestra en el eje horizontal el PIB per cápita de los países y en el eje vertical la expectativa de vida al nacer. La grilla de fondo de color gris y los títulos de los ejes son defaults de ggplot, así como la - no tan recomendada - decisión de cortar al eje vertical en un valor levemente superior a 40 años.</p>
+<p>Una vez que tenemos los datos que queremos en nuestro gráfico, podemos empezar a cambiar estos detalles que pueden no gustarnos. Para empezar, los títulos de los ejes tienen por definición el nombre de las variables, vamos a ponerles nombres más acordes a lo que estamos mostrando. Como irán aprendiendo, estos cambios van en distintas partes de nuestro código de ggplot mediante nuevas funciones agregadas por medio de <strong>+</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminderLastCut,
+       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;PIB per cápita&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Expectativa de vida al nacer (en años)&quot;</span>)</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<p>En este caso usamos la función <strong>labs()</strong>, con sus respectivos parámetros x e y, a los que les pasamos directamente el nombre que queremos que tenga. La función labs permite más cosas que esto, como agregar título, subtítulos e incluso información sobre la fuente de nuestro gráfico:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminderLastCut,
+       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;PIB per cápita&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Expectativa de vida al nacer (en años)&quot;</span>,
+       <span class="dt">title=</span><span class="st">&quot;A más ingresos mayor tiempo de vida?&quot;</span>,
+       <span class="dt">subtitle=</span><span class="st">&quot;Expectativa de vida al nacer según nivel de ingreso&quot;</span>,
+       <span class="dt">caption=</span><span class="st">&quot;Fuente: Gapminder&quot;</span>)</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
+<div id="agregando-colores-según-otras-variables" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Agregando colores según otras variables</h3>
+<p>En nuestro data.frame de <strong>gapminder</strong> contamos con otra variable que sería de interés mostrar: el continente del país que hablamos. Esta variable es de tipo categórica y es muy común agregar esta clase de variables en nuestros gráficos de dispersión o <strong>scatter plots</strong></p>
+<p>Agregar esta clase de información es realmente fácil. Dentro de la función <strong>aes()</strong>, además de determinar cuáles son los valores del eje vertical (y) y del eje horizontal (x), podemos indicar cuál es la variable según la cual queremos que ponga los colores: mediante el argumento <em>color</em></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminderLastCut,
+       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>gdpPercap, <span class="dt">y =</span> lifeExp,<span class="dt">color=</span>continent)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;PIB per cápita&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Expectativa de vida al nacer (en años)&quot;</span>,
+       <span class="dt">title=</span><span class="st">&quot;A más ingresos mayor tiempo de vida?&quot;</span>,
+       <span class="dt">subtitle=</span><span class="st">&quot;Expectativa de vida al nacer según nivel de ingreso&quot;</span>,
+       <span class="dt">caption=</span><span class="st">&quot;Fuente: Gapminder&quot;</span>)</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
+<p>Podemos observar cómo los colores no se distribuyen aleatoriamente entre niveles de ingreso, sino que se ubican más o menos en los mismos rangos, con algunas excepciones. Más adelante vamos a ver un gráfico que nos va a ser útil para detectar estás diferencias.</p>
+</div>
+</div>
+<div id="cuál-fue-la-evolución-de-la-expectativa-de-vida-al-nacer-gráfico-de-líneas" class="section level2">
+<h2><span class="header-section-number">3.4</span> ¿Cuál fue la evolución de la expectativa de vida al nacer? Gráfico de líneas</h2>
+<p>Otro de los gráficos más simples consiste en analizar la evolución de una determinada variable en el tiempo mediante una línea de tiempo. En <strong>ggplot</strong> estos gráficos pueden crearse usando <strong>geom_line</strong>.</p>
+<p>Digamos que queremos observar la evolución de la expectativa de vida al nacer promedio por continente. Usando las herramientas de <strong>tidyverse</strong> podemos generar este promedio de la siguiente manera:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">promedioContinente &lt;-<span class="st"> </span>gapminder_df <span class="op">%&gt;%</span>
+<span class="st">                      </span><span class="kw">group_by</span>(continent,year) <span class="op">%&gt;%</span>
+<span class="st">                      </span><span class="kw">summarise</span>(<span class="dt">promedio=</span><span class="kw">mean</span>(lifeExp))</code></pre></div>
+<p>Luego, ya estamos en condiciones de hacer el gráfico:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> promedioContinente,
+       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y =</span> promedio,<span class="dt">color=</span>continent)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Expectativa de vida al nacer (en años)&quot;</span>,
+       <span class="dt">title=</span><span class="st">&quot;Expectativa de vida al nacer según continente&quot;</span>,
+       <span class="dt">caption=</span><span class="st">&quot;Fuente: Gapminder&quot;</span>)</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
+<p>Ahora que hicimos nuestro gráfico de líneas, presten atención a dos puntos. Por un lado, cuando usamos el parámetro <em>color</em> en combinación con <strong>geom_line()</strong> ggplot entiende que esa variable debe ser la que corta a los datos, y los valores de cada una de ellas debe ser graficada por separada.</p>
+<p>Por otro lado, y en relación al anterior punto, ggplot genera de manera automática una leyenda que nos permite unir el color de la variable por la que <em>abrimos</em> a los datos y su categoría. Veamos cómo cambiar la apariencia de la leyenda, lo que nos llevará a conocer otras funciones importantes de ggplot.</p>
+<div class="rmdimportant">
+<p>Si al intentar hacer este gráfico se decepcionaron al ver que no ven ninguna línea, no se preocupen. Miren la consola y lean si no está el siguiente mensaje:<br>geom_path: Each group consists of only one observation. Do you need to adjust the group aesthetic?<br></p>
+<p>En caso de ser así, lo que sucede es que ggplot agrupa de manera predeterminada a aquellas variables que no son numéricas. Como dos de las tres variables que están usando son de tipo charactere, entonces ggplot las agrupa y hay un problema al hacer líneas: necesitamos al menos dos puntos para hacer una línea.<br></p>
+<p>Tenemos dos soluciones. La primera consiste en convertir a alguna de las variables que están como caracteres (por ejemplo, es posible que tengan la variable year como character). La segunda solución es usar el argumento <strong>group</strong> dentro de la función <strong>aes()</strong>, este argumento explicita por cual variable queremos agrupar, por lo que desactivamos la acción que tiene ggplot de manera determinada. Hay un ejercicio al final de este capítulo que repasa este punto.</p>
+</div>
+<div id="cambiando-la-apariencia-de-las-leyendas" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Cambiando la apariencia de las leyendas</h3>
+<p>Para modificar la presentación de la leyenda podemos usar distintas funciones. Imaginen que deseamos cambiar el título de la leyenda. Esto se hace simplemente con una leve modificación dentro de la función <strong>labs()</strong>, agregando un parámetro que haga referencia al aesthetic que mapearon. En este caso, corresponde <strong>color</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> promedioContinente,
+       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y =</span> promedio,<span class="dt">color=</span>continent)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Expectativa de vida al nacer (en años)&quot;</span>,
+       <span class="dt">title=</span><span class="st">&quot;Expectativa de vida al nacer según continente&quot;</span>,
+       <span class="dt">caption=</span><span class="st">&quot;Fuente: Gapminder&quot;</span>,
+       <span class="dt">color =</span><span class="st">&#39;Continente&#39;</span>)</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
+<p>Muchas veces también queremos cambiar el lugar en el que está la leyenda, o quizás su dirección (puede estar de manera vertical, como en el ejemplo, u horizontal). Pero antes de mostrar cómo hacer esto, vamos a ver que podemos guardar gráficos de ggplot como objetos:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">graficoLinea &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> promedioContinente,
+       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y =</span> promedio,<span class="dt">color=</span>continent)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Expectativa de vida al nacer (en años)&quot;</span>,
+       <span class="dt">title=</span><span class="st">&quot;Expectativa de vida al nacer según continente&quot;</span>,
+       <span class="dt">caption=</span><span class="st">&quot;Fuente: Gapminder&quot;</span>,
+       <span class="dt">color =</span><span class="st">&#39;Continente&#39;</span>)
+<span class="co"># Si ejecutan la siguiente línea va a devolver el gráfico </span>
+<span class="co"># graficoLinea</span></code></pre></div>
+<p>Esta funcionalidad nos va a servir tanto como para ir agregando “capas” a nuestro gráfico como para exportar nuestros gráficos, como veremos posteriormente. Ahora, modifiquemos de lugar a la leyenda usando la función <strong>theme()</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">graficoLinea <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># graficoLinea + theme(legend.position = &quot;top&quot;)</span></code></pre></div>
+<p>Con la función <strong>theme()</strong> podemos cambiar todos aquellos aspectos que no tengan que ver con el contenido, sino con las formas, tamaños y disposiciones de nuestros objetos, veremos más opciones de esto cuando queramos guardar nuestros gráficos. Muchas veces no queremos agregar las leyendas, que por default ggplot las muestra ¿Cómo evitamos que se muestren? con <strong>legend.position=“none”</strong>.</p>
+<p>Otra clásica situación es querer cambiar el orden de la leyenda. Por <em>default</em> ggplot usa el orden que tenga la variable factor (categórica) por la que estamos abriendo a los datos. Si bien podemos cambiar este orden en las variables originales, suele ser una mejor idea modificarlas específicamente para el gráfico.</p>
+<p>Esto lo podemos hacer con <strong>scale_color_manual</strong>. Esta función en rigor define información relevante para la paleta y su relación con los colores. Los <em>breaks</em> los valores que la leyenda puede tomar, mientras que en <em>values</em> directamente debemos indicar los colores para cada uno de estos valores en el sistema hexadecimal. Vean el siguiente ejemplo:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">graficoLinea <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="st">&quot;Europe&quot;</span>,<span class="st">&quot;Asia&quot;</span>,<span class="st">&quot;Oceania&quot;</span>,<span class="st">&quot;Africa&quot;</span>,<span class="st">&quot;Americas&quot;</span>),
+                       <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#E41A1C&quot;</span>,<span class="st">&quot;#377EB8&quot;</span>,<span class="st">&quot;#4DAF4A&quot;</span> ,<span class="st">&quot;#984EA3&quot;</span>,<span class="st">&quot;#FF7F00&quot;</span>))</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
+<p>Vean cómo ahora el orden de las leyendas se desplegan según la secuencia que nosotros queríamos y los colores han cambiado de acauerdo a nuestro vector <em>values</em> ¿De dónde elegí esos colores? De las muy buenas paletas de colores que ofrece el paquete <strong>RColorBrewer</strong> y que pueden <a href="http://colorbrewer2.org/">explorar acá</a> o mediante el siguiente código, una vez que lo hayan instalado:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(RColorBrewer)
+<span class="kw">display.brewer.all</span>()</code></pre></div>
+<p><img src="Figuras/Capitulo%203/RColorBrewerPal.png" width="600px" style="display: block; margin: auto;" /></p>
+<p>Como pueden ver el paquete cuenta con un conjunto de paletas que son útiles en diversas situaciones. En este caso, los cinco colores que usé en el gráfico anterior pertenecen a la paleta <em>set1</em>. Generar estos vectores es muy simple, solo tenemos que usar la función <strong>brewer.pal()</strong> con la cantidad de colores a generar y la paleta desde donde obtenerlos</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">brewer.pal</span>(<span class="dt">n =</span> <span class="dv">5</span>,<span class="dt">name =</span> <span class="st">&quot;Set1&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;#E41A1C&quot; &quot;#377EB8&quot; &quot;#4DAF4A&quot; &quot;#984EA3&quot; &quot;#FF7F00&quot;</code></pre>
+</div>
+</div>
+<div id="reproduciendo-el-gráfico-de-hans-rosling" class="section level2">
+<h2><span class="header-section-number">3.5</span> Reproduciendo el gráfico de Hans Rosling</h2>
+<p>Ahora que ya introdujimos algunos de los gráficos más usados estamos en condiciones de reproducir uno de los gráficos de Rosling para el año 2007. En el camino, vamos a introducir algunos puntos básicos y relevantes de ggplot.</p>
+<p>Recuerden que en <strong>gapminderLastCut</strong> tenemos los datos pertenecientes al último año de nuestro dataset, 2007. Trabajaremos con estos datos, agregando capas de a una a la vez y aclarando, en los comentarios, para que sirven:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Definición de los datos a graficar y de qué mostrar en</span>
+<span class="co"># cada aesthetic</span>
+gapminder2007 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminderLastCut,
+       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap,
+                     <span class="dt">y =</span> lifeExp,
+                     <span class="dt">color=</span>continent,
+                     <span class="dt">size=</span>pop))
+<span class="co"># Tipo de gráfico a hacer</span>
+gapminder2007 &lt;-<span class="st"> </span>gapminder2007 <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()
+<span class="co"># ¿Qué leyendas mostrar? No mostrar aquella relacionada con el tamaño. Prueben qué pasa si no agregan esto al gráfico</span>
+gapminder2007 &lt;-<span class="st"> </span>gapminder2007 <span class="op">+</span><span class="st"> </span><span class="kw">guides</span>(<span class="dt">size=</span><span class="ot">FALSE</span>)
+<span class="co"># Elegimos un tema preestablecido, en este caso *minimal*</span>
+gapminder2007 &lt;-<span class="st"> </span>gapminder2007 <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()
+<span class="co"># El eje x, que tiene una variable continua, queremos que muestre</span>
+<span class="co"># los datos en logaritmos para evitar que los puntos se &quot;junten&quot;</span>
+<span class="co"># muy cerca del inicio y no nos permitan ver los cambios</span>
+gapminder2007 &lt;-<span class="st"> </span>gapminder2007 <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_continuous</span>(<span class="dt">trans =</span> <span class="st">&#39;log10&#39;</span>)
+gapminder2007</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
+<p>Hemos agregado un par de funciones más que vale la pena aclarar. En primer lugar, el uso de la función <strong>guides()</strong>, que entre otras cosas es útil para elegir qué leyendas queremos que aparezcan en nuestro gráfico y qué no. Por definición, cada <strong>aesthetic</strong> que agregamos (color, tamaño, símbolo) tiene un correlato en la leyenda. Pero en nuestro caso no queremos que muestre los tamaños con un determinado tamaño de población: basta con saber que mientras más grande es el tamaño de la bola, más alta es la población del país. Para eso agregamos <strong>guides(size=FALSE)</strong></p>
+<p>En segundo lugar, incluimos <strong>theme_minimal()</strong>. Esta función, así como todas las que comienzan con <strong>theme_</strong> son un conjunto de código que iría dentro de <strong>theme()</strong> y que nos permiten generar estilos preestablecidos de una manera muy simple. Minimal, por ejemplo, elimina el fondo gris con rayas blancas que es lo predeterminado en ggplot. Escriban “theme” y luego presionen tab en RStudio y verán más opciones como <strong>theme_bw</strong>, <strong>theme_dark</strong>. Pruebenlos.</p>
+<p>Finalmente, con <strong>scale_x_continuous()</strong> podemos transformar la presentación de los datos sin crear inncesariamente variables en nuestro data frame. En este caso queremos transformar los valores a logaritmo para evitar que las importantes diferencias en PIB per cápita entre los países no nos permitan ver variaciones relativas importantes entre los países de ingresos bajos y medios-bajos.</p>
+<p>Ahora vamos a usar prácticamente todo lo aprendido en este capítulo para armar un gráfico que podremos exportar. A nuestro último gráfico le agregamos algunos detalles como la mejora de la leyenda, otros colores y distintos títulos.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder2007 &lt;-<span class="st"> </span>gapminder2007 <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="st">&quot;Europe&quot;</span>,<span class="st">&quot;Asia&quot;</span>,<span class="st">&quot;Oceania&quot;</span>,<span class="st">&quot;Africa&quot;</span>,<span class="st">&quot;Americas&quot;</span>),
+                     <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#E41A1C&quot;</span>,<span class="st">&quot;#377EB8&quot;</span>,<span class="st">&quot;#4DAF4A&quot;</span> ,<span class="st">&quot;#984EA3&quot;</span>,<span class="st">&quot;#FF7F00&quot;</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;PIB per cápita&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Expectativa de vida al nacer (en años)&quot;</span>,
+       <span class="dt">title=</span><span class="st">&quot;A más ingresos mayor tiempo de vida?&quot;</span>,
+       <span class="dt">subtitle=</span><span class="st">&quot;Expectativa de vida al nacer según nivel de ingreso&quot;</span>,
+       <span class="dt">color=</span><span class="st">&quot;Continente&quot;</span>,
+       <span class="dt">caption=</span><span class="st">&quot;Fuente: Gapminder&quot;</span>)</code></pre></div>
+<p>Si quieren ejecuten el objeto gapminder2007 para ver cómo quedó. Ahora iremos con la última parte de este capítulo: cómo exportar los gráficos que hacemos.</p>
+<div id="exportando-gráficos-de-ggplot" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> Exportando gráficos de ggplot</h3>
+<p>Exportar los gráficos es una tarea clave, y es realmente fácil con ggplot. Solo debemos usar la función <strong>ggsave</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;hansRosling2007.png&quot;</span>,
+       <span class="dt">plot =</span> gapminder2007,
+       <span class="dt">dpi =</span> <span class="dv">300</span>)</code></pre></div>
+<p>ggsave nos pide un nombre de archivo, y un gráfico a exportar. Luego, nosotros podemos incluir información sobre la calidad del gráfico o ciertos parámetros adicionales. DPI es la cantidad de Dot Per Inch (puntos por pulgadas) que queremos que tenga. Mientras mayor sea este número, mayor será la “calidad” del gráfico (y tendrá mayores píxeles y peserá más. Ejecuten el código, deberían tener algo similar a esto.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-98"></span>
+<img src="Figuras/Capitulo%203/hansRosling2007.png" alt="Primer gráfico exportado. Gapminder para el año 2007" width="600px" />
+<p class="caption">
+Figure 3.1: Primer gráfico exportado. Gapminder para el año 2007
+</p>
+</div>
+</div>
+</div>
+<div id="mapas" class="section level2">
+<h2><span class="header-section-number">3.6</span> Mapas</h2>
+<p>En el capítulo 4 de este mismo libro introducimos a <em>los datos espaciales</em>. Allí vamos a analizar por qué requieren de un tratamiento especial tanto en el formato en el que están almacenados y su manera de representarse. En esta sección vamos a mostrar las capacidades que tiene el paquete <em>ggplot</em> para hacer mapas en R.</p>
+<p>Vamos a trabajar con dos data frames, uno que contiene el precio de los inmuebles de la Ciudad de Buenos Aires como puntos, y otro que tiene el precio de los inmuebles promeido por barrio. Ambos data frame son, en realidad, objetos <em>sf</em>, que se ven en detalle en el capítulo 4.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(sf)
+preciosCABA &lt;-<span class="st"> </span><span class="kw">read_sf</span>(<span class="st">&#39;https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/PreciosCABASample.geojson&#39;</span>)
+preciosCABABarrios &lt;-<span class="st"> </span><span class="kw">read_sf</span>(<span class="st">&#39;https://raw.githubusercontent.com/martintinch0/CienciaDeDatosParaCuriosos/master/data/PreciosCABABarrioYear.geojson&#39;</span>)
+proyeccionCenso2010 &lt;-<span class="st"> &#39;+proj=tmerc +lat_0=-34.629717 +lon_0=-58.4627 +k=1 +x_0=100000 +y_0=100000 +a=6378388 +b=6378386.996621622 +towgs84=-148,136,90,0,0,0,0 +units=m +no_defs &#39;</span>
+preciosCABA &lt;-<span class="st"> </span><span class="kw">st_transform</span>(preciosCABA,<span class="dt">crs =</span> proyeccionCenso2010)
+preciosCABABarrios &lt;-<span class="st"> </span><span class="kw">st_transform</span>(preciosCABABarrios,<span class="dt">crs =</span> proyeccionCenso2010)</code></pre></div>
+<p>Una vez que ejecuten todo el código van a tener dos objetos nuevos: <strong>preciosCABA</strong> y <strong>preciosCABABarrios</strong>. El primero de ellos es una muestra estratificada por año y barrios (es decir que toma una muestra para cada uno de estos grupos) de los anuncios de ventas de inmuebles en la Ciudad de Buenos Aires, mientras que el segundo muestra la evolución por año del precio promedio en USD de los inmuebles ofertados.</p>
+<p>Hacer un gráfico con objetos de clase <strong>sf</strong> es realmente fácil con <strong>ggplot</strong>, solo debemos agregar <em>geom_sf</em>. Imaginen que queremos graficar los avisos de todos los años:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> preciosCABA, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">color=</span>PrecioM2))</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
+<p>¿Fácil, no? Y también muy poco estético, pero ya vamos a tener tiempo de corregirlo. Presten atención a la escala, aparecen todos los puntos en negro, excepto uno que aparece en azul claro, indicador de valor muy alto. Evidentemente existe algún valor extremo, y esto suele ser algo normal. Como nuestro objetivo es simplemente hacer gráficos, vamos a eliminar estos datos, pero no deberían hacerlo con tanta facilidad en sus investigaciones:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">preciosCABA &lt;-<span class="st"> </span>preciosCABA <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(PrecioM2<span class="op">&lt;</span><span class="dv">10000</span> <span class="op">&amp;</span><span class="st"> </span>PrecioM2<span class="op">&gt;</span><span class="dv">500</span>)
+<span class="kw">ggplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> preciosCABA, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">color=</span>PrecioM2))</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-101-1.png" width="672" /> Pareciera haber mejorado en algo, pero por ahora sigamos con nuestro ejercicio. Lo primero que querríamos hacer es eliminar ese fondo y, quizás, las cuadrículas y también la latitud y longitud que nos señalan los ejes. Lo primero lo podemos hacer usando algunos de los temas que vienen con ggplot, por ejemplo <strong>theme_minimal()</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> preciosCABA, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">color=</span>PrecioM2)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>()</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+<p>Para eliminar las lineas de fondo y las referencias a la longitud y latitud solo debemos agregar <em>coord_sf(datum = NA)</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> preciosCABA, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">color=</span>PrecioM2)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">coord_sf</span>(<span class="dt">datum =</span> <span class="ot">NA</span>)</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
+<p>Mucho mejor. Sin embargo, si queremos mostrar el precio de las propiedades en el mapa según su valor debemos poner un contexto y también mejorar la escala. El Contexto serán los datos de polígonos que tenemos en el otro dataset, mientras que la escala intentaremos solucionarla usando la famosa paleta de <em>viridis</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data=</span>preciosCABABarrios, <span class="dt">fill=</span><span class="ot">NA</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> preciosCABA, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">color=</span>PrecioM2)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_color_viridis_c</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">datum =</span> <span class="ot">NA</span>) </code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
+<p>Mucho mejor. Ahora bien, son muchos datos, qué tal si mostramos los distintos valores por año? Podemos hacer esto mediante la función <strong>facet_wrap()</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data=</span>preciosCABABarrios, <span class="dt">fill=</span><span class="ot">NA</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> preciosCABA, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">color=</span>PrecioM2), <span class="dt">size=</span><span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="dt">facets =</span> <span class="op">~</span><span class="st"> </span>Year) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_color_viridis_c</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">datum =</span> <span class="ot">NA</span>)</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
+<p>Por lo visto, los valores de los precios se encuentran sesgados hacia la derecha (valores altos), lo que no nos permite visualizar correctamente los valores en los mapas. Creemos una variable categórica de los precios y veamos si mejora.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">preciosCABA&lt;-preciosCABA <span class="op">%&gt;%</span>
+<span class="st">  </span>ungroup <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PrecioM2Cat =</span> <span class="kw">cut</span>(PrecioM2,<span class="kw">quantile</span>(PrecioM2), <span class="dt">include.lowest =</span> <span class="ot">TRUE</span>))
+<span class="kw">ggplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data=</span>preciosCABABarrios, <span class="dt">fill=</span><span class="ot">NA</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> preciosCABA, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">color=</span>PrecioM2Cat,<span class="dt">fill=</span>PrecioM2Cat), <span class="dt">size=</span><span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="dt">facets =</span> <span class="op">~</span><span class="st"> </span>Year) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_color_viridis_d</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">datum =</span> <span class="ot">NA</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&quot;Precios&quot;</span>,<span class="dt">color=</span><span class="st">&quot;Precios&quot;</span>)</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-106-1.png" width="672" /></p>
+<p>En la primera parte creamos la categoría de la variable con la función <strong>cut()</strong>, que recibe 1) un conjunto de valores, 2) un vector con puntos de quiebre y nos devuelve un factor que dice en cada cual de esos segmentos caen los valores. Aunque lo hace muy bien, casi nunca nos gusta los <em>labels</em> que asigna, es decir las etiquetas que corresponden a cada nivel. Existen muchas formas de cambiar esto, una deellas es usando la función <strong>level()</strong>. Lo único que hay que hacer es pasarle los nuevos valores que deben reemplazar a los viejos. Veamos, primero, que devuelve la función:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(preciosCABA<span class="op">$</span>PrecioM2Cat)</code></pre></div>
+<pre><code>## [1] &quot;[503,1.51e+03]&quot;      &quot;(1.51e+03,2e+03]&quot;    &quot;(2e+03,2.55e+03]&quot;    &quot;(2.55e+03,9.71e+03]&quot;</code></pre>
+<p>Ahora ya podemos reemplazar estos valores por algunos que nos parezcan más razonables. Veamos los valores de quiebre y creemos una mejor leyenda:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">quantile</span>(preciosCABA<span class="op">$</span>PrecioM2),<span class="dv">0</span>)</code></pre></div>
+<pre><code>##   0%  25%  50%  75% 100% 
+##  503 1513 2000 2550 9706</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nuevosLabels &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;De 503 a 1500&#39;</span>, <span class="st">&#39;De 1501 a 1987&#39;</span>, <span class="st">&#39;De 1988 a 2500&#39;</span>,<span class="st">&#39;Más de 2500&#39;</span>)
+<span class="kw">levels</span>(preciosCABA<span class="op">$</span>PrecioM2Cat) &lt;-<span class="st"> </span>nuevosLabels</code></pre></div>
+<p>Además de esto, vamos a ponerle un título y un subtítulo para agregar más información a nuestro mapa:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data=</span>preciosCABABarrios, <span class="dt">fill=</span><span class="ot">NA</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> preciosCABA, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">color=</span>PrecioM2Cat,<span class="dt">fill=</span>PrecioM2Cat), <span class="dt">size=</span><span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="dt">facets =</span> <span class="op">~</span><span class="st"> </span>Year) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_color_viridis_d</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">datum =</span> <span class="ot">NA</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&quot;Precios&quot;</span>,<span class="dt">color=</span><span class="st">&quot;Precios&quot;</span>,<span class="dt">title=</span><span class="st">&quot;Evolución de precios de los inmuebles en CABA&quot;</span>,<span class="dt">subtitle=</span><span class="st">&#39;2015-2019&#39;</span>)</code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
+<div id="mapas-animados" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> Mapas animados</h3>
+<p>A veces, mostrar muchos mapas estáticos no comunica tan bien como hacerlo de una manera animada. El paquete <strong>gganimate</strong> nos permite usar prácticamente la misma sintáxis de <strong>ggplot</strong> para hacer animados a nuestros mapas. Hagamos uno que muestre los precios de los inmuebles por año para cada barrio de la Ciudad de Buenos Aires:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gganimate)
+preciosCABABarrios&lt;-preciosCABABarrios <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PrecioM2Cat =</span> <span class="kw">cut</span>(PrecioM2,<span class="kw">quantile</span>(PrecioM2), <span class="dt">include.lowest =</span> <span class="ot">TRUE</span>))
+<span class="kw">levels</span>(preciosCABABarrios<span class="op">$</span>PrecioM2Cat) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;De 761 a 1661&#39;</span>, <span class="st">&#39;De 1662 a 1973&#39;</span>, <span class="st">&#39;De 1974 a 2319&#39;</span>, <span class="st">&#39;Más de 2320&#39;</span>)
+
+<span class="kw">ggplot</span>(<span class="dt">data =</span> preciosCABABarrios, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">fill=</span>PrecioM2Cat)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">color=</span><span class="st">&#39;white&#39;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">size=</span><span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">datum =</span> <span class="ot">NA</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span>
+<span class="st">   </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Mapa de precios de inmuebles en CABA&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;&quot;</span>,
+       <span class="dt">subtitle=</span><span class="st">&quot;Año: {current_frame}&quot;</span>,
+       <span class="dt">fill=</span><span class="st">&quot;Categoría de precios&quot;</span>,
+       <span class="dt">caption=</span><span class="st">&quot;Fuente: Properati Data&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">transition_manual</span>(Year)</code></pre></div>
+<pre><code>## nframes and fps adjusted to match transition</code></pre>
+<pre><code>## 
+Rendering [============&gt;------------------------------------------------------] at 4.4 fps ~ eta:  1s
+Rendering [==========================&gt;----------------------------------------] at 3.9 fps ~ eta:  1s
+Rendering [=======================================&gt;---------------------------] at 3.8 fps ~ eta:  1s
+Rendering [=====================================================&gt;-------------] at 3.6 fps ~ eta:  0s
+Rendering [===================================================================] at 3.6 fps ~ eta:  0s
+                                                                                                     </code></pre>
+<pre><code>## 
+Frame 1 (20%)
+Frame 2 (40%)
+Frame 3 (60%)
+Frame 4 (80%)
+Frame 5 (100%)
+## Finalizing encoding... done!</code></pre>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-110-1.gif" /><!-- --></p>
+</div>
+</div>
+<div id="ejercicios-2" class="section level2">
+<h2><span class="header-section-number">3.7</span> Ejercicios</h2>
+<p>Descarguen el dataset de precios de los inmuebles que pueden obtener desde el siguiente link, que lo pasaremos a formato largo y eliminaremos el sufijo USDm2_ para los precios de cada año.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">precioAvisos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&#39;https://raw.githubusercontent.com/martintinch0/CienciaDeDatosParaCuriosos/master/data/precioBarrios.csv&#39;</span>,
+         <span class="dt">sep=</span><span class="st">&#39;;&#39;</span>,
+         <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+
+precioAvisos&lt;-precioAvisos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="op">-</span>BARRIOS,
+                                            <span class="dt">names_to=</span> <span class="st">&quot;Year&quot;</span>,
+                                            <span class="dt">values_to=</span><span class="st">&#39;Valor&#39;</span>
+                                            ) <span class="op">%&gt;%</span>
+<span class="st">              </span><span class="kw">mutate</span>(<span class="dt">Year=</span><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;USDm2_*&quot;</span>,
+                              <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>,
+                              <span class="dt">x =</span> Year))</code></pre></div>
+<p>Ahora hagan los siguientes gráficos. En cada uno de ellos prueben con distintos colores y themes. Prueben instalar el paquete <strong>ggthemes</strong> y usar algunos de sus themes, como por ejemplo <strong>theme_fiverthirtyeight()</strong>.</p>
+<ol style="list-style-type: decimal">
+<li>Un gráfico de linea de tiempo que muestre la evolución de los precios entre 2013 y 2017 para los barrios de Agronomia, Almagro, Caballito y Coghlan ¿Pueden hacer este gráfico sin usar el argumento <strong>group</strong>? Revisen las variables de <strong>preciosAvisos</strong> y piensen la respuesta y las posibles soluciones.</li>
+<li>Un scatter plot para el precio (eje vertical) por año (eje horizontal)</li>
+<li>¿Qué pasa si en el punto 2 usan <strong>geom_boxplot</strong> en lugar de <strong>geom_point</strong>? Recuerden que para hacer un boxplot es preciso tener más de un punto por grupo que se muestra, ya que resume la distribución de un conjunto de puntos.</li>
+</ol>
+</div>
+<div id="extensión-animando-el-gráfico-de-hans-rosling" class="section level2">
+<h2><span class="header-section-number">3.8</span> Extensión: animando el gráfico de Hans Rosling</h2>
+<p>El gráfico original de Hans Rosling muestra la evolución en el tiempo de las dos variables a lo largo del tiempo. Con el paquete <strong>gganimate</strong> solo debemos agregar dos líneas de código - y modificar levemente otras dos - para tener el gráfico que buscamos.</p>
+<p>En primer lugar, si queremos mostrar la evolución en el tiempo de estas variables tenemos que usar el data frame completo, no solo la última foto.</p>
+<p>En segundo lugar, debemos indicar cuáles son los quiebres en nuestro eje horizontal, porque en caso de no hacerlo R va a expresar algunos cortes con notación científica. Esto lo hacemos dentro de scale_x_continuous, donde podemos incluir, dentro de <em>breaks</em>, los valores que queremos que muestre.</p>
+<p>En tercer lugar, tenemos que indicarle a ggplot que se trata de una animación. Esto lo hacemos con <strong>transition_time(year)</strong>, en donde le indicamos cual es la variable por la cual tiene que hacer la transición de las fotos. Además le decimos que, cómo hay baches entre los años, los complete con una interpolación lineal con el siguiente código <strong>ease_aes(‘linear’)</strong></p>
+<p>Finalmente modificamos el título del gráfico con <strong>Año: {frame_time}</strong> para que nos vaya indicando el año que estamos viendo en la animación.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gganimate)
+gapminderAnim &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder_df,
+                        <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap,
+                                      <span class="dt">y =</span> lifeExp,
+                                      <span class="dt">color=</span>continent,
+                                      <span class="dt">size=</span>pop)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">size=</span><span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">trans =</span> <span class="st">&#39;log10&#39;</span>,<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1000</span>,<span class="dv">10000</span>,<span class="dv">70000</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="st">&quot;Europe&quot;</span>,<span class="st">&quot;Asia&quot;</span>,<span class="st">&quot;Oceania&quot;</span>,<span class="st">&quot;Africa&quot;</span>,<span class="st">&quot;Americas&quot;</span>),
+                       <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#E41A1C&quot;</span>,<span class="st">&quot;#377EB8&quot;</span>,<span class="st">&quot;#4DAF4A&quot;</span> ,<span class="st">&quot;#984EA3&quot;</span>,<span class="st">&quot;#FF7F00&quot;</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;PIB per cápita&quot;</span>,
+         <span class="dt">y =</span> <span class="st">&quot;Expectativa de vida al nacer (en años)&quot;</span>,
+         <span class="dt">title=</span><span class="st">&quot;Año: {frame_time}&quot;</span>,
+         <span class="dt">subtitle=</span><span class="st">&quot;Expectativa de vida al nacer según nivel de ingreso&quot;</span>,
+         <span class="dt">color=</span><span class="st">&quot;Continente&quot;</span>,
+         <span class="dt">caption=</span><span class="st">&quot;Fuente: Gapminder&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">transition_time</span>(year) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ease_aes</span>(<span class="st">&#39;linear&#39;</span>)</code></pre></div>
+<p>Si lo ejecutan, deberían tener algo similar a lo que se ve abajo:</p>
+<p><img src="Figuras/Capitulo%203/animacionGapminder.gif" /><!-- --></p>
+<p>Aunque para generar esta animación use <strong>anim_save()</strong>, el equivalente a <strong>ggsave()</strong>, pero para animaciones:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anim_save</span>(<span class="dt">filename=</span><span class="st">&quot;animacion.gif&quot;</span>,
+          <span class="dt">animation =</span> gapminderAnim,
+          <span class="dt">width=</span><span class="dv">2100</span>,
+          <span class="dt">height=</span><span class="dv">1500</span>,
+          <span class="dt">res=</span><span class="dv">300</span>)</code></pre></div>
+</div>
+<div id="material-de-lectura" class="section level2">
+<h2><span class="header-section-number">3.9</span> Material de lectura</h2>
+<p><a href="https://ggplot2-book.org/"><em>ggplot2: Elegant Graphics for Data Analysis</em>, Hadley Wickham</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="transformando-nuestros-datos-data-wrangling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datos-espaciales-en-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

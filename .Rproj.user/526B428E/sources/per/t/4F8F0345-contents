@@ -1,0 +1,30 @@
+--- 
+title: "Ciencia de datos para curiosos"
+author: "Martin Montane"
+description: "Una introducción practica a la Ciencia de Datos"
+date: "`r Sys.Date()`"
+cover-image: "Figuras/GatoCurioso.png"
+site: bookdown::bookdown_site
+output: 
+  bookdown::gitbook:
+    css: "styles.css"
+documentclass: book
+---
+# ¡Sólo curiosos de acá en adelante! {-}
+
+La ciencia de datos ha estado presente casi en cualquier contexto que se pueda pensar: en los medios masivos, en nuestra experiencia diaria cuando usamos Netflix o nos tomamos el subte y en la charla con colegas o incluso familiares y amigos.
+
+Este libro tiene como objetivo principal dar una idea sobre qué es la ciencia de datos, para qué sirve y cómo podemos usarla. Para esto, se necesita solo una cosa: **curiosidad**. Con estas ganas de conocer lo que hoy no conocemos, pero que nos llama la atención, el resto de las herramientas pueden ir aprendiéndose. 
+
+```{r out.width="400px",echo=FALSE, fig.align="center"}
+knitr::include_graphics("Figuras/GatoCurioso.png")
+```
+
+## ¿Qué necesitamos para arrancar? {-}
+
+Este libro utiliza el lenguaje de programación R y la interfaz de desarrollo RStudio para comprender para qué sirve la Ciencia de Datos y para comenzar a explorar sus aplicaciones.
+Esto implica que necesitamos una computadora (en lo posible, que tenga 4gb de memoria RAM o superior) y descargar e instalar tanto R como RStudio en nuestras computadoras.
+
+Descargar instalar estos dos softwares es muy simple ya que son gratuitos. R de hecho es un lenguaje de programación *open source*, o de código abierto, lo que significa que cualquiera puede colaborar. [Haciendo click aquí](https://cran.r-project.org/) van a poder descargar la última versión de R para Windows, Mac o Linux. Una vez que lo hayan descargado solo tienen que instalarlo.
+
+Ahora [descarguen RStudio](https://www.rstudio.com/products/rstudio/download/), también van a poder elegir la versión que corresponde según su sistema operativo. RStudio va a identificar automáticamente la versión de R que ya tienen instalada, **por lo que es importante que instalen RStudio luego de haber instalado R**. Una vez que tienen todo esto instalado pueden pasar al primer capítulo de este libro
