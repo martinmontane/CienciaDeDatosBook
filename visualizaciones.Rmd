@@ -15,6 +15,8 @@ La visualización de datos ha ganado espacio en diversas publicaciones y en las 
 Este punto dista de ser uno moderno. En 1973 el estadístico Francis Anscombe aportó la siguiente evidencia sobre cómo muchas de las variables que solemos tomar como de resumen, o incluso de relación entre ellas, puede engañarnos si no visualizamos correctamente los datos:
 
 ```{r echo=FALSE,eval=TRUE}
+library(tidyverse)
+library(ggthemes)
 dfAnscombe<- anscombe %>%
  pivot_longer(everything(),
    names_to = c(".value", "dataset"),
@@ -70,7 +72,7 @@ gapminder_df <- read.table(file = "https://raw.githubusercontent.com/martintinch
 gapminderLastCut <- gapminder_df %>% filter(year==2007)
 ```
 
-Ya podemos comenzar con nuestro primer ejemplo. **ggplot** comienza siempre dela misma manera: usando la función homónima y comentando que datos queremos graficar. Luego, le decimos qué tipo de gráfico queremos hacer, lo que en GG se hace con **geom_**, seguido por un sufijo que hace referencia específica al tipo de gráfico. 
+Ya podemos comenzar con nuestro primer ejemplo. **ggplot** comienza siempre de la misma manera: usando la función homónima y comentando que datos queremos graficar. Luego, le decimos qué tipo de gráfico queremos hacer, lo que en GG se hace con **geom_**, seguido por un sufijo que hace referencia específica al tipo de gráfico. 
 
 Además, GGPLOT no hace magia: en este caso, necesita saber qué variable poner en el eje x y cuál otra poner en el eje y. En ggplot, estas últimas indicaciones van dentro de una función que se llama **aes()**, que es la abreviación de **aesthetics**.
 
@@ -124,6 +126,23 @@ ggplot(data = gapminderLastCut,
 
 Podemos observar cómo los colores no se distribuyen aleatoriamente entre niveles de ingreso, sino que se ubican más o menos en los mismos rangos, con algunas excepciones. Más adelante vamos a ver un gráfico que nos va a ser útil para detectar estás diferencias.
 
+### Creando paneles con facet_wrap()
+
+Los paneles son realmente fáciles de armar en ggplot. Lo unico que debemos decirle es que queremos hacerlos y qué variable usaremos para cortar a nuestros datos y mostrarlos de a partes. Imaginemos que queremos mostrar el mismo gráfico de relación entre PIB per cápita y expectativas de vida al nacer (en años) que hicimos anteriormente, pero para cada uno de los continentes por separados: muy simple.
+
+```{r}
+ggplot(data = gapminderLastCut,
+       mapping = aes(x=gdpPercap, y = lifeExp)) +
+  geom_point() +
+  labs(x = "PIB per cápita",
+       y = "Expectativa de vida al nacer (en años)",
+       title="A más ingresos mayor tiempo de vida?",
+       subtitle="Expectativa de vida al nacer según nivel de ingreso",
+       caption="Fuente: Gapminder") +
+  facet_wrap(~ continent)
+```
+
+Fácil, no? Lo único que cambiamos fue que no queremos colorear por continente, sino que queremos que se creen tantos gráficos como continentes hay en nuestros datos. 
 
 ## ¿Cuál fue la evolución de la expectativa de vida al nacer? Gráfico de líneas
 
@@ -243,18 +262,17 @@ gapminder2007 <- ggplot(data = gapminderLastCut,
        mapping = aes(x = gdpPercap,
                      y = lifeExp,
                      color=continent,
-                     size=pop))
+                     size=pop)) +
 # Tipo de gráfico a hacer
-gapminder2007 <- gapminder2007 + geom_point()
+geom_point() +
 # ¿Qué leyendas mostrar? No mostrar aquella relacionada con el tamaño. Prueben qué pasa si no agregan esto al gráfico
-gapminder2007 <- gapminder2007 + guides(size=FALSE)
+guides(size=FALSE) +
 # Elegimos un tema preestablecido, en este caso *minimal*
-gapminder2007 <- gapminder2007 + theme_minimal()
+theme_minimal() +
 # El eje x, que tiene una variable continua, queremos que muestre
 # los datos en logaritmos para evitar que los puntos se "junten"
 # muy cerca del inicio y no nos permitan ver los cambios
-gapminder2007 <- gapminder2007 + scale_x_continuous(trans = 'log10')
-gapminder2007
+scale_x_continuous(trans = 'log10')
 ```
 
 Hemos agregado un par de funciones más que vale la pena aclarar. En primer lugar, el uso de la función **guides()**, que entre otras cosas es útil para elegir qué leyendas queremos que aparezcan en nuestro gráfico y qué no. Por definición, cada **aesthetic** que agregamos (color, tamaño, símbolo) tiene un correlato en la leyenda. Pero en nuestro caso no queremos que muestre los tamaños con un determinado tamaño de población: basta con saber que mientras más grande es el tamaño de la bola, más alta es la población del país. Para eso agregamos **guides(size=FALSE)**
@@ -294,149 +312,6 @@ ggsave nos pide un nombre de archivo, y un gráfico a exportar. Luego, nosotros 
 ```{r out.width="600px",echo=FALSE, fig.cap="Primer gráfico exportado. Gapminder para el año 2007", fig.align="center"}
 knitr::include_graphics("Figuras/Capitulo 3/hansRosling2007.png")
 ```
-
-## Mapas
-
-En el capítulo 4 de este mismo libro introducimos a *los datos espaciales*. Allí vamos a analizar por qué requieren de un tratamiento especial tanto en el formato en el que están almacenados y su manera de representarse. En esta sección vamos a mostrar las capacidades que tiene el paquete *ggplot* para hacer mapas en R.
-
-Vamos a trabajar con dos data frames, uno que contiene el precio de los inmuebles de la Ciudad de Buenos Aires como puntos, y otro que tiene el precio de los inmuebles promeido por barrio. Ambos data frame son, en realidad, objetos *sf*, que se ven en detalle en el capítulo 4.
-
-```{r}
-library(sf)
-preciosCABA <- read_sf('https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/PreciosCABASample.geojson')
-preciosCABABarrios <- read_sf('https://raw.githubusercontent.com/martintinch0/CienciaDeDatosParaCuriosos/master/data/PreciosCABABarrioYear.geojson')
-proyeccionCenso2010 <- '+proj=tmerc +lat_0=-34.629717 +lon_0=-58.4627 +k=1 +x_0=100000 +y_0=100000 +a=6378388 +b=6378386.996621622 +towgs84=-148,136,90,0,0,0,0 +units=m +no_defs '
-preciosCABA <- st_transform(preciosCABA,crs = proyeccionCenso2010)
-preciosCABABarrios <- st_transform(preciosCABABarrios,crs = proyeccionCenso2010)
-```
-
-Una vez que ejecuten todo el código van a tener dos objetos nuevos: **preciosCABA** y **preciosCABABarrios**. El primero de ellos es una muestra estratificada por año y barrios (es decir que toma una muestra para cada uno de estos grupos) de los anuncios de ventas de inmuebles en la Ciudad de Buenos Aires, mientras que el segundo muestra la evolución por año del precio promedio en USD de los inmuebles ofertados.
-
-Hacer un gráfico con objetos de clase **sf** es realmente fácil con **ggplot**, solo debemos agregar *geom_sf*. Imaginen que queremos graficar los avisos de todos los años:
-
-```{r}
-ggplot() +
-  geom_sf(data = preciosCABA, mapping = aes(color=PrecioM2))
-```
-
-¿Fácil, no? Y también muy poco estético, pero ya vamos a tener tiempo de corregirlo. Presten atención a la escala, aparecen todos los puntos en negro, excepto uno que aparece en azul claro, indicador de valor muy alto. Evidentemente existe algún valor extremo, y esto suele ser algo normal. Como nuestro objetivo es simplemente hacer gráficos, vamos a eliminar estos datos, pero no deberían hacerlo con tanta facilidad en sus investigaciones:
-
-```{r}
-preciosCABA <- preciosCABA %>% filter(PrecioM2<10000 & PrecioM2>500)
-ggplot() +
-  geom_sf(data = preciosCABA, mapping = aes(color=PrecioM2))
-```
-Pareciera haber mejorado en algo, pero por ahora sigamos con nuestro ejercicio. Lo primero que querríamos hacer es eliminar ese fondo y, quizás, las cuadrículas y también la latitud y longitud que nos señalan los ejes. Lo primero lo podemos hacer usando algunos de los temas que vienen con ggplot, por ejemplo **theme_minimal()**
-
-```{r}
-ggplot() +
-  geom_sf(data = preciosCABA, mapping = aes(color=PrecioM2)) +
-  theme_minimal()
-```
-
-Para eliminar las lineas de fondo y las referencias a la longitud y latitud solo debemos agregar *coord_sf(datum = NA)*:
-
-```{r}
-ggplot() +
-  geom_sf(data = preciosCABA, mapping = aes(color=PrecioM2)) +
-  theme_minimal() + coord_sf(datum = NA)
-```
-
-Mucho mejor. Sin embargo, si queremos mostrar el precio de las propiedades en el mapa según su valor debemos poner un contexto y también mejorar la escala. El Contexto serán los datos de polígonos que tenemos en el otro dataset, mientras que la escala intentaremos solucionarla usando la famosa paleta de *viridis*:
-
-```{r}
-ggplot() +
-  geom_sf(data=preciosCABABarrios, fill=NA) +
-  geom_sf(data = preciosCABA, mapping = aes(color=PrecioM2)) + 
-  scale_color_viridis_c() +
-  theme_minimal() +
-  coord_sf(datum = NA) 
-```
-
-Mucho mejor. Ahora bien, son muchos datos, qué tal si mostramos los distintos valores por año?  Podemos hacer esto mediante la función **facet_wrap()**:
-
-```{r}
-ggplot() +
-  geom_sf(data=preciosCABABarrios, fill=NA) +
-  geom_sf(data = preciosCABA, mapping = aes(color=PrecioM2), size=0.5) +
-  facet_wrap(facets = ~ Year) + 
-  scale_color_viridis_c() +
-  theme_minimal() +
-  coord_sf(datum = NA)
-```
-
-Por lo visto, los valores de los precios se encuentran sesgados hacia la derecha (valores altos), lo que no nos permite visualizar correctamente los valores en los mapas. Creemos una variable categórica de los precios y veamos si mejora.
-
-
-```{r}
-preciosCABA<-preciosCABA %>%
-  ungroup %>%
-  mutate(PrecioM2Cat = cut(PrecioM2,quantile(PrecioM2), include.lowest = TRUE))
-ggplot() +
-  geom_sf(data=preciosCABABarrios, fill=NA) +
-  geom_sf(data = preciosCABA, mapping = aes(color=PrecioM2Cat,fill=PrecioM2Cat), size=0.5) +
-  facet_wrap(facets = ~ Year) + 
-  scale_color_viridis_d() +
-  scale_fill_viridis_d() +
-  theme_minimal() +
-  coord_sf(datum = NA) +
-  labs(fill="Precios",color="Precios")
-
-```
-
-En la primera parte creamos la categoría de la variable con la función **cut()**, que recibe 1) un conjunto de valores, 2) un vector con puntos de quiebre y nos devuelve un factor que dice en cada cual de esos segmentos caen los valores. Aunque lo hace muy bien, casi nunca nos gusta los *labels* que asigna, es decir las etiquetas que corresponden a cada nivel. Existen muchas formas de cambiar esto, una deellas es usando la función **level()**. Lo único que hay que hacer es pasarle los nuevos valores que deben reemplazar a los viejos. Veamos, primero, que devuelve la función:
-
-```{r}
-levels(preciosCABA$PrecioM2Cat)
-```
-
-Ahora ya podemos reemplazar estos valores por algunos que nos parezcan más razonables. Veamos los valores de quiebre y creemos una mejor leyenda:
-
-```{r}
-round(quantile(preciosCABA$PrecioM2),0)
-nuevosLabels <- c('De 503 a 1500', 'De 1501 a 1987', 'De 1988 a 2500','Más de 2500')
-levels(preciosCABA$PrecioM2Cat) <- nuevosLabels
-```
-
-Además de esto, vamos a ponerle un título y un subtítulo para agregar más información a nuestro mapa:
-
-```{r}
-ggplot() +
-  geom_sf(data=preciosCABABarrios, fill=NA) +
-  geom_sf(data = preciosCABA, mapping = aes(color=PrecioM2Cat,fill=PrecioM2Cat), size=0.5) +
-  facet_wrap(facets = ~ Year) + 
-  scale_color_viridis_d() +
-  scale_fill_viridis_d() +
-  theme_minimal() +
-  coord_sf(datum = NA) +
-  labs(fill="Precios",color="Precios",title="Evolución de precios de los inmuebles en CABA",subtitle='2015-2019')
-```
-
-### Mapas animados
-
-A veces, mostrar muchos mapas estáticos no comunica tan bien como hacerlo de una manera animada. El paquete **gganimate** nos permite usar prácticamente la misma sintáxis de **ggplot** para hacer animados a nuestros mapas. Hagamos uno que muestre los precios de los inmuebles por año para cada barrio de la Ciudad de Buenos Aires:
-
-```{r}
-library(gganimate)
-preciosCABABarrios<-preciosCABABarrios %>%
-  mutate(PrecioM2Cat = cut(PrecioM2,quantile(PrecioM2), include.lowest = TRUE))
-levels(preciosCABABarrios$PrecioM2Cat) <- c('De 761 a 1661', 'De 1662 a 1973', 'De 1974 a 2319', 'Más de 2320')
-
-ggplot(data = preciosCABABarrios, mapping = aes(fill=PrecioM2Cat)) +
-  geom_sf(color='white') +
-  guides(size=FALSE) +
-  theme_minimal() +
-  coord_sf(datum = NA) +
-  scale_fill_viridis_d() +
-   labs(title = "Mapa de precios de inmuebles en CABA",
-       y = "",
-       subtitle="Año: {current_frame}",
-       fill="Categoría de precios",
-       caption="Fuente: Properati Data") +
-  transition_manual(Year)
-
-```
-
 
 ## Ejercicios
 
@@ -514,6 +389,181 @@ anim_save(filename="animacion.gif",
           res=300)
 ```
 
+## En una baldosa: las preguntas más frecuentes
+
+En esta sección resumo las preguntas más frecuentes que recibo en mis cursos con respecto al uso de ggplot y algunas extensiones. Esta es un arma de doble filo: les acerco algunas soluciones creando la ilusión de que un manual o un capítulo de un libro pueden resolver todas sus dudas. No es así: van a tener que aprender a buscar soluciones de manera independiente en múltiples lugares de internet, combinando búsquedas en Google con diferentes manuales (este y otros que se incluyen al final de este capítulo). Con todo, acá van algunas de las preguntas que me han hecho y que no incorporé al texto para que no se vaya de tamaño. 
+
+Para todos estos ejemplos deben tener cargados los datos sobre la [evolución del COVID19](https://ourworldindata.org/coronavirus-source-data) que la gente de [Our World In Data](https://ourworldindata.org/) y hacer el siguiente procesamiento:
+
+```{r}
+require(tidyverse)
+infoCovid <- read_csv("https://covid.ourworldindata.org/data/ecdc/full_data.csv")
+popData <- read_csv("https://covid.ourworldindata.org/data/ecdc/locations.csv")
+infoCovid <- left_join(infoCovid,popData %>% select(location,population),by="location")
+```
+
+### 1. ¿Cómo puedo hacer un gráfico de barras?
+
+Principales puntos: **geom_col** es el geom de ggplot que nos permite hacer barras. **theme(axis.text.x=element_text(angle=90))** nos permite agarrar el texto del eje x y rotarlo 90 grados para que se vea mejor el nombre de nuestras unidades (en este caso, países).
+**x=factor(location,levels = level_order)**, dentro de **aes()** nos permite ordenar de la manera que nosotros queramos a los datos, en base a un vector que creamos anteriormente (Ver la pregunta 2 !)
+
+```{r}
+require(tidyverse)
+# Nos quedamos con los datos correspondiente a la última fecha
+dfBar <- infoCovid %>% 
+         filter(date==max(date), !location == "World",total_deaths>10) %>%
+         mutate(deathsPerMillion=(total_deaths/population)*1000000) %>%
+         filter(!is.na(deathsPerMillion))
+         
+# Creamos un vector que nos va a permitir odrenar (descendente o ascendente) a los paises
+level_order <- dfBar %>% 
+               arrange(desc(deathsPerMillion)) %>%
+               pull(location)
+# Codigo para el grafico de barras                     
+ggplot(dfBar) +
+  geom_col(aes(x=factor(location,levels = level_order),y=deathsPerMillion)) +
+  theme(axis.text.x=element_text(angle=90)) +
+  labs(x="",y="Muertos por COVID por millones de habitantes",caption = "Elaboración propia con base en datos de Our World In Data")
+```
+
+### 2. ¿Cómo ordeno mis datos en ggplot?
+
+ggplot por default ordena nuestos datos de texto - las categorias - por orden alfabético. Rara vez este sea el orden que queremos para nuestro gráfico (si no me creen, pongan directamente **location** en el ejemplo anterior, en lugar de **factor(location,levels = level_order)** ) y vean cómo ahora el gráfico es mucho más dificil de entender. Existen múltiples estrategias para lograr que ggplot lo ordene como queremos, pero una alternativa muy interesante es crear antes del gráfico un vector con el orden que queremos que tenga. 
+
+Veamos el código del gráfico del ejemplo anterior, presten atención a estas dos partes
+
+```{r eval=FALSE}
+# Creamos un vector que nos va a permitir odrenar (descendente o ascendente) a los paises
+level_order <- dfBar %>% 
+               arrange(desc(deathsPerMillion)) %>%
+               pull(location)
+# Codigo para el grafico de barras                     
+ggplot(dfBar) +
+  geom_col(aes(x=factor(location,levels = level_order),y=deathsPerMillion)) +
+  theme(axis.text.x=element_text(angle=90)) +
+  labs(x="",y="Muertos por COVID por millones de habitantes",caption = "Elaboración propia con base en datos de Our World In Data")
+```
+
+En la primera creamos el vector **level_order** que tiene los valores de la variable **deathsPerMillion**, la que queremos mostrar en el gráfico, ordenados de manera descendente. Luego, dentro de **geom_col** decimos que en el eje x queremos mostrar un **factor** de la variable **location**, pero con los levels (los niveles del factor) en el orden que nosotros queremos. Esta es una de las mejores formas de hacerlo, porque no necesitamos convertir como factor a la variable del data frame, sino directamente ggplot !
+
+### 3. ¿Cómo hago gráficos de barras apiladas (stacked bars)?
+
+```{r}
+library(countrycode)
+
+dfBar <- infoCovid %>%
+         mutate(continente=countrycode(sourcevar = location,origin = "country.name",destination = "continent")) %>%
+         filter(!is.na(continente)) %>%
+         group_by(date,continente) %>%
+         summarise(total_deaths=sum(total_deaths)) 
+
+ggplot(dfBar, aes(fill=continente, y=total_deaths, x=date)) + 
+    geom_col(position="stack")
+         
+```
+
+### 4. ¿Cómo hago agrego texto a los gráficos?
+
+El texto en los gráficos de ggplot se introduce con **geom_text()**. Vamos a agregar texto a un gráfico apilado con la distribución por continente del COVID, similar a lo que hicimos anteriormente. La clave está en **geom_text(aes(label=round(shareContinente*100)),position = position_stack(vjust=0.5))**. Ahí le decimos a ggplot que queremos agregar texto y que muestre el porcentaje por continente (redondeado). En posicion le decimos que queremos que lo ponga en la mitad de cada barra (vjust=0.5)
+
+```{r}
+library(countrycode)
+library(ggthemes)
+dfBar <- infoCovid %>%
+         mutate(continente=countrycode(sourcevar = location,origin = "country.name",destination = "continent")) %>%
+         filter(!is.na(continente)) %>%
+         group_by(date,continente) %>%
+         summarise(total_deaths=sum(total_deaths)) %>%
+         group_by(date) %>%
+         mutate(shareContinente=total_deaths/sum(total_deaths))
+
+ggplot(dfBar %>% filter(date>"2020-04-01"), aes(fill=continente, y=shareContinente, x=date)) + 
+    geom_col(position="stack") +
+    geom_text(aes(label=round(shareContinente*100)),position = position_stack(vjust=0.5)) +
+    theme_fivethirtyeight() +
+    scale_y_continuous(labels = scales::percent_format()) +
+    scale_x_date(breaks = seq(as.Date("2020-04-01"),as.Date("2020-05-10"),by=3)) +
+    theme(axis.text.x = element_text(angle=90))
+    
+         
+```
+
+### 5. ¿Cómo cambio el rango del eje x o y?
+
+En este pequeño código la clave está en **scale_y_continuous(limits = c(0,10))**. Ahí le decimos que en la escala del eje y, que es continua, queremos que los límites estén entre 0 y 10. Si hay datos que están fuera de ese rango, no se mostrarán y ggplot nos dirá, con una advertencia, que algunos datos no se pudieron mostrar. 
+
+```{r}
+require(tidyverse)
+require(ggthemes)
+# Nos quedamos con los datos correspondiente a algunos países de América Latina
+dfBar <- infoCovid %>% 
+         group_by(location) %>%
+         filter(any(total_deaths>10)) %>%
+         filter(location %in% c("Argentina","Brazil","Chile","Bolivia","Paraguay","Colombia","Ecuador","Uruguay")) %>%
+         mutate(deathsPerMillion=(total_deaths/population)*1000000) 
+# Código para el gráfico de lineas con scale cambiado                
+ggplot(dfBar) +
+  geom_line(aes(x=date,y=deathsPerMillion,group=location,color=location)) +
+  labs(x="",y="Muertos por COVID por millones de habitantes",caption = "Elaboración propia con base en datos de Our World In Data") +
+  scale_color_brewer(palette = "Set2") +
+  scale_y_continuous(limits = c(0,10)) 
+```
+
+### 6. ¿Cómo cambio la tipografía?
+
+```{r}
+# Extrafont nos ayuda a cargar las fuentes que tengamos en nuestra computadora
+require(extrafont)
+# Deben importar las fuentes a R. SOLO HAY QUE HACERLO UNA VEZ. puede llevar varios minutos
+# font_import()
+# con fonts() pueden ver las fuentes que pueden usar en el ggplot
+require(tidyverse)
+require(ggthemes)
+# Nos quedamos con los datos correspondiente a algunos países de América Latina
+dfBar <- infoCovid %>% 
+         group_by(location) %>%
+         filter(any(total_deaths>10)) %>%
+         filter(location %in% c("Argentina","Brazil","Chile","Bolivia","Paraguay","Colombia","Ecuador","Uruguay")) %>%
+         mutate(deathsPerMillion=(total_deaths/population)*1000000) 
+# Código para el gráfico de lineas con scale cambiado                
+ggplot(dfBar) +
+  geom_line(aes(x=date,y=deathsPerMillion,group=location,color=location)) +
+  labs(x="",y="Muertos por COVID por millones de habitantes",caption = "Elaboración propia con base en datos de Our World In Data") +
+  scale_color_brewer(palette = "Set2") +
+  scale_y_continuous(limits = c(0,10)) +
+  # Acá es donde usamos Verdana. Pueden ver el nombre de sus fuentes con fonts()
+  theme(text=element_text(family="Verdana"))
+```
+
+
+### 7. ¿Cómo hago treemaps?
+
+```{r}
+library(countrycode)
+library(treemapify)
+library(tidyverse)
+
+dfBar <- infoCovid %>%
+         mutate(continente=countrycode(sourcevar = location,origin = "country.name",destination = "continent")) %>%
+         filter(!is.na(continente)) %>%
+         group_by(continente,location) %>%
+         summarise(total_deaths=sum(new_deaths)) 
+
+ggplot(dfBar,aes(area=total_deaths,fill=continente,subgroup=continente,label=paste(location,"(",total_deaths,")",sep=""))) + 
+    geom_treemap() +
+    geom_treemap_subgroup_text() +
+    geom_treemap_text() +
+    scale_fill_wsj() +
+    guides(fill=FALSE) +
+    labs(title="Total de muertes por pais y continente",
+         subtitle="Datos hasta el 10 de mayo de 2020",
+         caption="Elaboracion propia en base a datos de Our World In Data")
+```
+
+
 ## Material de lectura
 
 [*ggplot2: Elegant Graphics for Data Analysis*, Hadley Wickham](https://ggplot2-book.org/)
+
+[*The Truthful Art: Data, Charts, and Maps for Communication*, Alberto Cairo](https://www.goodreads.com/book/show/26401716-the-truthful-art)
+[*Galería de ejemplos para cientos de gráficos en ggplot*](https://www.r-graph-gallery.com/)

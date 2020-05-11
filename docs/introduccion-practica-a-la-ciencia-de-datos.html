@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1 Introduccion practica a la Ciencia de Datos | Ciencia de datos para curiosos</title>
   <meta name="description" content="Una introducción practica a la Ciencia de Datos" />
-  <meta name="generator" content="bookdown 0.18.1 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 Introduccion practica a la Ciencia de Datos | Ciencia de datos para curiosos" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Martin Montane" />
 
 
-<meta name="date" content="2020-04-14" />
+<meta name="date" content="2020-05-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,41 +55,66 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
@@ -151,6 +176,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ggplot-grammar-of-graphics"><i class="fa fa-check"></i><b>3.2</b> GGPLOT: Grammar of Graphics</a></li>
 <li class="chapter" data-level="3.3" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cuál-es-la-relación-entre-el-ingreso-de-un-país-y-la-expectativa-de-vida-al-nacer-scatterplot"><i class="fa fa-check"></i><b>3.3</b> ¿Cuál es la relación entre el ingreso de un país y la expectativa de vida al nacer? Scatterplot</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#agregando-colores-según-otras-variables"><i class="fa fa-check"></i><b>3.3.1</b> Agregando colores según otras variables</a></li>
+<li class="chapter" data-level="3.3.2" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#creando-paneles-con-facet_wrap"><i class="fa fa-check"></i><b>3.3.2</b> Creando paneles con facet_wrap()</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cuál-fue-la-evolución-de-la-expectativa-de-vida-al-nacer-gráfico-de-líneas"><i class="fa fa-check"></i><b>3.4</b> ¿Cuál fue la evolución de la expectativa de vida al nacer? Gráfico de líneas</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cambiando-la-apariencia-de-las-leyendas"><i class="fa fa-check"></i><b>3.4.1</b> Cambiando la apariencia de las leyendas</a></li>
@@ -158,11 +184,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.5" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#reproduciendo-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.5</b> Reproduciendo el gráfico de Hans Rosling</a><ul>
 <li class="chapter" data-level="3.5.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#exportando-gráficos-de-ggplot"><i class="fa fa-check"></i><b>3.5.1</b> Exportando gráficos de ggplot</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#mapas"><i class="fa fa-check"></i><b>3.6</b> Mapas</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#mapas-animados"><i class="fa fa-check"></i><b>3.6.1</b> Mapas animados</a></li>
+<li class="chapter" data-level="3.6" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ejercicios-2"><i class="fa fa-check"></i><b>3.6</b> Ejercicios</a></li>
+<li class="chapter" data-level="3.7" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#extensión-animando-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.7</b> Extensión: animando el gráfico de Hans Rosling</a></li>
+<li class="chapter" data-level="3.8" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#en-una-baldosa-las-preguntas-más-frecuentes"><i class="fa fa-check"></i><b>3.8</b> En una baldosa: las preguntas más frecuentes</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-puedo-hacer-un-gráfico-de-barras"><i class="fa fa-check"></i><b>3.8.1</b> 1. ¿Cómo puedo hacer un gráfico de barras?</a></li>
+<li class="chapter" data-level="3.8.2" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-ordeno-mis-datos-en-ggplot"><i class="fa fa-check"></i><b>3.8.2</b> 2. ¿Cómo ordeno mis datos en ggplot?</a></li>
+<li class="chapter" data-level="3.8.3" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-hago-gráficos-de-barras-apiladas-stacked-bars"><i class="fa fa-check"></i><b>3.8.3</b> 3. ¿Cómo hago gráficos de barras apiladas (stacked bars)?</a></li>
+<li class="chapter" data-level="3.8.4" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-hago-agrego-texto-a-los-gráficos"><i class="fa fa-check"></i><b>3.8.4</b> 4. ¿Cómo hago agrego texto a los gráficos?</a></li>
+<li class="chapter" data-level="3.8.5" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-cambio-el-rango-del-eje-x-o-y"><i class="fa fa-check"></i><b>3.8.5</b> 5. ¿Cómo cambio el rango del eje x o y?</a></li>
+<li class="chapter" data-level="3.8.6" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-cambio-la-tipografía"><i class="fa fa-check"></i><b>3.8.6</b> 6. ¿Cómo cambio la tipografía?</a></li>
+<li class="chapter" data-level="3.8.7" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-hago-treemaps"><i class="fa fa-check"></i><b>3.8.7</b> 7. ¿Cómo hago treemaps?</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ejercicios-2"><i class="fa fa-check"></i><b>3.7</b> Ejercicios</a></li>
-<li class="chapter" data-level="3.8" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#extensión-animando-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.8</b> Extensión: animando el gráfico de Hans Rosling</a></li>
 <li class="chapter" data-level="3.9" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#material-de-lectura"><i class="fa fa-check"></i><b>3.9</b> Material de lectura</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html"><i class="fa fa-check"></i><b>4</b> Datos espaciales en R</a><ul>
@@ -266,9 +298,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 - Identificar y comprender las distintas estructuras con las que R maneja los datos</code></pre>
 <div id="nuestra-primera-investigación-el-precio-de-las-propiedades-en-caba" class="section level2">
 <h2><span class="header-section-number">1.1</span> Nuestra primera investigación: el precio de las propiedades en CABA</h2>
-<p>En este primer capítulo vamos a estudiar el mercado inmobiliario de la Ciudad de Buenos Aires. Más específicamente, analizaremos los movimientos de los precios en los años 2013-2017 a través de un muy interesante (y masivo) dataset que públicamente ofrece <em>Properati</em><a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
+<p>En este primer capítulo vamos a estudiar el mercado inmobiliario de la Ciudad de Buenos Aires. Más específicamente, analizaremos los movimientos de los precios en los años 2013-2017 a través de un muy interesante (y masivo) dataset que públicamente ofrece <em>Properati</em><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
 <p>Más allá de que analizar los datos de las propiedades es de por sí interesante y pedagógico para introducir varias de las herramientas que vamos a utilizar, el mercado inmobiliario fue procesando varios cambios en parámetros claves como el precio del dólar y la oferta de créditos hipotecarios. Por esta razón, los precios durante los últimos años de nuestra muestra han experimentado un alza, o eso dicen las fuentes del sector.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
 <img src="Figuras/Tutorial1/recortePrecios.png" alt="Nota de TELAM sobre el precio de los inmuebles en CABA durante 2017" width="400px" />
 <p class="caption">
 Figure 1.1: Nota de TELAM sobre el precio de los inmuebles en CABA durante 2017
@@ -290,14 +322,14 @@ Figure 1.1: Nota de TELAM sobre el precio de los inmuebles en CABA durante 2017
 </blockquote>
 <p>Pero no existe mejor manera de aprender qué es un IDE que usándolo. Abran <strong>RStudio</strong>. Por default, deberían encontrarse con algo similar a lo que aparece en la Figura 1. RStudio divide la pantalla en cuatro paneles. Ariba a la izquierda vemos el <em>Panel de edición de archivos</em>, donde vamos a modificar los archivos donde guardamos nuestro código, a la derecha vemos el <em>Panel de estructuras de datos</em>, donde aparecen las “estructuras de datos” que están creadas (más sobre esto abajo en el documento).</p>
 <p>Abajo a la izquierda tenemos el panel donde se visualiza la <em>consola o terminal</em>, que es donde vamos a ver ejecutado nuestro código y a su derecha un <em>Panel multiuso</em>, que será de utilidad para explorar archivos, ver la salida gráfica de nuestro código, encontrar ayuda sobre nuestros comandos, entre otras funciones.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
 <img src="Figuras/Tutorial1/Rstudio1.png" alt="Impresión de pantalla de RStudio" width="400px" />
 <p class="caption">
 Figure 1.2: Impresión de pantalla de RStudio
 </p>
 </div>
 <p>Vamos a ejecutar nuestro primer código en R. En el panel de abajo a la izquierda (<em>consola o terminal</em>), ejecuten el siguiente código:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> <span class="op">*</span><span class="st"> </span><span class="dv">10</span> <span class="co"># No deberíamos necesitar a R para esto...</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="dv">5</span> <span class="op">*</span><span class="st"> </span><span class="dv">10</span> <span class="co"># No deberíamos necesitar a R para esto...</span></a></code></pre></div>
 <pre><code>## [1] 50</code></pre>
 <p>Debería devolver, también en el panel de la consola, el número 50. Ya ejecutamos nuestro primer código en R, pero antes de seguir ejecutemos lo mismo de una manera un poco distinta. Escriban exactamente el mismo código, pero ahora en el <em>Panel de edición de archivos</em>. Una vez que lo hayan escrito, seleccionen el código completo con el mouse y presionen <code>Control + Enter</code>. En la consola deberían obtener exactamente el mismo resultado.</p>
 <p>¿Qué fue lo que pasó? Nuestro código está en un archivo (que todavía no guardamos). Al seleccionar el código y apretar <code>Control + Enter</code> RStudio pasa este código a la consola y se ejecuta, tal como antes. Para guardar el archivo que acabamos de editar, presionen <code>Control + S</code>, pongan el nombre que quieran al nuevo archivo, que tendrá la terminación <code>.R</code>, que es como vamos a identificar a los archivos que contienen código de R.</p>
@@ -307,7 +339,7 @@ Figure 1.2: Impresión de pantalla de RStudio
 <p>Para ayudar a corregir al menos parcialmente este problema, RStudio ofrece la posibilidad de guardar todos los archivos vinculados a un proyecto en una misma dirección de nuestra computadora. De esta manera, evitamos tener que recordar dónde guardamos los archivos y podemos movernos rápidamente de proyecto en proyecto.</p>
 <p>Crear un nuevo proyecto en RStudio es realmente simple. Solo tienen que ir a <code>File -&gt; New Project... -&gt; New Directory -&gt; New Project</code>. Allí deben elegir un nombre para el proyecto y hacer click en <code>Create Project</code> ¡Listo! Ya creamos nuestro primer proyecto. Nuestra pantalla ahora debería estar dividida en cuatro paneles.</p>
 <p>¿Recuerdan la carpeta donde crearon el proyecto? Una vez que lo hayan hecho, ejecuten el siguiente código desde el panel de abajo a la izquierda:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">getwd</span>()</a></code></pre></div>
 <p>¿Qué sucedió? Les devolvió la dirección de la carpeta donde está este proyecto. De ahora en más, todo lo que guarden o a lo que intenten acceder desde el proyecto de RStudio se hará dentro de este directorio. Esto trae muchos beneficios que iremos viendo de aquí en adelante.</p>
 </div>
 </div>
@@ -317,9 +349,9 @@ Figure 1.2: Impresión de pantalla de RStudio
 <div id="comma-separated-values" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> Comma Separated Values</h3>
 <p>Uno de los formatos más conocidos para guardar datos son los archivos separados por comas (CSV). El formato consiste simplemente en elementos separados por algún delimitador, en general una coma, que terminan formando una matriz. Veamos un ejemplo con el precio de los inmuebles por año y barrio:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">precioAvisos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&#39;https://raw.githubusercontent.com/martintinch0/CienciaDeDatosParaCuriosos/master/data/precioBarrios.csv&#39;</span>,
-         <span class="dt">sep=</span><span class="st">&#39;;&#39;</span>,
-         <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">precioAvisos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&#39;https://raw.githubusercontent.com/martintinch0/CienciaDeDatosParaCuriosos/master/data/precioBarrios.csv&#39;</span>,</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">         <span class="dt">sep=</span><span class="st">&#39;;&#39;</span>,</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">         <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p>En este código hicimos muchas cosas ¿no? Pero antes de empezar a explicar lo que acaban de ejecutar, fijense qué pasó en el panel de arriba a la derecha: deberían tener una fila que dice “precioAvisos” con 48 observaciones 6 variables. Si descargan el csv que acabamos de cargar directamente a R y lo abren, por ejemplo, con excel van a ver también que tiene 48 observaciones y 6 variables <strong>¡Hicimos nuestra primera carga de datos a R!</strong></p>
 <p>¿Cómo lo hicimos? Con la ayuda de la función <strong>read.csv</strong>. ¿Qué es una función? Una función no es otra cosa que un conjunto de código que no vemos, pero que podemos usar de la siguiente manera: le damos algo y nos devuelve otra cosa.</p>
 <blockquote>
@@ -335,41 +367,41 @@ Figure 1.2: Impresión de pantalla de RStudio
 <div id="cómo-r-organiza-los-datos" class="section level2">
 <h2><span class="header-section-number">1.4</span> ¿Cómo R organiza los datos?</h2>
 <p>Hagan click en “precioAvisos”, en el panel de arriba a la derecha ¿Qué ven? Este es tan solo uno de los <strong>objetos</strong> que tiene R para ir guardando datos. La función <strong>class()</strong> nos ayuda para saber qué usó R para guardar estos datos:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(precioAvisos)</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">class</span>(precioAvisos)</a></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
 <p>En este caso, vemos que es un <strong>data.frame</strong>, un caso específico - y muy importante - de las estructuras de datos u objetos de R. Se trata de un caso un poco complejo, vayamos un poco para atrás y veamos las estructuras de datos más simples que maneja R. Luego veremos que se relacionan con los <strong>data.frame</strong>.</p>
 <div id="vectores" class="section level3">
 <h3><span class="header-section-number">1.4.1</span> Vectores</h3>
 <p>R organiza a los datos en diferentes <strong>estructuras</strong> según el <em>dominio</em> de los datos. El dominio no es otra cosa que los valores que una variable puede llegar a tomar. Por ejemplo, si una variable solo puede tomar números reales y enteros, R pondrá esa variable en un <strong>vector</strong> númerico o <em>integer</em>, para ser más preciso.</p>
 <p>Un <strong>vector</strong> es la estructura más básica con la que vamos a lidiar. Un vector no es otra cosa que una <em>colección numerada de valores</em>, es decir una estructura que puede contener uno o más valores, y puede accederse a través de índices que denotan el orden de cada número dentro del vector ¿Simple, no? Creemos nuestro primer vector</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">primerVector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">60</span>,<span class="dv">80</span>,<span class="dv">100</span>)</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">primerVector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">60</span>,<span class="dv">80</span>,<span class="dv">100</span>)</a></code></pre></div>
 <p>Ya está: el objeto <code>primerVector</code> es un vector númerico que tiene cinco elementos: <code>20, 40, 60, 80 y 100</code>. Como les prometí, el vector es una <em>colección numerada de valores</em>, por lo que podemos acceder a cualquiera de los valores llamando al objeto por su nombre y escribiendo la posición entre corchetes <code>[]</code> (la numeración arranca desde 1 en R)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">primerVector[<span class="dv">3</span>] <span class="co"># Devuelve el valor del elemento en la tercera posición de nuestro vector</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">primerVector[<span class="dv">3</span>] <span class="co"># Devuelve el valor del elemento en la tercera posición de nuestro vector</span></a></code></pre></div>
 <pre><code>## [1] 60</code></pre>
 <p>La mayor parte de nuestros datos no consiste solo en números, sino en datos mixtos: números, texto, variables categóricas, variables lógicas. Todos estos tipos de datos pueden ser representados en nuestros versátiles vectores:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vectorTexto &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Croacia&quot;</span>,<span class="st">&quot;Argentina&quot;</span>,<span class="st">&quot;Nigeria&quot;</span>,<span class="st">&quot;Islandia&quot;</span>)
-vectorLogico &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">vectorTexto &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Croacia&quot;</span>,<span class="st">&quot;Argentina&quot;</span>,<span class="st">&quot;Nigeria&quot;</span>,<span class="st">&quot;Islandia&quot;</span>)</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">vectorLogico &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</a></code></pre></div>
 <p>Los vectores de texto no requieren demasiada discusión: son vectores cuyos elementos son texto. Por su parte, los vectores lógicos quizás sí requieran algo de explicación. Los elementos de estos vectores solo pueden tomar los valores TRUE o FALSE, y resultan de mucha utilidad para hacer preguntas del estilo ¿Es este vector un vector de texto?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.character</span>(vectorTexto)</code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">is.character</span>(vectorTexto)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Volvamos a nuestros datos sobre los precios de los inmuebles. Ya comentamos que había seis variables, pero no dijimos que a su vez son ¡6 vectores!. Uno es CHARACTER, como nuestro <code>vectorTexto</code> anterior, cinco son INTEGER, o numeric, como nuestro <code>primer_vector</code> y el último es sfc_MULTIPOLYGON (vamos a ver un poco más en detalle este último tipo de vector en próximas clases) ¿Cómo podemos acceder a ellos? La llave es el operador <code>$</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">precios2017 &lt;-<span class="st"> </span>precioAvisos<span class="op">$</span>USDm2_<span class="dv">2017</span> 
-<span class="kw">str</span>(precios2017) <span class="co"># ¿Los 100 barrios porteños en realidad son 48?</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">precios2017 &lt;-<span class="st"> </span>precioAvisos<span class="op">$</span>USDm2_<span class="dv">2017</span> </a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw">str</span>(precios2017) <span class="co"># ¿Los 100 barrios porteños en realidad son 48?</span></a></code></pre></div>
 <pre><code>##  num [1:48] 1946 2299 1989 1920 3199 ...</code></pre>
 <p>¿Qué fue lo que hicimos? Creamos el objeto <code>precios2017</code> al que le asignamos (<code>&lt;-</code>) el vector/variable <code>USDm2_2017</code> que está en el <strong>Data Frame</strong> precioAvisos (vamos a ver más sobre los Data Frame más adelante). Al usar la función <code>str()</code> (son las primeras tres letras de la palabra <em>structure</em> en inglés) vemos que se trata de un vector <em>integer</em> (o númerico) con 48 elementos ¡La misma cantidad de observaciones que tenemos en <code>precioAvisos</code>!</p>
 <p>Ahora es donde las cosas se ponen un poco más interesantes. Podemos hacer múltiples operaciones aritméticas sobre este vector de una manera muy simple:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(precios2017<span class="op">*</span><span class="dv">2</span>) <span class="co"># Multiplicación</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">str</span>(precios2017<span class="op">*</span><span class="dv">2</span>) <span class="co"># Multiplicación</span></a></code></pre></div>
 <pre><code>##  num [1:48] 3891 4598 3978 3839 6398 ...</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(precios2017<span class="op">/</span><span class="dv">4</span>) <span class="co"># División</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">str</span>(precios2017<span class="op">/</span><span class="dv">4</span>) <span class="co"># División</span></a></code></pre></div>
 <pre><code>##  num [1:48] 486 575 497 480 800 ...</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(precios2017 <span class="op">-</span><span class="st"> </span><span class="dv">20</span>) <span class="co"># Resta por solo un número</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">str</span>(precios2017 <span class="op">-</span><span class="st"> </span><span class="dv">20</span>) <span class="co"># Resta por solo un número</span></a></code></pre></div>
 <pre><code>##  num [1:48] 1926 2279 1969 1900 3179 ...</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(precios2017 <span class="op">-</span><span class="st"> </span>precios2017) <span class="co"># Resta con otro vector de igual tamaño</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">str</span>(precios2017 <span class="op">-</span><span class="st"> </span>precios2017) <span class="co"># Resta con otro vector de igual tamaño</span></a></code></pre></div>
 <pre><code>##  num [1:48] 0 0 0 0 0 0 0 0 0 0 ...</code></pre>
 <p>Una de las ventajas de R es su <em>vectorización</em>. En las operaciones anteriores vimos como múltiplicar, dividir, restar o cualquier otra operación aritmética se <strong>aplica de manera individual sobre cada uno de los elementos de los vectores</strong>, con lo cual la operación se hace elemento por elemento.</p>
 <p>Hagamos algo que sea útil para describir la distribución de los precios de los inmuebles ¿Cuál es el valor mínimo del metro cuadrado? ¿Cuál es el máximo? ¿Cuál es el precio promedio? Las funciones <code>min()</code>, <code>max()</code> y <code>mean()</code> hacen el trabajo por nosotros.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">resumen_<span class="dv">2017</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">min</span>(precios2017), <span class="kw">max</span>(precios2017), <span class="kw">mean</span>(precios2017))
-resumen_<span class="dv">2017</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">resumen_<span class="dv">2017</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">min</span>(precios2017), <span class="kw">max</span>(precios2017), <span class="kw">mean</span>(precios2017))</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">resumen_<span class="dv">2017</span></a></code></pre></div>
 <pre><code>## [1]  872.7541 6070.3288 2203.1119</code></pre>
 </div>
 <div id="listas-y-data-frames" class="section level3">
@@ -382,9 +414,9 @@ resumen_<span class="dv">2017</span></code></pre></div>
 <div id="listas" class="section level4">
 <h4><span class="header-section-number">1.4.2.1</span> Listas</h4>
 <p>Las listas tienen la posibilidad de almacenar objetos con distinta clase. Es decir, es posible crear una lista en la cual se almacenan otras estructuras de datos con clases distintas:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lista1 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">Nombres =</span> <span class="kw">c</span>(<span class="st">&quot;Fernando&quot;</span>,<span class="st">&quot;Martín&quot;</span>), <span class="dt">Apellido=</span><span class="st">&quot;Montané&quot;</span>, <span class="dt">tienehijos =</span> <span class="ot">FALSE</span>,
-              <span class="dt">edad =</span> <span class="dv">26</span>)
-lista1</code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">lista1 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">Nombres =</span> <span class="kw">c</span>(<span class="st">&quot;Fernando&quot;</span>,<span class="st">&quot;Martín&quot;</span>), <span class="dt">Apellido=</span><span class="st">&quot;Montané&quot;</span>, <span class="dt">tienehijos =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">              <span class="dt">edad =</span> <span class="dv">26</span>)</a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">lista1</a></code></pre></div>
 <pre><code>## $Nombres
 ## [1] &quot;Fernando&quot; &quot;Martín&quot;  
 ## 
@@ -403,47 +435,47 @@ lista1</code></pre></div>
 <li>Usando doble corchetes e indicando la posición del objeto buscado <code>lista[[1]]</code></li>
 <li>Usando doble corchetes e indicando el nombre del objeto buscado <code>lista[['Nombres']]</code></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lista1<span class="op">$</span>Nombres</code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">lista1<span class="op">$</span>Nombres</a></code></pre></div>
 <pre><code>## [1] &quot;Fernando&quot; &quot;Martín&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lista1[[<span class="dv">1</span>]]</code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">lista1[[<span class="dv">1</span>]]</a></code></pre></div>
 <pre><code>## [1] &quot;Fernando&quot; &quot;Martín&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lista1[[<span class="st">&#39;Nombres&#39;</span>]]</code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">lista1[[<span class="st">&#39;Nombres&#39;</span>]]</a></code></pre></div>
 <pre><code>## [1] &quot;Fernando&quot; &quot;Martín&quot;</code></pre>
 </div>
 <div id="data-frames" class="section level4">
 <h4><span class="header-section-number">1.4.2.2</span> Data Frames</h4>
 <p>¡Ahora estamos en condiciones de explicar qué es un <code>Data Frame</code>! Como se adelantó, un <strong>Data Frame</strong> es un caso específico de listas. En la gran mayoría de las aplicaciones se puede describir como una matriz en la cual variables (columnas) pueden ser de distintas clases.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Nombres =</span> <span class="kw">c</span>(<span class="st">&#39;Juan&#39;</span>,<span class="st">&#39;Pedro&#39;</span>,<span class="st">&#39;Ana&#39;</span>,<span class="st">&#39;Delfina&#39;</span>),
-                 <span class="dt">Edad =</span> <span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">46</span>,<span class="dv">58</span>,<span class="dv">27</span>),
-                 <span class="dt">EstadoCivil =</span> <span class="kw">c</span>(<span class="st">&#39;Soltero&#39;</span>,<span class="st">&#39;Casado&#39;</span>,<span class="st">&#39;Casado&#39;</span>,<span class="st">&#39;Soltero&#39;</span>),
-                 <span class="dt">SecundarioCompleto =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>))
-df</code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Nombres =</span> <span class="kw">c</span>(<span class="st">&#39;Juan&#39;</span>,<span class="st">&#39;Pedro&#39;</span>,<span class="st">&#39;Ana&#39;</span>,<span class="st">&#39;Delfina&#39;</span>),</a>
+<a class="sourceLine" id="cb34-2" data-line-number="2">                 <span class="dt">Edad =</span> <span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">46</span>,<span class="dv">58</span>,<span class="dv">27</span>),</a>
+<a class="sourceLine" id="cb34-3" data-line-number="3">                 <span class="dt">EstadoCivil =</span> <span class="kw">c</span>(<span class="st">&#39;Soltero&#39;</span>,<span class="st">&#39;Casado&#39;</span>,<span class="st">&#39;Casado&#39;</span>,<span class="st">&#39;Soltero&#39;</span>),</a>
+<a class="sourceLine" id="cb34-4" data-line-number="4">                 <span class="dt">SecundarioCompleto =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb34-5" data-line-number="5">df</a></code></pre></div>
 <pre><code>##   Nombres Edad EstadoCivil SecundarioCompleto
 ## 1    Juan   21     Soltero               TRUE
 ## 2   Pedro   46      Casado              FALSE
 ## 3     Ana   58      Casado               TRUE
 ## 4 Delfina   27     Soltero               TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(df) <span class="co"># Resumen del objeto</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw">str</span>(df) <span class="co"># Resumen del objeto</span></a></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    4 obs. of  4 variables:
-##  $ Nombres           : Factor w/ 4 levels &quot;Ana&quot;,&quot;Delfina&quot;,..: 3 4 1 2
+##  $ Nombres           : chr  &quot;Juan&quot; &quot;Pedro&quot; &quot;Ana&quot; &quot;Delfina&quot;
 ##  $ Edad              : num  21 46 58 27
-##  $ EstadoCivil       : Factor w/ 2 levels &quot;Casado&quot;,&quot;Soltero&quot;: 2 1 1 2
+##  $ EstadoCivil       : chr  &quot;Soltero&quot; &quot;Casado&quot; &quot;Casado&quot; &quot;Soltero&quot;
 ##  $ SecundarioCompleto: logi  TRUE FALSE TRUE TRUE</code></pre>
 <p>El comando <em>str</em> nos devuelve un resumen de las variables del data frame, incluyendo sus clases. Si prestan atención, el vector numérico <em>Edad</em> y el lógico <em>SecundarioCompleto</em> tienen la clase esperada, pero los vectores de caracteres <em>Edad</em> y <em>SecundarioCompleto</em> dice <strong>Factor</strong> w/2 o w/4 levels ¿Qué es esto?</p>
 <p>La clase <em>Factor</em> es un caso específico de vectores. En esta clase de vectores, las variables solo pueden tomar un conjunto de valores predeterminados, es decir que tienen una categoría. Estas categorías se llaman <em>levels</em> en R.</p>
 <p>Internamente R transforma estas variables y les asigna un número entero, que son los valores que nos devolvió el comando str. Sin embargo, estos números hacen referencia a una categoría que tiene un nombre. En nuestro caso ¿Tiene sentido que los dos vectores con texto sean Factores?. Respuesta: no. El estado civil de una persona sí puede segmentarse en categorías que se repiten, pero no es el caso de los nombres. Para evitar que R transforme nuestros vectores <em>character</em> en <em>Factor</em> lo que hay que hacer cuando definimos un <strong>Data Frame</strong> es decírselo a R con el parámetro <em>stringsAsFactors</em>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Nombres =</span> <span class="kw">c</span>(<span class="st">&#39;Juan&#39;</span>,<span class="st">&#39;Pedro&#39;</span>,<span class="st">&#39;Ana&#39;</span>,<span class="st">&#39;Delfina&#39;</span>),
-                 <span class="dt">Edad =</span> <span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">46</span>,<span class="dv">58</span>,<span class="dv">27</span>),
-                 <span class="dt">EstadoCivil =</span> <span class="kw">c</span>(<span class="st">&#39;Soltero&#39;</span>,<span class="st">&#39;Casado&#39;</span>,<span class="st">&#39;Casado&#39;</span>,<span class="st">&#39;Soltero&#39;</span>),
-                 <span class="dt">SecundarioCompleto =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>),
-                 <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
-df</code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Nombres =</span> <span class="kw">c</span>(<span class="st">&#39;Juan&#39;</span>,<span class="st">&#39;Pedro&#39;</span>,<span class="st">&#39;Ana&#39;</span>,<span class="st">&#39;Delfina&#39;</span>),</a>
+<a class="sourceLine" id="cb38-2" data-line-number="2">                 <span class="dt">Edad =</span> <span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">46</span>,<span class="dv">58</span>,<span class="dv">27</span>),</a>
+<a class="sourceLine" id="cb38-3" data-line-number="3">                 <span class="dt">EstadoCivil =</span> <span class="kw">c</span>(<span class="st">&#39;Soltero&#39;</span>,<span class="st">&#39;Casado&#39;</span>,<span class="st">&#39;Casado&#39;</span>,<span class="st">&#39;Soltero&#39;</span>),</a>
+<a class="sourceLine" id="cb38-4" data-line-number="4">                 <span class="dt">SecundarioCompleto =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb38-5" data-line-number="5">                 <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb38-6" data-line-number="6">df</a></code></pre></div>
 <pre><code>##   Nombres Edad EstadoCivil SecundarioCompleto
 ## 1    Juan   21     Soltero               TRUE
 ## 2   Pedro   46      Casado              FALSE
 ## 3     Ana   58      Casado               TRUE
 ## 4 Delfina   27     Soltero               TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(df) <span class="co"># Resumen del objeto. Ahora ya no tenemos Factors.</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="kw">str</span>(df) <span class="co"># Resumen del objeto. Ahora ya no tenemos Factors.</span></a></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    4 obs. of  4 variables:
 ##  $ Nombres           : chr  &quot;Juan&quot; &quot;Pedro&quot; &quot;Ana&quot; &quot;Delfina&quot;
 ##  $ Edad              : num  21 46 58 27
@@ -457,14 +489,14 @@ df</code></pre></div>
 <div id="inspeccionando-nuestros-datos" class="section level2">
 <h2><span class="header-section-number">1.5</span> Inspeccionando nuestros datos</h2>
 <p>¿Cómo sabemos qué datos tenemos cargados? Tenemos al menos dos funciones que sirven para inspeccionar rápidamente los datos. Por un lado, podemos usar la función <code>View()</code> (Notar la <strong>V</strong> mayúscula al principio de la función). Lo que hay que hacer es pasarle uno de nuestros objetos que están cargados, y nos devuelve la tabla entera en el panel de edición.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(precioAvisos) <span class="co"># Debería abrirse una tabla dentro del panel de edición</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="kw">View</span>(precioAvisos) <span class="co"># Debería abrirse una tabla dentro del panel de edición</span></a></code></pre></div>
 <p>Deberían ver una matriz con 6 columnas y unas 48 filas. Las filas representan observaciones (en este caso, barrios), mientras que las columnas hacen referencia a las variables, que tienen los siguientes nombres: BARRIOS, USDm2_2013, USDm2_2014, USDm2_2015, USDm2_2016, USDm2_2017 y geometry ¿Qué significan?</p>
 <ul>
 <li>BARRIOS: es una variable que indica cuál es el nombre del barrio al que pertenece cada observación</li>
 <li>USDm2_201x: estás 5 columnas hacen referencia al valor promedio de los inmuebles creados en cada año para cada barrio (período 2013-2017)</li>
 </ul>
 <p>Otra función que puede ser muy útil para describir nuestros objetos, que ya hemos usado anteriormente, es <code>str()</code>. Nos devuelve las primeras observaciones de cada una de las variables, también la <strong>clase</strong> de nuestro objeto, la cantidad de observaciones (o filas), que en este caso son 48, y la cantidad de variables (o columnas), que son 6. También nos indica la <strong>clase</strong> de cada una de las variables, que en este caso son <code>int</code> o <code>num</code>. Para entender bien las clases de datos y las diversas estructuras que los contienen tenemos que ir un casillero más atrás y explicar cómo es R organiza las cosas.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(precioAvisos) </code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="kw">str</span>(precioAvisos) </a></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    48 obs. of  6 variables:
 ##  $ BARRIOS   : chr  &quot;AGRONOMIA&quot; &quot;ALMAGRO&quot; &quot;BALVANERA&quot; &quot;BARRACAS&quot; ...
 ##  $ USDm2_2013: num  1749 2034 1893 2229 2620 ...
@@ -476,11 +508,11 @@ df</code></pre></div>
 <div id="retomando-nuestro-ejercicio-cuánto-aumentaron-las-viviendas" class="section level2">
 <h2><span class="header-section-number">1.6</span> Retomando nuestro ejercicio: ¿Cuánto aumentaron las viviendas?</h2>
 <p>Ya estamos en condiciones de hacer un par de cálculos más y ver si efectivamente, como en la noticia principal, las propiedades aumentaron de precio en 2017. Para esto, no tenemos que hacer nada nuevo, usando el operador <code>$</code>, que nos deja elegir el vector de nuestro data.frame, solo tenemos que hacer una división.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(precioAvisos<span class="op">$</span>USDm2_<span class="dv">2017</span>)<span class="op">/</span><span class="kw">mean</span>(precioAvisos<span class="op">$</span>USDm2_<span class="dv">2016</span>) <span class="op">-</span><span class="st"> </span><span class="dv">1</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">mean</span>(precioAvisos<span class="op">$</span>USDm2_<span class="dv">2017</span>)<span class="op">/</span><span class="kw">mean</span>(precioAvisos<span class="op">$</span>USDm2_<span class="dv">2016</span>) <span class="op">-</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
 <pre><code>## [1] 0.05299051</code></pre>
 <p>Según nuestros datos, aumentaron 5,3% en 2017. Coincidimos con la nota, pero nos da un poco menos que lo esperado. Veamos ahora cuál fue la variación de los barrios: recuerden que R puede <em>vectorizar</em> la operación. Vamos a agregarle una nueva columna a nuestro data frame, combinando lo que aprendimos hoy</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">precioAvisos<span class="op">$</span>variacion2017 &lt;-<span class="st">  </span>precioAvisos<span class="op">$</span>USDm2_<span class="dv">2017</span><span class="op">/</span>precioAvisos<span class="op">$</span>USDm2_<span class="dv">2016</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>
-<span class="kw">View</span>(precioAvisos)</code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">precioAvisos<span class="op">$</span>variacion2017 &lt;-<span class="st">  </span>precioAvisos<span class="op">$</span>USDm2_<span class="dv">2017</span><span class="op">/</span>precioAvisos<span class="op">$</span>USDm2_<span class="dv">2016</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb47-2" data-line-number="2"><span class="kw">View</span>(precioAvisos)</a></code></pre></div>
 <p>Ordenen desde el visor a las variaciones por barrio ¿Qué pasó? Si miran con atención, el precio de los inmuebles en Villa Soldati, para nuestra muestra, cayó un 63%. Claro que esto tiene un impacto sobre el cálculo de la variación en 2017. No se preocupen, en el próximo capítulo, con la ayuda de <strong>tidyverse</strong> vamos a poder ver qué pasa con esto.</p>
 <p>¿Qué pueden decir sobre la heterogeneidad en los barrios? ¿Cuáles crecieron más y cuáles menos?</p>
 </div>
@@ -507,15 +539,15 @@ df</code></pre></div>
 <div id="microsoft-excel" class="section level3">
 <h3><span class="header-section-number">1.9.1</span> Microsoft Excel</h3>
 <p>Para bien o para mal, las planillas de Excel están por todos lados. Es importante saber cómo cargarlas a R y poder trabjar con ellas desde aquí. Para esto, vamos a necesitar la ayuda de un paquete de datos de R (en el Capítulo 2 pueden aprender qué es un paquete de datos) y <a href="https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/child_mortality_0_5_year_olds_dying_per_1000_born.xlsx">descargar un archivo excel</a>. En el ejemplo suponemos que este archivo está disponible en la carpeta principal del proyecto y que ya tienen instalado el paquete <strong>readxl</strong>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readxl)
-datos &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="dt">path =</span> <span class="st">&#39;child_mortality_0_5_year_olds_dying_per_1000_born.xlsx&#39;</span>,
-                    <span class="dt">sheet =</span> <span class="dv">1</span>)</code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="kw">library</span>(readxl)</a>
+<a class="sourceLine" id="cb48-2" data-line-number="2">datos &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="dt">path =</span> <span class="st">&#39;child_mortality_0_5_year_olds_dying_per_1000_born.xlsx&#39;</span>,</a>
+<a class="sourceLine" id="cb48-3" data-line-number="3">                    <span class="dt">sheet =</span> <span class="dv">1</span>)</a></code></pre></div>
 <p>Si inspeccionan el archivo datos con <strong>str()</strong>, <strong>glimpse()</strong> o <strong>View()</strong> van a poder ver qué tipo de datos hay en lo que leímos desde R. Solo necesitamos pasarle dos argumentos: la dirección (path) y el número o nombre de hoja (en este caso, la primera). Esta función tiene muchos otros parámetros para adaptarnos al formato que tenga la hoja de excel. Pueden averiguar más preguntando de esta manera: <strong>?read_excel()</strong></p>
 <p>¿Cómo guardamos los datos a excel? Existen muchas alternativas para hacerlo, entre ellas la función write_xlsx que brinda el paquete <em>writexl</em> ¿Por qué? Porque otras alternativas tienen diveresas dependencias, como rJava, que requiere tener instalado Java versión 64 bits en la computadora y muchas veces no es fácil darse cuenta de esto. La instalación de este paquete solo debe hacerse una vez, como se explicará en los capítulos que siguen.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;writexl&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;writexl&quot;</span>)</a></code></pre></div>
 <p>Una vez que lo instalaron, ya podemeos usar la función para escribir archivos xlsx luego de usar <strong>library(writexl)</strong>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(writexl)
-<span class="kw">write_xlsx</span>(<span class="dt">x =</span> datos ,<span class="dt">path =</span> <span class="st">&#39;Mortalidad Infaitl.xlsx&#39;</span>)</code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="kw">library</span>(writexl)</a>
+<a class="sourceLine" id="cb50-2" data-line-number="2"><span class="kw">write_xlsx</span>(<span class="dt">x =</span> datos ,<span class="dt">path =</span> <span class="st">&#39;Mortalidad Infaitl.xlsx&#39;</span>)</a></code></pre></div>
 
 </div>
 </div>
@@ -523,7 +555,7 @@ datos &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span cla
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p><a href="https://www.youtube.com/watch?v=kIID5FDi2JQ">Este video</a> resume en unos pocos minutos gran parte de lo que vamos a ver acá y es recomendable<a href="introduccion-practica-a-la-ciencia-de-datos.html#fnref1">↩</a></p></li>
+<li id="fn1"><p><a href="https://www.youtube.com/watch?v=kIID5FDi2JQ">Este video</a> resume en unos pocos minutos gran parte de lo que vamos a ver acá y es recomendable<a href="introduccion-practica-a-la-ciencia-de-datos.html#fnref1" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -587,7 +619,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

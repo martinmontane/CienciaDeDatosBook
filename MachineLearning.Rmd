@@ -77,19 +77,19 @@ Las hojas del gráfico están acompañadas de una barra que muestra la proporci�
 proporcionSobrevivientes <- table(titanic$survived)[2]/nrow(titanic)
 proporcionSobrevivientes # Aproximadamente un 41% de los pasajeros sobrevivieron
 # Formula de Entropía
-−0.59*log2(0.59)−(0.41)*log2(0.41)
+-0.59*log2(0.59)-(0.41)*log2(0.41)
 ```
 
 La entropía de nuestra base de datos es alta porque está muy cerca de estar distribuida como 50% y 50%, la situación más "heterogénea" que puede tener nuestra variable objetivo. De hecho, si se calcula la entropía de esa situación llegamos a lo siguiente:
 
 ```{r}
-−0.5*log2(0.5)−(0.5)*log2(0.5) # Máxima entropía
+-0.5*log2(0.5)-(0.5)*log2(0.5) # Máxima entropía
 ```
 
 ¿Y si tenemos todo de una sola clase (por ejemplo, solo sobrevivientes)?
 
 ```{r}
--0.000001*log2(0.000001)−(1)*log2(1) # Casi cero
+-0.000001*log2(0.000001)-(1)*log2(1) # Casi cero
 ```
 
 Bien, ahora veamos qué pasa con la entropia si abrimos, como hizo nuestro árbol, según el género. Para esto, tenemos que sumar las proporciones al final de cada hoja:
@@ -102,16 +102,16 @@ Ahora podríamos calcular la entropía en cada una de las hojas del árbol. Vaya
 
 ```{r}
 # Entropía mujeres
--(96/(292+96))*log2(96/(292+96))−(292/(292+96))*log2(292/(292+96))
-entropiaMujeres <- -(96/(292+96))*log2(96/(292+96))−(292/(292+96))*log2(292/(292+96))
+-(96/(292+96))*log2(96/(292+96))-(292/(292+96))*log2(292/(292+96))
+entropiaMujeres <- -(96/(292+96))*log2(96/(292+96))-(292/(292+96))*log2(292/(292+96))
 ```
 
 ¿Y en los hombres?
 
 ```{r}
 # Entropía hombres
--(522/(522+135))*log2(522/(522+135))−(135/(522+135))*log2(135/(522+135))
-entropiaHombres <- -(522/(522+135))*log2(522/(522+135))−(135/(522+135))*log2(135/(522+135))
+-(522/(522+135))*log2(522/(522+135))-(135/(522+135))*log2(135/(522+135))
+entropiaHombres <- -(522/(522+135))*log2(522/(522+135))-(135/(522+135))*log2(135/(522+135))
 ```
 
 Ahora debemos ponderar la entropía de la variable ponderando las dos hojas que abrió:
@@ -355,7 +355,7 @@ avisosInmuebles <- avisosInmuebles %>%
 arbolRegresion <- rpart(formula = USDm2 ~ rooms + BARRIO + bathrooms + property_type,
                         data = avisosInmuebles,control = rpart.control(cp = 0.01))
 
-rpart.plot(arbolRegresion)
+# rpart.plot(arbolRegresion)
 ```
 
 En mi experiencia, la mejor forma de entender los árboles de RPart no son sus gráficos, sino usar **rpart.rules()**. Pero antes de hacer eso, usemos el gráfico para ver el primero de los valores, el que está en el primer nodo: dice 2751. Ahora saquemos el promedio de los precios de los inmuebles

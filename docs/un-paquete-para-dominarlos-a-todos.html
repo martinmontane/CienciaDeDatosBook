@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Un paquete para dominarlos a todos | Ciencia de datos para curiosos</title>
   <meta name="description" content="Una introducción practica a la Ciencia de Datos" />
-  <meta name="generator" content="bookdown 0.18.1 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Un paquete para dominarlos a todos | Ciencia de datos para curiosos" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Martin Montane" />
 
 
-<meta name="date" content="2020-04-14" />
+<meta name="date" content="2020-05-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,41 +55,66 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
@@ -151,6 +176,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ggplot-grammar-of-graphics"><i class="fa fa-check"></i><b>3.2</b> GGPLOT: Grammar of Graphics</a></li>
 <li class="chapter" data-level="3.3" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cuál-es-la-relación-entre-el-ingreso-de-un-país-y-la-expectativa-de-vida-al-nacer-scatterplot"><i class="fa fa-check"></i><b>3.3</b> ¿Cuál es la relación entre el ingreso de un país y la expectativa de vida al nacer? Scatterplot</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#agregando-colores-según-otras-variables"><i class="fa fa-check"></i><b>3.3.1</b> Agregando colores según otras variables</a></li>
+<li class="chapter" data-level="3.3.2" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#creando-paneles-con-facet_wrap"><i class="fa fa-check"></i><b>3.3.2</b> Creando paneles con facet_wrap()</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cuál-fue-la-evolución-de-la-expectativa-de-vida-al-nacer-gráfico-de-líneas"><i class="fa fa-check"></i><b>3.4</b> ¿Cuál fue la evolución de la expectativa de vida al nacer? Gráfico de líneas</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cambiando-la-apariencia-de-las-leyendas"><i class="fa fa-check"></i><b>3.4.1</b> Cambiando la apariencia de las leyendas</a></li>
@@ -158,11 +184,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.5" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#reproduciendo-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.5</b> Reproduciendo el gráfico de Hans Rosling</a><ul>
 <li class="chapter" data-level="3.5.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#exportando-gráficos-de-ggplot"><i class="fa fa-check"></i><b>3.5.1</b> Exportando gráficos de ggplot</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#mapas"><i class="fa fa-check"></i><b>3.6</b> Mapas</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#mapas-animados"><i class="fa fa-check"></i><b>3.6.1</b> Mapas animados</a></li>
+<li class="chapter" data-level="3.6" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ejercicios-2"><i class="fa fa-check"></i><b>3.6</b> Ejercicios</a></li>
+<li class="chapter" data-level="3.7" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#extensión-animando-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.7</b> Extensión: animando el gráfico de Hans Rosling</a></li>
+<li class="chapter" data-level="3.8" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#en-una-baldosa-las-preguntas-más-frecuentes"><i class="fa fa-check"></i><b>3.8</b> En una baldosa: las preguntas más frecuentes</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-puedo-hacer-un-gráfico-de-barras"><i class="fa fa-check"></i><b>3.8.1</b> 1. ¿Cómo puedo hacer un gráfico de barras?</a></li>
+<li class="chapter" data-level="3.8.2" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-ordeno-mis-datos-en-ggplot"><i class="fa fa-check"></i><b>3.8.2</b> 2. ¿Cómo ordeno mis datos en ggplot?</a></li>
+<li class="chapter" data-level="3.8.3" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-hago-gráficos-de-barras-apiladas-stacked-bars"><i class="fa fa-check"></i><b>3.8.3</b> 3. ¿Cómo hago gráficos de barras apiladas (stacked bars)?</a></li>
+<li class="chapter" data-level="3.8.4" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-hago-agrego-texto-a-los-gráficos"><i class="fa fa-check"></i><b>3.8.4</b> 4. ¿Cómo hago agrego texto a los gráficos?</a></li>
+<li class="chapter" data-level="3.8.5" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-cambio-el-rango-del-eje-x-o-y"><i class="fa fa-check"></i><b>3.8.5</b> 5. ¿Cómo cambio el rango del eje x o y?</a></li>
+<li class="chapter" data-level="3.8.6" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-cambio-la-tipografía"><i class="fa fa-check"></i><b>3.8.6</b> 6. ¿Cómo cambio la tipografía?</a></li>
+<li class="chapter" data-level="3.8.7" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-hago-treemaps"><i class="fa fa-check"></i><b>3.8.7</b> 7. ¿Cómo hago treemaps?</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ejercicios-2"><i class="fa fa-check"></i><b>3.7</b> Ejercicios</a></li>
-<li class="chapter" data-level="3.8" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#extensión-animando-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.8</b> Extensión: animando el gráfico de Hans Rosling</a></li>
 <li class="chapter" data-level="3.9" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#material-de-lectura"><i class="fa fa-check"></i><b>3.9</b> Material de lectura</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html"><i class="fa fa-check"></i><b>4</b> Datos espaciales en R</a><ul>
@@ -269,48 +301,50 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="entrenando-un-árbol-de-decisión" class="section level2">
 <h2><span class="header-section-number">8.2</span> Entrenando un árbol de decisión</h2>
 <p>Con el objetivo de aprender a crear distintos algoritmos de aprendizaje automático, primero vamos a replicar en caret lo que hicimos en el capítulo 5 con el dataset de trabajadores independientes.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="dt">file=</span><span class="kw">url</span>(<span class="st">&quot;https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/independientes.RData&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb429-1" data-line-number="1"><span class="kw">load</span>(<span class="dt">file=</span><span class="kw">url</span>(<span class="st">&quot;https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/independientes.RData&quot;</span>))</a></code></pre></div>
 <p>El data frame <em>independientes</em> cuenta con 2.783 observaciones de trabajadores independientes. La variable REGISTRADO indica si ese trabajador se encuentra registrado o no, mientras que el resto de las variables potencialmente podrían ser útiles para clasifiar a un trabajador independiente como registrado o no.</p>
 <p>Usaremos nuevamente la implementación de árboles de decisión y también partiremos a nuestros datos en un 70% que será el dataset de entrenamiento y un 30% que se convertirá en el <em>dataset</em> de <em>testing</em>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(caret)
-<span class="kw">require</span>(tidyverse)
-<span class="kw">set.seed</span>(<span class="dv">4</span>) <span class="co"># Esta línea solo intenta que tengamos los mismos números aleatorios</span>
-trainingIndexes &lt;-<span class="st"> </span><span class="kw">createDataPartition</span>(<span class="dt">y =</span> independientes<span class="op">$</span>REGISTRADO,
-                                       <span class="dt">p =</span> <span class="fl">0.7</span>,
-                                       <span class="dt">list =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb430-1" data-line-number="1"><span class="kw">require</span>(caret)</a>
+<a class="sourceLine" id="cb430-2" data-line-number="2"><span class="kw">require</span>(tidyverse)</a>
+<a class="sourceLine" id="cb430-3" data-line-number="3"><span class="kw">set.seed</span>(<span class="dv">4</span>) <span class="co"># Esta línea solo intenta que tengamos los mismos números aleatorios</span></a>
+<a class="sourceLine" id="cb430-4" data-line-number="4">trainingIndexes &lt;-<span class="st"> </span><span class="kw">createDataPartition</span>(<span class="dt">y =</span> independientes<span class="op">$</span>REGISTRADO,</a>
+<a class="sourceLine" id="cb430-5" data-line-number="5">                                       <span class="dt">p =</span> <span class="fl">0.7</span>,</a>
+<a class="sourceLine" id="cb430-6" data-line-number="6">                                       <span class="dt">list =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p>La función <strong>createDataPartition()</strong> de CARET nos devuelve un conjunto de índices tomados al azar en base a algunos parámetros tales como la proporción (parámetro <em>p</em>) que queremos que tenga de tamaño nuestro dataset. Si prestan atención a <em>trainingIndexes</em> se darán cuenta que la función devuelve una matriz de una sola columna con 1949 números, que son los índices de nuestro dataset de <em>entrenamiento</em>: 1949 es exactamente el 70% de 2783, la cantidad de filas de nuestro <em>dataset</em>.</p>
 <p>Con estos índices ya podemos crear nuestro dataset de training y testing:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">training &lt;-<span class="st"> </span>independientes[ trainingIndexes,]
-testing  &lt;-<span class="st"> </span>independientes[<span class="op">-</span>trainingIndexes,]</code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb431-1" data-line-number="1">training &lt;-<span class="st"> </span>independientes[ trainingIndexes,]</a>
+<a class="sourceLine" id="cb431-2" data-line-number="2">testing  &lt;-<span class="st"> </span>independientes[<span class="op">-</span>trainingIndexes,]</a></code></pre></div>
 <p>Una vez que tenemos un dataset de entrenamiento y validación (o <em>testing</em>) estamos en condiciones de entrenar un modelo ¿Cómo se hace con caret? con la función <em>train()</em>. Pero a esta función debemos pasarle algunos controles, como por ejemplo qué parámetros tunear y cómo hacerlo. Para la primera de estas preguntas, qué parámetros tunear, debemos pasar una matriz que tenga en las columnas los parámetros a tunear y en las filas los valores que queremos probar. Aunque esto suena difícil, si usamos la función <em>expand.grid()</em> se hace mucho más fácil.</p>
 <p>No todos los parámetros de todos los modelos de CARET pueden ser “afinados”. En <a href="https://topepo.github.io/caret/available-models.html" class="uri">https://topepo.github.io/caret/available-models.html</a> podemos ver qué modelos pueden usarse en CARET y cuáles son los parámetros que podemos optimizar. Para nuestor modelo C5.0, estos son <em>trials, model y winnow</em>. La documentación de C5.0 en R explica en detalle qué hace cada uno de estos modelos, a modo de resumen:</p>
-<p><strong>Trials</strong>: Define la cantidad de boosting que tiene nuestro árbol. <em>Boosting</em> es tan solo un método para combinar diversos clasificadores (más de un árbol) para poder mejorar la <em>performance</em> de nuestro modelo. En el ejemplo del capítulo 5 lo dejamos en 1 (teníamos solo un árbol), aquí probaremos que pasa si aumentamos este valor <strong>Model</strong>: indicamos si queremos un modelo de árboles o de reglas, dejaremos siempre árboles. <strong>Winnow</strong>: Este parámetro nos dice si queremos que el árbol elija descartar algunas variables para mejorar la capacidad predictiva del modelo</p>
+<p><strong>Trials</strong>: Define la cantidad de boosting que tiene nuestro árbol. <em>Boosting</em> es tan solo un método para combinar diversos clasificadores (más de un árbol) para poder mejorar la <em>performance</em> de nuestro modelo. En el ejemplo del capítulo 5 lo dejamos en 1 (teníamos solo un árbol), aquí probaremos que pasa si aumentamos este valor
+<strong>Model</strong>: indicamos si queremos un modelo de árboles o de reglas, dejaremos siempre árboles.
+<strong>Winnow</strong>: Este parámetro nos dice si queremos que el árbol elija descartar algunas variables para mejorar la capacidad predictiva del modelo</p>
 <p>Creemos la grilla con los valores que queremos probar:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grilla &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">trials=</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>),
-                        <span class="dt">winnow=</span><span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>),
-                        <span class="dt">model=</span><span class="st">&quot;tree&quot;</span>) 
-<span class="kw">glimpse</span>(grilla)</code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb432-1" data-line-number="1">grilla &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">trials=</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>),</a>
+<a class="sourceLine" id="cb432-2" data-line-number="2">                        <span class="dt">winnow=</span><span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>),</a>
+<a class="sourceLine" id="cb432-3" data-line-number="3">                        <span class="dt">model=</span><span class="st">&quot;tree&quot;</span>) </a>
+<a class="sourceLine" id="cb432-4" data-line-number="4"><span class="kw">glimpse</span>(grilla)</a></code></pre></div>
 <pre><code>## Rows: 8
 ## Columns: 3
 ## $ trials &lt;int&gt; 1, 2, 3, 4, 1, 2, 3, 4
 ## $ winnow &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE
 ## $ model  &lt;fct&gt; tree, tree, tree, tree, tree, tree, tree, tree</code></pre>
 <p>Bien, ahora debemos decirle cómo queremos que vaya evaluando a los modelos, eso lo podemos hacer con la función <strong>trainControl()</strong>. Podemos customizar varios parámetros, por ejemplo si queremos hacer <strong>cross validation</strong> o no, y la cantidad de <em>bins</em> que queremos que haga. Vamos a crear las instrucciones para exactamente esto:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">trainingInstructions &lt;-<span class="st"> </span><span class="kw">trainControl</span>(<span class="dt">method =</span> <span class="st">&quot;cv&quot;</span>,
-                                     <span class="dt">number =</span> <span class="dv">3</span>)</code></pre></div>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb434-1" data-line-number="1">trainingInstructions &lt;-<span class="st"> </span><span class="kw">trainControl</span>(<span class="dt">method =</span> <span class="st">&quot;cv&quot;</span>,</a>
+<a class="sourceLine" id="cb434-2" data-line-number="2">                                     <span class="dt">number =</span> <span class="dv">3</span>)</a></code></pre></div>
 <p>En <em>method</em> escribimos “cv”, por Cross Validiation, mientras que en <em>number</em> incluímos la cantidad de conjuntos en los que queremos que divida a nuestro dataset de training. Ahora estamos en condiciones de entrenar nuestro primer modelo con Caret:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">CaretC50 &lt;-<span class="st"> </span><span class="kw">train</span>(
-  <span class="dt">y=</span>training <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(REGISTRADO) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>(),
-  <span class="dt">x =</span> training <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>REGISTRADO),
-  <span class="dt">method =</span> <span class="st">&quot;C5.0&quot;</span>,
-  <span class="dt">metric =</span> <span class="st">&quot;Accuracy&quot;</span>,
-  <span class="dt">tuneGrid =</span> grilla,
-  <span class="dt">trControl =</span> trainingInstructions
-)</code></pre></div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb435-1" data-line-number="1">CaretC50 &lt;-<span class="st"> </span><span class="kw">train</span>(</a>
+<a class="sourceLine" id="cb435-2" data-line-number="2">  <span class="dt">y=</span>training <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(REGISTRADO) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>(),</a>
+<a class="sourceLine" id="cb435-3" data-line-number="3">  <span class="dt">x =</span> training <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>REGISTRADO),</a>
+<a class="sourceLine" id="cb435-4" data-line-number="4">  <span class="dt">method =</span> <span class="st">&quot;C5.0&quot;</span>,</a>
+<a class="sourceLine" id="cb435-5" data-line-number="5">  <span class="dt">metric =</span> <span class="st">&quot;Accuracy&quot;</span>,</a>
+<a class="sourceLine" id="cb435-6" data-line-number="6">  <span class="dt">tuneGrid =</span> grilla,</a>
+<a class="sourceLine" id="cb435-7" data-line-number="7">  <span class="dt">trControl =</span> trainingInstructions</a>
+<a class="sourceLine" id="cb435-8" data-line-number="8">)</a></code></pre></div>
 <p>Veamos que nos devuelve cuando usamos <strong>summary()</strong>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(CaretC50)</code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb436-1" data-line-number="1"><span class="kw">summary</span>(CaretC50)</a></code></pre></div>
 <p>Debería haber devuelto algo muy similar a lo que veíamos con el paquete C5.0. Esto tiene lógica porque lo que devuelve Caret es el modelo que mejor medida de <em>accuracy</em> tuvo, en el mismo “formato” que devolvería el paquete que tiene el código con el que se entrena el modelo, en este caso C5.0 ¿Y cómo sabemos cual combinación de nuestra grilla es la que mostró la mejor <em>performance</em>?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">CaretC50</code></pre></div>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb437-1" data-line-number="1">CaretC50</a></code></pre></div>
 <pre><code>## C5.0 
 ## 
 ## 1949 samples
@@ -337,49 +371,49 @@ testing  &lt;-<span class="st"> </span>independientes[<span class="op">-</span>t
 ## The final values used for the model were trials = 4, model = tree and winnow = TRUE.</code></pre>
 <p>La salida <em>print()</em> de nuestro objeto de Caret nos da información sobre la <em>performance</em> de cada uno de los parámetros que probamos. Dependiendo del azar, les aparecerá uno como el mejor, probablemente por una diferencia muy pequeña en la <em>accuracy</em>. finalmente, en la última linea de la salida les dice cual fue el que se eligió y por qué criterio.</p>
 <p>Con nuestro modelo ya estimado y entrenado podemos predecir, como siempre, sobre otro dataset. En este caso, el que tenemos de <em>validación</em> o <em>testing</em>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">testing &lt;-<span class="st"> </span>testing <span class="op">%&gt;%</span>
-<span class="st">           </span><span class="kw">mutate</span>(<span class="dt">prediccion=</span><span class="kw">predict</span>(CaretC50,<span class="dt">newdata =</span> testing))</code></pre></div>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb439-1" data-line-number="1">testing &lt;-<span class="st"> </span>testing <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb439-2" data-line-number="2"><span class="st">           </span><span class="kw">mutate</span>(<span class="dt">prediccion=</span><span class="kw">predict</span>(CaretC50,<span class="dt">newdata =</span> testing))</a></code></pre></div>
 <p>La función que tenemos que usar para predecir en base a un modelo es siempre la misma: <strong>predict()</strong>. Para usarlo con datos nuevos que no sean con los que se entrenó el modelo, debemos pasarlo en “newdata”, pero este data frame debe tener variables con los mismos nombres y, en caso de no ser númerica, tomar los mismos valores ya que sobre esos aprendió el modelo. Calculemos la <em>accuracy</em> sobre los datos de validación:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(testing<span class="op">$</span>REGISTRADO<span class="op">==</span>testing<span class="op">$</span>prediccion)<span class="op">/</span><span class="kw">nrow</span>(testing)<span class="op">*</span><span class="dv">100</span></code></pre></div>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb440-1" data-line-number="1"><span class="kw">sum</span>(testing<span class="op">$</span>REGISTRADO<span class="op">==</span>testing<span class="op">$</span>prediccion)<span class="op">/</span><span class="kw">nrow</span>(testing)<span class="op">*</span><span class="dv">100</span></a></code></pre></div>
 <pre><code>## [1] 79.01679</code></pre>
 </div>
 <div id="entrenando-un-árbol-de-regresión" class="section level2">
 <h2><span class="header-section-number">8.3</span> Entrenando un árbol de regresión</h2>
 <p>En Caret es realmente simple entrenar distintos modelos. Solo tenemos que conocer si está disponible dentro del paquete, saber cómo debemos llamarlo en el parámetro <em>method</em> dentro de train y conocer también cuáles parámetros podemos optimizar. Probemos esta posibilidad de cambiar de modelos usando el mismo dataset de inmuebles de Properati que usamos en el capítulo anterior. En el siguiente código de R voy a hacer todos los pasos de Data Wrangling que se describen en ese capítulo</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">avisosInmuebles &lt;-<span class="kw">read.table</span>(<span class="dt">file =</span> <span class="kw">url</span>(<span class="st">&quot;https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/datosProperati.csv&quot;</span>),
-                            <span class="dt">sep=</span><span class="st">&#39;;&#39;</span>,<span class="dt">header =</span> <span class="ot">TRUE</span>,<span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
-avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
-<span class="st">                   </span><span class="kw">filter</span>(property_type <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Casa&quot;</span>,<span class="st">&quot;Departamento&quot;</span>,<span class="st">&quot;PH&quot;</span>))
-avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ambientes=</span><span class="kw">str_extract</span>(<span class="dt">pattern =</span> <span class="st">&quot;(?i)</span><span class="ch">\\</span><span class="st">d.amb&quot;</span>, <span class="dt">string=</span> title)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ambientes=</span><span class="kw">ifelse</span>(<span class="kw">is.na</span>(ambientes),
-                          <span class="kw">str_extract</span>(<span class="dt">pattern =</span> <span class="st">&quot;(?i)</span><span class="ch">\\</span><span class="st">d.amb&quot;</span>, <span class="dt">string=</span>description), ambientes)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ambientes=</span><span class="kw">as.numeric</span>(<span class="kw">str_extract</span>(<span class="dt">pattern=</span><span class="st">&#39;</span><span class="ch">\\</span><span class="st">d&#39;</span>,ambientes))) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ambientes=</span><span class="kw">ifelse</span>(ambientes <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,<span class="ot">NA</span>,ambientes))
-avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
-<span class="st">                   </span><span class="kw">mutate</span>(<span class="dt">rooms =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(rooms), ambientes, rooms))
-avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>created_on,<span class="op">-</span>currency,<span class="op">-</span>operation_type,<span class="op">-</span>ambientes) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(.))
-avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
-<span class="st">                   </span><span class="kw">mutate</span>(<span class="dt">USDm2=</span>price<span class="op">/</span>surface_total)</code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb442-1" data-line-number="1">avisosInmuebles &lt;-<span class="kw">read.table</span>(<span class="dt">file =</span> <span class="kw">url</span>(<span class="st">&quot;https://github.com/martintinch0/CienciaDeDatosParaCuriosos/raw/master/data/datosProperati.csv&quot;</span>),</a>
+<a class="sourceLine" id="cb442-2" data-line-number="2">                            <span class="dt">sep=</span><span class="st">&#39;;&#39;</span>,<span class="dt">header =</span> <span class="ot">TRUE</span>,<span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb442-3" data-line-number="3">avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb442-4" data-line-number="4"><span class="st">                   </span><span class="kw">filter</span>(property_type <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Casa&quot;</span>,<span class="st">&quot;Departamento&quot;</span>,<span class="st">&quot;PH&quot;</span>))</a>
+<a class="sourceLine" id="cb442-5" data-line-number="5">avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb442-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ambientes=</span><span class="kw">str_extract</span>(<span class="dt">pattern =</span> <span class="st">&quot;(?i)</span><span class="ch">\\</span><span class="st">d.amb&quot;</span>, <span class="dt">string=</span> title)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb442-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ambientes=</span><span class="kw">ifelse</span>(<span class="kw">is.na</span>(ambientes),</a>
+<a class="sourceLine" id="cb442-8" data-line-number="8">                          <span class="kw">str_extract</span>(<span class="dt">pattern =</span> <span class="st">&quot;(?i)</span><span class="ch">\\</span><span class="st">d.amb&quot;</span>, <span class="dt">string=</span>description), ambientes)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb442-9" data-line-number="9"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ambientes=</span><span class="kw">as.numeric</span>(<span class="kw">str_extract</span>(<span class="dt">pattern=</span><span class="st">&#39;</span><span class="ch">\\</span><span class="st">d&#39;</span>,ambientes))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb442-10" data-line-number="10"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ambientes=</span><span class="kw">ifelse</span>(ambientes <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,<span class="ot">NA</span>,ambientes))</a>
+<a class="sourceLine" id="cb442-11" data-line-number="11">avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb442-12" data-line-number="12"><span class="st">                   </span><span class="kw">mutate</span>(<span class="dt">rooms =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(rooms), ambientes, rooms))</a>
+<a class="sourceLine" id="cb442-13" data-line-number="13">avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb442-14" data-line-number="14"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>created_on,<span class="op">-</span>currency,<span class="op">-</span>operation_type,<span class="op">-</span>ambientes) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb442-15" data-line-number="15"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(.))</a>
+<a class="sourceLine" id="cb442-16" data-line-number="16">avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb442-17" data-line-number="17"><span class="st">                   </span><span class="kw">mutate</span>(<span class="dt">USDm2=</span>price<span class="op">/</span>surface_total)</a></code></pre></div>
 <p>Si se fijan en <a href="https://topepo.github.io/caret/available-models.html" class="uri">https://topepo.github.io/caret/available-models.html</a> van a ver que existen algunas implementaciones distintas de rpart. Usaremos la que pide usar el método ‘rpart2’ porque nos deja mejorar el parámetro <em>maxdepth</em>, que determina que tan “profundo” puede ser el árbol resultante. Como solo es una variable, usar <strong>expand.grid()</strong> no tiene mucho sentido, pero para acostumbrar a trabajar de una manera ordenada vamos a usarlo igual:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grilla &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">maxdepth=</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))</code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb443-1" data-line-number="1">grilla &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">maxdepth=</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))</a></code></pre></div>
 <p>También vamos a cambiar levemente los controles de entrenamiento y elegir que divida a nuetro dataset en 5 partes para el cross validation:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">trainingInstructions &lt;-<span class="st"> </span><span class="kw">trainControl</span>(<span class="dt">method =</span> <span class="st">&quot;cv&quot;</span>,
-                                     <span class="dt">number =</span> <span class="dv">5</span>)</code></pre></div>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb444-1" data-line-number="1">trainingInstructions &lt;-<span class="st"> </span><span class="kw">trainControl</span>(<span class="dt">method =</span> <span class="st">&quot;cv&quot;</span>,</a>
+<a class="sourceLine" id="cb444-2" data-line-number="2">                                     <span class="dt">number =</span> <span class="dv">5</span>)</a></code></pre></div>
 <p>Ya estamos en condiciones para entrenar al modelo de rpart:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rpartModel &lt;-<span class="st"> </span><span class="kw">train</span>(
-  <span class="dt">y=</span>avisosInmuebles <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(USDm2) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>(),
-  <span class="dt">x =</span> avisosInmuebles <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(rooms,BARRIO, bathrooms, property_type, surface_covered,
-                                 surface_total),
-  <span class="dt">method =</span> <span class="st">&quot;rpart2&quot;</span>,
-  <span class="dt">metric =</span> <span class="st">&quot;RMSE&quot;</span>,
-  <span class="dt">tuneGrid =</span> grilla,
-  <span class="dt">trControl =</span> trainingInstructions
-)</code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb445-1" data-line-number="1">rpartModel &lt;-<span class="st"> </span><span class="kw">train</span>(</a>
+<a class="sourceLine" id="cb445-2" data-line-number="2">  <span class="dt">y=</span>avisosInmuebles <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(USDm2) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>(),</a>
+<a class="sourceLine" id="cb445-3" data-line-number="3">  <span class="dt">x =</span> avisosInmuebles <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(rooms,BARRIO, bathrooms, property_type, surface_covered,</a>
+<a class="sourceLine" id="cb445-4" data-line-number="4">                                 surface_total),</a>
+<a class="sourceLine" id="cb445-5" data-line-number="5">  <span class="dt">method =</span> <span class="st">&quot;rpart2&quot;</span>,</a>
+<a class="sourceLine" id="cb445-6" data-line-number="6">  <span class="dt">metric =</span> <span class="st">&quot;RMSE&quot;</span>,</a>
+<a class="sourceLine" id="cb445-7" data-line-number="7">  <span class="dt">tuneGrid =</span> grilla,</a>
+<a class="sourceLine" id="cb445-8" data-line-number="8">  <span class="dt">trControl =</span> trainingInstructions</a>
+<a class="sourceLine" id="cb445-9" data-line-number="9">)</a></code></pre></div>
 <p>¿Cuál fue el modelo que eligió? Puede variar según los números aleatorios que toma para segmentar a los conjuntos sobre los que se entrena y valida, pero nuevamente pueden detectarlo usando el método print()</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(rpartModel) <span class="co"># Es lo mismo que poner solo &quot;rpartModel&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb446-1" data-line-number="1"><span class="kw">print</span>(rpartModel) <span class="co"># Es lo mismo que poner solo &quot;rpartModel&quot;</span></a></code></pre></div>
 <pre><code>## CART 
 ## 
 ## 47752 samples
@@ -405,19 +439,49 @@ avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%
 ## RMSE was used to select the optimal model using the smallest value.
 ## The final value used for the model was maxdepth = 3.</code></pre>
 <p>También podríamos intentar verlo gráficamente (dónde minimiza RMSE):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(rpartModel)</code></pre></div>
-<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-256-1.png" width="672" /></p>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb448-1" data-line-number="1"><span class="kw">plot</span>(rpartModel)</a></code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-258-1.png" width="672" /></p>
 </div>
 <div id="ejercicio-3" class="section level2">
 <h2><span class="header-section-number">8.4</span> Ejercicio</h2>
 <p>Usando los datos de avisosInmuebles ya procesados, hagan el siguiente trabajo de Data Wrangling:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span>
-<span class="st">                </span><span class="kw">mutate</span>(<span class="dt">gimnasio =</span> <span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;gym|gimn&quot;</span>,<span class="dt">x =</span> description) <span class="op">|</span>
-<span class="st">                                         </span><span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;gym|gimn&quot;</span>, <span class="dt">x =</span> title), <span class="ot">TRUE</span>, <span class="ot">FALSE</span>),
-                       <span class="dt">cochera =</span> <span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;coch|garage&quot;</span>,<span class="dt">x =</span> description) <span class="op">|</span>
-<span class="st">                                         </span><span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;coch|garage&quot;</span>, <span class="dt">x =</span> title), <span class="ot">TRUE</span>, <span class="ot">FALSE</span>),
-                       <span class="dt">pileta =</span> <span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;pileta|piscina&quot;</span>,<span class="dt">x =</span> description) <span class="op">|</span>
-<span class="st">                                       </span><span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;pileta|piscina&quot;</span>, <span class="dt">x =</span> title), <span class="ot">TRUE</span>, <span class="ot">FALSE</span>))</code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb449-1" data-line-number="1">avisosInmuebles &lt;-<span class="st"> </span>avisosInmuebles <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb449-2" data-line-number="2"><span class="st">                </span><span class="kw">mutate</span>(<span class="dt">gimnasio =</span> <span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;gym|gimn&quot;</span>,<span class="dt">x =</span> description) <span class="op">|</span></a>
+<a class="sourceLine" id="cb449-3" data-line-number="3"><span class="st">                                         </span><span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;gym|gimn&quot;</span>, <span class="dt">x =</span> title), <span class="ot">TRUE</span>, <span class="ot">FALSE</span>),</a>
+<a class="sourceLine" id="cb449-4" data-line-number="4">                       <span class="dt">cochera =</span> <span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;coch|garage&quot;</span>,<span class="dt">x =</span> description) <span class="op">|</span></a>
+<a class="sourceLine" id="cb449-5" data-line-number="5"><span class="st">                                         </span><span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;coch|garage&quot;</span>, <span class="dt">x =</span> title), <span class="ot">TRUE</span>, <span class="ot">FALSE</span>),</a>
+<a class="sourceLine" id="cb449-6" data-line-number="6">                       <span class="dt">pileta =</span> <span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;pileta|piscina&quot;</span>,<span class="dt">x =</span> description) <span class="op">|</span></a>
+<a class="sourceLine" id="cb449-7" data-line-number="7"><span class="st">                                       </span><span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;pileta|piscina&quot;</span>, <span class="dt">x =</span> title), <span class="ot">TRUE</span>, <span class="ot">FALSE</span>))</a></code></pre></div>
+<pre><code>## Warning in grepl(pattern = &quot;gym|gimn&quot;, x = description): input string 1 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;gym|gimn&quot;, x = description): input string 2 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;gym|gimn&quot;, x = description): input string 3 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;gym|gimn&quot;, x = description): input string 4 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;gym|gimn&quot;, x = description): input string 5 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;gym|gimn&quot;, x = title): input string 7 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;gym|gimn&quot;, x = title): input string 8 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;gym|gimn&quot;, x = title): input string 9 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;gym|gimn&quot;, x = title): input string 10 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;gym|gimn&quot;, x = title): input string 11 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;coch|garage&quot;, x = description): input string 1 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;coch|garage&quot;, x = description): input string 2 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;coch|garage&quot;, x = description): input string 3 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;coch|garage&quot;, x = description): input string 4 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;coch|garage&quot;, x = description): input string 5 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;coch|garage&quot;, x = title): input string 7 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;coch|garage&quot;, x = title): input string 8 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;coch|garage&quot;, x = title): input string 9 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;coch|garage&quot;, x = title): input string 10 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;coch|garage&quot;, x = title): input string 11 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;pileta|piscina&quot;, x = description): input string 1 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;pileta|piscina&quot;, x = description): input string 2 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;pileta|piscina&quot;, x = description): input string 3 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;pileta|piscina&quot;, x = description): input string 4 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;pileta|piscina&quot;, x = description): input string 5 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;pileta|piscina&quot;, x = title): input string 7 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;pileta|piscina&quot;, x = title): input string 8 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;pileta|piscina&quot;, x = title): input string 9 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;pileta|piscina&quot;, x = title): input string 10 is invalid in this locale</code></pre>
+<pre><code>## Warning in grepl(pattern = &quot;pileta|piscina&quot;, x = title): input string 11 is invalid in this locale</code></pre>
 <p>Lo que hace el código es crear tres variables (gimnasio, cochera, pileta) que intenta identificar la presencia de esas tres características de los inmuebles en cada una de las publicaciones ¿Pueden explicarlo en palabras cómo lo hace? Tengan en cuenta que la función <strong>grepl()</strong> devuelve una lista de TRUE/FALSE dependiendo de si se encuentra lo que está dentro de “pattern” en el vector que se provee en el parámetro “x”.</p>
 <p>Independientemente de esa interpretación, usando Caret entrenen un árbol de regresión con rpart2 y con los mismos parámetros que están en el cuerpo del capítulo ¿Cuánto cambió el RMSE con la inclusión de las tres variables que creamos? ¿Sugiere un parámetro de <em>maxdepth</em> distinto al que sugería cuando no incorporamos estas variables?</p>
 
@@ -484,7 +548,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

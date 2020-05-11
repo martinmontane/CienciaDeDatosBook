@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="3.3 ¿Cuál es la relación entre el ingreso de un país y la expectativa de vida al nacer? Scatterplot | Ciencia de datos para curiosos" />
+<meta property="og:type" content="book" />
+
+<meta property="og:image" content="Figuras/GatoCurioso.png" />
+<meta property="og:description" content="Una introducción practica a la Ciencia de Datos" />
+
+
+<meta name="author" content="Martin Montane" />
+
+<meta name="date" content="2020-05-10" />
+
+
+<meta name="description" content="Una introducción practica a la Ciencia de Datos">
+
+<title>3.3 ¿Cuál es la relación entre el ingreso de un país y la expectativa de vida al nacer? Scatterplot | Ciencia de datos para curiosos</title>
+
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li class="has-sub"><a href="index.html#sólo-curiosos-de-acá-en-adelante">¡Sólo curiosos de acá en adelante!</a><ul>
+<li><a href="qué-necesitamos-para-arrancar.html#qué-necesitamos-para-arrancar">¿Qué necesitamos para arrancar?</a></li>
+</ul></li>
+<li class="has-sub"><a href="1-introduccion-practica-a-la-ciencia-de-datos.html#introduccion-practica-a-la-ciencia-de-datos"><span class="toc-section-number">1</span> Introduccion practica a la Ciencia de Datos</a><ul>
+<li><a href="1-1-nuestra-primera-investigación-el-precio-de-las-propiedades-en-caba.html#nuestra-primera-investigación-el-precio-de-las-propiedades-en-caba"><span class="toc-section-number">1.1</span> Nuestra primera investigación: el precio de las propiedades en CABA</a></li>
+<li class="has-sub"><a href="1-2-conociendo-rstudio.html#conociendo-rstudio"><span class="toc-section-number">1.2</span> Conociendo RStudio</a><ul>
+<li><a href="1-2-conociendo-rstudio.html#proyectos-en-rstudio"><span class="toc-section-number">1.2.1</span> Proyectos en RStudio</a></li>
+</ul></li>
+<li class="has-sub"><a href="1-3-importando-datos-a-r.html#importando-datos-a-r"><span class="toc-section-number">1.3</span> Importando datos a R</a><ul>
+<li><a href="1-3-importando-datos-a-r.html#comma-separated-values"><span class="toc-section-number">1.3.1</span> Comma Separated Values</a></li>
+</ul></li>
+<li class="has-sub"><a href="1-4-cómo-r-organiza-los-datos.html#cómo-r-organiza-los-datos"><span class="toc-section-number">1.4</span> ¿Cómo R organiza los datos?</a><ul>
+<li><a href="1-4-cómo-r-organiza-los-datos.html#vectores"><span class="toc-section-number">1.4.1</span> Vectores</a></li>
+<li><a href="1-4-cómo-r-organiza-los-datos.html#listas-y-data-frames"><span class="toc-section-number">1.4.2</span> Listas y Data Frames</a></li>
+</ul></li>
+<li><a href="1-5-inspeccionando-nuestros-datos.html#inspeccionando-nuestros-datos"><span class="toc-section-number">1.5</span> Inspeccionando nuestros datos</a></li>
+<li><a href="1-6-retomando-nuestro-ejercicio-cuánto-aumentaron-las-viviendas.html#retomando-nuestro-ejercicio-cuánto-aumentaron-las-viviendas"><span class="toc-section-number">1.6</span> Retomando nuestro ejercicio: ¿Cuánto aumentaron las viviendas?</a></li>
+<li><a href="1-7-conclusiones.html#conclusiones"><span class="toc-section-number">1.7</span> Conclusiones</a></li>
+<li><a href="1-8-ejercicios.html#ejercicios"><span class="toc-section-number">1.8</span> Ejercicios</a></li>
+<li class="has-sub"><a href="1-9-extensión-cargando-y-guardando-datos-de-otros-formatos.html#extensión-cargando-y-guardando-datos-de-otros-formatos"><span class="toc-section-number">1.9</span> Extensión: cargando y guardando datos de otros formatos</a><ul>
+<li><a href="1-9-extensión-cargando-y-guardando-datos-de-otros-formatos.html#microsoft-excel"><span class="toc-section-number">1.9.1</span> Microsoft Excel</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="2-transformando-nuestros-datos-data-wrangling.html#transformando-nuestros-datos-data-wrangling"><span class="toc-section-number">2</span> Transformando nuestros datos (data wrangling)</a><ul>
+<li><a href="2-1-instalando-nuestro-primer-paquete-en-r-tidyverse.html#instalando-nuestro-primer-paquete-en-r-tidyverse"><span class="toc-section-number">2.1</span> Instalando nuestro primer paquete en R: tidyverse</a></li>
+<li><a href="2-2-el-dataset-gapminder.html#el-dataset-gapminder"><span class="toc-section-number">2.2</span> El dataset <em>gapminder</em></a></li>
+<li class="has-sub"><a href="2-3-transformaciones-de-los-datos.html#transformaciones-de-los-datos"><span class="toc-section-number">2.3</span> Transformaciones de los datos</a><ul>
+<li><a href="2-3-transformaciones-de-los-datos.html#selección-de-columnas-select"><span class="toc-section-number">2.3.1</span> Selección de columnas: select()</a></li>
+<li><a href="2-3-transformaciones-de-los-datos.html#selección-de-casos-filter"><span class="toc-section-number">2.3.2</span> Selección de casos: <code>filter()</code></a></li>
+<li><a href="2-3-transformaciones-de-los-datos.html#ordenando-la-función-arrange"><span class="toc-section-number">2.3.3</span> Ordenando: la función arrange()</a></li>
+<li><a href="2-3-transformaciones-de-los-datos.html#creando-y-modificando-variables-mutate"><span class="toc-section-number">2.3.4</span> Creando y modificando variables: mutate()</a></li>
+<li><a href="2-3-transformaciones-de-los-datos.html#resumiendo-y-transformando-datos-en-base-a-grupos"><span class="toc-section-number">2.3.5</span> Resumiendo y transformando datos en base a grupos</a></li>
+</ul></li>
+<li><a href="2-4-transformando-la-presentación-de-los-datos-pivot-wider-y-pivot-longer.html#transformando-la-presentación-de-los-datos-pivot_wider-y-pivot_longer"><span class="toc-section-number">2.4</span> Transformando la presentación de los datos: pivot_wider y pivot_longer</a></li>
+<li><a href="2-5-uniendo-datos-de-distintas-fuentes-left-join.html#uniendo-datos-de-distintas-fuentes-left_join"><span class="toc-section-number">2.5</span> Uniendo datos de distintas fuentes: left_join</a></li>
+<li><a href="2-6-la-mise-en-place-preparando-el-dataset-de-inmuebles.html#la-mise-en-place-preparando-el-dataset-de-inmuebles"><span class="toc-section-number">2.6</span> La <em>mise en place</em>: preparando el dataset de inmuebles</a></li>
+<li><a href="2-7-ejercicios-1.html#ejercicios-1"><span class="toc-section-number">2.7</span> Ejercicios</a></li>
+<li class="has-sub"><a href="2-8-extensiones.html#extensiones"><span class="toc-section-number">2.8</span> Extensiones</a><ul>
+<li><a href="2-8-extensiones.html#r-cheatsheets"><span class="toc-section-number">2.8.1</span> R Cheatsheets</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="3-visualizaciones-de-datos-en-r.html#visualizaciones-de-datos-en-r"><span class="toc-section-number">3</span> Visualizaciones de datos en R</a><ul>
+<li><a href="3-1-la-importancia-de-la-visualización-de-los-datos.html#la-importancia-de-la-visualización-de-los-datos"><span class="toc-section-number">3.1</span> La importancia de la visualización de los datos</a></li>
+<li><a href="3-2-ggplot-grammar-of-graphics.html#ggplot-grammar-of-graphics"><span class="toc-section-number">3.2</span> GGPLOT: Grammar of Graphics</a></li>
+<li class="has-sub"><a href="3-3-cuál-es-la-relación-entre-el-ingreso-de-un-país-y-la-expectativa-de-vida-al-nacer-scatterplot.html#cuál-es-la-relación-entre-el-ingreso-de-un-país-y-la-expectativa-de-vida-al-nacer-scatterplot"><span class="toc-section-number">3.3</span> ¿Cuál es la relación entre el ingreso de un país y la expectativa de vida al nacer? Scatterplot</a><ul>
+<li><a href="3-3-cuál-es-la-relación-entre-el-ingreso-de-un-país-y-la-expectativa-de-vida-al-nacer-scatterplot.html#agregando-colores-según-otras-variables"><span class="toc-section-number">3.3.1</span> Agregando colores según otras variables</a></li>
+<li><a href="3-3-cuál-es-la-relación-entre-el-ingreso-de-un-país-y-la-expectativa-de-vida-al-nacer-scatterplot.html#creando-paneles-con-facet_wrap"><span class="toc-section-number">3.3.2</span> Creando paneles con facet_wrap()</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-4-cuál-fue-la-evolución-de-la-expectativa-de-vida-al-nacer-gráfico-de-líneas.html#cuál-fue-la-evolución-de-la-expectativa-de-vida-al-nacer-gráfico-de-líneas"><span class="toc-section-number">3.4</span> ¿Cuál fue la evolución de la expectativa de vida al nacer? Gráfico de líneas</a><ul>
+<li><a href="3-4-cuál-fue-la-evolución-de-la-expectativa-de-vida-al-nacer-gráfico-de-líneas.html#cambiando-la-apariencia-de-las-leyendas"><span class="toc-section-number">3.4.1</span> Cambiando la apariencia de las leyendas</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-5-reproduciendo-el-gráfico-de-hans-rosling.html#reproduciendo-el-gráfico-de-hans-rosling"><span class="toc-section-number">3.5</span> Reproduciendo el gráfico de Hans Rosling</a><ul>
+<li><a href="3-5-reproduciendo-el-gráfico-de-hans-rosling.html#exportando-gráficos-de-ggplot"><span class="toc-section-number">3.5.1</span> Exportando gráficos de ggplot</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-6-mapas.html#mapas"><span class="toc-section-number">3.6</span> Mapas</a><ul>
+<li><a href="3-6-mapas.html#mapas-animados"><span class="toc-section-number">3.6.1</span> Mapas animados</a></li>
+</ul></li>
+<li><a href="3-7-ejercicios-2.html#ejercicios-2"><span class="toc-section-number">3.7</span> Ejercicios</a></li>
+<li><a href="3-8-extensión-animando-el-gráfico-de-hans-rosling.html#extensión-animando-el-gráfico-de-hans-rosling"><span class="toc-section-number">3.8</span> Extensión: animando el gráfico de Hans Rosling</a></li>
+<li><a href="3-9-material-de-lectura.html#material-de-lectura"><span class="toc-section-number">3.9</span> Material de lectura</a></li>
+</ul></li>
+<li class="has-sub"><a href="4-datos-espaciales-en-r.html#datos-espaciales-en-r"><span class="toc-section-number">4</span> Datos espaciales en R</a><ul>
+<li><a href="4-1-qué-es-un-dato-espacial.html#qué-es-un-dato-espacial"><span class="toc-section-number">4.1</span> ¿Qué es un dato espacial?</a></li>
+<li><a href="4-2-dónde-estamos-en-la-tierra.html#dónde-estamos-en-la-tierra"><span class="toc-section-number">4.2</span> ¿Dónde estamos en la Tierra?</a></li>
+<li class="has-sub"><a href="4-3-coordinate-reference-systems.html#coordinate-reference-systems"><span class="toc-section-number">4.3</span> Coordinate Reference Systems</a><ul>
+<li><a href="4-3-coordinate-reference-systems.html#elipsoides-sistemas-de-coordenadas-y-datums"><span class="toc-section-number">4.3.1</span> Elipsoides, sistemas de coordenadas y datums</a></li>
+<li><a href="4-3-coordinate-reference-systems.html#proyecciones"><span class="toc-section-number">4.3.2</span> Proyecciones</a></li>
+</ul></li>
+<li class="has-sub"><a href="4-4-un-ejemplo-datos-públicos-de-gcba-y-properati.html#un-ejemplo-datos-públicos-de-gcba-y-properati"><span class="toc-section-number">4.4</span> Un ejemplo: datos públicos de GCBA y Properati</a><ul>
+<li><a href="4-4-un-ejemplo-datos-públicos-de-gcba-y-properati.html#caba"><span class="toc-section-number">4.4.1</span> CABA</a></li>
+<li><a href="4-4-un-ejemplo-datos-públicos-de-gcba-y-properati.html#properati"><span class="toc-section-number">4.4.2</span> Properati</a></li>
+<li><a href="4-4-un-ejemplo-datos-públicos-de-gcba-y-properati.html#asignando-los-inmuebles-a-los-barrios"><span class="toc-section-number">4.4.3</span> Asignando los inmuebles a los barrios</a></li>
+</ul></li>
+<li><a href="4-5-otras-operaciones-espaciales.html#otras-operaciones-espaciales"><span class="toc-section-number">4.5</span> Otras operaciones espaciales</a></li>
+<li class="has-sub"><a href="4-6-incorporando-información-a-nuestro-dataset-los-subtes.html#incorporando-información-a-nuestro-dataset-los-subtes"><span class="toc-section-number">4.6</span> Incorporando información a nuestro dataset: los subtes</a><ul>
+<li><a href="4-6-incorporando-información-a-nuestro-dataset-los-subtes.html#una-alternativa-más-simple-usando-otro-método-de-join-espacial"><span class="toc-section-number">4.6.1</span> Una alternativa más simple: usando otro método de join espacial</a></li>
+</ul></li>
+<li><a href="4-7-ejercicio.html#ejercicio"><span class="toc-section-number">4.7</span> Ejercicio</a></li>
+</ul></li>
+<li class="has-sub"><a href="5-data-wrangling-de-datos-espaciales.html#data-wrangling-de-datos-espaciales"><span class="toc-section-number">5</span> Data wrangling de datos espaciales</a><ul>
+<li><a href="5-1-introduccion.html#introduccion"><span class="toc-section-number">5.1</span> Introduccion</a></li>
+<li class="has-sub"><a href="5-2-areal-weighted-interpolation.html#areal-weighted-interpolation"><span class="toc-section-number">5.2</span> Areal weighted interpolation</a><ul>
+<li><a href="5-2-areal-weighted-interpolation.html#carga-de-los-datos"><span class="toc-section-number">5.2.1</span> Carga de los datos</a></li>
+<li><a href="5-2-areal-weighted-interpolation.html#diferentes-radios-censales"><span class="toc-section-number">5.2.2</span> Diferentes radios censales</a></li>
+<li><a href="5-2-areal-weighted-interpolation.html#make-polygons-comparable-again"><span class="toc-section-number">5.2.3</span> Make polygons comparable again</a></li>
+</ul></li>
+<li><a href="5-3-haciendo-mapas-de-nuestros-nuevos-datos.html#haciendo-mapas-de-nuestros-nuevos-datos"><span class="toc-section-number">5.3</span> Haciendo mapas de nuestros nuevos datos</a></li>
+<li><a href="5-4-ejercicio-1.html#ejercicio-1"><span class="toc-section-number">5.4</span> Ejercicio</a></li>
+</ul></li>
+<li class="has-sub"><a href="6-el-automovil-de-la-estadistica.html#el-automovil-de-la-estadistica"><span class="toc-section-number">6</span> El automovil de la estadistica</a><ul>
+<li><a href="6-1-cuál-es-la-relación-entre-la-altura-y-el-peso-de-las-personas.html#cuál-es-la-relación-entre-la-altura-y-el-peso-de-las-personas"><span class="toc-section-number">6.1</span> ¿Cuál es la relación entre la altura y el peso de las personas?</a></li>
+<li><a href="6-2-el-objetivo-de-la-regresión-lineal.html#el-objetivo-de-la-regresión-lineal"><span class="toc-section-number">6.2</span> El “objetivo” de la regresión lineal</a></li>
+<li class="has-sub"><a href="6-3-agregando-variables-explicativas.html#agregando-variables-explicativas"><span class="toc-section-number">6.3</span> Agregando variables explicativas</a><ul>
+<li><a href="6-3-agregando-variables-explicativas.html#interpretación-de-los-coeficientes-y-su-incertidumbre"><span class="toc-section-number">6.3.1</span> Interpretación de los coeficientes (y su incertidumbre)</a></li>
+<li><a href="6-3-agregando-variables-explicativas.html#entonces-pesar-un-kilo-más-aumenta-la-altura-en-aproximadamente-un-centímetro"><span class="toc-section-number">6.3.2</span> ¿Entonces pesar un kilo más aumenta la altura en aproximadamente un centímetro?</a></li>
+<li><a href="6-3-agregando-variables-explicativas.html#intervalos-de-confianza-otra-forma-de-pensar-la-incertidumbre"><span class="toc-section-number">6.3.3</span> Intervalos de confianza: otra forma de pensar la incertidumbre</a></li>
+<li><a href="6-3-agregando-variables-explicativas.html#qué-explica-y-que-no-nuestra-regresión"><span class="toc-section-number">6.3.4</span> Qué explica y que no nuestra regresión</a></li>
+<li><a href="6-3-agregando-variables-explicativas.html#incertidumbre-en-el-promedio-e-incertidumbre-en-el-valor-predicho"><span class="toc-section-number">6.3.5</span> Incertidumbre en el promedio e incertidumbre en el valor predicho</a></li>
+</ul></li>
+<li class="has-sub"><a href="6-4-regresión-lineal-múltiple-controlando-por-otros-factores.html#regresión-lineal-múltiple-controlando-por-otros-factores"><span class="toc-section-number">6.4</span> Regresión lineal múltiple: controlando por otros factores</a><ul>
+<li><a href="6-4-regresión-lineal-múltiple-controlando-por-otros-factores.html#asociación-espuria"><span class="toc-section-number">6.4.1</span> Asociación espuria</a></li>
+<li><a href="6-4-regresión-lineal-múltiple-controlando-por-otros-factores.html#relación-enmascarada"><span class="toc-section-number">6.4.2</span> Relación enmascarada</a></li>
+</ul></li>
+<li><a href="6-5-una-razón-para-ser-cuidadoso-al-interpretar-los-coeficientes-la-multicolinealidad.html#una-razón-para-ser-cuidadoso-al-interpretar-los-coeficientes-la-multicolinealidad"><span class="toc-section-number">6.5</span> Una razón para ser cuidadoso al interpretar los coeficientes: la multicolinealidad</a></li>
+<li><a href="6-6-ejercicios-3.html#ejercicios-3"><span class="toc-section-number">6.6</span> Ejercicios</a></li>
+<li><a href="6-7-lecturas-recomendadas.html#lecturas-recomendadas"><span class="toc-section-number">6.7</span> Lecturas recomendadas</a></li>
+</ul></li>
+<li class="has-sub"><a href="7-los-beatles-del-machine-learning.html#los-beatles-del-machine-learning"><span class="toc-section-number">7</span> Los beatles del Machine Learning</a><ul>
+<li><a href="7-1-machine-learning.html#machine-learning"><span class="toc-section-number">7.1</span> Machine Learning</a></li>
+<li><a href="7-2-cómo-funciona-un-árbol-de-decisión.html#cómo-funciona-un-árbol-de-decisión"><span class="toc-section-number">7.2</span> ¿Cómo funciona un árbol de decisión?</a></li>
+<li class="has-sub"><a href="7-3-podemos-predecir-quién-se-murió-en-el-titanic.html#podemos-predecir-quién-se-murió-en-el-titanic"><span class="toc-section-number">7.3</span> ¿Podemos predecir quién se murió en el Titanic?</a><ul>
+<li><a href="7-3-podemos-predecir-quién-se-murió-en-el-titanic.html#cómo-podemos-medir-qué-tan-bien-clasifica-nuestro-árbol"><span class="toc-section-number">7.3.1</span> ¿Cómo podemos medir qué tan bien clasifica nuestro árbol?</a></li>
+<li><a href="7-3-podemos-predecir-quién-se-murió-en-el-titanic.html#un-árbol-puede-reducirse-a-reglas"><span class="toc-section-number">7.3.2</span> Un árbol puede reducirse a reglas</a></li>
+</ul></li>
+<li class="has-sub"><a href="7-4-aplicación-en-el-mercado-de-trabajo-monotributistas-y-cuentapropistas-informales.html#aplicación-en-el-mercado-de-trabajo-monotributistas-y-cuentapropistas-informales"><span class="toc-section-number">7.4</span> Aplicación en el mercado de trabajo: monotributistas y cuentapropistas informales</a><ul>
+<li><a href="7-4-aplicación-en-el-mercado-de-trabajo-monotributistas-y-cuentapropistas-informales.html#overfitting-aprendiendo-demasiado-de-nuestra-muestra"><span class="toc-section-number">7.4.1</span> Overfitting: aprendiendo demasiado de nuestra muestra</a></li>
+</ul></li>
+<li class="has-sub"><a href="7-5-algunos-árboles-no-solo-clasifican-árboles-de-regresión.html#algunos-árboles-no-solo-clasifican-árboles-de-regresión"><span class="toc-section-number">7.5</span> Algunos árboles no solo clasifican: árboles de regresión</a><ul>
+<li><a href="7-5-algunos-árboles-no-solo-clasifican-árboles-de-regresión.html#poniendo-en-forma-los-datos"><span class="toc-section-number">7.5.1</span> Poniendo en forma los datos</a></li>
+<li><a href="7-5-algunos-árboles-no-solo-clasifican-árboles-de-regresión.html#recursive-partitioning-rpart"><span class="toc-section-number">7.5.2</span> Recursive PARTitioning (RPART)</a></li>
+</ul></li>
+<li><a href="7-6-ejercicio-2.html#ejercicio-2"><span class="toc-section-number">7.6</span> Ejercicio</a></li>
+<li><a href="7-7-lecturas-recomendadas-1.html#lecturas-recomendadas-1"><span class="toc-section-number">7.7</span> Lecturas recomendadas</a></li>
+</ul></li>
+<li class="has-sub"><a href="8-un-paquete-para-dominarlos-a-todos.html#un-paquete-para-dominarlos-a-todos"><span class="toc-section-number">8</span> Un paquete para dominarlos a todos</a><ul>
+<li><a href="8-1-classification-and-regression-training-caret.html#classification-and-regression-training-caret"><span class="toc-section-number">8.1</span> Classification And Regression Training (CARET)</a></li>
+<li><a href="8-2-entrenando-un-árbol-de-decisión.html#entrenando-un-árbol-de-decisión"><span class="toc-section-number">8.2</span> Entrenando un árbol de decisión</a></li>
+<li><a href="8-3-entrenando-un-árbol-de-regresión.html#entrenando-un-árbol-de-regresión"><span class="toc-section-number">8.3</span> Entrenando un árbol de regresión</a></li>
+<li><a href="8-4-ejercicio-3.html#ejercicio-3"><span class="toc-section-number">8.4</span> Ejercicio</a></li>
+</ul></li>
+<li class="has-sub"><a href="9-anexo-1-datasets.html#anexo-1---datasets"><span class="toc-section-number">9</span> Anexo 1 - Datasets</a><ul>
+<li><a href="9-1-encuesta-permanente-de-hogares-eph.html#encuesta-permanente-de-hogares-eph"><span class="toc-section-number">9.1</span> Encuesta Permanente de Hogares (EPH)</a></li>
+<li><a href="9-2-precios-de-los-inmuebles.html#precios-de-los-inmuebles"><span class="toc-section-number">9.2</span> Precios de los inmuebles</a></li>
+</ul></li>
+<li class="has-sub"><a href="10-anexo-2-otras-funciones-de-data-wrangling.html#anexo-2---otras-funciones-de-data-wrangling"><span class="toc-section-number">10</span> Anexo 2 - Otras funciones de Data Wrangling</a><ul>
+<li><a href="10-1-convirtiendo-una-variable-númerica-a-categórica.html#convirtiendo-una-variable-númerica-a-categórica"><span class="toc-section-number">10.1</span> Convirtiendo una variable númerica a categórica</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="cuál-es-la-relación-entre-el-ingreso-de-un-país-y-la-expectativa-de-vida-al-nacer-scatterplot" class="section level2">
+<h2><span class="header-section-number">3.3</span> ¿Cuál es la relación entre el ingreso de un país y la expectativa de vida al nacer? Scatterplot</h2>
+<p>Una nube de puntos o scatter plot es un tipo de gráfico que, por lo general, muestra la relación entre dos variables. Digo por lo general, porque en rigor es posible agregar otra información en estos gráficos mediante colores o tamaños de los puntos. Sigamos con el ejemplo del capitulo dos: los datos de <strong>gapminder</strong>. Vamos a filtrar los datos para el año 2007, el último en este dataset.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">gapminder_df &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&quot;https://raw.githubusercontent.com/martintinch0/CienciaDeDatosParaCuriosos/master/data/gapminder.csv&quot;</span>,</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">                           <span class="dt">sep=</span><span class="st">&#39;;&#39;</span>,</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">                           <span class="dt">header =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">                           <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">gapminderLastCut &lt;-<span class="st"> </span>gapminder_df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">2007</span>)</a></code></pre></div>
+<p>Ya podemos comenzar con nuestro primer ejemplo. <strong>ggplot</strong> comienza siempre de la misma manera: usando la función homónima y comentando que datos queremos graficar. Luego, le decimos qué tipo de gráfico queremos hacer, lo que en GG se hace con <strong>geom_</strong>, seguido por un sufijo que hace referencia específica al tipo de gráfico.</p>
+<p>Además, GGPLOT no hace magia: en este caso, necesita saber qué variable poner en el eje x y cuál otra poner en el eje y. En ggplot, estas últimas indicaciones van dentro de una función que se llama <strong>aes()</strong>, que es la abreviación de <strong>aesthetics</strong>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminderLastCut,</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Nuestro gráfico scatter, que en ggplot se hace con <strong>geom_point()</strong>, muestra en el eje horizontal el PIB per cápita de los países y en el eje vertical la expectativa de vida al nacer. La grilla de fondo de color gris y los títulos de los ejes son defaults de ggplot, así como la - no tan recomendada - decisión de cortar al eje vertical en un valor levemente superior a 40 años.</p>
+<p>Una vez que tenemos los datos que queremos en nuestro gráfico, podemos empezar a cambiar estos detalles que pueden no gustarnos. Para empezar, los títulos de los ejes tienen por definición el nombre de las variables, vamos a ponerles nombres más acordes a lo que estamos mostrando. Como irán aprendiendo, estos cambios van en distintas partes de nuestro código de ggplot mediante nuevas funciones agregadas por medio de <strong>+</strong>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminderLastCut,</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;PIB per cápita&quot;</span>,</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">       <span class="dt">y =</span> <span class="st">&quot;Expectativa de vida al nacer (en años)&quot;</span>)</a></code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>En este caso usamos la función <strong>labs()</strong>, con sus respectivos parámetros x e y, a los que les pasamos directamente el nombre que queremos que tenga. La función labs permite más cosas que esto, como agregar título, subtítulos e incluso información sobre la fuente de nuestro gráfico:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminderLastCut,</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;PIB per cápita&quot;</span>,</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">       <span class="dt">y =</span> <span class="st">&quot;Expectativa de vida al nacer (en años)&quot;</span>,</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">       <span class="dt">title=</span><span class="st">&quot;A más ingresos mayor tiempo de vida?&quot;</span>,</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">       <span class="dt">subtitle=</span><span class="st">&quot;Expectativa de vida al nacer según nivel de ingreso&quot;</span>,</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">       <span class="dt">caption=</span><span class="st">&quot;Fuente: Gapminder&quot;</span>)</a></code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<div id="agregando-colores-según-otras-variables" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Agregando colores según otras variables</h3>
+<p>En nuestro data.frame de <strong>gapminder</strong> contamos con otra variable que sería de interés mostrar: el continente del país que hablamos. Esta variable es de tipo categórica y es muy común agregar esta clase de variables en nuestros gráficos de dispersión o <strong>scatter plots</strong></p>
+<p>Agregar esta clase de información es realmente fácil. Dentro de la función <strong>aes()</strong>, además de determinar cuáles son los valores del eje vertical (y) y del eje horizontal (x), podemos indicar cuál es la variable según la cual queremos que ponga los colores: mediante el argumento <em>color</em></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminderLastCut,</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>gdpPercap, <span class="dt">y =</span> lifeExp,<span class="dt">color=</span>continent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;PIB per cápita&quot;</span>,</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">       <span class="dt">y =</span> <span class="st">&quot;Expectativa de vida al nacer (en años)&quot;</span>,</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">       <span class="dt">title=</span><span class="st">&quot;A más ingresos mayor tiempo de vida?&quot;</span>,</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">       <span class="dt">subtitle=</span><span class="st">&quot;Expectativa de vida al nacer según nivel de ingreso&quot;</span>,</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">       <span class="dt">caption=</span><span class="st">&quot;Fuente: Gapminder&quot;</span>)</a></code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Podemos observar cómo los colores no se distribuyen aleatoriamente entre niveles de ingreso, sino que se ubican más o menos en los mismos rangos, con algunas excepciones. Más adelante vamos a ver un gráfico que nos va a ser útil para detectar estás diferencias.</p>
+</div>
+<div id="creando-paneles-con-facet_wrap" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Creando paneles con facet_wrap()</h3>
+<p>Los paneles son realmente fáciles de armar en ggplot. Lo unico que debemos decirle es que queremos hacerlos y qué variable usaremos para cortar a nuestros datos y mostrarlos de a partes. Imaginemos que queremos mostrar el mismo gráfico de relación entre PIB per cápita y expectativas de vida al nacer (en años) que hicimos anteriormente, pero para cada uno de los continentes por separados: muy simple.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminderLastCut,</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;PIB per cápita&quot;</span>,</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">       <span class="dt">y =</span> <span class="st">&quot;Expectativa de vida al nacer (en años)&quot;</span>,</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">       <span class="dt">title=</span><span class="st">&quot;A más ingresos mayor tiempo de vida?&quot;</span>,</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">       <span class="dt">subtitle=</span><span class="st">&quot;Expectativa de vida al nacer según nivel de ingreso&quot;</span>,</a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">       <span class="dt">caption=</span><span class="st">&quot;Fuente: Gapminder&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>continent)</a></code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Fácil, no? Lo único que cambiamos fue que no queremos colorear por continente, sino que queremos que se creen tantos gráficos como continentes hay en nuestros datos.</p>
+</div>
+</div>
+<p style="text-align: center;">
+<a href="3-2-ggplot-grammar-of-graphics.html"><button class="btn btn-default">Previous</button></a>
+<a href="3-4-cuál-fue-la-evolución-de-la-expectativa-de-vida-al-nacer-gráfico-de-líneas.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

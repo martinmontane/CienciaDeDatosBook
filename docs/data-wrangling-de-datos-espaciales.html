@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Data wrangling de datos espaciales | Ciencia de datos para curiosos</title>
   <meta name="description" content="Una introducción practica a la Ciencia de Datos" />
-  <meta name="generator" content="bookdown 0.18.1 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Data wrangling de datos espaciales | Ciencia de datos para curiosos" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Martin Montane" />
 
 
-<meta name="date" content="2020-04-14" />
+<meta name="date" content="2020-05-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,41 +55,66 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
@@ -151,6 +176,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ggplot-grammar-of-graphics"><i class="fa fa-check"></i><b>3.2</b> GGPLOT: Grammar of Graphics</a></li>
 <li class="chapter" data-level="3.3" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cuál-es-la-relación-entre-el-ingreso-de-un-país-y-la-expectativa-de-vida-al-nacer-scatterplot"><i class="fa fa-check"></i><b>3.3</b> ¿Cuál es la relación entre el ingreso de un país y la expectativa de vida al nacer? Scatterplot</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#agregando-colores-según-otras-variables"><i class="fa fa-check"></i><b>3.3.1</b> Agregando colores según otras variables</a></li>
+<li class="chapter" data-level="3.3.2" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#creando-paneles-con-facet_wrap"><i class="fa fa-check"></i><b>3.3.2</b> Creando paneles con facet_wrap()</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cuál-fue-la-evolución-de-la-expectativa-de-vida-al-nacer-gráfico-de-líneas"><i class="fa fa-check"></i><b>3.4</b> ¿Cuál fue la evolución de la expectativa de vida al nacer? Gráfico de líneas</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cambiando-la-apariencia-de-las-leyendas"><i class="fa fa-check"></i><b>3.4.1</b> Cambiando la apariencia de las leyendas</a></li>
@@ -158,11 +184,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.5" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#reproduciendo-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.5</b> Reproduciendo el gráfico de Hans Rosling</a><ul>
 <li class="chapter" data-level="3.5.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#exportando-gráficos-de-ggplot"><i class="fa fa-check"></i><b>3.5.1</b> Exportando gráficos de ggplot</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#mapas"><i class="fa fa-check"></i><b>3.6</b> Mapas</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#mapas-animados"><i class="fa fa-check"></i><b>3.6.1</b> Mapas animados</a></li>
+<li class="chapter" data-level="3.6" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ejercicios-2"><i class="fa fa-check"></i><b>3.6</b> Ejercicios</a></li>
+<li class="chapter" data-level="3.7" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#extensión-animando-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.7</b> Extensión: animando el gráfico de Hans Rosling</a></li>
+<li class="chapter" data-level="3.8" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#en-una-baldosa-las-preguntas-más-frecuentes"><i class="fa fa-check"></i><b>3.8</b> En una baldosa: las preguntas más frecuentes</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-puedo-hacer-un-gráfico-de-barras"><i class="fa fa-check"></i><b>3.8.1</b> 1. ¿Cómo puedo hacer un gráfico de barras?</a></li>
+<li class="chapter" data-level="3.8.2" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-ordeno-mis-datos-en-ggplot"><i class="fa fa-check"></i><b>3.8.2</b> 2. ¿Cómo ordeno mis datos en ggplot?</a></li>
+<li class="chapter" data-level="3.8.3" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-hago-gráficos-de-barras-apiladas-stacked-bars"><i class="fa fa-check"></i><b>3.8.3</b> 3. ¿Cómo hago gráficos de barras apiladas (stacked bars)?</a></li>
+<li class="chapter" data-level="3.8.4" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-hago-agrego-texto-a-los-gráficos"><i class="fa fa-check"></i><b>3.8.4</b> 4. ¿Cómo hago agrego texto a los gráficos?</a></li>
+<li class="chapter" data-level="3.8.5" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-cambio-el-rango-del-eje-x-o-y"><i class="fa fa-check"></i><b>3.8.5</b> 5. ¿Cómo cambio el rango del eje x o y?</a></li>
+<li class="chapter" data-level="3.8.6" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-cambio-la-tipografía"><i class="fa fa-check"></i><b>3.8.6</b> 6. ¿Cómo cambio la tipografía?</a></li>
+<li class="chapter" data-level="3.8.7" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#cómo-hago-treemaps"><i class="fa fa-check"></i><b>3.8.7</b> 7. ¿Cómo hago treemaps?</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#ejercicios-2"><i class="fa fa-check"></i><b>3.7</b> Ejercicios</a></li>
-<li class="chapter" data-level="3.8" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#extensión-animando-el-gráfico-de-hans-rosling"><i class="fa fa-check"></i><b>3.8</b> Extensión: animando el gráfico de Hans Rosling</a></li>
 <li class="chapter" data-level="3.9" data-path="visualizaciones-de-datos-en-r.html"><a href="visualizaciones-de-datos-en-r.html#material-de-lectura"><i class="fa fa-check"></i><b>3.9</b> Material de lectura</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="datos-espaciales-en-r.html"><a href="datos-espaciales-en-r.html"><i class="fa fa-check"></i><b>4</b> Datos espaciales en R</a><ul>
@@ -274,7 +306,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">5.2</span> Areal weighted interpolation</h2>
 <p>El INDEC realiza censos con un intervalo de aproximadamente 10 años en Argentina. Las últimas dos ediciones al escribir estas lineas fueron en los años 2001 y 2010. Los censos poblacionales son una de las formas más clásicas de conseguir información homogenéa, de alcance nacional sobre las condiciones de vida de toda la población Argentina, tanto urbana y rural, con un nivel de granuralidad bastante aceptable. Todavía más, al hacerse cada cirto período de tiempo, es posible analizar variaciones entre décadas.</p>
 <p>La unidad espacial mínima de los censos de Argentina son los radios censales. Comparar la evolución de diversas variables entre censos a ese nivel de desagregación es muy útil para responder muchas interesantes. En este ejercicio vamos a poder analizar cómo cambió la edad promedio de los habitantes de estos radios censales entre 2001 y 2010 en la Ciudad de Buenos Aires. Para hacerlo, vamos a encontrarnos con un problema entre los polígonos de ambos censos. Miren la figura que aparece abajo ¿Son iguales?</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-150"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-152"></span>
 <img src="Figuras/HerramientasDatosEspaciales/comparacionradioscensales.png" alt="La proyección MERCATOR distorsiona nuestra percepción de los tamaños" width="400px" />
 <p class="caption">
 Figure 5.1: La proyección MERCATOR distorsiona nuestra percepción de los tamaños
@@ -285,91 +317,95 @@ Figure 5.1: La proyección MERCATOR distorsiona nuestra percepción de los tama�
 <div id="carga-de-los-datos" class="section level3">
 <h3><span class="header-section-number">5.2.1</span> Carga de los datos</h3>
 <p>Lo primero que habría que hacer es cargar los datos. Sin embargo, sabemos que debemos cargar las librerias en nuestra sesión de R para que muchas de las funciones que usamos se ejecuten.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse) <span class="co"># Para manipular datos y graficarlos</span>
-<span class="kw">library</span>(sf) <span class="co"># Para manipular datos espaciales</span>
-<span class="kw">library</span>(tmap) <span class="co"># Para graficar datos espaciales</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1"><span class="kw">library</span>(tidyverse) <span class="co"># Para manipular datos y graficarlos</span></a>
+<a class="sourceLine" id="cb240-2" data-line-number="2"><span class="kw">library</span>(sf) <span class="co"># Para manipular datos espaciales</span></a>
+<a class="sourceLine" id="cb240-3" data-line-number="3"><span class="kw">library</span>(tmap) <span class="co"># Para graficar datos espaciales</span></a></code></pre></div>
 <p>Una vez que tengamos cargadas las librerías vamos a descargar los datos desde el repositorio. Podría haber enviado todo en un RData, pero quiero introducirlos a una nueva forma de guardar datos espaciales: <strong>geojson</strong>. La ventaja más obvia de este tipo de archivos espaciales es que consiste de un solo archivo que contiene todos los datos en listas. No vamos a preocuparnos estrictamente por su forma, pero lo que sí vamos a hacer es leer un geojson porque probablemente sea uno de los archivos con los que eventualmente se encuentren.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datosCenso2001 &lt;-<span class="st"> </span><span class="kw">read_sf</span>(<span class="st">&quot;https://github.com/datalab-UTDT/GIS2/raw/master/AWI/radiosCensalesCABA2001.geojson&quot;</span>)
-datosCenso2010 &lt;-<span class="st"> </span><span class="kw">read_sf</span>(<span class="st">&quot;https://github.com/datalab-UTDT/GIS2/raw/master/AWI/radiosCensalesCABA2010.geojson&quot;</span>)</code></pre></div>
-<p>Los <strong>geojson</strong> se leen con la misma función <strong>read_sf</strong>. Un punto importante a tener en cuenta cuando trabajamos con este formato de datos espaciales es que obliga a que el CRS sea el 4326, es decir el WSG84 sin proyectar. Aunque podríamos seguir trabajando con esta proyección, vamos a transformarlos a la proyección inicial en la cual vinieron. No conocemos el código <strong>EPSG</strong>, pero sí el <strong>proj4string</strong> correspondiente: <strong>+proj=tmerc +lat_0=-90 +lon_0=-66 +k=1 +x_0=3500000 +y_0=0 +ellps=WGS84 +units=m +no_defs</strong>. Con el siguiente código van a tener a los dos objetos en la proyección con la que arrancaron.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datosCenso2001 &lt;-<span class="st"> </span>datosCenso2001 <span class="op">%&gt;%</span>
-<span class="st">                  </span><span class="kw">st_transform</span>(<span class="st">&#39;+proj=tmerc +lat_0=-90 +lon_0=-66 +k=1 +x_0=3500000 +y_0=0 +ellps=WGS84 +units=m +no_defs&quot;&#39;</span>)
-datosCenso2010 &lt;-<span class="st"> </span>datosCenso2010 <span class="op">%&gt;%</span>
-<span class="st">                  </span><span class="kw">st_transform</span>(<span class="st">&#39;+proj=tmerc +lat_0=-90 +lon_0=-66 +k=1 +x_0=3500000 +y_0=0 +ellps=WGS84 +units=m +no_defs&quot;&#39;</span>)</code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" data-line-number="1">datosCenso2001 &lt;-<span class="st"> </span><span class="kw">read_sf</span>(<span class="st">&quot;https://github.com/datalab-UTDT/GIS2/raw/master/AWI/radiosCensalesCABA2001.geojson&quot;</span>)</a>
+<a class="sourceLine" id="cb241-2" data-line-number="2">datosCenso2010 &lt;-<span class="st"> </span><span class="kw">read_sf</span>(<span class="st">&quot;https://github.com/datalab-UTDT/GIS2/raw/master/AWI/radiosCensalesCABA2010.geojson&quot;</span>)</a></code></pre></div>
+<p>Los <strong>geojson</strong> se leen con la misma función <strong>read_sf</strong>. Un punto importante a tener en cuenta cuando trabajamos con este formato de datos espaciales es que obliga a que el CRS sea el 4326, es decir el WSG84 sin proyectar. Aunque podríamos seguir trabajando con esta proyección, vamos a transformarlos a la proyección inicial en la cual vinieron. No conocemos el código <strong>EPSG</strong>, pero sí el <strong>proj4string</strong> correspondiente:
+<strong>+proj=tmerc +lat_0=-90 +lon_0=-66 +k=1 +x_0=3500000 +y_0=0 +ellps=WGS84 +units=m +no_defs</strong>.
+Con el siguiente código van a tener a los dos objetos en la proyección con la que arrancaron.</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" data-line-number="1">datosCenso2001 &lt;-<span class="st"> </span>datosCenso2001 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb242-2" data-line-number="2"><span class="st">                  </span><span class="kw">st_transform</span>(<span class="st">&#39;+proj=tmerc +lat_0=-90 +lon_0=-66 +k=1 +x_0=3500000 +y_0=0 +ellps=WGS84 +units=m +no_defs&quot;&#39;</span>)</a>
+<a class="sourceLine" id="cb242-3" data-line-number="3">datosCenso2010 &lt;-<span class="st"> </span>datosCenso2010 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb242-4" data-line-number="4"><span class="st">                  </span><span class="kw">st_transform</span>(<span class="st">&#39;+proj=tmerc +lat_0=-90 +lon_0=-66 +k=1 +x_0=3500000 +y_0=0 +ellps=WGS84 +units=m +no_defs&quot;&#39;</span>)</a></code></pre></div>
 <p>Si quieren investiguen que variables hay en cada uno de los datos censales con las funciones que ya vimos en clase, tales como <strong>str</strong> o <strong>colnames</strong>. Pueden probar una función adicional de tidyverse: <strong>glimpse()</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(datosCenso2001)</code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" data-line-number="1"><span class="kw">glimpse</span>(datosCenso2001)</a></code></pre></div>
 <pre><code>## Rows: 3,407
 ## Columns: 23
-## $ COD_2001                  &lt;chr&gt; &quot;020100402&quot;, &quot;020100305&quot;, &quot;020100301&quot;, &quot;020100303&quot;, &quot;020100307&quot;,...
-## $ PROV_                     &lt;chr&gt; &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;...
-## $ DEPTO_                    &lt;chr&gt; &quot;010&quot;, &quot;010&quot;, &quot;010&quot;, &quot;010&quot;, &quot;010&quot;, &quot;010&quot;, &quot;010&quot;, &quot;010&quot;, &quot;010&quot;, &quot;...
-## $ pop                       &lt;int&gt; 110, 1405, 1162, 762, 591, 738, 752, 481, 1129, 555, 1047, 803, ...
-## $ pop014                    &lt;int&gt; 14, 180, 177, 74, 109, 124, 133, 81, 147, 99, 155, 144, 150, 108...
-## $ pop1564                   &lt;int&gt; 96, 1049, 757, 528, 366, 532, 473, 297, 768, 336, 681, 503, 650,...
-## $ pop64plus                 &lt;int&gt; 0, 176, 228, 160, 116, 82, 146, 103, 214, 120, 211, 156, 106, 11...
-## $ highSchoolAboveALLPOP     &lt;int&gt; 25, 851, 619, 396, 286, 329, 352, 256, 554, 307, 528, 300, 435, ...
-## $ terciarioAboveALLPOP      &lt;int&gt; 6, 600, 427, 217, 193, 221, 191, 148, 365, 211, 299, 165, 285, 1...
-## $ universitaryAboveALLPOP   &lt;int&gt; 2, 354, 248, 118, 123, 135, 81, 77, 190, 108, 150, 82, 159, 46, ...
-## $ highSchoolAbove2564       &lt;int&gt; 10, 704, 477, 310, 204, 284, 274, 194, 451, 224, 419, 250, 383, ...
-## $ terciarioAbove2564        &lt;int&gt; 3, 530, 357, 187, 142, 200, 165, 121, 325, 165, 259, 150, 262, 9...
-## $ universitaryAbove2564     &lt;int&gt; 2, 324, 209, 110, 97, 126, 75, 64, 177, 95, 142, 77, 153, 46, 12...
-## $ pop2564                   &lt;int&gt; 60, 891, 593, 407, 277, 422, 384, 248, 642, 280, 586, 387, 536, ...
-## $ avgAge                    &lt;dbl&gt; 28.72727, 36.58434, 40.85714, 43.49213, 41.24196, 36.57182, 40.0...
-## $ descuentoJubil            &lt;dbl&gt; 0.6333333, 0.8321256, 0.8084291, 0.7699387, 0.7460938, 0.8010899...
-## $ descuentoJubilAsalariado  &lt;dbl&gt; 0.8181818, 0.8921933, 0.8626198, 0.8403756, 0.7751938, 0.8604651...
-## $ asalariado                &lt;dbl&gt; 0.7333333, 0.6497585, 0.5996169, 0.6533742, 0.5039062, 0.7029973...
-## $ cuentapropia              &lt;dbl&gt; 0.2000000, 0.3393720, 0.3888889, 0.3404908, 0.4765625, 0.2833787...
-## $ servDomestico             &lt;dbl&gt; 0.1000000, 0.0205314, 0.0287356, 0.0276074, 0.0546875, 0.0299728...
-## $ asalariadoPrivado         &lt;dbl&gt; 0.1333333, 0.1086957, 0.1800766, 0.1932515, 0.1757812, 0.1771117...
-## $ ocupadosUniversitariaComp &lt;dbl&gt; 0.0000000, 0.3683575, 0.3639847, 0.3036810, 0.3945312, 0.3024523...
-## $ geometry                  &lt;MULTIPOLYGON [m]&gt; MULTIPOLYGON (((4192913 615..., MULTIPOLYGON (((419...</code></pre>
+## $ COD_2001                  &lt;chr&gt; &quot;020100402&quot;, &quot;020100305&quot;, &quot;020100301&quot;, &quot;020100303&quot;, &quot;020100307&quot;, &quot;020100306…
+## $ PROV_                     &lt;chr&gt; &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02&quot;, &quot;02…
+## $ DEPTO_                    &lt;chr&gt; &quot;010&quot;, &quot;010&quot;, &quot;010&quot;, &quot;010&quot;, &quot;010&quot;, &quot;010&quot;, &quot;010&quot;, &quot;010&quot;, &quot;010&quot;, &quot;010&quot;, &quot;010&quot;…
+## $ pop                       &lt;int&gt; 110, 1405, 1162, 762, 591, 738, 752, 481, 1129, 555, 1047, 803, 906, 659, 7…
+## $ pop014                    &lt;int&gt; 14, 180, 177, 74, 109, 124, 133, 81, 147, 99, 155, 144, 150, 108, 124, 146,…
+## $ pop1564                   &lt;int&gt; 96, 1049, 757, 528, 366, 532, 473, 297, 768, 336, 681, 503, 650, 436, 506, …
+## $ pop64plus                 &lt;int&gt; 0, 176, 228, 160, 116, 82, 146, 103, 214, 120, 211, 156, 106, 115, 96, 134,…
+## $ highSchoolAboveALLPOP     &lt;int&gt; 25, 851, 619, 396, 286, 329, 352, 256, 554, 307, 528, 300, 435, 234, 351, 2…
+## $ terciarioAboveALLPOP      &lt;int&gt; 6, 600, 427, 217, 193, 221, 191, 148, 365, 211, 299, 165, 285, 108, 249, 13…
+## $ universitaryAboveALLPOP   &lt;int&gt; 2, 354, 248, 118, 123, 135, 81, 77, 190, 108, 150, 82, 159, 46, 136, 66, 91…
+## $ highSchoolAbove2564       &lt;int&gt; 10, 704, 477, 310, 204, 284, 274, 194, 451, 224, 419, 250, 383, 192, 279, 2…
+## $ terciarioAbove2564        &lt;int&gt; 3, 530, 357, 187, 142, 200, 165, 121, 325, 165, 259, 150, 262, 97, 212, 129…
+## $ universitaryAbove2564     &lt;int&gt; 2, 324, 209, 110, 97, 126, 75, 64, 177, 95, 142, 77, 153, 46, 122, 64, 83, …
+## $ pop2564                   &lt;int&gt; 60, 891, 593, 407, 277, 422, 384, 248, 642, 280, 586, 387, 536, 327, 377, 4…
+## $ avgAge                    &lt;dbl&gt; 28.72727, 36.58434, 40.85714, 43.49213, 41.24196, 36.57182, 40.04255, 41.98…
+## $ descuentoJubil            &lt;dbl&gt; 0.6333333, 0.8321256, 0.8084291, 0.7699387, 0.7460938, 0.8010899, 0.7523511…
+## $ descuentoJubilAsalariado  &lt;dbl&gt; 0.8181818, 0.8921933, 0.8626198, 0.8403756, 0.7751938, 0.8604651, 0.8512821…
+## $ asalariado                &lt;dbl&gt; 0.7333333, 0.6497585, 0.5996169, 0.6533742, 0.5039062, 0.7029973, 0.6112853…
+## $ cuentapropia              &lt;dbl&gt; 0.2000000, 0.3393720, 0.3888889, 0.3404908, 0.4765625, 0.2833787, 0.3761755…
+## $ servDomestico             &lt;dbl&gt; 0.1000000, 0.0205314, 0.0287356, 0.0276074, 0.0546875, 0.0299728, 0.0250784…
+## $ asalariadoPrivado         &lt;dbl&gt; 0.1333333, 0.1086957, 0.1800766, 0.1932515, 0.1757812, 0.1771117, 0.1285266…
+## $ ocupadosUniversitariaComp &lt;dbl&gt; 0.0000000, 0.3683575, 0.3639847, 0.3036810, 0.3945312, 0.3024523, 0.2100313…
+## $ geometry                  &lt;MULTIPOLYGON [m]&gt; MULTIPOLYGON (((4192913 615..., MULTIPOLYGON (((4192240 615...…</code></pre>
 </div>
 <div id="diferentes-radios-censales" class="section level3">
 <h3><span class="header-section-number">5.2.2</span> Diferentes radios censales</h3>
 <p>Como les comenté anteriormente, los radios censales para la Ciudad de Buenos Aires sufrieron importantes cambios en su forma. Pero no hace falta que me crean a mí o a la imagen que puse anteriormente: con R pueden verlo por ustedes mismos. De paso, vamos a introducir una función nueva de sf y algo nuevo sobre cómo hacer múltiples mapas.</p>
 <p>Vamos a observar cómo son los radios censales en Palermo para 2001 y para 2010. Para esto lo primero que debemos hacer es hacer “zoom” en Palermo para ambos censos y luego hacer un mapa que los muestre lado a lado. La función <strong>st_crop</strong> será muy útil para esto. Lo que hace recortar los polígonos en base a las coordenadas más “externas” de un determinado polígono. De esta manera, siempre queda un cuadrado o un rectángulo en general “centrado” con respecto a los datos espaciales que nosotros queremos.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Palermo tiene el código de departamento número 014</span>
-radiosCensalesPalermo2010 &lt;-<span class="st"> </span>datosCenso2010[datosCenso2010<span class="op">$</span>DEPTO_ <span class="op">%in%</span><span class="st"> &#39;014&#39;</span>,] <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">st_union</span>() <span class="co"># st_union() junta a todos los polígonos en uno solo</span>
-palermo2010 &lt;-<span class="st"> </span><span class="kw">st_crop</span>(<span class="dt">x =</span> datosCenso2010,
-                       <span class="dt">y =</span> radiosCensalesPalermo2010)</code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" data-line-number="1"><span class="co"># Palermo tiene el código de departamento número 014</span></a>
+<a class="sourceLine" id="cb245-2" data-line-number="2">radiosCensalesPalermo2010 &lt;-<span class="st"> </span>datosCenso2010[datosCenso2010<span class="op">$</span>DEPTO_ <span class="op">%in%</span><span class="st"> &#39;014&#39;</span>,] <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb245-3" data-line-number="3"><span class="st">  </span><span class="kw">st_union</span>() <span class="co"># st_union() junta a todos los polígonos en uno solo</span></a>
+<a class="sourceLine" id="cb245-4" data-line-number="4">palermo2010 &lt;-<span class="st"> </span><span class="kw">st_crop</span>(<span class="dt">x =</span> datosCenso2010,</a>
+<a class="sourceLine" id="cb245-5" data-line-number="5">                       <span class="dt">y =</span> radiosCensalesPalermo2010)</a></code></pre></div>
 <pre><code>## Warning: attribute variables are assumed to be spatially constant throughout all geometries</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">palermo2001 &lt;-<span class="st"> </span><span class="kw">st_crop</span>(<span class="dt">x =</span> datosCenso2001,
-                       <span class="dt">y =</span> radiosCensalesPalermo2010)</code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" data-line-number="1">palermo2001 &lt;-<span class="st"> </span><span class="kw">st_crop</span>(<span class="dt">x =</span> datosCenso2001,</a>
+<a class="sourceLine" id="cb247-2" data-line-number="2">                       <span class="dt">y =</span> radiosCensalesPalermo2010)</a></code></pre></div>
 <pre><code>## Warning: attribute variables are assumed to be spatially constant throughout all geometries</code></pre>
 <p>¿Qué significa ese warning <em>attribute variables are assumed to be spatially constant throughout all geometries</em>? Lo que nos avisa es que st_crop cortó algunos polígonos y les asignó el valor de los atributos que tenían cuando los polígonos estaban completos ¿Esto es correcto? Depende de la variable con la que estamos trabajando. Imaginen que la variable nos describe el uso de la tierra. Si el polígono más grande era una zona industrial, un polígono recortado de él también tiene que ser una zona industrial, por lo cual no hay problema. Ahora imaginen que es el la cantidad de personas que viven allí. Es altamente problable que al recortar el polígono no sea correcto asignar la misma cantidad de personas. En este ejemplo particular esto nos tiene sin cuidado, ya que solo queremos quedarnos con la zona de Palermo y no usar sus variables.</p>
-<p>Ahora hagamos unos gráficos simples de Palermo en ambos censos con <strong>tmaps</strong>. Presten atención a la nueva función <strong>tm_sf()</strong>. Lo que hace es graficar la columna <strong>geometry</strong> que se encuentra en los datos que le pasamos con <strong>tm_shape</strong>. De esta manera, imita el tipo de datos que hay y no hace falta aclararle si son puntos o polígonos, por ejemplo. Luego usamos la función <strong>tm_layout</strong> que nos ayuda para modificar algunas cuestiones relacionadas con el diseño, como el título. Finalmente usamos <strong>tmap_arrange</strong> al que le podemos pasar gráficos y los acomoda en un mismo panel para mostrarlos de un solo golpe.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mapa2001 &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(palermo2001) <span class="op">+</span>
-<span class="st">  </span><span class="kw">tm_sf</span>(<span class="dt">border.col =</span> <span class="st">&#39;black&#39;</span>,<span class="dt">col =</span> <span class="st">&#39;grey90&#39;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">title=</span><span class="st">&#39;Radios censales 2001 - Palermo&#39;</span>)  
-mapa2010 &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(palermo2010) <span class="op">+</span>
-<span class="st">  </span><span class="kw">tm_sf</span>(<span class="dt">border.col =</span>  <span class="st">&#39;black&#39;</span>,<span class="dt">col =</span> <span class="st">&#39;grey90&#39;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">title=</span><span class="st">&#39;Radios censales 2010 - Palermo&#39;</span>)
-<span class="kw">tmap_arrange</span>(mapa2001, mapa2010)</code></pre></div>
-<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-156-1.png" width="672" /></p>
+<p>Ahora hagamos unos gráficos simples de Palermo en ambos censos con <strong>tmaps</strong>. Presten atención a la nueva función <strong>tm_sf()</strong>. Lo que hace es graficar la columna <strong>geometry</strong> que se encuentra en los datos que le pasamos con <strong>tm_shape</strong>. De esta manera, imita el tipo de datos que hay y no hace falta aclararle si son puntos o polígonos, por ejemplo.
+Luego usamos la función <strong>tm_layout</strong> que nos ayuda para modificar algunas cuestiones relacionadas con el diseño, como el título.
+Finalmente usamos <strong>tmap_arrange</strong> al que le podemos pasar gráficos y los acomoda en un mismo panel para mostrarlos de un solo golpe.</p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" data-line-number="1">mapa2001 &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(palermo2001) <span class="op">+</span></a>
+<a class="sourceLine" id="cb249-2" data-line-number="2"><span class="st">  </span><span class="kw">tm_sf</span>(<span class="dt">border.col =</span> <span class="st">&#39;black&#39;</span>,<span class="dt">col =</span> <span class="st">&#39;grey90&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb249-3" data-line-number="3"><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">title=</span><span class="st">&#39;Radios censales 2001 - Palermo&#39;</span>)  </a>
+<a class="sourceLine" id="cb249-4" data-line-number="4">mapa2010 &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(palermo2010) <span class="op">+</span></a>
+<a class="sourceLine" id="cb249-5" data-line-number="5"><span class="st">  </span><span class="kw">tm_sf</span>(<span class="dt">border.col =</span>  <span class="st">&#39;black&#39;</span>,<span class="dt">col =</span> <span class="st">&#39;grey90&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb249-6" data-line-number="6"><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">title=</span><span class="st">&#39;Radios censales 2010 - Palermo&#39;</span>)</a>
+<a class="sourceLine" id="cb249-7" data-line-number="7"><span class="kw">tmap_arrange</span>(mapa2001, mapa2010)</a></code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-158-1.png" width="672" /></p>
 <p>Antes de analizar los gráficos, un par de puntos a tener en cuenta. Noten que guardé los mapas individualmente en objetos. Esto es realmente útil en algunas cirscunstancias, y no solo para luego ponerlos en un panel. Nos sirve, por ejemplo, para ir agregando capas de a poco a nuestro gráfico e ir guardando las versiones intermedias. En segundo lugar, es importante saber cómo exportar estos gráficos. Es realmente simple con <strong>tmap</strong> y también con <strong>ggplot</strong>. En este caso, al estar trabajando con <strong>tmap</strong> ejecuten lo siguiente:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">graficoSalida &lt;-<span class="st"> </span><span class="kw">tmap_arrange</span>(mapa2001, mapa2010)
-<span class="kw">tmap_save</span>(graficoSalida,<span class="dt">dpi =</span> <span class="dv">300</span>, <span class="dt">filename =</span> <span class="st">&#39;comparacionradioscensales.png&#39;</span>)</code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" data-line-number="1">graficoSalida &lt;-<span class="st"> </span><span class="kw">tmap_arrange</span>(mapa2001, mapa2010)</a>
+<a class="sourceLine" id="cb250-2" data-line-number="2"><span class="kw">tmap_save</span>(graficoSalida,<span class="dt">dpi =</span> <span class="dv">300</span>, <span class="dt">filename =</span> <span class="st">&#39;comparacionradioscensales.png&#39;</span>)</a></code></pre></div>
 <p><strong>tmap_save</strong> solo requiere del objeto a exportar (en nuestro caso, graficoSalida) y la dirección y nombre donde se guardará (en este caso, lo guardamos en la misma carpeta del proyecto con el nombre ‘comparacionradioscensales.png’). DPI es un parámetro adicional que indica la cantidad de Dots Per Inch (DPI) que queremos que tenga nuestra imagen. 300 DPI es una cantidad elevada para gráficos en la computadora.</p>
 <p>Volvamos a los gráficos de los radios censales. Comparen distintos puntos de Palermo y verán que las diferencias son elevadas entre ambos censos. Aun si este cambio en los polígonos no es del todo reparable, podemos comparar la evolución de diferentes variables si estamos dispuestos a tolerar un error basado en la asunción de que las variables se distribuyen uniformemente en el espacio.</p>
 <div id="breve-desvío-haciendo-lo-mismo-con-ggplot" class="section level4">
 <h4><span class="header-section-number">5.2.2.1</span> Breve desvío: haciendo lo mismo con ggplot()</h4>
 <p>La librería ggplot2 es la más utilizada para hacer gráficos en R. Veamos cómo hacer lo mismo que hicimos en la subsección anterior, pero esta vez usando esta librería. La principal diferencia es que ggplot, para graficar más de un gráfico en un panel, nos pide que los datos estén todos juntos en un mismo data.frame. Esto es lo que se muestra en el capítulo de visualizaciones de este mismo libro.</p>
 <p>Sin embargo, no siempre esta es la mejor elección. Muchas veces queremos hacer gráficos con datos que están representados en distintos objetos y esto no debería ser un impedimento para poder armar nuestro panele de graficos. Por suerte, el paquete gridExtra tiene exactamente lo que necesitamos para solucionar este problema. No se olviden de <strong>instalar el paquete gridExtra</strong> para poder ejecutar lo siguiente:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gridExtra)
-
-mapa2001 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(palermo2001) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">col =</span> <span class="st">&#39;black&#39;</span>,<span class="dt">fill =</span> <span class="st">&#39;grey90&#39;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&#39;Radios censales 2001 - Palermo&#39;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">datum =</span> <span class="ot">NA</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_minimal</span>()
-mapa2010 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(palermo2010) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">col =</span> <span class="st">&#39;black&#39;</span>,<span class="dt">fill =</span> <span class="st">&#39;grey90&#39;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">datum =</span> <span class="ot">NA</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&#39;Radios censales 2010 - Palermo&#39;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_minimal</span>()
-<span class="kw">grid.arrange</span>(mapa2001, mapa2010,<span class="dt">ncol=</span><span class="dv">2</span>)</code></pre></div>
-<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-158-1.png" width="672" /></p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" data-line-number="1"><span class="kw">library</span>(gridExtra)</a>
+<a class="sourceLine" id="cb251-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb251-3" data-line-number="3">mapa2001 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(palermo2001) <span class="op">+</span></a>
+<a class="sourceLine" id="cb251-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">col =</span> <span class="st">&#39;black&#39;</span>,<span class="dt">fill =</span> <span class="st">&#39;grey90&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb251-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&#39;Radios censales 2001 - Palermo&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb251-6" data-line-number="6"><span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">datum =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb251-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb251-8" data-line-number="8">mapa2010 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(palermo2010) <span class="op">+</span></a>
+<a class="sourceLine" id="cb251-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">col =</span> <span class="st">&#39;black&#39;</span>,<span class="dt">fill =</span> <span class="st">&#39;grey90&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb251-10" data-line-number="10"><span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">datum =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb251-11" data-line-number="11"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&#39;Radios censales 2010 - Palermo&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb251-12" data-line-number="12"><span class="st">  </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb251-13" data-line-number="13"><span class="kw">grid.arrange</span>(mapa2001, mapa2010,<span class="dt">ncol=</span><span class="dv">2</span>)</a></code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-160-1.png" width="672" /></p>
 <p>Muy similar a lo que hicimos con tmap, no? El código incluso se parece bastente, con algunos cambios. <em>coord_sf(datum = NA)</em> lo usamos para que ggplot no nos muestre información sobre el sistemas de coordenadas de referencia (puede ser muy molesto para nuestro gráfico). <em>themee_minimal()</em> saca mucho de los elementos que los gráficos en ggplot tienen por default. Ahora sí, sigamos con lo importante.</p>
 </div>
 </div>
@@ -380,18 +416,18 @@ mapa2010 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(palermo201
 <p>En nuestros objetos tenemos ejemplos de ambas variables. Por ejemplo, en ambos casos tenemos el promedio de edad (<strong>avgAge</strong>), pero también la población de personas menores a 14 años (<strong>pop014</strong>). Veamos cómo podemos transformar los polígonos de 2001 a los del 2010 para poder observar la distribución de estas dos variables para los dos censos.</p>
 <p>El paquete que nos ayudará para lograr este objetivo es <strong>areal</strong>. <strong>Instalenlo si es la primera vez que están trabajando con este paquete.</strong> Ya deberían saber como hacerlo: <strong>install.packages(‘areal’)</strong>. Una vez que lo tengan instalado, usen <strong>require</strong> o <strong>library</strong> para poder usar la función <strong>aw_interpolate</strong>.</p>
 <p>La función pide algunos parámetros. En primer lugar, <strong>source</strong> pide el objeto cuya información espacial queremos cambiar, en este caso los datos del censo 2001. Luego, nos pide el <strong>sid</strong>, que no es otra cosa que un conjunto de identificadores únicos para cada uno de los datos de nuestra <strong>source</strong>. Luego, en <strong>.data</strong> nos pide el <em>target</em>, es decir la forma que van a tomar nuestros datos espaciales, en nuestro ejemplo los radios censales de 2010, y también nos pide los ids (identificadores) correspondientes en <strong>tid</strong>. Luego, nos pide como quiere que ponderemos los nuevos polígonos con el parámetro <strong>weight</strong>, en nuestro caso queremos que sume (<em>sum</em>) proporcionalmente cada uno de los polígonos que contribuirán con el polígono de 2010. El parámetro <strong>output</strong> nos indica si queremos que nos devuelva un objeto sf con la columna de <em>geometry</em> incluida, o simplemente un data frame, elegimos ‘sf’. Finalmente, debemos indicar las variables <strong>intensivas</strong> o <strong>extensivas</strong> de los datos de origen. Las primeras hacen referencia a las variables que son porcentajes, mientras que las segundas hacen referencia a variables que son simplemente conteos. Nosotros tenemos una variable de cada una: pop014 es conteo mientras que avgAge es una variable extensiva.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(areal)
-nuevosDatos &lt;-<span class="st"> </span><span class="kw">aw_interpolate</span>(<span class="dt">source=</span>datosCenso2001, <span class="dt">sid =</span> COD_<span class="dv">2001</span>,
-                              <span class="dt">.data=</span>datosCenso2010, <span class="dt">tid =</span> COD_<span class="dv">2010</span>,
-                              <span class="dt">weight=</span><span class="st">&quot;sum&quot;</span>, <span class="dt">output =</span> <span class="st">&quot;sf&quot;</span>,
-                              <span class="dt">extensive =</span> <span class="st">&#39;pop014&#39;</span>,
-                              <span class="dt">intensive =</span> <span class="st">&#39;avgAge&#39;</span>)</code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" data-line-number="1"><span class="kw">library</span>(areal)</a>
+<a class="sourceLine" id="cb252-2" data-line-number="2">nuevosDatos &lt;-<span class="st"> </span><span class="kw">aw_interpolate</span>(<span class="dt">source=</span>datosCenso2001, <span class="dt">sid =</span> COD_<span class="dv">2001</span>,</a>
+<a class="sourceLine" id="cb252-3" data-line-number="3">                              <span class="dt">.data=</span>datosCenso2010, <span class="dt">tid =</span> COD_<span class="dv">2010</span>,</a>
+<a class="sourceLine" id="cb252-4" data-line-number="4">                              <span class="dt">weight=</span><span class="st">&quot;sum&quot;</span>, <span class="dt">output =</span> <span class="st">&quot;sf&quot;</span>,</a>
+<a class="sourceLine" id="cb252-5" data-line-number="5">                              <span class="dt">extensive =</span> <span class="st">&#39;pop014&#39;</span>,</a>
+<a class="sourceLine" id="cb252-6" data-line-number="6">                              <span class="dt">intensive =</span> <span class="st">&#39;avgAge&#39;</span>)</a></code></pre></div>
 <pre><code>## Error in aw_interpolate(source = datosCenso2001, sid = COD_2001, .data = datosCenso2010, : Data validation failed. Use ar_validate with verbose = TRUE to identify concerns.</code></pre>
 <p>¡No funcionó! Veamos por qué no funcionó usando la función <strong>ar_validate()</strong> que hace un chequeo de si la interpolación puede funcionar o no entre dos objetos</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ar_validate</span>(<span class="dt">source =</span> datosCenso2001,
-            <span class="dt">target =</span> datosCenso2010,
-            <span class="dt">varList =</span> <span class="kw">c</span>(<span class="st">&#39;pop014&#39;</span>,<span class="st">&#39;avgAge&#39;</span>),
-            <span class="dt">verbose =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" data-line-number="1"><span class="kw">ar_validate</span>(<span class="dt">source =</span> datosCenso2001,</a>
+<a class="sourceLine" id="cb254-2" data-line-number="2">            <span class="dt">target =</span> datosCenso2010,</a>
+<a class="sourceLine" id="cb254-3" data-line-number="3">            <span class="dt">varList =</span> <span class="kw">c</span>(<span class="st">&#39;pop014&#39;</span>,<span class="st">&#39;avgAge&#39;</span>),</a>
+<a class="sourceLine" id="cb254-4" data-line-number="4">            <span class="dt">verbose =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 2
 ##   test                            result
 ##   &lt;chr&gt;                           &lt;lgl&gt; 
@@ -403,9 +439,9 @@ nuevosDatos &lt;-<span class="st"> </span><span class="kw">aw_interpolate</span>
 ## 6 Overall Evaluation              FALSE</code></pre>
 <p>La función chequea 5 condiciones necesarias para que la interpolación funcione y nos indica si se cumple o no. En la primera se pregunta si ambos objetos son <strong>sf</strong>, la segunda si los sistema de coordenadas de referencia son iguales, la tercera si se encuentran proyectados, la cuarta nos indica si las variables que queremos convertir existen en el objeto de origen (<strong>source</strong>) y la quinta si no existen conflictos con el nombre de las variables en el objeto de destino. La sexta, overall evaluation, solo nos dice si todas se cumplen o no.</p>
 <p>En nuestro caso nos indica que hay algún conflicto en el objeto de destino. Lo que sucede es que las variables se llaman igual en el objeto de origen y destino, por lo que debemos cambiar los nombres de las columnas para que funcione aw_interpolate. Para esto, debemos usar la función colnames y paste0:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(datosCenso2001)[<span class="kw">colnames</span>(datosCenso2001) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;pop014&#39;</span>,<span class="st">&#39;avgAge&#39;</span>)] &lt;-
-<span class="kw">paste0</span>(<span class="kw">c</span>(<span class="st">&#39;pop014&#39;</span>,<span class="st">&#39;avgAge&#39;</span>),<span class="st">&#39;_2001&#39;</span>)
-<span class="kw">colnames</span>(datosCenso2001)</code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" data-line-number="1"><span class="kw">colnames</span>(datosCenso2001)[<span class="kw">colnames</span>(datosCenso2001) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;pop014&#39;</span>,<span class="st">&#39;avgAge&#39;</span>)] &lt;-</a>
+<a class="sourceLine" id="cb256-2" data-line-number="2"><span class="kw">paste0</span>(<span class="kw">c</span>(<span class="st">&#39;pop014&#39;</span>,<span class="st">&#39;avgAge&#39;</span>),<span class="st">&#39;_2001&#39;</span>)</a>
+<a class="sourceLine" id="cb256-3" data-line-number="3"><span class="kw">colnames</span>(datosCenso2001)</a></code></pre></div>
 <pre><code>##  [1] &quot;COD_2001&quot;                  &quot;PROV_&quot;                     &quot;DEPTO_&quot;                   
 ##  [4] &quot;pop&quot;                       &quot;pop014_2001&quot;               &quot;pop1564&quot;                  
 ##  [7] &quot;pop64plus&quot;                 &quot;highSchoolAboveALLPOP&quot;     &quot;terciarioAboveALLPOP&quot;     
@@ -414,13 +450,14 @@ nuevosDatos &lt;-<span class="st"> </span><span class="kw">aw_interpolate</span>
 ## [16] &quot;descuentoJubil&quot;            &quot;descuentoJubilAsalariado&quot;  &quot;asalariado&quot;               
 ## [19] &quot;cuentapropia&quot;              &quot;servDomestico&quot;             &quot;asalariadoPrivado&quot;        
 ## [22] &quot;ocupadosUniversitariaComp&quot; &quot;geometry&quot;</code></pre>
-<p>Ya sabemos que la función colnames() nos devuelve los nombres de las columnas de un data frame. Luego, elegimos aquellas columnas que tienen nombre de ‘pop014’ y ‘avgAge’. Finalmente, le asignamos lo que devuelve <strong>paste0()</strong>. Lo que hace es concatenar cadenas de texto, en este caso pop014 con _2001 y avgAge con _2001. Chequeen nuevamente los nombres de las columnas y verán que están cambiados. Ahora sí podemos correr nuestro código</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nuevosDatos &lt;-<span class="st"> </span><span class="kw">aw_interpolate</span>(<span class="dt">source=</span>datosCenso2001, <span class="dt">sid =</span> COD_<span class="dv">2001</span>,
-                              <span class="dt">.data=</span>datosCenso2010, <span class="dt">tid =</span> COD_<span class="dv">2010</span>,
-                              <span class="dt">weight=</span><span class="st">&quot;sum&quot;</span>, <span class="dt">output =</span> <span class="st">&quot;sf&quot;</span>,
-                              <span class="dt">extensive =</span> <span class="st">&#39;pop014_2001&#39;</span>,
-                              <span class="dt">intensive =</span> <span class="st">&#39;avgAge_2001&#39;</span>)
-<span class="kw">colnames</span>(nuevosDatos)</code></pre></div>
+<p>Ya sabemos que la función colnames() nos devuelve los nombres de las columnas de un data frame. Luego, elegimos aquellas columnas que tienen nombre de ‘pop014’ y ‘avgAge’. Finalmente, le asignamos lo que devuelve <strong>paste0()</strong>. Lo que hace es concatenar cadenas de texto, en este caso pop014 con _2001 y avgAge con _2001. Chequeen nuevamente los nombres de las columnas y verán que están cambiados.
+Ahora sí podemos correr nuestro código</p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" data-line-number="1">nuevosDatos &lt;-<span class="st"> </span><span class="kw">aw_interpolate</span>(<span class="dt">source=</span>datosCenso2001, <span class="dt">sid =</span> COD_<span class="dv">2001</span>,</a>
+<a class="sourceLine" id="cb258-2" data-line-number="2">                              <span class="dt">.data=</span>datosCenso2010, <span class="dt">tid =</span> COD_<span class="dv">2010</span>,</a>
+<a class="sourceLine" id="cb258-3" data-line-number="3">                              <span class="dt">weight=</span><span class="st">&quot;sum&quot;</span>, <span class="dt">output =</span> <span class="st">&quot;sf&quot;</span>,</a>
+<a class="sourceLine" id="cb258-4" data-line-number="4">                              <span class="dt">extensive =</span> <span class="st">&#39;pop014_2001&#39;</span>,</a>
+<a class="sourceLine" id="cb258-5" data-line-number="5">                              <span class="dt">intensive =</span> <span class="st">&#39;avgAge_2001&#39;</span>)</a>
+<a class="sourceLine" id="cb258-6" data-line-number="6"><span class="kw">colnames</span>(nuevosDatos)</a></code></pre></div>
 <pre><code>##  [1] &quot;COD_2010&quot;                  &quot;PROV_&quot;                     &quot;DEPTO_&quot;                   
 ##  [4] &quot;pop&quot;                       &quot;pop014&quot;                    &quot;pop1564&quot;                  
 ##  [7] &quot;pop64plus&quot;                 &quot;highSchoolAboveALLPOP&quot;     &quot;terciarioAboveALLPOP&quot;     
@@ -435,46 +472,46 @@ nuevosDatos &lt;-<span class="st"> </span><span class="kw">aw_interpolate</span>
 <p>Aprovechemos la nueva información que tenemos para poder hacer mapas. Usando ggplot2, grafiquemos la edad promedio en 2001, 2010 y la variación entre ambos censos.</p>
 <p>Lo primero que tenemos que hacer en ggplot, para que la leyenda represente correctamente los colores de nuestro mapa, es juntar todo en un mismo dataset que sea largo. Recuerden que esto es lo necesario para trabajar con paneles y facet_wrap().</p>
 <p>Seleccionamos las dos y usamos pivot_longer()</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nuevosDatosLonger &lt;-<span class="st"> </span>nuevosDatos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(avgAge, avgAge_<span class="dv">2001</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_longer</span>(<span class="dt">names_to =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;AvgAge&quot;</span>, 
-    <span class="dt">cols =</span> <span class="kw">c</span>(<span class="st">&quot;avgAge&quot;</span>, <span class="st">&quot;avgAge_2001&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">st_as_sf</span>()</code></pre></div>
-<pre><code>## Warning in val_cols[col_id] &lt;- unname(as.list(data[cols])): number of items to replace is not a
-## multiple of replacement length</code></pre>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" data-line-number="1">nuevosDatosLonger &lt;-<span class="st"> </span>nuevosDatos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(avgAge, avgAge_<span class="dv">2001</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_longer</span>(<span class="dt">names_to =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;AvgAge&quot;</span>, </a>
+<a class="sourceLine" id="cb260-2" data-line-number="2">    <span class="dt">cols =</span> <span class="kw">c</span>(<span class="st">&quot;avgAge&quot;</span>, <span class="st">&quot;avgAge_2001&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">st_as_sf</span>()</a></code></pre></div>
+<pre><code>## Warning in val_cols[col_id] &lt;- unname(as.list(data[cols])): number of items to replace is not a multiple of
+## replacement length</code></pre>
 <p><strong>select()</strong> y <strong>pivot_longer()</strong> no deberían traer demasiados problemas. Ahora bien, fijense que luego de hacer esto, usamos st_as_sf(), que como vimos en el capítulo de datos espaciales define a un data.frame como un objeto espacial sf. Esto no debería pasar, pero cuando usan pivot_longer, el data.frame deja de ser sf, pero como no pierde la columna de geometry, rápidamente podemos volver a convertirlo en un objeto sf. El mensaje que reciben es un error de cuando se usa pivot_longer. Queda resuelto cuando usamos st_as_sf() luego.</p>
 <p>Si quisieran, ya podrían hacer el gráfico, pero no sería el que ustedes quisieran guardar para compartir. Vamos a hacer algunos cambios, y de paso aprender un poco más sobre los factores en R. Para que <strong>facet_wrap()</strong> ponga en el lado izquierdo a 2001 y en el derecho a 2010, debemos convertir la variable <em>Year</em> a factor en el orden que queremos.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nuevosDatosLonger &lt;-<span class="st"> </span>nuevosDatosLonger <span class="op">%&gt;%</span>
-<span class="st">                     </span><span class="kw">mutate</span>(<span class="dt">Year=</span><span class="kw">factor</span>(Year,<span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;avgAge_2001&quot;</span>,<span class="st">&quot;avgAge&quot;</span>),<span class="dt">labels =</span> <span class="kw">c</span>(<span class="dv">2001</span>,<span class="dv">2010</span>)))</code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" data-line-number="1">nuevosDatosLonger &lt;-<span class="st"> </span>nuevosDatosLonger <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb262-2" data-line-number="2"><span class="st">                     </span><span class="kw">mutate</span>(<span class="dt">Year=</span><span class="kw">factor</span>(Year,<span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;avgAge_2001&quot;</span>,<span class="st">&quot;avgAge&quot;</span>),<span class="dt">labels =</span> <span class="kw">c</span>(<span class="dv">2001</span>,<span class="dv">2010</span>)))</a></code></pre></div>
 <p>Lo que hicimos es decirle a R que 1) queremos que la columna R se convierta a factor, 2) que los valores que tiene esa variable son “avgAge_2001” y “avgAge” y 3) que queremos los represente como “2001” y 2010, respectivamente. Internamente, R va a hacer que Year sea un vector numérico, con 1 represenetando a “2001” y 2 a “2010”, aunque todo el tiempo podemos trabajarlo como si fuera un vector de character. Esto es lo que logran los factores.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nuevosDatosLonger<span class="op">$</span>Year[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>] <span class="co"># Lo que nos muestra</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" data-line-number="1">nuevosDatosLonger<span class="op">$</span>Year[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>] <span class="co"># Lo que nos muestra</span></a></code></pre></div>
 <pre><code>## [1] 2010 2001 2010 2001 2010 2001
 ## Levels: 2001 2010</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(nuevosDatosLonger<span class="op">$</span>Year)[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>] <span class="co"># Como lo tiene en memoria</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb265-1" data-line-number="1"><span class="kw">as.numeric</span>(nuevosDatosLonger<span class="op">$</span>Year)[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>] <span class="co"># Como lo tiene en memoria</span></a></code></pre></div>
 <pre><code>## [1] 2 1 2 1 2 1</code></pre>
 <p>Muy bien, ahora vamos a mejorar nuestro gráfico y, en lugar de hacerlo continuo, vamos a hacerlo discreto, haciendo que cada color represente el 25% de nuestros datos, lo que se conoce como cuartiles. Para discretizar un vector continuo, lo que tenemos que usar es <strong>cut()</strong>. Solo nos pide el vector y los puntos de quiebre. Estos puntos de quiebre no son otra cosa que un vector con estos valores. Veamos qué hace la funcion <strong>quantile()</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quantile</span>(nuevosDatosLonger<span class="op">$</span>AvgAge,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb267-1" data-line-number="1"><span class="kw">quantile</span>(nuevosDatosLonger<span class="op">$</span>AvgAge,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>##       0%      25%      50%      75%     100% 
 ## 20.17079 38.02628 39.80790 41.38003 52.92446</code></pre>
 <p>De manera predeterminada, nos devuelvee los puntos de corte de los cuartiles, nada mal. El na.rm=TRUE es tan solo para que no tome en cuenta un valor NA que hay ene AvgAge, con el que lidiamos más adelante. Con estos datos podemos discretizar nuestra variable.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nuevosDatosLonger &lt;-<span class="st"> </span>nuevosDatosLonger <span class="op">%&gt;%</span>
-<span class="st">                     </span><span class="kw">mutate</span>(<span class="dt">AvgAge=</span><span class="kw">cut</span>(AvgAge,<span class="dt">breaks =</span> <span class="kw">quantile</span>(AvgAge,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>)))</code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" data-line-number="1">nuevosDatosLonger &lt;-<span class="st"> </span>nuevosDatosLonger <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb269-2" data-line-number="2"><span class="st">                     </span><span class="kw">mutate</span>(<span class="dt">AvgAge=</span><span class="kw">cut</span>(AvgAge,<span class="dt">breaks =</span> <span class="kw">quantile</span>(AvgAge,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>)))</a></code></pre></div>
 <p>Perfecto, veamos qué es lo que hizo usando table()</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(nuevosDatosLonger<span class="op">$</span>AvgAge)</code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" data-line-number="1"><span class="kw">table</span>(nuevosDatosLonger<span class="op">$</span>AvgAge)</a></code></pre></div>
 <pre><code>## 
 ##   (20.2,38]   (38,39.8] (39.8,41.4] (41.4,52.9] 
 ##        1776        1776        1776        1776</code></pre>
 <p>Lo hizo muy bien, pero esos intervalos los entendería solo una matemática. Podemos cambiarlos por algo mucho más interpretable:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(nuevosDatosLonger<span class="op">$</span>AvgAge) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;De 20 a 38 años&quot;</span>,<span class="st">&quot;entre 38 y 39.8 años&quot;</span>,<span class="st">&quot;entre 39.8 y 41.4 años&quot;</span>,<span class="st">&quot;más de 41.4 años y menos de 52.9&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb272-1" data-line-number="1"><span class="kw">levels</span>(nuevosDatosLonger<span class="op">$</span>AvgAge) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;De 20 a 38 años&quot;</span>,<span class="st">&quot;entre 38 y 39.8 años&quot;</span>,<span class="st">&quot;entre 39.8 y 41.4 años&quot;</span>,<span class="st">&quot;más de 41.4 años y menos de 52.9&quot;</span>)</a></code></pre></div>
 <p>Por último, eliminamos los NAs que había en nuestra variable de edad</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nuevosDatosLonger &lt;-<span class="st"> </span>nuevosDatosLonger <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(AvgAge))</code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" data-line-number="1">nuevosDatosLonger &lt;-<span class="st"> </span>nuevosDatosLonger <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(AvgAge))</a></code></pre></div>
 <p>Finalmente, podemos hacer nuestro gráfico. Si no comprenden totalmente el código, revisen el capítulo de visualizaciones.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(nuevosDatosLonger) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">col =</span> <span class="ot">NA</span>, <span class="kw">aes</span>(<span class="dt">fill=</span>AvgAge)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&#39;Edad promedio por radio censal en años&#39;</span>, <span class="dt">fill=</span><span class="st">&quot;&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">datum =</span> <span class="ot">NA</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Year) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</code></pre></div>
-<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-171-1.png" width="672" /></p>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" data-line-number="1"><span class="kw">ggplot</span>(nuevosDatosLonger) <span class="op">+</span></a>
+<a class="sourceLine" id="cb274-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">col =</span> <span class="ot">NA</span>, <span class="kw">aes</span>(<span class="dt">fill=</span>AvgAge)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb274-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb274-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&#39;Edad promedio por radio censal en años&#39;</span>, <span class="dt">fill=</span><span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb274-5" data-line-number="5"><span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">datum =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb274-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb274-7" data-line-number="7"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Year) <span class="op">+</span></a>
+<a class="sourceLine" id="cb274-8" data-line-number="8"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</a></code></pre></div>
+<p><img src="CienciaDeDatosParaCuriosos_files/figure-html/unnamed-chunk-173-1.png" width="672" /></p>
 </div>
 <div id="ejercicio-1" class="section level2">
 <h2><span class="header-section-number">5.4</span> Ejercicio</h2>
@@ -543,7 +580,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
