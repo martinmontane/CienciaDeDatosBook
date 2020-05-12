@@ -1,5 +1,10 @@
 # Los beatles del Machine Learning
 
+```{r error=FALSE, message=FALSE, include=FALSE, results=FALSE}
+# Este chunk solo esta para evitar un error que tiene rpart.plot en ubuntu y algunos de los nombres de las variables
+try(Sys.setlocale('LC_ALL','C'),silent = TRUE,outFile = FALSE)
+```
+
 Si la regresión lineal es el automóvil de la estadística o, como dice Walter Sosa Escudero, los "Rolling Stones" de esa disciplina científica, podríamos decir que los árboles de decisión, quizás la familia de técnicas de *machine learning* más famosa del mundo, son los Beatles del *aprendizaje automático* (traducción al español de *machine learning). En esta clase vamos a tener una introducción a qué hacen, cómo lo hacen y para qué sirven.
 
 ## Machine Learning
@@ -355,7 +360,7 @@ avisosInmuebles <- avisosInmuebles %>%
 arbolRegresion <- rpart(formula = USDm2 ~ rooms + BARRIO + bathrooms + property_type,
                         data = avisosInmuebles,control = rpart.control(cp = 0.01))
 
-# rpart.plot(arbolRegresion)
+rpart.plot(arbolRegresion)
 ```
 
 En mi experiencia, la mejor forma de entender los árboles de RPart no son sus gráficos, sino usar **rpart.rules()**. Pero antes de hacer eso, usemos el gráfico para ver el primero de los valores, el que está en el primer nodo: dice 2751. Ahora saquemos el promedio de los precios de los inmuebles
